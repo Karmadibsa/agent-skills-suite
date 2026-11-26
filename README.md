@@ -2,6 +2,8 @@
 
 Des skills au format ouvert [agentskills.io](https://agentskills.io) pour encadrer les assistants IA de développement (Claude Code, Cursor, Codex, Gemini CLI…) à chaque étape d'un projet : de l'idée à la production, sur un projet neuf comme sur un dépôt existant.
 
+Site : [agent-skills-suite.am-creative.fr](https://agent-skills-suite.am-creative.fr/)
+
 Open source : MIT pour le code, CC BY 4.0 pour les contenus. La suite elle-même est gratuite ; les assistants, hébergeurs et services tiers peuvent avoir leurs propres coûts.
 
 ## Pourquoi
@@ -130,7 +132,7 @@ agent-skills-suite/
 ├── scripts/             # check_skills.py : vérification de la suite
 ├── evals/               # scénarios de test manuels
 ├── docs/                # architecture, synthèse, notes de refonte
-├── website/             # vitrine statique publiée par Netlify
+├── website/             # vitrine statique publiée par Netlify sur agent-skills-suite.am-creative.fr
 ├── .github/workflows/   # vérification automatique à chaque push et PR
 ├── LICENSE              # MIT (code)
 └── LICENSE-DOCS         # CC BY 4.0 (contenus)
