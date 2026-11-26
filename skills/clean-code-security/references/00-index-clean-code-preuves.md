@@ -32,45 +32,12 @@ Chaque exigence, choix technique ou recommandation au sein de ce référentiel s
 
 ## 3. Carte des Documents du Référentiel (references/)
 
-Code
-
-Document
-
-Contenu & Couverture
-
-Condition de Chargement
-
-00
-
-00-index-clean-code-preuves.md
-
-Vision globale, taxonomie des preuves N1–N6, principes directeurs KISS/Clean Code et grille QA générale.
-
-Toujours chargé (point d'entrée de référence).
-
-01
-
-01-architecture-clean-code.md
-
-Principes KISS/DRY, découplage UI/métier, gestion explicite des erreurs, nommage et refactoring.
-
-Lors de la rédaction, du refactoring ou de la revue de code applicatif.
-
-02
-
-02-securite-applicative-secrets.md
-
-Validation des entrées (Zod/Pydantic), zéro secret en dur, gestion des sessions/tokens et règles OWASP/ASVS.
-
-Lors de l'implémentation d'API, de formulaires, d'authentification ou de variables d'environnement.
-
-03
-
-03-hygiene-git-nettoyage-scripts-locaux.md
-
-Structure .gitignore, nettoyage des fichiers morts, Conventional Commits, scripts start.sh / start.bat et dev.sh / setup.sh.
-
-Lors de la configuration du dépôt, du commit de code ou du déploiement local.
+| Code | Document | Contenu & Couverture | Condition de Chargement |
+| --- | --- | --- | --- |
+| 00 | 00-index-clean-code-preuves.md | Vision globale, taxonomie des preuves N1–N6, principes directeurs KISS/Clean Code et grille QA générale. | Toujours chargé (point d'entrée de référence). |
+| 01 | 01-architecture-clean-code.md | Principes KISS/DRY, découplage UI/métier, gestion explicite des erreurs, nommage et refactoring. | Lors de la rédaction, du refactoring ou de la revue de code applicatif. |
+| 02 | 02-securite-applicative-secrets.md | Validation des entrées (Zod/Pydantic), zéro secret en dur, gestion des sessions/tokens et règles OWASP/ASVS. | Lors de l'implémentation d'API, de formulaires, d'authentification ou de variables d'environnement. |
+| 03 | 03-hygiene-git-nettoyage-scripts-locaux.md | Structure .gitignore, nettoyage des fichiers morts, Conventional Commits, scripts start.sh / start.bat et dev.sh / setup.sh. | Lors de la configuration du dépôt, du commit de code ou du déploiement local. |
 
 ## 4. Grille de Validation QA Globale
 

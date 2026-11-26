@@ -36,27 +36,12 @@ Standard d'ergonomie inter-plateformes pour le design d'interfaces adaptatives, 
 
 - Critère QA : Zéro erreur de frappe (« fat-finger error ») constatée lors des tests d'accessibilité sur appareils mobiles de diagonale moyenne (4.7" à 6.7").
 
-Plateforme / Norme
-
-Taille minimale de cible
-
-Espacement minimal adjacent
-
-Apple iOS (HIG)
-
-44 × 44 pt
-
-Android (Material 3)
-
-48 × 48 dp
-
-WCAG 2.5.8 (Niveau AA)
-
-24 × 24 px
-
-WCAG 2.5.5 (Niveau AAA)
-
-44 × 44 px
+| Plateforme / Norme | Taille minimale de cible |
+| --- | --- |
+| Apple iOS (HIG) | 44 × 44 pt |
+| Android (Material 3) | 48 × 48 dp |
+| WCAG 2.5.8 (Niveau AA) | 24 × 24 px |
+| WCAG 2.5.5 (Niveau AAA) | 44 × 44 px |
 
 ### 3. Navigation Mobile & Safe Areas
 
@@ -134,38 +119,10 @@ WCAG 2.5.5 (Niveau AAA)
 
 - Critère QA : Navigation, saisie, modification et validation réalisables à 100 % exclusivement au clavier (sans recours à la souris).
 
-Fonctionnalité
-
-Raccourci standard
-
-Action attendue
-
-Palette de commandes
-
-Cmd/Ctrl + K
-
-Ouvre la recherche globale et les actions rapides
-
-Fermeture / Annulation
-
-Esc
-
-Ferme le panneau actif, la modale ou annule la saisie
-
-Validation / Soumission
-
-Cmd/Ctrl + Enter ou Enter
-
-Valide le formulaire ou confirme l'action principale
-
-Navigation dans les listes
-
-↑ / ↓
-
-Déplace le focus visuel d'une ligne à l'autre
-
-Menu d'actions contextualisé
-
-Shift + F10 ou touche Menu
-
-Ouvre le menu contextuel de l'élément sélectionné
+| Fonctionnalité | Raccourci standard | Action attendue |
+| --- | --- | --- |
+| Palette de commandes | Cmd/Ctrl + K | Ouvre la recherche globale et les actions rapides |
+| Fermeture / Annulation | Esc | Ferme le panneau actif, la modale ou annule la saisie |
+| Validation / Soumission | Cmd/Ctrl + Enter ou Enter | Valide le formulaire ou confirme l'action principale |
+| Navigation dans les listes | ↑ / ↓ | Déplace le focus visuel d'une ligne à l'autre |
+| Menu d'actions contextualisé | Shift + F10 ou touche Menu | Ouvre le menu contextuel de l'élément sélectionné |

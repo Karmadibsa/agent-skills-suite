@@ -146,65 +146,13 @@ S'appuyant sur la méthodologie de Teresa Torres (Continuous Discovery Habits), 
 
 ## 3. Synthèse des Jalons et Gates de Passage
 
-Jalon
-
-Intitulé
-
-Objectif Principal
-
-Périmètre Inclus
-
-Livrable & Gate de Passage
-
-Jalon 0
-
-Cadrage & Architecture
-
-Structurer et valider les choix fondamentaux
-
-Spécifications, modèle de données, Wireframes, Stack technique
-
-Gate 0 : Périmètre MVP verrouillé, risques/RGPD identifiés, stack validée.
-
-Jalon 1
-
-Noyau Métier (Core Engine)
-
-Valider la faisabilité de la logique centrale
-
-Algorithmes, BDD, API internes, UI brute ou tests
-
-Gate 1 : Logique métier centrale et stockage fonctionnels de bout en bout sur données réelles.
-
-Jalon 2
-
-MVP Testable & Prototype Terrain
-
-Valider l'usage principal en conditions réelles
-
-Exigences Must-Have, UI ergonomique, gestion des erreurs
-
-Gate 2 : Validation sur prototype HTML interactif (avec module « Bug ou idée ? ») et parcours principal réussi sans blocage sur les fonctions Must-be.
-
-Jalon 3
-
-Stabilisation & V1.0
-
-Assurer la fiabilité et polir l'expérience
-
-Corrections de bugs, optimisations UX, documentation
-
-Gate 3 : Zéro bug bloquant, sauvegarde/export vérifiés, métriques de succès instrumentées.
-
-Jalon 4+
-
-Évolutions & Découverte Continue (V1.1, V2…)
-
-Maximiser la valeur et la différenciation
-
-Features Should/Could-Have, automatisations
-
-Gate 4 : Itérations pilotées par les retours terrain continus et le scoring RICE / Kano.
+| Jalon | Intitulé | Objectif Principal | Périmètre Inclus | Livrable & Gate de Passage |
+| --- | --- | --- | --- | --- |
+| Jalon 0 | Cadrage & Architecture | Structurer et valider les choix fondamentaux | Spécifications, modèle de données, Wireframes, Stack technique | Gate 0 : Périmètre MVP verrouillé, risques/RGPD identifiés, stack validée. |
+| Jalon 1 | Noyau Métier (Core Engine) | Valider la faisabilité de la logique centrale | Algorithmes, BDD, API internes, UI brute ou tests | Gate 1 : Logique métier centrale et stockage fonctionnels de bout en bout sur données réelles. |
+| Jalon 2 | MVP Testable & Prototype Terrain | Valider l'usage principal en conditions réelles | Exigences Must-Have, UI ergonomique, gestion des erreurs | Gate 2 : Validation sur prototype HTML interactif (avec module « Bug ou idée ? ») et parcours principal réussi sans blocage sur les fonctions Must-be. |
+| Jalon 3 | Stabilisation & V1.0 | Assurer la fiabilité et polir l'expérience | Corrections de bugs, optimisations UX, documentation | Gate 3 : Zéro bug bloquant, sauvegarde/export vérifiés, métriques de succès instrumentées. |
+| Jalon 4+ | Évolutions & Découverte Continue (V1.1, V2…) | Maximiser la valeur et la différenciation | Features Should/Could-Have, automatisations | Gate 4 : Itérations pilotées par les retours terrain continus et le scoring RICE / Kano. |
 
 ## 4. Priorisation du Backlog : Articulation Kano + RICE + MoSCoW
 

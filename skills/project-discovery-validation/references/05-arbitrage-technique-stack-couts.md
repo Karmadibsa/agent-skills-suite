@@ -58,43 +58,13 @@ Avant de valider tout composant d'une stack technique, l'équipe produit et ing�
 
 ## 3. Matrice Build vs Buy / Open Source (Coder vs Réutiliser)
 
-Catégorie de Fonctionnalité
-
-Stratégie Recommandée
-
-Type de Solution / Exemples
-
-Condition d'Arbitrage
-
-Composants UI / Accessibilité
-
-Radix UI, Shadcn/UI, TailwindCSS
-
-Ne jamais recoder la gestion du focus, des ARIA attributes ou du rendu de base.
-
-Visualisation & Graphiques
-
-Recharts, Chart.js, Tremor
-
-Utiliser des bibliothèques clés en main pour l'affichage de métriques.
-
-Édition de Texte / WYSIWYG
-
-Tiptap, Lexical, CodeMirror
-
-L'écriture d'un moteur d'édition de texte à la main est strictement interdite.
-
-Traitement & Parsing Fichiers
-
-PapaParse (CSV), JSZip, PDF-lib
-
-Exploiter les parsers open-source testés par la communauté.
-
-Logique Métier Spécifique
-
-Algorithmes propriétaires, règles métiers
-
-Coder sur mesure uniquement la brique apportant la valeur différenciante.
+| Catégorie de Fonctionnalité | Type de Solution / Exemples | Condition d'Arbitrage |
+| --- | --- | --- |
+| Composants UI / Accessibilité | Radix UI, Shadcn/UI, TailwindCSS | Ne jamais recoder la gestion du focus, des ARIA attributes ou du rendu de base. |
+| Visualisation & Graphiques | Recharts, Chart.js, Tremor | Utiliser des bibliothèques clés en main pour l'affichage de métriques. |
+| Édition de Texte / WYSIWYG | Tiptap, Lexical, CodeMirror | L'écriture d'un moteur d'édition de texte à la main est strictement interdite. |
+| Traitement & Parsing Fichiers | PapaParse (CSV), JSZip, PDF-lib | Exploiter les parsers open-source testés par la communauté. |
+| Logique Métier Spécifique | Algorithmes propriétaires, règles métiers | Coder sur mesure uniquement la brique apportant la valeur différenciante. |
 
 ### Règles Opérationnelles (DO)
 
@@ -116,55 +86,15 @@ Coder sur mesure uniquement la brique apportant la valeur différenciante.
 
 Avant tout passage en phase de développement ou de déploiement d'un jalon, la stack et les choix d'ingénierie doivent valider l'intégralité de la grille ci-dessous.
 
-N°
-
-Point de Contrôle
-
-Critère d'Acceptation
-
-Statut
-
-1
-
-Justification Stack
-
-La stack s'appuie exclusivement sur des technologies éprouvées et maîtrisées (Boring Stack).
-
-2
-
-TCO Infrastructure
-
-Le coût fixe récurrent mensuel pour le Jalon 1 est égal à 0 €.
-
-3
-
-Architecture Données
-
-Le modèle favorise le Local-First ; l'application reste fonctionnelle sans connexion serveur si applicable.
-
-4
-
-Reversibilité & Export
-
-Une fonction d'export complet des données (format .json ou .csv) est opérationnelle.
-
-5
-
-Conformité Licences
-
-100 % des dépendances Open Source réutilisées disposent d'une licence permissive (MIT, Apache, BSD).
-
-6
-
-Absence de Sur-Ingénierie
-
-Aucun composant générique (authentification, UI complexe, parsers) n'a été codé sur mesure sans justification.
-
-7
-
-Abstraction Services
-
-Toutes les API tierces payantes ou instables sont isolées derrière une couche d'interface d'inversion de dépendance.
+| N° | Point de Contrôle | Critère d'Acceptation |
+| --- | --- | --- |
+| 1 | Justification Stack | La stack s'appuie exclusivement sur des technologies éprouvées et maîtrisées (Boring Stack). |
+| 2 | TCO Infrastructure | Le coût fixe récurrent mensuel pour le Jalon 1 est égal à 0 €. |
+| 3 | Architecture Données | Le modèle favorise le Local-First ; l'application reste fonctionnelle sans connexion serveur si applicable. |
+| 4 | Reversibilité & Export | Une fonction d'export complet des données (format .json ou .csv) est opérationnelle. |
+| 5 | Conformité Licences | 100 % des dépendances Open Source réutilisées disposent d'une licence permissive (MIT, Apache, BSD). |
+| 6 | Absence de Sur-Ingénierie | Aucun composant générique (authentification, UI complexe, parsers) n'a été codé sur mesure sans justification. |
+| 7 | Abstraction Services | Toutes les API tierces payantes ou instables sont isolées derrière une couche d'interface d'inversion de dépendance. |
 
 ## 5. Signatures et Validation d'Arbitrage
 

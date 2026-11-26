@@ -19,59 +19,16 @@ Tout agent IA ou concepteur humain doit exécuter ce maillon avant de produire l
 
 ## 2. Carte des Documents du Référentiel
 
-Document
-
-Contenu principal
-
-Quand le charger
-
-00 — Index, Taxonomie des Preuves & Anti-Complaisance IA
-
-Règles d'anti-complaisance IA, niveaux de preuve [N1] à [N6], protocole d'arbitrage et cadrage global.
-
-Toujours (systématiquement présent dans le contexte d'analyse).
-
-01 — Analyse de l'Existant, Concurrence & Signaux Terrains (GitHub, Reddit, Forums)
-
-Recherche méthodique sur GitHub, Reddit, forums spécialisés et concurrents. Identification des frustrations réelles, des angles morts et de la faisabilité de différenciation.
-
-Dès le démarrage d'un projet ou avant l'évaluation d'une nouvelle fonctionnalité majeure.
-
-02 — Sens des Features, Validation Scientifique & Faisabilité Technique
-
-Cadre Jobs-to-be-Done (JTBD), modèle de Kano, principe de falsifiabilité (Popper), sciences comportementales, charge cognitive et coût de maintenance technique.
-
-Pour chaque fonctionnalité proposée avant intégration au backlog.
-
-03 — Construction de la Roadmap (Jalon 0 → MVP → V1 → Itérations)
-
-Méthode standard de découpage d'un projet en 5 étapes (Jalon 0 Cadrage, Jalon 1 Noyau Métier, Jalon 2 MVP Testable, Jalon 3 Stabilisation V1.0, Jalon 4+ Évolutions & Découverte Continue) et critères de passage (Gates).
-
-Dès qu'il s'agit de planifier et d'ordonnancer l'exécution d'un projet logiciel.
-
-04 — Protocole de Recherche Scientifique & Revue de Littérature
-
-Méthodologie de recherche académique et appliquée, validation par la littérature peer-reviewed et grilles d'évaluation scientifique.
-
-Lorsqu'une hypothèse nécessite une justification scientifique approfondie ou un niveau de preuve [N2].
-
-05 — Arbitrage Technique, Stack, Coûts & Build vs Buy
-
-Choix d'architecture, évaluation du ratio Build vs Buy, analyse des coûts d'infrastructure, de la dette technique et des contraintes de performance.
-
-Avant toute décision d'architecture, de choix de stack ou d'engagement de coûts techniques.
-
-06 — Validation Terrain & Prototypes HTML Interactifs (« Bug ou idée ? »)
-
-Expérimentation rapide par prototypes HTML/JS legers, tests utilisateur guidés et distinction entre bugs d'ergonomie et pertinence de l'idée.
-
-Lorsqu'une fonctionnalité est classée « À TESTER AVANT DE CODER » pour valider l'usage réel.
-
-07 — Anti-Patterns Produit, Études de Cas & Prompts Prêts à Injecter
-
-Bibliothèque d'anti-patterns documentés, retours d'expérience, études de cas réelles et prompts d'arbitrage pour guider les agents IA.
-
-Pour auditer une proposition, injecter des prompts de validation ou éviter les pièges de conception fréquents.
+| Document | Contenu principal | Quand le charger |
+| --- | --- | --- |
+| 00 — Index, Taxonomie des Preuves & Anti-Complaisance IA | Règles d'anti-complaisance IA, niveaux de preuve [N1] à [N6], protocole d'arbitrage et cadrage global. | Toujours (systématiquement présent dans le contexte d'analyse). |
+| 01 — Analyse de l'Existant, Concurrence & Signaux Terrains (GitHub, Reddit, Forums) | Recherche méthodique sur GitHub, Reddit, forums spécialisés et concurrents. Identification des frustrations réelles, des angles morts et de la faisabilité de différenciation. | Dès le démarrage d'un projet ou avant l'évaluation d'une nouvelle fonctionnalité majeure. |
+| 02 — Sens des Features, Validation Scientifique & Faisabilité Technique | Cadre Jobs-to-be-Done (JTBD), modèle de Kano, principe de falsifiabilité (Popper), sciences comportementales, charge cognitive et coût de maintenance technique. | Pour chaque fonctionnalité proposée avant intégration au backlog. |
+| 03 — Construction de la Roadmap (Jalon 0 → MVP → V1 → Itérations) | Méthode standard de découpage d'un projet en 5 étapes (Jalon 0 Cadrage, Jalon 1 Noyau Métier, Jalon 2 MVP Testable, Jalon 3 Stabilisation V1.0, Jalon 4+ Évolutions & Découverte Continue) et critères de passage (Gates). | Dès qu'il s'agit de planifier et d'ordonnancer l'exécution d'un projet logiciel. |
+| 04 — Protocole de Recherche Scientifique & Revue de Littérature | Méthodologie de recherche académique et appliquée, validation par la littérature peer-reviewed et grilles d'évaluation scientifique. | Lorsqu'une hypothèse nécessite une justification scientifique approfondie ou un niveau de preuve [N2]. |
+| 05 — Arbitrage Technique, Stack, Coûts & Build vs Buy | Choix d'architecture, évaluation du ratio Build vs Buy, analyse des coûts d'infrastructure, de la dette technique et des contraintes de performance. | Avant toute décision d'architecture, de choix de stack ou d'engagement de coûts techniques. |
+| 06 — Validation Terrain & Prototypes HTML Interactifs (« Bug ou idée ? ») | Expérimentation rapide par prototypes HTML/JS legers, tests utilisateur guidés et distinction entre bugs d'ergonomie et pertinence de l'idée. | Lorsqu'une fonctionnalité est classée « À TESTER AVANT DE CODER » pour valider l'usage réel. |
+| 07 — Anti-Patterns Produit, Études de Cas & Prompts Prêts à Injecter | Bibliothèque d'anti-patterns documentés, retours d'expérience, études de cas réelles et prompts d'arbitrage pour guider les agents IA. | Pour auditer une proposition, injecter des prompts de validation ou éviter les pièges de conception fréquents. |
 
 ## 3. Taxonomie des Niveaux de Preuve
 

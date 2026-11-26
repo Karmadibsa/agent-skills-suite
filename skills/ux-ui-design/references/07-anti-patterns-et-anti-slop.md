@@ -4,93 +4,18 @@ Référentiel d'ingénierie UI/UX conçu pour éradiquer les défauts récurrent
 
 ## 1. Catalogue des 10 Anti-Patterns IA à Bannir Systématiquement
 
-N°
-
-Anti-Pattern fréquent des IA
-
-Pourquoi c'est nocif (base scientifique)
-
-Correction obligatoire
-
-1
-
-Dashboard rempli de fausses cartes KPI décoratives en haut de page
-
-Viol de la loi de Hick et du test des 5 secondes ; surcharge cognitive et retarde l'accès à l'action principale.
-
-Afficher d'abord l'action principale et l'état utile (reprendre, créer, rechercher). Placer les métriques secondaires sous le flux métier principal.
-
-2
-
-Grilles de grandes cartes (Bento Grids) pour afficher des listes de données
-
-Faible densité d'information, scroll excessif sur PC et mobile, rupture du balayage visuel vertical.
-
-Utiliser des listes compactes ou des tableaux structurés avec actions rapides au survol/focus.
-
-3
-
-Carrousel d'onboarding bloquant de 4 à 6 écrans au premier lancement
-
-Effondrement du Time-to-First-Value (NN/g) ; taux d'abandon immédiat élevé par friction inutile.
-
-Accès direct à l'interface opérationnelle + aide contextuelle progressive Just-In-Time (in-situ).
-
-4
-
-Modales de confirmation « Êtes-vous sûr ? » sur chaque action
-
-Fatigue décisionnelle et phénomène d'habituation (validation réflexe sans lecture du message).
-
-Exécution immédiate avec fenêtre d'annulation + Toast de confirmation contenant un bouton « Annuler » (durée 5s). Modales réservées aux actions destructives irréversibles.
-
-5
-
-Débauche de dégradés néon, ombres portées lourdes et bordures arc-en-ciel
-
-Bruit visuel massif, baisse du contraste WCAG, esthétique « template IA générique » datée.
-
-Surfaces neutres sobres, bordures fines 1px (#E2E8F0), ombres douces et une seule couleur d'accent fonctionnelle maîtrisée.
-
-6
-
-Textes longs et blocs de paragraphes non hiérarchisés dans l'UI
-
-Violation des lois d'eye-tracking en F et du modèle de mémoire de Miller (4±1 blocs d'information).
-
-Microcopy courte (1 ligne maximum par consigne), titres scannables, détails techniques intégrés dans des éléments repliables (<details>).
-
-7
-
-Boutons d'action principaux placés tout en haut de l'écran sur mobile
-
-Hors de portée de la Zone du Pouce (Steven Hoober) ; force des étirements ou l'usage de deux mains.
-
-Placer l'ensemble des actions primaires et la navigation principale dans le tiers inférieur de l'écran mobile.
-
-8
-
-Icônes décoratives sans libellé ou métaphores ambiguës
-
-Ralentissement cognitif majeur (étude NN/g Icon Usability) lié à l'absence d'affordance claire.
-
-Icônes universelles seules tolérées uniquement si accompagnées d'un aria-label clair (poubelle, crayon, loupe) ; libellé textuel obligatoire pour tout le reste.
-
-9
-
-Animations lentes (>400ms), rebonds exagérés ou absence totale de transition
-
-Sensation d'inertie de l'UI (Seuil de Doherty < 400ms) ou rupture spatiale soudaine perturbant l'attention.
-
-Transitions fluides 150–250ms en ease-out sur les états modifiés + support strict du media query prefers-reduced-motion.
-
-10
-
-Chiffres non alignés et polices proportionnelles dans les colonnes numériques
-
-Difficulté de comparaison visuelle rapide due au décalage de largeur des caractères.
-
-Appliquer impérativement font-variant-numeric: tabular-nums et aligner le texte à droite sur les colonnes de chiffres.
+| N° | Anti-Pattern fréquent des IA | Pourquoi c'est nocif (base scientifique) | Correction obligatoire |
+| --- | --- | --- | --- |
+| 1 | Dashboard rempli de fausses cartes KPI décoratives en haut de page | Viol de la loi de Hick et du test des 5 secondes ; surcharge cognitive et retarde l'accès à l'action principale. | Afficher d'abord l'action principale et l'état utile (reprendre, créer, rechercher). Placer les métriques secondaires sous le flux métier principal. |
+| 2 | Grilles de grandes cartes (Bento Grids) pour afficher des listes de données | Faible densité d'information, scroll excessif sur PC et mobile, rupture du balayage visuel vertical. | Utiliser des listes compactes ou des tableaux structurés avec actions rapides au survol/focus. |
+| 3 | Carrousel d'onboarding bloquant de 4 à 6 écrans au premier lancement | Effondrement du Time-to-First-Value (NN/g) ; taux d'abandon immédiat élevé par friction inutile. | Accès direct à l'interface opérationnelle + aide contextuelle progressive Just-In-Time (in-situ). |
+| 4 | Modales de confirmation « Êtes-vous sûr ? » sur chaque action | Fatigue décisionnelle et phénomène d'habituation (validation réflexe sans lecture du message). | Exécution immédiate avec fenêtre d'annulation + Toast de confirmation contenant un bouton « Annuler » (durée 5s). Modales réservées aux actions destructives irréversibles. |
+| 5 | Débauche de dégradés néon, ombres portées lourdes et bordures arc-en-ciel | Bruit visuel massif, baisse du contraste WCAG, esthétique « template IA générique » datée. | Surfaces neutres sobres, bordures fines 1px (#E2E8F0), ombres douces et une seule couleur d'accent fonctionnelle maîtrisée. |
+| 6 | Textes longs et blocs de paragraphes non hiérarchisés dans l'UI | Violation des lois d'eye-tracking en F et du modèle de mémoire de Miller (4±1 blocs d'information). | Microcopy courte (1 ligne maximum par consigne), titres scannables, détails techniques intégrés dans des éléments repliables (<details>). |
+| 7 | Boutons d'action principaux placés tout en haut de l'écran sur mobile | Hors de portée de la Zone du Pouce (Steven Hoober) ; force des étirements ou l'usage de deux mains. | Placer l'ensemble des actions primaires et la navigation principale dans le tiers inférieur de l'écran mobile. |
+| 8 | Icônes décoratives sans libellé ou métaphores ambiguës | Ralentissement cognitif majeur (étude NN/g Icon Usability) lié à l'absence d'affordance claire. | Icônes universelles seules tolérées uniquement si accompagnées d'un aria-label clair (poubelle, crayon, loupe) ; libellé textuel obligatoire pour tout le reste. |
+| 9 | Animations lentes (>400ms), rebonds exagérés ou absence totale de transition | Sensation d'inertie de l'UI (Seuil de Doherty < 400ms) ou rupture spatiale soudaine perturbant l'attention. | Transitions fluides 150–250ms en ease-out sur les états modifiés + support strict du media query prefers-reduced-motion. |
+| 10 | Chiffres non alignés et polices proportionnelles dans les colonnes numériques | Difficulté de comparaison visuelle rapide due au décalage de largeur des caractères. | Appliquer impérativement font-variant-numeric: tabular-nums et aligner le texte à droite sur les colonnes de chiffres. |
 
 ## 1B. Règles Avancées Anti-Slop IA (Éradiquer le rendu « généré par LLM »)
 

@@ -12,95 +12,22 @@ Il sert de contrat d'interface universel pour éviter systématiquement les déf
 
 Les agents IA et développeurs doivent charger les modules pertinents du référentiel en fonction du contexte de la tâche à accomplir.
 
-Document
-
-Contenu principal
-
-Quand le charger obligatoirement
-
-00B — Registre Central des Règles & Niveaux de Preuve
-
-Taxonomie des 6 niveaux de preuve (Norme N1 à Hypothèse N6), source unique de vérité résolvant les contradictions (cibles tactiles, WCAG AA/AAA, seuils de chargement, Core Web Vitals).
-
-Toujours (référence normative centrale).
-
-01 — Fondamentaux Cognitifs & Lois Empiriques UX
-
-Lois de Fitts, Hick-Hyman, Miller/Cowan, Jakob, Tesler, Gestalt, seuil de Doherty (<400ms), effet esthétique-utilisabilité.
-
-Toujours (socle universel pour chaque décision d'interface).
-
-02 — Architecture de l'Information, Divulgation Progressive & Clarté
-
-Progressive Disclosure (3 niveaux), patterns de scan en F/Z, hiérarchie visuelle, écriture UX orientée action.
-
-Toujours (structuration des écrans, navigation et rédaction des contenus).
-
-03 — Onboarding, Empty States, Iconographie & Feedback Utilisateur
-
-Time-to-First-Value (<30s), aide contextuelle, états vides (empty states), grammaire d'icônes, toasts et retours de validation.
-
-Dès qu'il y a un parcours utilisateur, des formulaires ou des actions CRUD.
-
-04 — Accessibilité (WCAG 2.2), Typographie, Couleurs & Motion Design
-
-Contrastes (AA/AAA), échelles typographiques, psychologie des couleurs/polices, animations signifiantes (<300ms, reduced-motion).
-
-Dès qu'on définit ou audite le Design System, le CSS ou les tokens.
-
-05 — Règles Spécifiques PC Desktop & Mobile (Gestion à une main)
-
-Ergonomie souris/clavier vs Zone du pouce (Thumb Zone), cibles tactiles ≥44px, navigation basse ≤5 entrées, densité desktop.
-
-Toujours selon la cible (Desktop, Mobile ou Responsive).
-
-06 — Direction Artistique Premium, Branding, Logos & Références Produits
-
-Règles d'identité visuelle, création de logo, références produits (ChatGPT, Linear, Stripe, Apple).
-
-Lors de la création d'une identité visuelle, de la DA ou d'une refonte graphique.
-
-07 — Anti-Patterns IA & Prompts Prêts à Injecter
-
-Liste noire des défauts récurrents d'IA + blocs de règles prêts à copier pour CLAUDE.md ou .cursorrules.
-
-Avant toute génération de code frontend ou audit UX global.
-
-10 — Navigation, Pages & Sous-Pages, Listes, Kanban, Statuts & Personnalisation
-
-Architecture de navigation (Sidebar vs Topbar, réduction, pages/sous-pages), règles d'un bon Dashboard, gestion des Listes et tableaux Kanban, cycle de vie des Statuts d'objets, prévention des « écrans dans les écrans », vulgarisation grand public et personnalisation maîtrisée.
-
-Dès qu'on structure l'architecture globale d'une app, sa navigation, ses vues listes/kanban ou qu'on conçoit pour un public non-informaticien.
-
-08 — Système de Retour Utilisateur Contextuel (« Bug ou idée ? »)
-
-Capture visuelle d'élément DOM, diagnostic technique anonymisé, capture d'écran sélective et export local/API.
-
-Dès qu'on développe ou maintient une application interactive testée par des utilisateurs.
-
-09 — Interfaces Admin, Data Visualisation, Performance & Limitation du Scroll
-
-Grammaire scientifique des graphiques (courbes, barres, Sankey, donut <=4 parts), Core Web Vitals, états de chargement (spinners/skeletons) et maîtrise du scroll.
-
-Dès qu'on conçoit un back-office, un tableau de bord analytique ou qu'on optimise la fluidité/responsivité.
-
-11 — Formulaires Intelligents, Modales Stables, Navigation Avancée & Optimisation d'Espace
-
-12 — Accessibilité Cognitive (W3C COGA), Interactions Humain-IA, Éthique & i18n
-
-W3C COGA, ISO 9241-11/210, Microsoft/Google Human-AI Interaction, prévention des dark patterns, internationalisation et résilience hors ligne.
-
-Dès qu'on conçoit une interface incluant de l'IA, un public large/novice ou une portée internationale.
-
-13 — Architecture Agent Skills Open Source (SKILL.md, Évaluation & Écosystème)
-
-Fonctionnement du standard ouvert agentskills.io, arborescence GitHub gratuite (0 €/mois), brouillon de SKILL.md, protocole de benchmark sur 9 scénarios et feuille de route des Skills complémentaires.
-
-Lors de la préparation du dépôt GitHub open source et de la création des Skills.
-
-Modales multi-étapes à taille fixe, matrice de choix des champs (Baymard/Wroblewski, combobox filtrable, pré-remplissage), 7 architectures de navigation hybrides, optimisation d'espace (Tufte/Few), protocole de vérification QA en 4 niveaux et auto-justification scientifique.
-
-Dès qu'on crée des formulaires, des modales/assistants, une navigation complexe ou qu'on optimise l'espace écran.
+| Document | Contenu principal | Quand le charger obligatoirement |
+| --- | --- | --- |
+| 00B — Registre Central des Règles & Niveaux de Preuve | Taxonomie des 6 niveaux de preuve (Norme N1 à Hypothèse N6), source unique de vérité résolvant les contradictions (cibles tactiles, WCAG AA/AAA, seuils de chargement, Core Web Vitals). | Toujours (référence normative centrale). |
+| 01 — Fondamentaux Cognitifs & Lois Empiriques UX | Lois de Fitts, Hick-Hyman, Miller/Cowan, Jakob, Tesler, Gestalt, seuil de Doherty (<400ms), effet esthétique-utilisabilité. | Toujours (socle universel pour chaque décision d'interface). |
+| 02 — Architecture de l'Information, Divulgation Progressive & Clarté | Progressive Disclosure (3 niveaux), patterns de scan en F/Z, hiérarchie visuelle, écriture UX orientée action. | Toujours (structuration des écrans, navigation et rédaction des contenus). |
+| 03 — Onboarding, Empty States, Iconographie & Feedback Utilisateur | Time-to-First-Value (<30s), aide contextuelle, états vides (empty states), grammaire d'icônes, toasts et retours de validation. | Dès qu'il y a un parcours utilisateur, des formulaires ou des actions CRUD. |
+| 04 — Accessibilité (WCAG 2.2), Typographie, Couleurs & Motion Design | Contrastes (AA/AAA), échelles typographiques, psychologie des couleurs/polices, animations signifiantes (<300ms, reduced-motion). | Dès qu'on définit ou audite le Design System, le CSS ou les tokens. |
+| 05 — Règles Spécifiques PC Desktop & Mobile (Gestion à une main) | Ergonomie souris/clavier vs Zone du pouce (Thumb Zone), cibles tactiles ≥44px, navigation basse ≤5 entrées, densité desktop. | Toujours selon la cible (Desktop, Mobile ou Responsive). |
+| 06 — Direction Artistique Premium, Branding, Logos & Références Produits | Règles d'identité visuelle, création de logo, références produits (ChatGPT, Linear, Stripe, Apple). | Lors de la création d'une identité visuelle, de la DA ou d'une refonte graphique. |
+| 07 — Anti-Patterns IA & Prompts Prêts à Injecter | Liste noire des défauts récurrents d'IA + blocs de règles prêts à copier pour CLAUDE.md ou .cursorrules. | Avant toute génération de code frontend ou audit UX global. |
+| 10 — Navigation, Pages & Sous-Pages, Listes, Kanban, Statuts & Personnalisation | Architecture de navigation (Sidebar vs Topbar, réduction, pages/sous-pages), règles d'un bon Dashboard, gestion des Listes et tableaux Kanban, cycle de vie des Statuts d'objets, prévention des « écrans dans les écrans », vulgarisation grand public et personnalisation maîtrisée. | Dès qu'on structure l'architecture globale d'une app, sa navigation, ses vues listes/kanban ou qu'on conçoit pour un public non-informaticien. |
+| 08 — Système de Retour Utilisateur Contextuel (« Bug ou idée ? ») | Capture visuelle d'élément DOM, diagnostic technique anonymisé, capture d'écran sélective et export local/API. | Dès qu'on développe ou maintient une application interactive testée par des utilisateurs. |
+| 09 — Interfaces Admin, Data Visualisation, Performance & Limitation du Scroll | Grammaire scientifique des graphiques (courbes, barres, Sankey, donut <=4 parts), Core Web Vitals, états de chargement (spinners/skeletons) et maîtrise du scroll. | Dès qu'on conçoit un back-office, un tableau de bord analytique ou qu'on optimise la fluidité/responsivité. |
+| 11 — Formulaires Intelligents, Modales Stables, Navigation Avancée & Optimisation d'Espace | 12 — Accessibilité Cognitive (W3C COGA), Interactions Humain-IA, Éthique & i18n | W3C COGA, ISO 9241-11/210, Microsoft/Google Human-AI Interaction, prévention des dark patterns, internationalisation et résilience hors ligne. |
+| Dès qu'on conçoit une interface incluant de l'IA, un public large/novice ou une portée internationale. | 13 — Architecture Agent Skills Open Source (SKILL.md, Évaluation & Écosystème) | Fonctionnement du standard ouvert agentskills.io, arborescence GitHub gratuite (0 €/mois), brouillon de SKILL.md, protocole de benchmark sur 9 scénarios et feuille de route des Skills complémentaires. |
+| Lors de la préparation du dépôt GitHub open source et de la création des Skills. | Modales multi-étapes à taille fixe, matrice de choix des champs (Baymard/Wroblewski, combobox filtrable, pré-remplissage), 7 architectures de navigation hybrides, optimisation d'espace (Tufte/Few), protocole de vérification QA en 4 niveaux et auto-justification scientifique. | Dès qu'on crée des formulaires, des modales/assistants, une navigation complexe ou qu'on optimise l'espace écran. |
 
 ## 3. Hiérarchie des règles en cas de conflit
 

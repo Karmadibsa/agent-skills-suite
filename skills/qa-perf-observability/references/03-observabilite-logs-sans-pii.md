@@ -41,41 +41,13 @@ Chaque entrée de journal doit comporter au minimum les champs normalisés suiva
 
 ### 1.3 Matrice d'Usage Strict des Niveaux de Log
 
-Niveau
-
-Cas d'usage autorisés
-
-Comportement en Production
-
-DEBUG
-
-Traces détaillées d'exécution, variables internes, flux de contrôle pas-à-pas lors des phases de développement.
-
-Désactivé par défaut. Activation temporaire ciblée sur périmètre restreint.
-
-INFO
-
-Événements métier notables, cycles de vie de l'application (démarrage/arrêt serveur, migrations de BD réussies, génération d'exports).
-
-Activé. Exploité pour les statistiques d'usage et le suivi nominal.
-
-WARN
-
-Anomalies récupérables, dégradations de service sans interruption (échec d'une tentative de connexion, seuil de quota proche, repli sur cache).
-
-Activé. Fait l'objet d'une surveillance globale et de métriques d'analyse.
-
-ERROR
-
-Échecs d'opérations nécessitant une intervention ou une investigation (exceptions non gérées, rupture de connectivité BD, rejets d'API tierces).
-
-Activé. Déclenche un enregistrement prioritaire et alimente les dashboards d'incidents.
-
-FATAL
-
-Incapacité critique du système à poursuivre son exécution (corruption de mémoire, configuration vitale absente, port bloqué).
-
-Activé. Entraîne une alerte immédiate (astreinte) et la terminaison du processus.
+| Niveau | Cas d'usage autorisés | Comportement en Production |
+| --- | --- | --- |
+| DEBUG | Traces détaillées d'exécution, variables internes, flux de contrôle pas-à-pas lors des phases de développement. | Désactivé par défaut. Activation temporaire ciblée sur périmètre restreint. |
+| INFO | Événements métier notables, cycles de vie de l'application (démarrage/arrêt serveur, migrations de BD réussies, génération d'exports). | Activé. Exploité pour les statistiques d'usage et le suivi nominal. |
+| WARN | Anomalies récupérables, dégradations de service sans interruption (échec d'une tentative de connexion, seuil de quota proche, repli sur cache). | Activé. Fait l'objet d'une surveillance globale et de métriques d'analyse. |
+| ERROR | Échecs d'opérations nécessitant une intervention ou une investigation (exceptions non gérées, rupture de connectivité BD, rejets d'API tierces). | Activé. Déclenche un enregistrement prioritaire et alimente les dashboards d'incidents. |
+| FATAL | Incapacité critique du système à poursuivre son exécution (corruption de mémoire, configuration vitale absente, port bloqué). | Activé. Entraîne une alerte immédiate (astreinte) et la terminaison du processus. |
 
 ## 2. Interdiction Absolue de Données Personnelles ou Secrets dans les Logs (RGPD Art. 5 & 32) [N1]
 
@@ -160,68 +132,12 @@ En cas de défaillance d'un composant critique, le statut global passe en DOWN a
 
 Cette checklist constitue la grille de contrôle obligatoire avant tout passage d'une version en environnement de production.
 
-N°
-
-Point de Contrôle
-
-Description de la Vérification
-
-Méthode de Test / Script
-
-Statut
-
-1
-
-Format JSON Structuré
-
-Vérifier que 100 % des logs émis par le back-end et le front-end respectent le schéma JSON d'entreprise avec tous les attributs requis (timestamp, level, event, correlation_id).
-
-Extraction d'un échantillon de 1000 lignes de log en dev/staging et validation par schéma JSON Schema validation.
-
-2
-
-Étanchéité PII & Secrets
-
-Exécuter des requêtes contenant des mdp incorrects, des jetons invalides, des créations de compte et des envois d'email pour garantir qu'aucune donnée sensible n'apparaît dans les fichiers ou agrégateurs de logs.
-
-Test d'injection : Envoi d'une requête POST /login en échec et POST /register / envoi d'email, puis vérification que password, email et jetons sont marqués "[REDACTED]".
-
-3
-
-Propagation Correlation ID
-
-S'assurer qu'un correlation_id généré côté client est correctement transmis via les en-têtes HTTP (X-Correlation-ID) et conservé à chaque étape de traitement logguée.
-
-Traçage d'une transaction de bout en bout de l'UI jusqu'à la BD et vérification de l'unicité de l'UUID dans les logs.
-
-4
-
-Résilience Front-End (Error Boundaries)
-
-Provoquer artificiellement un crash JS dans un composant enfant de l'UI pour vérifier le confinement et le rendu du composant de fallback.
-
-Injection d'une exception throw new Error() dans la méthode render d'un composant et contrôle visuel de l'écran de secours.
-
-5
-
-Endpoint Healthcheck
-
-S'assurer de l'accessibilité de GET /health et de l'exactitude des codes HTTP retournés selon l'état des dépendances système.
-
-Simulation d'une coupure de base de données en staging et vérification du passage du statut de 200 OK à 503 Service Unavailable.
-
-6
-
-Rotation & Purge des Logs
-
-Vérifier l'application des règles de rotation automatique des fichiers de log (taille max, conservation) pour éviter la saturation des volumes disques.
-
-Inspection des fichiers de configuration (logrotate / appendertracking) et vérification des politiques de rétention (ex. 14 jours max).
-
-7
-
-Capture Erreurs Globales
-
-S'assurer que toutes les erreurs non gérées (client: window.onerror, unhandledrejection ; serveur: uncaughtException, unhandledRejection) sont remontées et journalisées au format JSON sans PII.
-
-Provoquer une exception non interceptée dans un composant UI et un rejet de promesse serveur non géré, puis vérifier la génération du log JSON structuré.
+| N° | Point de Contrôle | Description de la Vérification | Méthode de Test / Script |
+| --- | --- | --- | --- |
+| 1 | Format JSON Structuré | Vérifier que 100 % des logs émis par le back-end et le front-end respectent le schéma JSON d'entreprise avec tous les attributs requis (timestamp, level, event, correlation_id). | Extraction d'un échantillon de 1000 lignes de log en dev/staging et validation par schéma JSON Schema validation. |
+| 2 | Étanchéité PII & Secrets | Exécuter des requêtes contenant des mdp incorrects, des jetons invalides, des créations de compte et des envois d'email pour garantir qu'aucune donnée sensible n'apparaît dans les fichiers ou agrégateurs de logs. | Test d'injection : Envoi d'une requête POST /login en échec et POST /register / envoi d'email, puis vérification que password, email et jetons sont marqués "[REDACTED]". |
+| 3 | Propagation Correlation ID | S'assurer qu'un correlation_id généré côté client est correctement transmis via les en-têtes HTTP (X-Correlation-ID) et conservé à chaque étape de traitement logguée. | Traçage d'une transaction de bout en bout de l'UI jusqu'à la BD et vérification de l'unicité de l'UUID dans les logs. |
+| 4 | Résilience Front-End (Error Boundaries) | Provoquer artificiellement un crash JS dans un composant enfant de l'UI pour vérifier le confinement et le rendu du composant de fallback. | Injection d'une exception throw new Error() dans la méthode render d'un composant et contrôle visuel de l'écran de secours. |
+| 5 | Endpoint Healthcheck | S'assurer de l'accessibilité de GET /health et de l'exactitude des codes HTTP retournés selon l'état des dépendances système. | Simulation d'une coupure de base de données en staging et vérification du passage du statut de 200 OK à 503 Service Unavailable. |
+| 6 | Rotation & Purge des Logs | Vérifier l'application des règles de rotation automatique des fichiers de log (taille max, conservation) pour éviter la saturation des volumes disques. | Inspection des fichiers de configuration (logrotate / appendertracking) et vérification des politiques de rétention (ex. 14 jours max). |
+| 7 | Capture Erreurs Globales | S'assurer que toutes les erreurs non gérées (client: window.onerror, unhandledrejection ; serveur: uncaughtException, unhandledRejection) sont remontées et journalisées au format JSON sans PII. | Provoquer une exception non interceptée dans un composant UI et un rejet de promesse serveur non géré, puis vérifier la génération du log JSON structuré. |

@@ -74,25 +74,9 @@ Un lot est considéré comme totalement achevé et prêt pour le merge uniquemen
 
 Le tableau ci-dessous assure la couverture de bout en bout entre l'exigence métier, sa formalisation BDD, son lot d'exécution et les tests automatisés :
 
-Exigence / User Story
-
-Règle Métier
-
-Scénario BDD (Gherkin)
-
-Lot Atomique
-
-Fichier de Test
-
-US-01 — Import CSV
-
-RM-03 (Détection Doublons)
-
-Import réussi avec détection de doublon
-
-LOT-03
-
-tests/test_csv_importer.py
+| Exigence / User Story | Règle Métier | Scénario BDD (Gherkin) | Lot Atomique | Fichier de Test |
+| --- | --- | --- | --- | --- |
+| US-01 — Import CSV | RM-03 (Détection Doublons) | Import réussi avec détection de doublon | LOT-03 | tests/test_csv_importer.py |
 
 ## 2. Standard d'un README.md Projet Propre et Pérenne
 
@@ -134,17 +118,9 @@ Séparation obligatoire en deux niveaux lisibles :
 
 ### A. Taxonomie Standardisée des Tags / Labels GitHub
 
-Catégorie
-
-Tag / Label
-
-Code Couleur
-
-Description
-
-Type
-
-feat
+| Catégorie | Tag / Label | Code Couleur |
+| --- | --- | --- |
+| Description | Type | feat |
 
 #A2EEEF
 
@@ -331,64 +307,14 @@ Scénario: [Titre du scénario principal]
 
 ## 4. Grille de Validation QA (8 points de contrôle)
 
-N°
-
-Point de contrôle
-
-Critère d'évaluation
-
-Validation
-
-1
-
-Granularité des Lots
-
-Chaque lot décrit une tranche verticale exécutable en 1 micro-session (1 à 4 fichiers max).
-
-2
-
-Format BDD / Gherkin
-
-Les lots et feature requests incluent des critères d'acceptation formalisés en Gherkin.
-
-3
-
-Compréhension README
-
-Le README.md contient les 7 blocs obligatoires et permet un démarrage rapide en 1 commande.
-
-4
-
-Sécurité & Variables
-
-Absence totale de clés d'API ou secrets en dur ; présence d'un template .env.example.
-
-5
-
-Taxonomie des Labels
-
-Le jeu de labels GitHub (Types, Priorités, Statuts) est documenté avec des couleurs sémantiques.
-
-6
-
-Qualité Bug Report
-
-Le modèle d'issue Bug Report force la saisie des étapes de reproduction et des logs.
-
-7
-
-Cadrage Feature Request
-
-Le modèle Feature Request inclut le rôle utilisateur (JTBD) et les alternatives analysées.
-
-8
-
-Rigueur des Fusion PR
-
-La checklist de PR impose la validation des tests, la propreté du code et l'actualisation de la doc.
-
-9
-
-Architecture Documentaire Duale
-
-Le README.md reste accessible à un utilisateur non-technicien tandis que les détails techniques d'exécution IA sont isolés dans AGENTS.md/CLAUDE.md et docs/.
+| N° | Point de contrôle | Critère d'évaluation |
+| --- | --- | --- |
+| 1 | Granularité des Lots | Chaque lot décrit une tranche verticale exécutable en 1 micro-session (1 à 4 fichiers max). |
+| 2 | Format BDD / Gherkin | Les lots et feature requests incluent des critères d'acceptation formalisés en Gherkin. |
+| 3 | Compréhension README | Le README.md contient les 7 blocs obligatoires et permet un démarrage rapide en 1 commande. |
+| 4 | Sécurité & Variables | Absence totale de clés d'API ou secrets en dur ; présence d'un template .env.example. |
+| 5 | Taxonomie des Labels | Le jeu de labels GitHub (Types, Priorités, Statuts) est documenté avec des couleurs sémantiques. |
+| 6 | Qualité Bug Report | Le modèle d'issue Bug Report force la saisie des étapes de reproduction et des logs. |
+| 7 | Cadrage Feature Request | Le modèle Feature Request inclut le rôle utilisateur (JTBD) et les alternatives analysées. |
+| 8 | Rigueur des Fusion PR | La checklist de PR impose la validation des tests, la propreté du code et l'actualisation de la doc. |
+| 9 | Architecture Documentaire Duale | Le README.md reste accessible à un utilisateur non-technicien tandis que les détails techniques d'exécution IA sont isolés dans AGENTS.md/CLAUDE.md et docs/. |

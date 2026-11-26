@@ -152,25 +152,12 @@ Ce document normatif établit les exigences transversales relatives à l'accessi
 
 - DON'T : Employer les propriétés physiques directionnelles pour l'agencement structural.
 
-Propriété Physique (À proscrire)
-
-Propriété Logique CSS (Obligatoire)
-
-margin-left / margin-right
-
-margin-inline-start / margin-inline-end
-
-padding-left / padding-right
-
-padding-inline-start / padding-inline-end
-
-left / right (Positionnement)
-
-inset-inline-start / inset-inline-end
-
-text-align: left / right
-
-text-align: start / end
+| Propriété Physique (À proscrire) | Propriété Logique CSS (Obligatoire) |
+| --- | --- |
+| margin-left / margin-right | margin-inline-start / margin-inline-end |
+| padding-left / padding-right | padding-inline-start / padding-inline-end |
+| left / right (Positionnement) | inset-inline-start / inset-inline-end |
+| text-align: left / right | text-align: start / end |
 
 #### C. Formatage localisé des données [N3]
 
@@ -203,90 +190,15 @@ const formattedDate = new Intl.DateTimeFormat(userLocale, {
 
 #
 
-Domaine
-
-Critère d'évaluation
-
-Méthode de vérification
-
-Statut
-
-01
-
-COGA
-
-Absence de contrainte temporelle ou présence d'un mécanisme de prolongation d'au moins 10x.
-
-Test manuel de temporisation & inspection WCAG 2.2 (2.2.1)
-
-02
-
-COGA
-
-Support complet de la saisie automatique et des gestionnaires de mots de passe sans blocage du coller.
-
-Test de saisie automatique sur formulaire d'authentification (3.3.8)
-
-03
-
-Human-AI
-
-Distinction visuelle claire entre les données système et les suggestions d'IA via un composant dédié.
-
-Inspection visuelle et analyse du DOM (présence de tags sémantiques)
-
-04
-
-Human-AI
-
-Présence d'une commande permettant de modifier, révoquer ou rejeter une action générée par l'IA.
-
-Test d'usabilité sur le flux d'interaction IA
-
-05
-
-Éthique
-
-Parité visuelle et fonctionnelle absolue entre l'option de refus et l'option d'acceptation (Consentement).
-
-Audit UI (mesure des ratios de contraste, dimensions et clics requis)
-
-06
-
-Éthique
-
-Absence totale de cases pré-cochées, de frais cachés et de décompte d'urgence artificiel.
-
-Audit du parcours de conversion et d'achat
-
-07
-
-i18n
-
-Tolérance des conteneurs UI à une expansion textuelle de +40 % sans chevauchement ni tronquage.
-
-Test de surcharge linguistique (injection de chaînes longues en DE/FR)
-
-08
-
-i18n
-
-Utilisation stricte des propriétés logiques CSS (inline/block) pour le support RTL.
-
-Code review CSS / Inversion du paramètre dir="rtl" sur <html>
-
-09
-
-i18n
-
-Emploi exclusif de l'API Intl pour les dates, nombres et monnaies selon la locale du navigateur.
-
-Inspection du code source JavaScript / Tests unitaires i18n
-
-10
-
-Résilience
-
-Preservation locale des données de saisie et affichage d'un statut clair lors d'une coupure réseau.
-
-Simulation de coupure réseau (Chrome DevTools Offline Mode)
+| Domaine | Critère d'évaluation | Méthode de vérification | Statut |
+| --- | --- | --- | --- |
+| 01 | COGA | Absence de contrainte temporelle ou présence d'un mécanisme de prolongation d'au moins 10x. | Test manuel de temporisation & inspection WCAG 2.2 (2.2.1) |
+| 02 | COGA | Support complet de la saisie automatique et des gestionnaires de mots de passe sans blocage du coller. | Test de saisie automatique sur formulaire d'authentification (3.3.8) |
+| 03 | Human-AI | Distinction visuelle claire entre les données système et les suggestions d'IA via un composant dédié. | Inspection visuelle et analyse du DOM (présence de tags sémantiques) |
+| 04 | Human-AI | Présence d'une commande permettant de modifier, révoquer ou rejeter une action générée par l'IA. | Test d'usabilité sur le flux d'interaction IA |
+| 05 | Éthique | Parité visuelle et fonctionnelle absolue entre l'option de refus et l'option d'acceptation (Consentement). | Audit UI (mesure des ratios de contraste, dimensions et clics requis) |
+| 06 | Éthique | Absence totale de cases pré-cochées, de frais cachés et de décompte d'urgence artificiel. | Audit du parcours de conversion et d'achat |
+| 07 | i18n | Tolérance des conteneurs UI à une expansion textuelle de +40 % sans chevauchement ni tronquage. | Test de surcharge linguistique (injection de chaînes longues en DE/FR) |
+| 08 | i18n | Utilisation stricte des propriétés logiques CSS (inline/block) pour le support RTL. | Code review CSS / Inversion du paramètre dir="rtl" sur <html> |
+| 09 | i18n | Emploi exclusif de l'API Intl pour les dates, nombres et monnaies selon la locale du navigateur. | Inspection du code source JavaScript / Tests unitaires i18n |
+| 10 | Résilience | Preservation locale des données de saisie et affichage d'un statut clair lors d'une coupure réseau. | Simulation de coupure réseau (Chrome DevTools Offline Mode) |

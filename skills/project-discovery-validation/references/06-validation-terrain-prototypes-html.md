@@ -18,29 +18,11 @@ La validation terrain précoce repose sur un constat empirique documenté par la
 
 Le coût de rectification d'un défaut de conception évolue selon une échelle logarithmique. Détectée au stade du prototype HTML/CSS/JS, une modification ne nécessite que quelques réajustements de structure ou de style. Une fois le code métier connecté aux API et à la base de données, la même modification impose des refactorisations d'architecture, des migrations de données et des réécritures de tests d'intégration.
 
-Phase de détection
-
-Coût relatif de modification
-
-Impact opérationnel
-
-Prototype HTML interactif
-
-1x
-
-Modification rapide des structures HTML/CSS/JS locales
-
-Développement Backend / API
-
-10x
-
-Refactorisation du modèle de données, des routes et de la logique métier
-
-Post-déploiement Production
-
-100x
-
-Migration de base de données, ruptures de service, support et correction d'urgence
+| Phase de détection | Coût relatif de modification | Impact opérationnel |
+| --- | --- | --- |
+| Prototype HTML interactif | 1x | Modification rapide des structures HTML/CSS/JS locales |
+| Développement Backend / API | 10x | Refactorisation du modèle de données, des routes et de la logique métier |
+| Post-déploiement Production | 100x | Migration de base de données, ruptures de service, support et correction d'urgence |
 
 ### Supériorité du prototype HTML autonome sur les maquettes statiques
 
@@ -212,52 +194,12 @@ Le processus d'itération fonctionne en boucle fermée. Les retours du terrain s
 
 Avant de déclarer un prototype validé et d'autoriser le passage à la phase de développement backend (Gate 2), l'ensemble des critères suivants doit être vérifié et validé.
 
-N°
-
-Point de contrôle
-
-Description du critère
-
-Statut
-
-01
-
-Données réalistes
-
-Absence totale de Lorem Ipsum. Les textes, montants, noms et dates reflètent la réalité du domaine métier.
-
-02
-
-Couverture des 3 états
-
-Les états Vide (Zero State), Normal (Standard) et Limite (Edge Case) sont directement vérifiables dans le prototype.
-
-03
-
-Module « Bug ou idée ? »
-
-Le script local est intégré, fonctionnel et permet la capture d'éléments d'interface avec aperçu des retours.
-
-04
-
-Export ZIP opérationnel
-
-La génération du fichier retours.zip produit un fichier retours.md valide et exploitable par l'IA d'assistance.
-
-05
-
-Exécution des scénarios
-
-100 % des 3 à 5 scénarios de test ont été soumis à une cohorte de 3 à 5 utilisateurs cibles.
-
-06
-
-Traçabilité des corrections
-
-100 % des retours classés comme "bloquants" ou "ambigus" ont fait l'objet d'une correction dans le HTML/CSS/JS.
-
-07
-
-Approbation Gate 2
-
-Le prototype corrigé (v2 ou ultérieur) permet l'exécution fluide des scénarios sans assistance externe.
+| N° | Point de contrôle | Description du critère |
+| --- | --- | --- |
+| 01 | Données réalistes | Absence totale de Lorem Ipsum. Les textes, montants, noms et dates reflètent la réalité du domaine métier. |
+| 02 | Couverture des 3 états | Les états Vide (Zero State), Normal (Standard) et Limite (Edge Case) sont directement vérifiables dans le prototype. |
+| 03 | Module « Bug ou idée ? » | Le script local est intégré, fonctionnel et permet la capture d'éléments d'interface avec aperçu des retours. |
+| 04 | Export ZIP opérationnel | La génération du fichier retours.zip produit un fichier retours.md valide et exploitable par l'IA d'assistance. |
+| 05 | Exécution des scénarios | 100 % des 3 à 5 scénarios de test ont été soumis à une cohorte de 3 à 5 utilisateurs cibles. |
+| 06 | Traçabilité des corrections | 100 % des retours classés comme "bloquants" ou "ambigus" ont fait l'objet d'une correction dans le HTML/CSS/JS. |
+| 07 | Approbation Gate 2 | Le prototype corrigé (v2 ou ultérieur) permet l'exécution fluide des scénarios sans assistance externe. |

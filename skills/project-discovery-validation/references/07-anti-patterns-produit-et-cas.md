@@ -6,77 +6,16 @@ Statut : Référentiel Discovery & Roadmap V2.0 · Skill : project-discovery-val
 
 Ce catalogue recense les erreurs de conception produit les plus fréquentes observées en phase de framing. L'application systématique du Skill project-discovery-validation permet d'identifier et de neutraliser ces biais avant d'engager la moindre ligne de code.
 
-N°
-
-Anti-Pattern Produit
-
-Pourquoi c'est nocif (base scientifique / terrain)
-
-Correction obligatoire
-
-1
-
-Syndrome du Couteau Suisse (Feature Creep)
-
-Paradoxe du choix (Schwartz) : la surabondance d'options augmente l'anxiété, provoque la paralysie décisionnelle et alourdit la charge cognitive. Entraîne systématiquement un retard de livraison et une dette UX dès le lancement.
-
-Isoler les 2 à 3 fonctionnalités Must-be (modèle de Kano). Verrouiller le périmètre du MVP et basculer arbitrairement l'intégralité des fonctionnalités secondaires en V1.1+.
-
-2
-
-IA Générative partout (Shiny Object Syndrome)
-
-Seuil de Doherty (~400ms) : la latence des LLM (> 1s) détruit la fluidité de l'expérience utilisateur. S'y ajoutent les coûts d'infrastructures récurrents, l'imprédictibilité des réponses et le risque d'hallucination sur des tâches simples.
-
-Employer des règles déterministes, de la logique booléenne ou des filtres codés en dur lorsque la logique métier est connue. Réserver les LLM exclusivement aux problèmes à forte ambiguïté textuelle ou contextuelle.
-
-3
-
-Gamification punitive (Streaks rigides, classements)
-
-Self-Determination Theory (Deci & Ryan) : la contrainte externe et la menace de perte détruisent la motivation intrinsèque. La rupture d'une série (streak) provoque un sentiment d'échec et entraîne l'abandon définitif du produit.
-
-Privilégier une continuité souple (ex: objectifs hebdomadaires), des bilans bienveillants, et valoriser la progression personnelle sans comparaison sociale forcée ni culpabilisation.
-
-4
-
-Compte obligatoire avant la valeur (Registration Wall)
-
-Chute du Time-to-First-Value (NN/g) : forcer la création de compte au premier lancement crée une friction d'acquisition critique. L'utilisateur refuse de s'engager sans avoir mesuré la valeur réelle de l'outil.
-
-Adopter une approche Local-First ou un mode invité immédiat. Différer l'inscription et la solliciter uniquement lorsqu'une action nécessite une synchronisation multi-appareils ou une sauvegarde distante.
-
-5
-
-Tableau de bord passif (Vanity Metrics)
-
-Loi de Hick & Principes de Stephen Few : accumuler des indicateurs statiques surcharge l'attention visuelle sans orienter la décision. Voir une donnée sans pouvoir agir génère de la frustration et de l'inattention.
-
-Restreindre le tableau de bord aux seules données décisionnelles. Chaque élément affiché doit être directement couplé à une action concrète à exécuter ou à une prise de décision immédiate.
-
-6
-
-Prison de données (Format propriétaire)
-
-Anxiété de rétention et rejet technique : le verrouillage des données (lock-in) suscite une défiance immédiate chez les utilisateurs avertis et freine l'adoption (signaux récurrents sur GitHub/Reddit).
-
-Implémenter dès le MVP des modules d'exportation et d'importation intégrés dans des formats standards ouverts (JSON, CSV, Markdown).
-
-7
-
-Architecture par couches (Big Bang Slicing)
-
-Biais d'engagement & méthodologie Lean : construire séparément toute la base de données, puis toutes les API, retardera l'accès aux tests utilisateurs. Les fausses hypothèses de conception sont découvertes trop tard.
-
-Structurer le développement en tranches verticales (Vertical Slicing). Chaque jalon doit livrer une fonctionnalité complète, du stockage à l'interface utilisateur, testable en conditions réelles.
-
-8
-
-Configuration préalable obligatoire
-
-Loi de Tesler (Conservation de la complexité) : imposer la saisie de nombreux paramètres avant la première utilisation transfère injustement la complexité du système sur l'utilisateur.
-
-Fournir des configurations par défaut prêtes à l'emploi et opérationnelles dès le premier lancement. Permettre l'ajustement progressif des paramètres experts in situ.
+| N° | Anti-Pattern Produit | Pourquoi c'est nocif (base scientifique / terrain) | Correction obligatoire |
+| --- | --- | --- | --- |
+| 1 | Syndrome du Couteau Suisse (Feature Creep) | Paradoxe du choix (Schwartz) : la surabondance d'options augmente l'anxiété, provoque la paralysie décisionnelle et alourdit la charge cognitive. Entraîne systématiquement un retard de livraison et une dette UX dès le lancement. | Isoler les 2 à 3 fonctionnalités Must-be (modèle de Kano). Verrouiller le périmètre du MVP et basculer arbitrairement l'intégralité des fonctionnalités secondaires en V1.1+. |
+| 2 | IA Générative partout (Shiny Object Syndrome) | Seuil de Doherty (~400ms) : la latence des LLM (> 1s) détruit la fluidité de l'expérience utilisateur. S'y ajoutent les coûts d'infrastructures récurrents, l'imprédictibilité des réponses et le risque d'hallucination sur des tâches simples. | Employer des règles déterministes, de la logique booléenne ou des filtres codés en dur lorsque la logique métier est connue. Réserver les LLM exclusivement aux problèmes à forte ambiguïté textuelle ou contextuelle. |
+| 3 | Gamification punitive (Streaks rigides, classements) | Self-Determination Theory (Deci & Ryan) : la contrainte externe et la menace de perte détruisent la motivation intrinsèque. La rupture d'une série (streak) provoque un sentiment d'échec et entraîne l'abandon définitif du produit. | Privilégier une continuité souple (ex: objectifs hebdomadaires), des bilans bienveillants, et valoriser la progression personnelle sans comparaison sociale forcée ni culpabilisation. |
+| 4 | Compte obligatoire avant la valeur (Registration Wall) | Chute du Time-to-First-Value (NN/g) : forcer la création de compte au premier lancement crée une friction d'acquisition critique. L'utilisateur refuse de s'engager sans avoir mesuré la valeur réelle de l'outil. | Adopter une approche Local-First ou un mode invité immédiat. Différer l'inscription et la solliciter uniquement lorsqu'une action nécessite une synchronisation multi-appareils ou une sauvegarde distante. |
+| 5 | Tableau de bord passif (Vanity Metrics) | Loi de Hick & Principes de Stephen Few : accumuler des indicateurs statiques surcharge l'attention visuelle sans orienter la décision. Voir une donnée sans pouvoir agir génère de la frustration et de l'inattention. | Restreindre le tableau de bord aux seules données décisionnelles. Chaque élément affiché doit être directement couplé à une action concrète à exécuter ou à une prise de décision immédiate. |
+| 6 | Prison de données (Format propriétaire) | Anxiété de rétention et rejet technique : le verrouillage des données (lock-in) suscite une défiance immédiate chez les utilisateurs avertis et freine l'adoption (signaux récurrents sur GitHub/Reddit). | Implémenter dès le MVP des modules d'exportation et d'importation intégrés dans des formats standards ouverts (JSON, CSV, Markdown). |
+| 7 | Architecture par couches (Big Bang Slicing) | Biais d'engagement & méthodologie Lean : construire séparément toute la base de données, puis toutes les API, retardera l'accès aux tests utilisateurs. Les fausses hypothèses de conception sont découvertes trop tard. | Structurer le développement en tranches verticales (Vertical Slicing). Chaque jalon doit livrer une fonctionnalité complète, du stockage à l'interface utilisateur, testable en conditions réelles. |
+| 8 | Configuration préalable obligatoire | Loi de Tesler (Conservation de la complexité) : imposer la saisie de nombreux paramètres avant la première utilisation transfère injustement la complexité du système sur l'utilisateur. | Fournir des configurations par défaut prêtes à l'emploi et opérationnelles dès le premier lancement. Permettre l'ajustement progressif des paramètres experts in situ. |
 
 ## 2. Études de Cas « Avant / Après » (Arbitrage du Skill 0)
 
@@ -122,6 +61,7 @@ Ces études de cas illustrent l'arbitrage rendu par le moteur de validation du S
 
 Ce prompt est conçu pour déclencher l'exécution complète du protocole du Skill 0 (project-discovery-validation). Il force l'IA à adopter une posture critique, appuyée sur des bases scientifiques et de l'analyse terrain.
 
+```text
 Vous êtes un expert en Conception Produit, Ingénierie Logicielle et UX Psychology, agissant sous les directives strictes du "Skill 0 : Project Discovery & Validation".
 
 Votre rôle est de challenger sans complaisance mon idée de projet ou ma demande de fonctionnalité, afin de m'éviter de coder un produit inutile, trop complexe ou ergonomiquement défaillant.
@@ -185,47 +125,15 @@ Fournissez un découpage strict selon la nomenclature des jalons standardisée :
 - Jalon 3 (Stabilisation V1.0) : Tests de montée en charge, sécurité, RGPD et retours utilisateurs.
 
 - Jalon 4+ (Évolutions & Découverte Continue) : Fonctionnalités secondaires, intégrations et IA contextuelle.
+```
 
 ## 4. Protocole de Benchmark Comparatif (Avec Skill 0 vs Sans Skill 0)
 
 Afin d'évaluer objectivement l'impact de l'activation du Skill 0 (project-discovery-validation) sur les réponses de l'IA, appliquez le grille de benchmark ci-dessous lors de vos tests d'ingénierie prompt.
 
-Critère d'Évaluation
-
-Sans Skill 0 (IA Standard Complaisante)
-
-Avec Skill 0 (Project Discovery Validation)
-
-Gain / Impact Mesurable
-
-Complaisance & Esprit Critique
-
-Validation immédiate des idées, enthousiasme sans nuance, encouragement à la sur-conception.
-
-Challenging systématique, identification des biais produit, rejet des fonctionnalités superflues.
-
-Élimination des fonctionnalités à faible valeur ajoutée dès le cadrage (réduction du périmètre MVP).
-
-Couverture des Risques & RGPD
-
-Absence d'analyse des risques techniques, légaux ou de confidentialité des données.
-
-Registre des risques obligatoire, évaluation de l'impact RGPD et identification des points de défaillance.
-
-Anticipation des blocages réglementaires et architecturaux avant la phase de développement.
-
-Rigueur des Sources & UX
-
-Conseils génériques sans fondement théorique ni métriques de validation précises.
-
-Application rigoureuse des lois UX (Hick, Tesler, Doherty ~400ms, SDT) et scoring RICE / North Star.
-
-Décisions produit appuyées sur des principes scientifiques reconnus et mesurables.
-
-Structure de la Roadmap
-
-Plan d'action linéaire, découpage par couches (DB, API, Front) favorisant l'effet Tunnel.
-
-Découpage strict en tranches verticales (Jalons 0 à 4+) axé sur la valeur testable.
-
-Livraison accélérée d'un MVP opérationnel et testable en conditions réelles.
+| Critère d'Évaluation | Sans Skill 0 (IA Standard Complaisante) | Avec Skill 0 (Project Discovery Validation) | Gain / Impact Mesurable |
+| --- | --- | --- | --- |
+| Complaisance & Esprit Critique | Validation immédiate des idées, enthousiasme sans nuance, encouragement à la sur-conception. | Challenging systématique, identification des biais produit, rejet des fonctionnalités superflues. | Élimination des fonctionnalités à faible valeur ajoutée dès le cadrage (réduction du périmètre MVP). |
+| Couverture des Risques & RGPD | Absence d'analyse des risques techniques, légaux ou de confidentialité des données. | Registre des risques obligatoire, évaluation de l'impact RGPD et identification des points de défaillance. | Anticipation des blocages réglementaires et architecturaux avant la phase de développement. |
+| Rigueur des Sources & UX | Conseils génériques sans fondement théorique ni métriques de validation précises. | Application rigoureuse des lois UX (Hick, Tesler, Doherty ~400ms, SDT) et scoring RICE / North Star. | Décisions produit appuyées sur des principes scientifiques reconnus et mesurables. |
+| Structure de la Roadmap | Plan d'action linéaire, découpage par couches (DB, API, Front) favorisant l'effet Tunnel. | Découpage strict en tranches verticales (Jalons 0 à 4+) axé sur la valeur testable. | Livraison accélérée d'un MVP opérationnel et testable en conditions réelles. |

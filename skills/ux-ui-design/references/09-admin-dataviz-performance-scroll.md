@@ -46,77 +46,19 @@ Ce document de référence définit les standards d'ingénierie d'interface, d'e
 
 ### 1.2 Choix du Graphique selon l'Intention Analytique
 
-Intention Analytique
-
-Type de Graphique Recommandé
-
-Règles d'Implantation Impératives
-
-Évolution temporelle / Tendance
-
-Graphique en courbes (Line Chart)
-
-Repères discrets sur les points de donnée, axe X continu, infobulle contextuelle (tooltip) au survol affichant la date et la valeur exacte.
-
-Comparaison / Classement
-
-Graphique en barres horizontales ou verticales (Bar Chart)
-
-L'axe Y (ou X) doit impérativement démarrer à zéro (0). Tri systématique par valeur (sauf pour les séries ordinales).
-
-Flux / Transfert / Tunnel
-
-Diagramme de Sankey / Entonnoir (Funnel)
-
-Libellés explicites de volume direct sur les flux. Conservation de la proportion des largeurs de liens.
-
-Distribution / Corrélation
-
-Nuage de points (Scatter Plot) / Heatmap
-
-Utilisation d'échelles de couleurs perceptuellement uniformes (ex. Viridis, Plasma) et gestion du chevauchement (alpha opacity).
-
-Distribution continue
-
-Histogramme (Histogram)
-
-Distribution statistique d'une variable continue par tranches (ex. temps de réponse, montants). Barres contiguës sans espace inter-barres.
-
-Composition multi-catégories
-
-Barres empilées (Stacked Bar Chart — absolu ou 100 %)
-
-Comparaison de la composition interne de plusieurs catégories/périodes. Maximum 4 à 5 segments par barre.
-
-Hiérarchie complexe / Volumes
-
-Treemap (Carte proportionnelle)
-
-Hiérarchie à 2 niveaux ou plus avec de nombreuses catégories. Remplace avantageusement les camemberts imbriqués.
-
-Profil multi-critères
-
-Graphique Radar / Araignée (Radar Chart)
-
-5 à 7 axes maximum (ex. compétences, scores d'audit). Interdit pour plus de 2 entités superposées.
-
-Tendance contextuelle inline
-
-Sparklines (Edward Tufte)
-
-Micro-courbes sans axes intégrées directement dans un tableau ou une carte KPI pour visualisater la tendance en 1 seconde.
-
-Decomposition financière / Flux
-
-Graphique en Cascade (Waterfall Chart)
-
-Explication du passage d'une valeur initiale à une valeur finale via des ajouts et retraits successifs.
-
-Objectif & Performance
-
-Bullet Graph (Stephen Few)
-
-Remplace les jauges compteur géantes par une barre horizontale compacte montrant la valeur actuelle, la cible et les seuils qualitatifs.
+| Intention Analytique | Type de Graphique Recommandé | Règles d'Implantation Impératives |
+| --- | --- | --- |
+| Évolution temporelle / Tendance | Graphique en courbes (Line Chart) | Repères discrets sur les points de donnée, axe X continu, infobulle contextuelle (tooltip) au survol affichant la date et la valeur exacte. |
+| Comparaison / Classement | Graphique en barres horizontales ou verticales (Bar Chart) | L'axe Y (ou X) doit impérativement démarrer à zéro (0). Tri systématique par valeur (sauf pour les séries ordinales). |
+| Flux / Transfert / Tunnel | Diagramme de Sankey / Entonnoir (Funnel) | Libellés explicites de volume direct sur les flux. Conservation de la proportion des largeurs de liens. |
+| Distribution / Corrélation | Nuage de points (Scatter Plot) / Heatmap | Utilisation d'échelles de couleurs perceptuellement uniformes (ex. Viridis, Plasma) et gestion du chevauchement (alpha opacity). |
+| Distribution continue | Histogramme (Histogram) | Distribution statistique d'une variable continue par tranches (ex. temps de réponse, montants). Barres contiguës sans espace inter-barres. |
+| Composition multi-catégories | Barres empilées (Stacked Bar Chart — absolu ou 100 %) | Comparaison de la composition interne de plusieurs catégories/périodes. Maximum 4 à 5 segments par barre. |
+| Hiérarchie complexe / Volumes | Treemap (Carte proportionnelle) | Hiérarchie à 2 niveaux ou plus avec de nombreuses catégories. Remplace avantageusement les camemberts imbriqués. |
+| Profil multi-critères | Graphique Radar / Araignée (Radar Chart) | 5 à 7 axes maximum (ex. compétences, scores d'audit). Interdit pour plus de 2 entités superposées. |
+| Tendance contextuelle inline | Sparklines (Edward Tufte) | Micro-courbes sans axes intégrées directement dans un tableau ou une carte KPI pour visualisater la tendance en 1 seconde. |
+| Decomposition financière / Flux | Graphique en Cascade (Waterfall Chart) | Explication du passage d'une valeur initiale à une valeur finale via des ajouts et retraits successifs. |
+| Objectif & Performance | Bullet Graph (Stephen Few) | Remplace les jauges compteur géantes par une barre horizontale compacte montrant la valeur actuelle, la cible et les seuils qualitatifs. |
 
 #### Règle opérationnelle (DO)
 
@@ -264,45 +206,11 @@ Organiser la page selon une structure hiérarchique verticale standardisée en 3
 
 ### 3.1 Seuils Core Web Vitals Cibles
 
-Métrique
-
-Signification
-
-Seuil Bon (Cible)
-
-Seuil À Améliorer
-
-Seuil Critique
-
-LCP (Largest Contentful Paint)
-
-Temps d'affichage du contenu principal
-
-< 2,5 s
-
-2,5 s - 4,0 s
-
-> 4,0 s
-
-INP (Interaction to Next Paint)
-
-Réactivité globale aux clics / frappes (mesurée au p75)
-
-< 200 ms (Objectif interne ambitieux [N4]: < 100 ms)
-
-200 ms - 500 ms
-
-> 500 ms
-
-CLS (Cumulative Layout Shift)
-
-Stabilité visuelle (mesurée au p75)
-
-< 0,1 (Objectif interne ambitieux [N4]: 0,0)
-
-0,1 - 0,25
-
-> 0,25
+| Métrique | Signification | Seuil Bon (Cible) | Seuil À Améliorer | Seuil Critique |
+| --- | --- | --- | --- | --- |
+| LCP (Largest Contentful Paint) | Temps d'affichage du contenu principal | < 2,5 s | 2,5 s - 4,0 s | > 4,0 s |
+| INP (Interaction to Next Paint) | Réactivité globale aux clics / frappes (mesurée au p75) | < 200 ms (Objectif interne ambitieux [N4]: < 100 ms) | 200 ms - 500 ms | > 500 ms |
+| CLS (Cumulative Layout Shift) | Stabilité visuelle (mesurée au p75) | < 0,1 (Objectif interne ambitieux [N4]: 0,0) | 0,1 - 0,25 | > 0,25 |
 
 #### Règle opérationnelle (DO)
 
@@ -366,109 +274,20 @@ Le tableau suivant regroupe l'ensemble des points de contrôle obligatoires à v
 
 #
 
-Domaine
-
-Libellé du Test / Point de Contrôle
-
-Condition d'Acceptation (PASS)
-
-Méthode de Vérification
-
-01
-
-Démarrage à zéro de l'axe
-
-L'axe des valeurs Y (ou X) de tous les Bar Charts commence exactement à 0.
-
-Inspection visuelle / DevTools SVG
-
-02
-
-Limitation des Donut/Pie Charts
-
-Les Pie/Donut Charts comportent $\le 4$ segments et totalisent exactement 100 %.
-
-Inspection code & données
-
-03
-
-Ratio Data-Ink & Lignes de grille
-
-Absence de 3D, dégradés d'arrière-plan opaques ou bordures lourdes sur les canvas visualisations.
-
-Inspection visuelle
-
-04
-
-Formatage des nombres et infobulles
-
-Nombres affichés en font tabulaire (tabular-nums) avec séparateurs de milliers. Survol < 50ms.
-
-Test utilisateur & CSS
-
-05
-
-Structure en 3 étages
-
-Alignement vertical strict : (1) Filtres/KPI $\rightarrow$ (2) Graphiques $\rightarrow$ (3) Table détaillée.
-
-Audit visuel d'interface
-
-06
-
-Hauteur de fenêtre 100vh / No Global Scroll
-
-Absence de scroll global injustifié sur la racine de l'application métier (recommandation [N4]).
-
-Check CSS Layout / Resizing
-
-07
-
-Interdiction du Double Scroll
-
-Les zones de défilement imbriquées sont évitées pour prévenir les pièges de défilement [N4].
-
-Test de défilement molette
-
-08
-
-Virtualisation des listes longues
-
-Une liste ou table $> 50$ éléments génère uniquement les nœuds du viewport dans le DOM.
-
-Inspection de l'arbre DOM
-
-09
-
-Largest Contentful Paint (LCP)
-
-Chargement du composant visuel principal effectué en moins de 2,5 secondes.
-
-Audit Google Lighthouse
-
-10
-
-Interaction to Next Paint (INP)
-
-Latence à l'interaction (clic, recherche, filtre) inférieure à 100 ms.
-
-Chrome Performance Profiler
-
-11
-
-Cumulative Layout Shift (CLS)
-
-Score de saut d'interface égal à 0.0 lors du chargement ou du switch de filtres.
-
-Audit Web Vitals
-
-12
-
-Propriétés animées GPU uniquement
-
-Transitions CSS exécutées exclusivement via transform et opacity (60 fps sans reflow).
-
-Inspection règles CSS
+| Domaine | Libellé du Test / Point de Contrôle | Condition d'Acceptation (PASS) | Méthode de Vérification |
+| --- | --- | --- | --- |
+| 01 | Démarrage à zéro de l'axe | L'axe des valeurs Y (ou X) de tous les Bar Charts commence exactement à 0. | Inspection visuelle / DevTools SVG |
+| 02 | Limitation des Donut/Pie Charts | Les Pie/Donut Charts comportent $\le 4$ segments et totalisent exactement 100 %. | Inspection code & données |
+| 03 | Ratio Data-Ink & Lignes de grille | Absence de 3D, dégradés d'arrière-plan opaques ou bordures lourdes sur les canvas visualisations. | Inspection visuelle |
+| 04 | Formatage des nombres et infobulles | Nombres affichés en font tabulaire (tabular-nums) avec séparateurs de milliers. Survol < 50ms. | Test utilisateur & CSS |
+| 05 | Structure en 3 étages | Alignement vertical strict : (1) Filtres/KPI $\rightarrow$ (2) Graphiques $\rightarrow$ (3) Table détaillée. | Audit visuel d'interface |
+| 06 | Hauteur de fenêtre 100vh / No Global Scroll | Absence de scroll global injustifié sur la racine de l'application métier (recommandation [N4]). | Check CSS Layout / Resizing |
+| 07 | Interdiction du Double Scroll | Les zones de défilement imbriquées sont évitées pour prévenir les pièges de défilement [N4]. | Test de défilement molette |
+| 08 | Virtualisation des listes longues | Une liste ou table $> 50$ éléments génère uniquement les nœuds du viewport dans le DOM. | Inspection de l'arbre DOM |
+| 09 | Largest Contentful Paint (LCP) | Chargement du composant visuel principal effectué en moins de 2,5 secondes. | Audit Google Lighthouse |
+| 10 | Interaction to Next Paint (INP) | Latence à l'interaction (clic, recherche, filtre) inférieure à 100 ms. | Chrome Performance Profiler |
+| 11 | Cumulative Layout Shift (CLS) | Score de saut d'interface égal à 0.0 lors du chargement ou du switch de filtres. | Audit Web Vitals |
+| 12 | Propriétés animées GPU uniquement | Transitions CSS exécutées exclusivement via transform et opacity (60 fps sans reflow). | Inspection règles CSS |
 
 ### 3.4 Animation de Chargement « Effet Scan / Shimmer » & Transitions d'Apparition
 

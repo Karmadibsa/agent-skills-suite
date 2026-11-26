@@ -58,53 +58,13 @@ Pour assurer la traçabilité et l'intégrité des exigences selon ISO/IEC/IEEE 
 
 Le tableau ci-dessous détaille l'organisation des fichiers de référence constituant le standard de documentation du Skill 1.
 
-Fichier
-
-Nom du Document
-
-Description & Contenu Principal
-
-Condition de Chargement
-
-00
-
-00 — Index, Hiérarchie des Sources & Statuts de Décision
-
-Vision synthétique, périmètre négatif, hiérarchie des sources, statuts de décision, règles d'arbitrage.
-
-Obligatoire dès l'initialisation de toute session ou lecture.
-
-01
-
-01 — Personas, User Stories & Parcours Utilisateurs (BDD / Gherkin)
-
-Archétypes comportementaux, User Stories INVEST, scénarios Gherkin nominaux/alternatifs/erreur et parcours utilisateurs.
-
-Chargé pour l'écriture ou la validation des Use Cases et user stories.
-
-02
-
-02 — Règles Métier, Modèle de Données Conceptuel & Cas Limites (Edge Cases)
-
-Règles métier déterministes chiffrées, exigences non fonctionnelles NFR, modèle de données conceptuel, automates d'états et matrice des 8 cas limites.
-
-Chargé pour la modélisation métier, la conception de la base de données et la gestion des cas limites.
-
-03
-
-03 — Carnet de Décisions (ADR), Changelog & Mémoire Long Terme du Projet
-
-Journal d'ADR immuable, Glossaire Métier unique Ubiquitous Language, CHANGELOG.md SemVer/Keep a Changelog et protocole de passation HANDOFF.md.
-
-Chargé lors des arbitrages d'architecture, de la mise à jour des définitions métier ou du versionnage des versions.
-
-04
-
-04 — Découpage en Lots Atomiques, Issues, Pull Requests & Documentation Projet (README)
-
-Découpage vertical en lots atomiques, README.md 1-command, taxonomie des labels GitHub, templates Issues/PR et Definition of Done.
-
-Chargé pour la planfication des sprints, la création d'issues/PR et la préparation des déploiements.
+| Fichier | Nom du Document | Description & Contenu Principal | Condition de Chargement |
+| --- | --- | --- | --- |
+| 00 | 00 — Index, Hiérarchie des Sources & Statuts de Décision | Vision synthétique, périmètre négatif, hiérarchie des sources, statuts de décision, règles d'arbitrage. | Obligatoire dès l'initialisation de toute session ou lecture. |
+| 01 | 01 — Personas, User Stories & Parcours Utilisateurs (BDD / Gherkin) | Archétypes comportementaux, User Stories INVEST, scénarios Gherkin nominaux/alternatifs/erreur et parcours utilisateurs. | Chargé pour l'écriture ou la validation des Use Cases et user stories. |
+| 02 | 02 — Règles Métier, Modèle de Données Conceptuel & Cas Limites (Edge Cases) | Règles métier déterministes chiffrées, exigences non fonctionnelles NFR, modèle de données conceptuel, automates d'états et matrice des 8 cas limites. | Chargé pour la modélisation métier, la conception de la base de données et la gestion des cas limites. |
+| 03 | 03 — Carnet de Décisions (ADR), Changelog & Mémoire Long Terme du Projet | Journal d'ADR immuable, Glossaire Métier unique Ubiquitous Language, CHANGELOG.md SemVer/Keep a Changelog et protocole de passation HANDOFF.md. | Chargé lors des arbitrages d'architecture, de la mise à jour des définitions métier ou du versionnage des versions. |
+| 04 | 04 — Découpage en Lots Atomiques, Issues, Pull Requests & Documentation Projet (README) | Découpage vertical en lots atomiques, README.md 1-command, taxonomie des labels GitHub, templates Issues/PR et Definition of Done. | Chargé pour la planfication des sprints, la création d'issues/PR et la préparation des déploiements. |
 
 ## 6. Grille de Validation QA de l'Architecture Documentaire
 

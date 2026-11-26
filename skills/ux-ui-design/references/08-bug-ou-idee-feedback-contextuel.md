@@ -407,135 +407,23 @@ Le fichier retours.md agrège l'ensemble des retours compilés au format Markdow
 
 ## 3. Matrice de Validation QA (14 Tests Obligatoires)
 
-ID
-
-Catégorie
-
-Scénario de Test
-
-Procédure de Validation
-
-Résultat Attendu
-
-QA-01
-
-Clic sur un bouton d'action critique en mode Sélection
-
-Activer le mode Sélection et cliquer sur un bouton déclenchant une action (ex: Supprimer, Payer).
-
-L'action métier n'est pas exécutée. L'élément est sélectionné et le formulaire s'ouvre.
-
-QA-02
-
-Fonctionnement sur modale native <dialog open>
-
-Ouvrir une modale native HTML5 <dialog>, puis cliquer sur « Bug ou idée ? ».
-
-L'overlay et le formulaire s'affichent au-dessus de la modale native sans être masqués.
-
-QA-03
-
-Suppression dynamique de l'élément sélectionné
-
-Sélectionner un élément animé ou temporaire qui disparaît immédiatement du DOM.
-
-Le système conserve le snapshot du nœud, ses coordonnées calculées et ne plante pas (crash/null pointer).
-
-QA-04
-
-Élargissement de la zone sans perte de saisie
-
-Saisir du texte dans la description, puis cliquer sur « Élargir la zone ».
-
-Le composant cible remonte d'un niveau dans le DOM, la description saisie est intégralement conservée.
-
-QA-05
-
-Changement d'élément sans perte de saisie
-
-Saisir un texte, cliquer sur « Changer d'élément », puis choisir un nouvel élément.
-
-Le nouveau composant est associé au formulaire et le texte précédemment saisi est conservé.
-
-QA-06
-
-Annulation et fermeture via touche Échap
-
-1. Presser Échap en mode Sélection.2. Presser Échap en mode Formulaire (avec du texte).
-
-1. Quitte le mode Sélection.2. Affiche la confirmation d'abandon de saisie.
-
-QA-07
-
-Capture d'écran acceptée par l'utilisateur
-
-Soumettre un retour avec l'option capture d'écran cochée et accepter le dialogue navigateur.
-
-La capture de la zone et du viewport complet est générée et visible dans la phase de vérification.
-
-QA-08
-
-Refus explicite de la capture d'écran
-
-Refuser le dialogue getDisplayMedia du navigateur lors de la soumission.
-
-Le système affiche un avertissement non-bloquant et permet de valider le retour sans image.
-
-QA-09
-
-Blocage API / Environnement restreint
-
-Simuler un rejet immédiat de getDisplayMedia (SecurityError).
-
-Proposition de fallback manuel (Win + Maj + S) sans crash du module.
-
-QA-10
-
-Étanchéité et masquage des données sensibles
-
-Sélectionner un formulaire contenant des données (input.value, e-mails, tokens).
-
-Le JSON et le HTML extrait contiennent [adresse], [personne], [nombre] et aucune valeur brute de champ.
-
-QA-11
-
-Protection XSS dans la restitution
-
-Injecter des balises <script>alert(1)</script> dans le titre et la description.
-
-Les caractères sont strictement échappés dans l'interface, le texte copié et l'export Markdown.
-
-QA-12
-
-Gestion de l'erreur QuotaExceededError
-
-Remplir le localStorage jusqu'à saturation avant la création d'un retour.
-
-Le système bascule proprement sur IndexedDB ou signale une erreur propre sans perdre la saisie utilisateur.
-
-QA-13
-
-Validité et intégrité de l'archive .zip
-
-Générer et télécharger l'archive .zip depuis la page « Mes retours ».
-
-L'archive contient retours.md lisible et le dossier images/ avec des PNG valides non corrompus.
-
-QA-14
-
-Action « Démarrer une nouvelle session »
-
-Exécuter la commande de purge depuis l'interface « Mes retours ».
-
-Le localStorage et la base IndexedDB du module sont réinitialisés, le compteur repasse à 0.
-
-QA-15
-
-Capture anonymisée des erreurs console, réseau et fil comportemental
-
-Provoquer une erreur JS, un échec HTTP (ex: 422) et effectuer des clics avant de soumettre un retour.
-
-Les 5 dernières erreurs JS, requêtes HTTP en échec et actions sont enregistrées dans le JSON et le Markdown, totalement anonymisées sans données personnelles.
+| ID | Scénario de Test | Procédure de Validation | Résultat Attendu |
+| --- | --- | --- | --- |
+| QA-01 | Clic sur un bouton d'action critique en mode Sélection | Activer le mode Sélection et cliquer sur un bouton déclenchant une action (ex: Supprimer, Payer). | L'action métier n'est pas exécutée. L'élément est sélectionné et le formulaire s'ouvre. |
+| QA-02 | Fonctionnement sur modale native <dialog open> | Ouvrir une modale native HTML5 <dialog>, puis cliquer sur « Bug ou idée ? ». | L'overlay et le formulaire s'affichent au-dessus de la modale native sans être masqués. |
+| QA-03 | Suppression dynamique de l'élément sélectionné | Sélectionner un élément animé ou temporaire qui disparaît immédiatement du DOM. | Le système conserve le snapshot du nœud, ses coordonnées calculées et ne plante pas (crash/null pointer). |
+| QA-04 | Élargissement de la zone sans perte de saisie | Saisir du texte dans la description, puis cliquer sur « Élargir la zone ». | Le composant cible remonte d'un niveau dans le DOM, la description saisie est intégralement conservée. |
+| QA-05 | Changement d'élément sans perte de saisie | Saisir un texte, cliquer sur « Changer d'élément », puis choisir un nouvel élément. | Le nouveau composant est associé au formulaire et le texte précédemment saisi est conservé. |
+| QA-06 | Annulation et fermeture via touche Échap | 1. Presser Échap en mode Sélection.2. Presser Échap en mode Formulaire (avec du texte). | 1. Quitte le mode Sélection.2. Affiche la confirmation d'abandon de saisie. |
+| QA-07 | Capture d'écran acceptée par l'utilisateur | Soumettre un retour avec l'option capture d'écran cochée et accepter le dialogue navigateur. | La capture de la zone et du viewport complet est générée et visible dans la phase de vérification. |
+| QA-08 | Refus explicite de la capture d'écran | Refuser le dialogue getDisplayMedia du navigateur lors de la soumission. | Le système affiche un avertissement non-bloquant et permet de valider le retour sans image. |
+| QA-09 | Blocage API / Environnement restreint | Simuler un rejet immédiat de getDisplayMedia (SecurityError). | Proposition de fallback manuel (Win + Maj + S) sans crash du module. |
+| QA-10 | Étanchéité et masquage des données sensibles | Sélectionner un formulaire contenant des données (input.value, e-mails, tokens). | Le JSON et le HTML extrait contiennent [adresse], [personne], [nombre] et aucune valeur brute de champ. |
+| QA-11 | Protection XSS dans la restitution | Injecter des balises <script>alert(1)</script> dans le titre et la description. | Les caractères sont strictement échappés dans l'interface, le texte copié et l'export Markdown. |
+| QA-12 | Gestion de l'erreur QuotaExceededError | Remplir le localStorage jusqu'à saturation avant la création d'un retour. | Le système bascule proprement sur IndexedDB ou signale une erreur propre sans perdre la saisie utilisateur. |
+| QA-13 | Validité et intégrité de l'archive .zip | Générer et télécharger l'archive .zip depuis la page « Mes retours ». | L'archive contient retours.md lisible et le dossier images/ avec des PNG valides non corrompus. |
+| QA-14 | Action « Démarrer une nouvelle session » | Exécuter la commande de purge depuis l'interface « Mes retours ». | Le localStorage et la base IndexedDB du module sont réinitialisés, le compteur repasse à 0. |
+| QA-15 | Capture anonymisée des erreurs console, réseau et fil comportemental | Provoquer une erreur JS, un échec HTTP (ex: 422) et effectuer des clics avant de soumettre un retour. | Les 5 dernières erreurs JS, requêtes HTTP en échec et actions sont enregistrées dans le JSON et le Markdown, totalement anonymisées sans données personnelles. |
 
 ### 2.10 Diagnostic Technique Auto-Collecté (Erreurs, Réseau & Interactions)
 

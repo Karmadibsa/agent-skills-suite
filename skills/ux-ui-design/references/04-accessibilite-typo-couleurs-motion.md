@@ -138,35 +138,12 @@ Spécifications techniques, règles opérationnelles et critères de validation 
 
 ### 2.2 Sémantique et Psychologie des Familles Typographiques
 
-Catégorie Typographique
-
-Familles de Référence
-
-Attributs Psychologiques & Usages Recommandés
-
-Sans-Serif Géométrique
-
-Inter, Plus Jakarta Sans, Sora, Geist
-
-Modernité, clarté technologique, précision objective. Adapté aux interfaces SaaS, plateformes analytiques, outils d'IA.
-
-Sans-Serif Humaniste
-
-Open Sans, Source Sans, Lato, Atkinson Hyperlegible
-
-Chaleur humaine, lisibilité maximale, accessibilité universelle. Recommandé pour la santé, l'éducation, le grand public.
-
-Serif Éditorial
-
-Newsreader, Lora, Merriweather, Playfair
-
-Autorité, tradition, réflexion, premium éditorial. Recommandé pour la lecture longue, la presse, la culture, le luxe.
-
-Monospace
-
-JetBrains Mono, Fira Code, Geist Mono
-
-Rigueur technique, alignement structurel. Obligatoire pour les blocs de code, identifiants techniques, logs.
+| Catégorie Typographique | Familles de Référence | Attributs Psychologiques & Usages Recommandés |
+| --- | --- | --- |
+| Sans-Serif Géométrique | Inter, Plus Jakarta Sans, Sora, Geist | Modernité, clarté technologique, précision objective. Adapté aux interfaces SaaS, plateformes analytiques, outils d'IA. |
+| Sans-Serif Humaniste | Open Sans, Source Sans, Lato, Atkinson Hyperlegible | Chaleur humaine, lisibilité maximale, accessibilité universelle. Recommandé pour la santé, l'éducation, le grand public. |
+| Serif Éditorial | Newsreader, Lora, Merriweather, Playfair | Autorité, tradition, réflexion, premium éditorial. Recommandé pour la lecture longue, la presse, la culture, le luxe. |
+| Monospace | JetBrains Mono, Fira Code, Geist Mono | Rigueur technique, alignement structurel. Obligatoire pour les blocs de code, identifiants techniques, logs. |
 
 - Règle spécifique Chiffres Tabulaires : Pour les tableaux financiers, compteurs, horloges et listings de données chiffrées, activer obligatoirement les chiffres à largeur fixe via CSS : font-variant-numeric: tabular-nums;.
 
@@ -236,61 +213,14 @@ Rigueur technique, alignement structurel. Obligatoire pour les blocs de code, id
 
 ### 3.3 Signification Psychologique et System Tokens
 
-Teinte / Signification
-
-Tokens System
-
-Usages Autorisés
-
-Interdictions
-
-Bleu / IndigoConfiance, fiabilité, technologie
-
-color-brand-primarycolor-interactive
-
-Actions principales, liens, états actifs, navigation, identité SaaS.
-
-Utilisation sur des messages d'erreur ou d'avertissement.
-
-Vert / ÉmeraudeValidation, succès, sérénité
-
-color-success-basecolor-success-subtle
-
-Confirmation d'action, soldes positifs, statut "En ligne", validation.
-
-Utilisation sur des éléments destructifs ou des alertes d'avertissement.
-
-Ambre / OrangeAttention, énergie, prudence
-
-color-warning-basecolor-warning-subtle
-
-Alertes non bloquantes, opérations irréversibles à venir, expirations.
-
-Utilisation pour de simples notifications informatives ou neutres.
-
-Rouge / CorailUrgence, danger, erreur
-
-color-danger-basecolor-danger-subtle
-
-Erreurs critiques, actions destructives (suppression permanente), blocages.
-
-Strictement interdit pour des éléments purement décoratifs ou secondaires.
-
-Violet / PruneCréativité, IA, premium
-
-color-accent-aicolor-accent-premium
-
-Fonctionnalités d'intelligence artificielle, surlignages premium, badges.
-
-Emploi comme couleur de texte courant ou sur les éléments système de base.
-
-Neutres (Ardoise / Pierre)Calme cognitif, structure
-
-color-neutral-0 à 1000color-border-subtle
-
-Fonds, cartes, typographie courante, séparateurs, états désactivés.
-
-Absence de contraste minimal entre le fond et le texte de niveau 1/2.
+| Teinte / Signification | Tokens System | Usages Autorisés | Interdictions |
+| --- | --- | --- | --- |
+| Bleu / IndigoConfiance, fiabilité, technologie | color-brand-primarycolor-interactive | Actions principales, liens, états actifs, navigation, identité SaaS. | Utilisation sur des messages d'erreur ou d'avertissement. |
+| Vert / ÉmeraudeValidation, succès, sérénité | color-success-basecolor-success-subtle | Confirmation d'action, soldes positifs, statut "En ligne", validation. | Utilisation sur des éléments destructifs ou des alertes d'avertissement. |
+| Ambre / OrangeAttention, énergie, prudence | color-warning-basecolor-warning-subtle | Alertes non bloquantes, opérations irréversibles à venir, expirations. | Utilisation pour de simples notifications informatives ou neutres. |
+| Rouge / CorailUrgence, danger, erreur | color-danger-basecolor-danger-subtle | Erreurs critiques, actions destructives (suppression permanente), blocages. | Strictement interdit pour des éléments purement décoratifs ou secondaires. |
+| Violet / PruneCréativité, IA, premium | color-accent-aicolor-accent-premium | Fonctionnalités d'intelligence artificielle, surlignages premium, badges. | Emploi comme couleur de texte courant ou sur les éléments système de base. |
+| Neutres (Ardoise / Pierre)Calme cognitif, structure | color-neutral-0 à 1000color-border-subtle | Fonds, cartes, typographie courante, séparateurs, états désactivés. | Absence de contraste minimal entre le fond et le texte de niveau 1/2. |
 
 ### 3.4 Harmonisation Chromatique & Choix Scientifique des Palettes (Théorie des Couleurs & Espace Perceptuel OKLCH)
 

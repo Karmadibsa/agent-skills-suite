@@ -34,47 +34,14 @@ Chaque choix d'architecture de données ou d'exposition d'API dans ce projet doi
 
 Le choix d'architecture de persistance doit s'aligner sur le contexte opérationnel validé au sein du Skill 0 (Cahier des charges) et du Skill 1 (Architecture globale).
 
-Critère d'évaluation
-
-Architecture Local-First [N5](SQLite / IndexedDB / Fichiers locaux)
-
-Architecture Client-Serveur [N5](PostgreSQL / API REST / Cloud)
-
-Cas d'usage cibles
-
-Applications desktop/mobiles (Tauri, Electron), PWA hors-ligne, outils de productivité individuelle.
-
-Applications multi-utilisateurs temps réel, SaaS B2B/B2C, plateformes transactionnelles centralisées.
-
-Latence & Performance
-
-Latence quasi nulle (accès mémoire/disque local). Pas d'appels réseau sur le chemin critique [N2].
-
-Dépendant de la qualité du réseau. Nécessite une stratégie de mise en cache et de découplage [N4].
-
-Confidentialité & Souveraineté
-
-Maximale. Les données restent strictement sur l'appareil de l'utilisateur par défaut [N1].
-
-Nécessite le chiffrement en transit (TLS 1.3) et au repos (AES-256), ainsi qu'un contrôle d'accès strict [N1].
-
-Gestion des sauvegardes
-
-Sauvegardes locales automatiques avant migration. Fonctionnalité d'export/import complet obligatoire [N4].
-
-Sauvegardes centralisées automatisées (WAL, PITR), réplication multi-zones et plans de reprise d'activité.
-
-Contrôle d'accès & Sécurité
-
-Sécurité reposant sur le bac à sable de l'OS. Modèle d'autorisation simplifié (mono-utilisateur local).
-
-Contrôle d'accès fin centralisé (RBAC / ABAC) validé côté serveur à chaque requête [N4].
-
-Évolution du schéma
-
-Migrations exécutées sur l'appareil client lors des mises à jour applicatives. Risque de dérives de versions [N4].
-
-Migrations centralisées contrôlées (zero-downtime) avec dépréciation progressive des contrats API [N4].
+| Critère d'évaluation | Architecture Local-First [N5](SQLite / IndexedDB / Fichiers locaux) | Architecture Client-Serveur [N5](PostgreSQL / API REST / Cloud) |
+| --- | --- | --- |
+| Cas d'usage cibles | Applications desktop/mobiles (Tauri, Electron), PWA hors-ligne, outils de productivité individuelle. | Applications multi-utilisateurs temps réel, SaaS B2B/B2C, plateformes transactionnelles centralisées. |
+| Latence & Performance | Latence quasi nulle (accès mémoire/disque local). Pas d'appels réseau sur le chemin critique [N2]. | Dépendant de la qualité du réseau. Nécessite une stratégie de mise en cache et de découplage [N4]. |
+| Confidentialité & Souveraineté | Maximale. Les données restent strictement sur l'appareil de l'utilisateur par défaut [N1]. | Nécessite le chiffrement en transit (TLS 1.3) et au repos (AES-256), ainsi qu'un contrôle d'accès strict [N1]. |
+| Gestion des sauvegardes | Sauvegardes locales automatiques avant migration. Fonctionnalité d'export/import complet obligatoire [N4]. | Sauvegardes centralisées automatisées (WAL, PITR), réplication multi-zones et plans de reprise d'activité. |
+| Contrôle d'accès & Sécurité | Sécurité reposant sur le bac à sable de l'OS. Modèle d'autorisation simplifié (mono-utilisateur local). | Contrôle d'accès fin centralisé (RBAC / ABAC) validé côté serveur à chaque requête [N4]. |
+| Évolution du schéma | Migrations exécutées sur l'appareil client lors des mises à jour applicatives. Risque de dérives de versions [N4]. | Migrations centralisées contrôlées (zero-downtime) avec dépréciation progressive des contrats API [N4]. |
 
 ### 3.2. Limites & Contraintes Pratiques du Mode Local-First (Navigateur vs Desktop)
 
@@ -88,35 +55,12 @@ Le choix d'une architecture Local-First impose la prise en compte des contrainte
 
 Le présent skill s'articule autour de quatre documents de référence spécialisés :
 
-Document
-
-Titre & Description
-
-Condition de chargement / Usage
-
-00
-
-Index, Architecture de Persistance & Niveaux de PreuveDocument cadre définissant les objectifs, la taxonomie des preuves, le choix d'architecture de persistance et la grille de validation QA.
-
-Toujours chargé comme point d'entrée pour le Skill 3.
-
-01
-
-Modélisation de la Persistance & MigrationsSpécification des schémas SQL/NoSQL, règles de normalisation, contraintes d'intégrité, indexation et stratégies de migration sans perte de données.
-
-À charger dès lors qu'il s'agit d'avoir à créer, modifier ou auditer la structure de la base de données.
-
-02
-
-Design des API REST & Contrats d'ÉchangeRègles de conception des points d'accès API, formalisation des schémas OpenAPI 3.1, typage des données et gestion unifiée des erreurs (RFC 9457).
-
-À charger pour la définition, la modification ou la documentation des contrats d'interface API.
-
-03
-
-Souveraineté des Données, RGPD & AuditabilityPatrons de conception pour l'isolation des DCP, la gestion des consentements, l'anonymisation/pseudonymisation et la traçabilité des opérations.
-
-À charger lors de l'implémentation de fonctionnalités touchant aux données personnelles ou au journal d'audit.
+| Document | Titre & Description | Condition de chargement / Usage |
+| --- | --- | --- |
+| 00 | Index, Architecture de Persistance & Niveaux de PreuveDocument cadre définissant les objectifs, la taxonomie des preuves, le choix d'architecture de persistance et la grille de validation QA. | Toujours chargé comme point d'entrée pour le Skill 3. |
+| 01 | Modélisation de la Persistance & MigrationsSpécification des schémas SQL/NoSQL, règles de normalisation, contraintes d'intégrité, indexation et stratégies de migration sans perte de données. | À charger dès lors qu'il s'agit d'avoir à créer, modifier ou auditer la structure de la base de données. |
+| 02 | Design des API REST & Contrats d'ÉchangeRègles de conception des points d'accès API, formalisation des schémas OpenAPI 3.1, typage des données et gestion unifiée des erreurs (RFC 9457). | À charger pour la définition, la modification ou la documentation des contrats d'interface API. |
+| 03 | Souveraineté des Données, RGPD & AuditabilityPatrons de conception pour l'isolation des DCP, la gestion des consentements, l'anonymisation/pseudonymisation et la traçabilité des opérations. | À charger lors de l'implémentation de fonctionnalités touchant aux données personnelles ou au journal d'audit. |
 
 ## 5. Grille de Validation QA Globale
 
@@ -144,35 +88,12 @@ Toutes les clés étrangères et les colonnes utilisées fréquemment dans les c
 
 Afin de valider objectivement l'apport des normes d'architecture de données et de formalisation d'API, l'évaluation comparative suivante est appliquée sur l'ensemble des composants de persistance :
 
-Axe d'évaluation
-
-Sans Skill 3 (Pratiques ad hoc)
-
-Avec Skill 3 (Référentiel Données V2.0)
-
-Intégrité financière & typage
-
-Présence de types FLOAT/DOUBLE provoquant des erreurs cumulatives d'arrondis monétaires.
-
-Types décimaux exacts (NUMERIC/DECIMAL ou entiers en cents) garantissant zéro écart de calcul.
-
-Gestion des erreurs API
-
-Formats de retours d'erreur hétérogènes (textes bruts, structures JSON variables selon les endpoints).
-
-Spécification RFC 9457 (Problem Details) appliquée uniformément sur 100 % des points d'accès.
-
-Robustesse des migrations
-
-Modifications de schéma directes ou non réversibles causant des interruptions ou pertes de données.
-
-Pattern Expand-Contract validé avec scripts up/down testés sans perte ni temps d'arrêt.
-
-Conformité RGPD
-
-Données personnelles dispersées, absence de mécanismes d'effacement sélectif ou de portabilité.
-
-Isolation des DCP, traçabilité des consentements et fonctions d'export/anonymisation opérationnelles.
+| Axe d'évaluation | Sans Skill 3 (Pratiques ad hoc) | Avec Skill 3 (Référentiel Données V2.0) |
+| --- | --- | --- |
+| Intégrité financière & typage | Présence de types FLOAT/DOUBLE provoquant des erreurs cumulatives d'arrondis monétaires. | Types décimaux exacts (NUMERIC/DECIMAL ou entiers en cents) garantissant zéro écart de calcul. |
+| Gestion des erreurs API | Formats de retours d'erreur hétérogènes (textes bruts, structures JSON variables selon les endpoints). | Spécification RFC 9457 (Problem Details) appliquée uniformément sur 100 % des points d'accès. |
+| Robustesse des migrations | Modifications de schéma directes ou non réversibles causant des interruptions ou pertes de données. | Pattern Expand-Contract validé avec scripts up/down testés sans perte ni temps d'arrêt. |
+| Conformité RGPD | Données personnelles dispersées, absence de mécanismes d'effacement sélectif ou de portabilité. | Isolation des DCP, traçabilité des consentements et fonctions d'export/anonymisation opérationnelles. |
 
 ### Portes de Validation Go/No-Go avant Mise en Production
 

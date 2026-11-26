@@ -4,29 +4,11 @@
 
 Ce dossier regroupe l'ensemble des ressources nécessaires au déploiement du site vitrine institutionnel et interactif pour la suite Agent Skills Suite. L'architecture a été conçue pour être légère, ultra-performante et directement hébergeable sans aucun coût d'infrastructure.
 
-Fichier du dossier
-
-Emplacement cible
-
-Description & Rôle architectural
-
-01 — index.html
-
-website/index.html
-
-Structure HTML5 sémantique, accessible (ARIA) et optimisée SEO. Contient la présentation des Skills (0 à 5), les modules de démonstration et les appels à l'action.
-
-02 — styles.css
-
-website/styles.css
-
-Feuille de style CSS3 moderne utilisant des variables CSS, un layout Flexbox/Grid responsive, un mode sombre/clair et un design system aligné sur la charte Agent Skills Suite.
-
-03 — app.js
-
-website/app.js
-
-Logique JavaScript vanilla (ES6+) sans dépendance externe. Gère l'interactivité, le filtrage des compétences, la copie des prompts en 1 clic et les animations d'interface.
+| Fichier du dossier | Emplacement cible | Description & Rôle architectural |
+| --- | --- | --- |
+| 01 — index.html | website/index.html | Structure HTML5 sémantique, accessible (ARIA) et optimisée SEO. Contient la présentation des Skills (0 à 5), les modules de démonstration et les appels à l'action. |
+| 02 — styles.css | website/styles.css | Feuille de style CSS3 moderne utilisant des variables CSS, un layout Flexbox/Grid responsive, un mode sombre/clair et un design system aligné sur la charte Agent Skills Suite. |
+| 03 — app.js | website/app.js | Logique JavaScript vanilla (ES6+) sans dépendance externe. Gère l'interactivité, le filtrage des compétences, la copie des prompts en 1 clic et les animations d'interface. |
 
 ### Structure du répertoire projet recommandé
 

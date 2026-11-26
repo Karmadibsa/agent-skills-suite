@@ -60,59 +60,16 @@ Une fenêtre modale ou un assistant multi-étapes (wizard) doit se comporter com
 
 ### Matrice de choix du composant idéal selon la structure de la donnée
 
-Volume / Nature des options
-
-Composant UX Recommandé
-
-Rationale Cognitive & Ergonomique
-
-2 options mutuellement exclusives (Oui/Non, Actif/Inactif)
-
-Interrupteur (Toggle Switch) si l'effet est immédiat.2 Boutons Radio côte à côte si la validation nécessite la soumission globale du formulaire.
-
-Évite de masquer l'alternative derrière un clic. L'état binaire est immédiatement lisible sans charge intellectuelle.
-
-3 à 5 options courtes
-
-Segmented Control (Pilules) ou Boutons Radio visibles.
-
-Applique la Loi de Hick. Tous les choix sont visibles d'un coup. Suppression de l'action d'ouverture d'un menu déroulant.
-
-6 à 15 options connues
-
-Liste déroulante standard (Select) avec valeur par défaut neutre/explicite.
-
-La liste est suffisamment restreinte pour être parcourue visuellement sans effort d'orientation majeur.
-
-> 15 options (Pays, Ville, Code AFE, Client)
-
-Combobox / Autocomplete filtrable avec soutien clavier complet (Flèches, Entrée, surbrillance).
-
-Évite le défilement fastidieux dans un long menu (anti-pattern critique documenté par Baymard Institute).
-
-Sélection multiple
-
-Multi-select avec pilules (Chips) supprimables et barre de recherche intégrée (ou cases à cocher si $\le 6$ options).
-
-Visualisation claire des éléments retenus. Suppression en un seul clic sans réouvrir la liste.
-
-Valeur numérique bornée (Pourcentage, Budget approximatif)
-
-Champ texte numérique (inputmode="decimal"), éventuellement couplé à un Curseur (Slider) si la précision absolue n'est pas requise.
-
-Ne jamais imposer un Slider seul pour une donnée nécessitant une valeur exacte (ex: un montant financier).
-
-Date / Plage de dates
-
-Calendrier visuel (Date Picker) + Saisie clavier directe autorisée (JJ/MM/AAAA) avec raccourcis (« Aujourd'hui », « 30 derniers jours »).
-
-La saisie manuelle au clavier doit rester possible pour les utilisateurs experts. Le Date Picker sert à la vérification contextuelle.
-
-Texte court vs Long
-
-Affordance de longueur : Ajuster la largeur visuelle de l'élément à la taille moyenne de la donnée attendue (ex: code postal à 120 px, pas 100%).
-
-La taille du champ indique visuellement le format de réponse attendu, diminuant le doute lors de la saisie.
+| Volume / Nature des options | Composant UX Recommandé | Rationale Cognitive & Ergonomique |
+| --- | --- | --- |
+| 2 options mutuellement exclusives (Oui/Non, Actif/Inactif) | Interrupteur (Toggle Switch) si l'effet est immédiat.2 Boutons Radio côte à côte si la validation nécessite la soumission globale du formulaire. | Évite de masquer l'alternative derrière un clic. L'état binaire est immédiatement lisible sans charge intellectuelle. |
+| 3 à 5 options courtes | Segmented Control (Pilules) ou Boutons Radio visibles. | Applique la Loi de Hick. Tous les choix sont visibles d'un coup. Suppression de l'action d'ouverture d'un menu déroulant. |
+| 6 à 15 options connues | Liste déroulante standard (Select) avec valeur par défaut neutre/explicite. | La liste est suffisamment restreinte pour être parcourue visuellement sans effort d'orientation majeur. |
+| > 15 options (Pays, Ville, Code AFE, Client) | Combobox / Autocomplete filtrable avec soutien clavier complet (Flèches, Entrée, surbrillance). | Évite le défilement fastidieux dans un long menu (anti-pattern critique documenté par Baymard Institute). |
+| Sélection multiple | Multi-select avec pilules (Chips) supprimables et barre de recherche intégrée (ou cases à cocher si $\le 6$ options). | Visualisation claire des éléments retenus. Suppression en un seul clic sans réouvrir la liste. |
+| Valeur numérique bornée (Pourcentage, Budget approximatif) | Champ texte numérique (inputmode="decimal"), éventuellement couplé à un Curseur (Slider) si la précision absolue n'est pas requise. | Ne jamais imposer un Slider seul pour une donnée nécessitant une valeur exacte (ex: un montant financier). |
+| Date / Plage de dates | Calendrier visuel (Date Picker) + Saisie clavier directe autorisée (JJ/MM/AAAA) avec raccourcis (« Aujourd'hui », « 30 derniers jours »). | La saisie manuelle au clavier doit rester possible pour les utilisateurs experts. Le Date Picker sert à la vérification contextuelle. |
+| Texte court vs Long | Affordance de longueur : Ajuster la largeur visuelle de l'élément à la taille moyenne de la donnée attendue (ex: code postal à 120 px, pas 100%). | La taille du champ indique visuellement le format de réponse attendu, diminuant le doute lors de la saisie. |
 
 ### Règles de Pré-remplissage & Validation Intelligente (Loi de Tesler)
 

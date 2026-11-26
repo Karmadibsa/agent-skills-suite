@@ -208,37 +208,23 @@ Une hypothèse produit n'est valide que si elle est réfutable. Chaque fonctionn
 
 Cette étape évalue la viabilité de l'ingénierie et la pérennité architecturale à travers quatre dimensions d'analyse d'impact prédictives.
 
+```text
                     +------------------------------------+
-
                     |   Matrice d'Arbitrage Impact/Coût  |
-
                     +------------------------------------+
-
-                    
-
         ÉLEVÉ  ^  +--------------------+--------------------+
-
                |  |  RÉVISION / REJET  |  PRIORITÉ ABSOLUE  |
-
                |  |  (Forte valeur mais|  (Victoire rapide  |
-
                |  |   coût trop cher)  |   ou ROI massif)   |
-
         IMPACT |  +--------------------+--------------------+
-
         CLIENT |  |  ÉLIMINATION      |  SECOND RANG       |
-
                |  |  (Gaspillage de    |  (À traiter si    |
-
                |  |   ressources)      |   bande passante)  |
-
         FAIBLE |  +--------------------+--------------------+
-
                +-------------------------------------------->
-
                   ÉLEVÉ <------------- EFFORT -------------> FAIBLE
-
                                   (Technique & Maint.)
+```
 
 ### Grille d'évaluation à 4 dimensions
 
@@ -326,69 +312,18 @@ Ce gabarit synthétique doit être renseigné pour trancher objectivement l'oppo
 
 ### Template de Décision Exécutif (v2.0)
 
-Item
-
-Champ d'évaluation
-
-Saisie & Analyse
-
-01
-
-Nom de la Feature
-
-[Ex. Exportation Automatisée des Rapports Hebdomadaires]
-
-02
-
-Formule JTBD (3 Dimensions)
-
-Quand [situation], je veux [action/progrès], afin de [bénéfice fonctionnel, émotionnel & social].
-
-03
-
-Classification Kano (5 Catégories)
-
-[ ] Obligatoire    [ ] Performance    [ ] Attractif    [ ] Indifférent    [ ] Inverse
-
-04
-
-Score RICE & Priorisation
-
-R: [ ] × I: [ ] × C: [ ]% / E: [ ] = Score RICE Final : [ Score ]
-
-05
-
-Validation Comportementale
-
-Deci & Ryan (3 besoins), Charge Sweller/Cowan & Divulgation progressive : [Validé / À réviser]
-
-06
-
-Test de Falsifiabilité (Popper)
-
-Critère d'invalidation produit : [Objectif interne chiffré + horizon temporel]
-
-07
-
-Risques, RGPD & Éthique IA
-
-Privacy by Design : [Conforme] — Risk Register & Éthique : [Validé / Risque identifié]
-
-08
-
-Faisabilité & Business Case
-
-Stack compatible & Edge Cases : [Oui/Non] — Viabilité économique : [Validée]
-
-09
-
-KPI & North Star Metric
-
-Métrique de succès actionnable : [Indicateur clé de valeur mesurable]
-
-10
-
-DÉCISION FINALE
+| Item | Champ d'évaluation | Saisie & Analyse |
+| --- | --- | --- |
+| 01 | Nom de la Feature | [Ex. Exportation Automatisée des Rapports Hebdomadaires] |
+| 02 | Formule JTBD (3 Dimensions) | Quand [situation], je veux [action/progrès], afin de [bénéfice fonctionnel, émotionnel & social]. |
+| 03 | Classification Kano (5 Catégories) | [ ] Obligatoire    [ ] Performance    [ ] Attractif    [ ] Indifférent    [ ] Inverse |
+| 04 | Score RICE & Priorisation | R: [ ] × I: [ ] × C: [ ]% / E: [ ] = Score RICE Final : [ Score ] |
+| 05 | Validation Comportementale | Deci & Ryan (3 besoins), Charge Sweller/Cowan & Divulgation progressive : [Validé / À réviser] |
+| 06 | Test de Falsifiabilité (Popper) | Critère d'invalidation produit : [Objectif interne chiffré + horizon temporel] |
+| 07 | Risques, RGPD & Éthique IA | Privacy by Design : [Conforme] — Risk Register & Éthique : [Validé / Risque identifié] |
+| 08 | Faisabilité & Business Case | Stack compatible & Edge Cases : [Oui/Non] — Viabilité économique : [Validée] |
+| 09 | KPI & North Star Metric | Métrique de succès actionnable : [Indicateur clé de valeur mesurable] |
+| 10 | DÉCISION FINALE |  |
 
 ```
 [ GO / NO-GO / RE-DESIGN ] — Réviseur : 

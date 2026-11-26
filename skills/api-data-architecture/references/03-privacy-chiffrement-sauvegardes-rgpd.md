@@ -51,37 +51,11 @@ Pour limiter la portée d'une fuite de données (data breach), l'architecture do
 
 Chaque entité de la base de données doit être associée à une politique de conservation (Data Retention Policy). Des tâches planifiées (cron jobs / worker background) doivent exécuter la purge ou l'anonymisation de manière automatisée.
 
-Catégorie de données
-
-Durée maximale de conservation
-
-Action à l'échéance
-
-Mécanisme d'exécution
-
-Journaux d'accès & Logs d'API
-
-30 à 90 jours
-
-Purge automatique quotidienne via tâche système
-
-Sessions d'authentification
-
-Expiration + 14 jours
-
-Nettoyage automatique en base (TTL / Scheduled job)
-
-Comptes inactifs (sans connexion)
-
-24 mois (avertissement à 23m)
-
-Cron mensuel contrôlant last_login_at
-
-Historique de facturation
-
-10 ans (obligation légale C. Com.)
-
-Isolation dans un coffre d'archivage comptable
+| Catégorie de données | Durée maximale de conservation | Action à l'échéance | Mécanisme d'exécution |
+| --- | --- | --- | --- |
+| Journaux d'accès & Logs d'API | 30 à 90 jours | Purge automatique quotidienne via tâche système | Sessions d'authentification |
+| Expiration + 14 jours | Nettoyage automatique en base (TTL / Scheduled job) | Comptes inactifs (sans connexion) | 24 mois (avertissement à 23m) |
+| Cron mensuel contrôlant last_login_at | Historique de facturation | 10 ans (obligation légale C. Com.) | Isolation dans un coffre d'archivage comptable |
 
 ## 2. Chiffrement & Protection des Secrets (RGPD Art. 32 & OWASP) [N1 / N4]
 
@@ -236,50 +210,12 @@ Ce tableau de conformité doit être validé avant tout déploiement en producti
 
 #
 
-Point de Contrôle
-
-Critère d'Acceptation (Definition of Done)
-
-Statut
-
-1
-
-Minimisation des données
-
-Aucune colonne PII n'est présente en base sans justification formelle dans le registre des traitements.
-
-2
-
-Isolation Identité / Métier
-
-Les tables d'activité et logs utilisent exclusivement l'identifiant technique pseudonyme (user_id).
-
-3
-
-Hachage des Mots de Passe
-
-Mots de passe traités exclusivement via Argon2id (ou bcrypt $\ge 12$). Aucun algorithme faible détecté.
-
-4
-
-Chiffrement au Repos & Secrets
-
-Données sensibles chiffrées en AES-256-GCM / SQLCipher. Aucun secret ni clé stocké en clair ou dans localStorage.
-
-5
-
-Procédure d'Anonymisation RGPD
-
-La suppression de compte efface les PII directes et anonymise irréversiblement les entrées comptables conservées.
-
-6
-
-Absence de PII dans les Logs
-
-Les fichiers de logs d'application et de serveurs web sont exempts d'adresses IP non masquées, jetons et emails.
-
-7
-
-Export Portabilité & Restauration
-
-L'export Art. 20 génère un ZIP (JSON/CSV) valide. La procédure de restauration des backups a été testée avec succès.
+| Point de Contrôle | Critère d'Acceptation (Definition of Done) | Statut |
+| --- | --- | --- |
+| 1 | Minimisation des données | Aucune colonne PII n'est présente en base sans justification formelle dans le registre des traitements. |
+| 2 | Isolation Identité / Métier | Les tables d'activité et logs utilisent exclusivement l'identifiant technique pseudonyme (user_id). |
+| 3 | Hachage des Mots de Passe | Mots de passe traités exclusivement via Argon2id (ou bcrypt $\ge 12$). Aucun algorithme faible détecté. |
+| 4 | Chiffrement au Repos & Secrets | Données sensibles chiffrées en AES-256-GCM / SQLCipher. Aucun secret ni clé stocké en clair ou dans localStorage. |
+| 5 | Procédure d'Anonymisation RGPD | La suppression de compte efface les PII directes et anonymise irréversiblement les entrées comptables conservées. |
+| 6 | Absence de PII dans les Logs | Les fichiers de logs d'application et de serveurs web sont exempts d'adresses IP non masquées, jetons et emails. |
+| 7 | Export Portabilité & Restauration | L'export Art. 20 génère un ZIP (JSON/CSV) valide. La procédure de restauration des backups a été testée avec succès. |

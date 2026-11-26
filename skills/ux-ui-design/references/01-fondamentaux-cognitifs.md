@@ -110,25 +110,12 @@ Max Wertheimer, Kurt Koffka, Wolfgang Köhler (1912-1923), École de la Gestalt 
 
 Le cerveau humain organise spontanément les éléments visuels isolés en ensembles cohérents selon des règles perceptives innées.
 
-Principe Gestalt
-
-Mécanisme Perceptif
-
-Proximité
-
-Les objets proches les uns des autres sont perçus comme appartenant à un même groupe.
-
-Similitude
-
-Les objets partageant des caractéristiques visuelles (couleur, forme, taille) sont perçus comme liés.
-
-Région Commune
-
-Les éléments situés dans une même zone délimitée visuellement sont perçus comme un groupe.
-
-Figure-Fond
-
-Le cerveau sépare le plan d'intérêt (figure) du plan d'arrière-plan (fond).
+| Principe Gestalt | Mécanisme Perceptif |
+| --- | --- |
+| Proximité | Les objets proches les uns des autres sont perçus comme appartenant à un même groupe. |
+| Similitude | Les objets partageant des caractéristiques visuelles (couleur, forme, taille) sont perçus comme liés. |
+| Région Commune | Les éléments situés dans une même zone délimitée visuellement sont perçus comme un groupe. |
+| Figure-Fond | Le cerveau sépare le plan d'intérêt (figure) du plan d'arrière-plan (fond). |
 
 ### Application & Règles d'implémentation
 

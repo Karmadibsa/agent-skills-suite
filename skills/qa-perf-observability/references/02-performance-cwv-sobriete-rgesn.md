@@ -152,82 +152,12 @@ Une application web moderne doit continuer de fonctionner de manière dégradée
 
 La grille ci-dessous constitue le protocole de recette technique à exécuter avant toute livraison en environnement de production.
 
-N°
-
-Point de Contrôle
-
-Domaine
-
-Critères d'Acceptation & Seuils
-
-Méthode / Outil de Test
-
-01
-
-Core Web Vitals (p75)
-
-Performance Client
-
-LCP <= 2,5 s, INP <= 200 ms (remplaçant du FID), CLS <= 0,1 mesurés au 75e percentile (p75 — Mobile et Desktop). TBT utilisé en labo comme proxy partiel.
-
-Chrome UX Report (CrUX) / PageSpeed Insights / bibliothèque JS web-vitals / Chrome DevTools
-
-02
-
-Budget JavaScript Initial
-
-Empreinte Code
-
-Bundle JS principal compressé < 150–200 Ko (gzip/brotli), repère de sobriété. Dynamic imports en place pour les sous-routes.
-
-Vite Visualizer / Webpack Bundle Analyzer
-
-03
-
-Optimisation des Polices & Images
-
-Assets Web
-
-Polices WOFF2 uniquement avec font-display: swap. Images au format AVIF/WebP avec width/height définis et loading="lazy".
-
-Audits Lighthouse / Developer Tools (Network Tab)
-
-04
-
-Absence de Requêtes N+1
-
-Backend & BDD
-
-Aucune boucle exécutant des appels SQL/API séquentiels. Chargement groupé ou jointures vérifiés sur les API complexes.
-
-Profiler ORM / Logs Backend / Network Tracing
-
-05
-
-Veille CPU & Mise en Pause
-
-Sobriété (RGESN 2024)
-
-Arrêt complet des animations JS, timers et requêtes de polling lorsque l'onglet est masqué (visibilityState === 'hidden').
-
-Chrome DevTools (Performance & Rendering Tab)
-
-06
-
-Résilience Réseau & Timeout
-
-Robustesse
-
-Tous les appels fetch comportent un AbortController (timeout max 5s). Présence d'un bandeau discret non bloquant si perte de réseau. Simulation DevTools (« Offline » / « Slow 3G »).
-
-Simulation "Offline" & "Slow 3G" dans DevTools
-
-07
-
-Comportement Offline-First
-
-Résilience
-
-Consultation continue des données en cache local. File d'attente bornée des mutations, gestion du cycle de vie du SW/cache et vérification de la persistance via navigator.storage.persist().
-
-Test fonctionnel en mode Avion sur appareil cible
+| N° | Point de Contrôle | Domaine | Critères d'Acceptation & Seuils | Méthode / Outil de Test |
+| --- | --- | --- | --- | --- |
+| 01 | Core Web Vitals (p75) | Performance Client | LCP <= 2,5 s, INP <= 200 ms (remplaçant du FID), CLS <= 0,1 mesurés au 75e percentile (p75 — Mobile et Desktop). TBT utilisé en labo comme proxy partiel. | Chrome UX Report (CrUX) / PageSpeed Insights / bibliothèque JS web-vitals / Chrome DevTools |
+| 02 | Budget JavaScript Initial | Empreinte Code | Bundle JS principal compressé < 150–200 Ko (gzip/brotli), repère de sobriété. Dynamic imports en place pour les sous-routes. | Vite Visualizer / Webpack Bundle Analyzer |
+| 03 | Optimisation des Polices & Images | Assets Web | Polices WOFF2 uniquement avec font-display: swap. Images au format AVIF/WebP avec width/height définis et loading="lazy". | Audits Lighthouse / Developer Tools (Network Tab) |
+| 04 | Absence de Requêtes N+1 | Backend & BDD | Aucune boucle exécutant des appels SQL/API séquentiels. Chargement groupé ou jointures vérifiés sur les API complexes. | Profiler ORM / Logs Backend / Network Tracing |
+| 05 | Veille CPU & Mise en Pause | Sobriété (RGESN 2024) | Arrêt complet des animations JS, timers et requêtes de polling lorsque l'onglet est masqué (visibilityState === 'hidden'). | Chrome DevTools (Performance & Rendering Tab) |
+| 06 | Résilience Réseau & Timeout | Robustesse | Tous les appels fetch comportent un AbortController (timeout max 5s). Présence d'un bandeau discret non bloquant si perte de réseau. Simulation DevTools (« Offline » / « Slow 3G »). | Simulation "Offline" & "Slow 3G" dans DevTools |
+| 07 | Comportement Offline-First | Résilience | Consultation continue des données en cache local. File d'attente bornée des mutations, gestion du cycle de vie du SW/cache et vérification de la persistance via navigator.storage.persist(). | Test fonctionnel en mode Avion sur appareil cible |

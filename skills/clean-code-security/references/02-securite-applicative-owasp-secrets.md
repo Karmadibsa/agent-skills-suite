@@ -171,92 +171,15 @@ L'intégration d'agents autonomes et de workflows d'intégration continue exige 
 
 La grille ci-dessous récapitule les points de contrôle obligatoires à exécuter lors des revues de code (Code Review) et des étapes de validation QA avant tout déploiement en production.
 
-ID
-
-Point de Contrôle
-
-Domaine OWASP / CWE
-
-Critère d'Acceptation
-
-Statut
-
-SEC-01
-
-Absence de secrets en dur
-
-CWE-798 / NIST SSDF PW.4
-
-Aucun mot de passe, clé API ou secret n'est présent dans le code source, les tests ou la configuration versionnée.
-
-SEC-02
-
-Modèle de configuration
-
-OWASP A05 / NIST SSDF
-
-Présence à jour du fichier .env.example contenant les variables requises sans aucune donnée réelle.
-
-SEC-03
-
-Exclusion du versionnement
-
-OWASP A05 / CWE-538
-
-Le fichier .gitignore inclut formellement .env, les clés privées (*.pem, *.key) et les bases locales.
-
-SEC-04
-
-Requêtes SQL paramétrées
-
-OWASP A03 / CWE-89
-
-Absence totale de concaténation de chaînes dans les requêtes SQL. Emploi exclusif de paramètres liés ou d'un ORM.
-
-SEC-05
-
-Protection XSS & Échappement
-
-OWASP A03 / CWE-79
-
-Absence d'utilisation directe d'injection DOM non assainie (innerHTML, dangerouslySetInnerHTML) et bannissement d'eval().
-
-SEC-06
-
-Isolation Path Traversal
-
-OWASP A01:2021 / CWE-22
-
-Validation et normalisation des chemins de fichiers avec contrôle strict du dossier racine d'exécution.
-
-SEC-07
-
-Contrôle BOLA / IDOR
-
-OWASP A01:2021 / CWE-639
-
-Vérification explicite de la propriété de l'objet métier par rapport à l'identifiant de l'utilisateur connecté.
-
-SEC-08
-
-Audit des Dépendances & SRI
-
-OWASP A06 / NIST SSDF
-
-Absence de vulnérabilités critiques/élevées dans l'audit de sécurité des paquets et présence d'attributs SRI pour les CDN.
-
-SEC-09
-
-Cookies, Sessions & Anti-CSRF
-
-OWASP A07:2021 / CWE-613
-
-Paramétrage obligatoire d'HttpOnly, Secure et SameSite sur les cookies de session, et protection anti-brute-force effective.
-
-SEC-10
-
-SSRF, Uploads & Headers HTTP
-
-OWASP A10:2021 / CWE-918
-
-Blocage des adresses IP locales/SSRF, validation des magic bytes pour les uploads et présence des en-têtes CSP/CORS explicites.
+| ID | Point de Contrôle | Domaine OWASP / CWE | Critère d'Acceptation |
+| --- | --- | --- | --- |
+| SEC-01 | Absence de secrets en dur | CWE-798 / NIST SSDF PW.4 | Aucun mot de passe, clé API ou secret n'est présent dans le code source, les tests ou la configuration versionnée. |
+| SEC-02 | Modèle de configuration | OWASP A05 / NIST SSDF | Présence à jour du fichier .env.example contenant les variables requises sans aucune donnée réelle. |
+| SEC-03 | Exclusion du versionnement | OWASP A05 / CWE-538 | Le fichier .gitignore inclut formellement .env, les clés privées (*.pem, *.key) et les bases locales. |
+| SEC-04 | Requêtes SQL paramétrées | OWASP A03 / CWE-89 | Absence totale de concaténation de chaînes dans les requêtes SQL. Emploi exclusif de paramètres liés ou d'un ORM. |
+| SEC-05 | Protection XSS & Échappement | OWASP A03 / CWE-79 | Absence d'utilisation directe d'injection DOM non assainie (innerHTML, dangerouslySetInnerHTML) et bannissement d'eval(). |
+| SEC-06 | Isolation Path Traversal | OWASP A01:2021 / CWE-22 | Validation et normalisation des chemins de fichiers avec contrôle strict du dossier racine d'exécution. |
+| SEC-07 | Contrôle BOLA / IDOR | OWASP A01:2021 / CWE-639 | Vérification explicite de la propriété de l'objet métier par rapport à l'identifiant de l'utilisateur connecté. |
+| SEC-08 | Audit des Dépendances & SRI | OWASP A06 / NIST SSDF | Absence de vulnérabilités critiques/élevées dans l'audit de sécurité des paquets et présence d'attributs SRI pour les CDN. |
+| SEC-09 | Cookies, Sessions & Anti-CSRF | OWASP A07:2021 / CWE-613 | Paramétrage obligatoire d'HttpOnly, Secure et SameSite sur les cookies de session, et protection anti-brute-force effective. |
+| SEC-10 | SSRF, Uploads & Headers HTTP | OWASP A10:2021 / CWE-918 | Blocage des adresses IP locales/SSRF, validation des magic bytes pour les uploads et présence des en-têtes CSP/CORS explicites. |

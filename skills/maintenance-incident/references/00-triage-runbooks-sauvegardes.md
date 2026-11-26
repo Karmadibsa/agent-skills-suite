@@ -6,29 +6,11 @@ Statut : Référentiel Maintenance & Incidents V1.0 · Standards : SRE / DORA pr
 
 L'objectif du triage est d'évaluer immédiatement la gravité de chaque événement afin de déclencher le niveau de réponse approprié et d'éviter toute sur-réaction ou sous-estimation des risques.
 
-Niveau de Priorité
-
-Critères d'Impact & Exemples
-
-Temps de Réponse & Actions Exigées
-
-Priorité 1 (Urgent)
-
-Perte ou risque de perte de données, faille de sécurité critique, blocage total du parcours principal sans contournement possible.
-
-Intervention immédiate. Isolation du périmètre, restauration des sauvegardes si nécessaire, communication de crise.
-
-Priorité 2 (Important)
-
-Fonctionnalité clé dégradée mais avec solution de contournement temporaire, ou erreur de calcul sur un cas d'usage concret.
-
-Prise en charge prioritaire. Correction planifiée dans le sprint courant ou sous 24-48h selon le SLA.
-
-Priorité 3 (Courant / Évolution)
-
-Bug mineur, anomalie d'affichage, imprécision cosmétique ou idée d'amélioration UI/UX.
-
-Évaluation via le Skill 0 avant d'ajouter de la complexité. Inscription au backlog pour arbitrage ultérieur.
+| Niveau de Priorité | Critères d'Impact & Exemples | Temps de Réponse & Actions Exigées |
+| --- | --- | --- |
+| Priorité 1 (Urgent) | Perte ou risque de perte de données, faille de sécurité critique, blocage total du parcours principal sans contournement possible. | Intervention immédiate. Isolation du périmètre, restauration des sauvegardes si nécessaire, communication de crise. |
+| Priorité 2 (Important) | Fonctionnalité clé dégradée mais avec solution de contournement temporaire, ou erreur de calcul sur un cas d'usage concret. | Prise en charge prioritaire. Correction planifiée dans le sprint courant ou sous 24-48h selon le SLA. |
+| Priorité 3 (Courant / Évolution) | Bug mineur, anomalie d'affichage, imprécision cosmétique ou idée d'amélioration UI/UX. | Évaluation via le Skill 0 avant d'ajouter de la complexité. Inscription au backlog pour arbitrage ultérieur. |
 
 ## 2. Protection des Données & Sauvegardes Avant Intervention [N1 / N4]
 
@@ -74,46 +56,11 @@ Chaque intervention corrective doit suivre un protocole strict et reproductible 
 
 Avant toute mise en production ou clôture d'un ticket de maintenance, le responsable d'intervention doit valider intégralement la grille de contrôle ci-dessous :
 
-N°
-
-Point de Contrôle
-
-Description & Critère d'Acceptation
-
-État
-
-1
-
-Sauvegarde Préalable
-
-Une copie de sauvegarde complète de la base/des fichiers a été réalisée et vérifiée avant le début des travaux.
-
-2
-
-Reproduction Avérée
-
-L'incident a été reproduit avec succès à l'aide d'un jeu de données de test minimal et documenté.
-
-3
-
-Correction Ciblée
-
-La modification se limite au code strictement nécessaire, sans refactorisation hors périmètre ni résidu d'expérimentation.
-
-4
-
-Nettoyage Code & Fichiers
-
-Absence totale de code mort, de commentaires temporaires, de fichiers orphelins ou de logs de debug résiduels.
-
-5
-
-Test de Non-Régression
-
-Un test ciblé couvrant le cas corrigé a été ajouté et l'ensemble de la suite de tests passe avec succès.
-
-6
-
-Traçabilité & Changelog
-
-Les entrées ont été renseignées dans CHANGELOG.md (Fixed) et l'état final documenté dans docs/HANDOFF.md.
+| N° | Point de Contrôle | Description & Critère d'Acceptation |
+| --- | --- | --- |
+| 1 | Sauvegarde Préalable | Une copie de sauvegarde complète de la base/des fichiers a été réalisée et vérifiée avant le début des travaux. |
+| 2 | Reproduction Avérée | L'incident a été reproduit avec succès à l'aide d'un jeu de données de test minimal et documenté. |
+| 3 | Correction Ciblée | La modification se limite au code strictement nécessaire, sans refactorisation hors périmètre ni résidu d'expérimentation. |
+| 4 | Nettoyage Code & Fichiers | Absence totale de code mort, de commentaires temporaires, de fichiers orphelins ou de logs de debug résiduels. |
+| 5 | Test de Non-Régression | Un test ciblé couvrant le cas corrigé a été ajouté et l'ensemble de la suite de tests passe avec succès. |
+| 6 | Traçabilité & Changelog | Les entrées ont été renseignées dans CHANGELOG.md (Fixed) et l'état final documenté dans docs/HANDOFF.md. |

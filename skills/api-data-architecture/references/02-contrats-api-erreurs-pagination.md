@@ -52,77 +52,19 @@ Chaque point d'entrée d'API doit appliquer un filtre d'étanchéité strict ava
 
 ### Table des Codes de Statut HTTP Métier
 
-Code HTTP
-
-Libellé Standard
-
-Contexte d'Utilisation Métier & Technique
-
-200
-
-OK
-
-Lecture (GET) réussie ou mise à jour (PATCH/PUT) retournant l'état final.
-
-201
-
-Created
-
-Ressource créée avec succès. En-tête Location obligatoire (Location: /api/v1/orders/ord_12345).
-
-204
-
-No Content
-
-Traitement réussi ne nécessitant aucun corps de réponse (ex: suppression DELETE).
-
-400
-
-Bad Request
-
-Erreur de parsing structurel du payload (JSON mal formé, encodage invalide).
-
-401
-
-Unauthorized
-
-Absence de jeton d'authentification valide, jeton expiré ou signature invalide.
-
-403
-
-Forbidden
-
-Jetons valides mais privilèges/rôles insuffisants (RBAC/ABAC) pour accéder à la ressource.
-
-404
-
-Not Found
-
-Ressource non trouvée ou masquée intentionnellement pour éviter l'énumération d'identifiants.
-
-409
-
-Conflict
-
-Violations de contraintes d'unicité (UNIQUE), de dépendances ou conflits de version d'état.
-
-422
-
-Unprocessable Entity
-
-Syntaxe JSON valide mais échec des validations de règles de gestion ou de types de champs.
-
-429
-
-Too Many Requests
-
-Dépassement des quotas (Rate Limiting). En-tête Retry-After obligatoire.
-
-415
-
-Unsupported Media Type
-
-Envoi d'un en-tête Content-Type non supporté (différent de application/json ou multipart/form-data).
+| Code HTTP | Libellé Standard | Contexte d'Utilisation Métier & Technique |
+| --- | --- | --- |
+| 200 | OK | Lecture (GET) réussie ou mise à jour (PATCH/PUT) retournant l'état final. |
+| 201 | Created | Ressource créée avec succès. En-tête Location obligatoire (Location: /api/v1/orders/ord_12345). |
+| 204 | No Content | Traitement réussi ne nécessitant aucun corps de réponse (ex: suppression DELETE). |
+| 400 | Bad Request | Erreur de parsing structurel du payload (JSON mal formé, encodage invalide). |
+| 401 | Unauthorized | Absence de jeton d'authentification valide, jeton expiré ou signature invalide. |
+| 403 | Forbidden | Jetons valides mais privilèges/rôles insuffisants (RBAC/ABAC) pour accéder à la ressource. |
+| 404 | Not Found | Ressource non trouvée ou masquée intentionnellement pour éviter l'énumération d'identifiants. |
+| 409 | Conflict | Violations de contraintes d'unicité (UNIQUE), de dépendances ou conflits de version d'état. |
+| 422 | Unprocessable Entity | Syntaxe JSON valide mais échec des validations de règles de gestion ou de types de champs. |
+| 429 | Too Many Requests | Dépassement des quotas (Rate Limiting). En-tête Retry-After obligatoire. |
+| 415 | Unsupported Media Type | Envoi d'un en-tête Content-Type non supporté (différent de application/json ou multipart/form-data). |
 
 ### Structure d'Erreur Normalisée RFC 9457 (Problem Details)
 
@@ -299,68 +241,12 @@ Content-Type: application/json
 
 Toute modification apportée aux contrats d'API REST/JSON doit valider l'ensemble des 7 critères de la grille ci-dessous avant son déploiement en environnement de production :
 
-ID
-
-Point de Contrôle
-
-Méthode de Test / Validation
-
-Critère d'Acceptation Exigé
-
-Statut
-
-QA-01
-
-Strict Boundary Validation
-
-Injection d'un payload JSON comportant des champs non documentés et des types altérés (ex: string au lieu de number).
-
-HTTP 422 Unprocessable Entity. Rejet immédiat par le parseur sans appel à la couche métier.
-
-QA-02
-
-Conformité RFC 9457
-
-Provoquer intentionnellement une erreur métier et une erreur d'authentification.
-
-Content-Type application/problem+json présent. Validation de la présence des champs type, title, status, detail, instance.
-
-QA-03
-
-Absence de Fuite d'Information
-
-Envoi d'une requête HTTP corrompue pour déclencher un échec système inattendu.
-
-Strictement aucune fuite de stack trace, de requête SQL brute ou d'identifiant d'infrastructure interne dans le corps de réponse.
-
-QA-04
-
-Pagination Bornée Explicite
-
-Envoi d'une requête GET sur une collection sans spécifier limit, puis avec limit=500.
-
-Sans paramètre : renvoie 25 éléments par défaut. Avec limit=500 : renvoie un maximum de 100 éléments.
-
-QA-05
-
-Sécurité du Tri (Sort Whitelisting)
-
-Envoi d'une requête avec injection de paramètre non autorisé (ex: sort=password_hash:asc ou injection SQL).
-
-HTTP 422 Unprocessable Entity. Interception directe par le validateur de liste blanche.
-
-QA-06
-
-Idempotence des Recommandations
-
-Exécution répétée de deux requêtes identiques POST successives comportant la même Idempotency-Key.
-
-La seconde requête renvoie exactement le même statut HTTP et le même payload que la première, sans double création en BDD.
-
-QA-07
-
-Concurrence Optimiste (ETag)
-
-Modification simultanée d'une ressource avec un en-tête If-Match désynchronisé ou périmé.
-
-Rejet de la seconde tentative de modification concurrentielle avec un code de statut 409 Conflict ou 412 Precondition Failed.
+| ID | Point de Contrôle | Méthode de Test / Validation | Critère d'Acceptation Exigé |
+| --- | --- | --- | --- |
+| QA-01 | Strict Boundary Validation | Injection d'un payload JSON comportant des champs non documentés et des types altérés (ex: string au lieu de number). | HTTP 422 Unprocessable Entity. Rejet immédiat par le parseur sans appel à la couche métier. |
+| QA-02 | Conformité RFC 9457 | Provoquer intentionnellement une erreur métier et une erreur d'authentification. | Content-Type application/problem+json présent. Validation de la présence des champs type, title, status, detail, instance. |
+| QA-03 | Absence de Fuite d'Information | Envoi d'une requête HTTP corrompue pour déclencher un échec système inattendu. | Strictement aucune fuite de stack trace, de requête SQL brute ou d'identifiant d'infrastructure interne dans le corps de réponse. |
+| QA-04 | Pagination Bornée Explicite | Envoi d'une requête GET sur une collection sans spécifier limit, puis avec limit=500. | Sans paramètre : renvoie 25 éléments par défaut. Avec limit=500 : renvoie un maximum de 100 éléments. |
+| QA-05 | Sécurité du Tri (Sort Whitelisting) | Envoi d'une requête avec injection de paramètre non autorisé (ex: sort=password_hash:asc ou injection SQL). | HTTP 422 Unprocessable Entity. Interception directe par le validateur de liste blanche. |
+| QA-06 | Idempotence des Recommandations | Exécution répétée de deux requêtes identiques POST successives comportant la même Idempotency-Key. | La seconde requête renvoie exactement le même statut HTTP et le même payload que la première, sans double création en BDD. |
+| QA-07 | Concurrence Optimiste (ETag) | Modification simultanée d'une ressource avec un en-tête If-Match désynchronisé ou périmé. | Rejet de la seconde tentative de modification concurrentielle avec un code de statut 409 Conflict ou 412 Precondition Failed. |

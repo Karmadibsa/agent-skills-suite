@@ -79,45 +79,12 @@ Plutôt qu'une répartition statistique rigide, la stratégie de qualification s
 
 ## 4. Carte des Documents du Référentiel (references/)
 
-Fichier
-
-Nom du Document
-
-Contenu & Couverture
-
-Condition de Chargement
-
-references/00-index-pyramide-tests-preuves.md
-
-Index & Pyramide des Tests
-
-Mission du skill, taxonomie des niveaux de preuve [N1] à [N6], pyramide de Mike Cohn et grille de validation globale.
-
-Chargé systématiquement au démarrage de toute tâche QA/Perf.
-
-references/01-strategie-test-accessibilite.md
-
-Stratégie de Test & Accessibilité
-
-Patterns Testing Library, sélecteurs ARIA, tests d'intégration API, tests E2E Playwright et audits d'accessibilité axe-core / WCAG 2.2.
-
-Lors de la rédaction ou révision de suites de tests unitaires, d'intégration ou E2E.
-
-references/02-performance-eco-conception.md
-
-Performance Web & Éco-conception
-
-Budgets de performance, Core Web Vitals (LCP, INP, CLS), audits Lighthouse CI et règles d'éco-conception RGESN (sobriété CPU/réseau).
-
-Lors d'opérations d'optimisation frontend, d'audit de charge ou d'éco-conception.
-
-references/03-observabilite-logs-sans-pii.md
-
-Observabilité & Sécurité des Logs
-
-Logs structurés JSON, traçabilité OpenTelemetry, masquage strict PII/RGPD et classification des niveaux de log (ERROR, WARN, INFO).
-
-Lors de la mise en place de journalisation, métriques, tracing ou gestion des erreurs.
+| Fichier | Nom du Document | Contenu & Couverture | Condition de Chargement |
+| --- | --- | --- | --- |
+| references/00-index-pyramide-tests-preuves.md | Index & Pyramide des Tests | Mission du skill, taxonomie des niveaux de preuve [N1] à [N6], pyramide de Mike Cohn et grille de validation globale. | Chargé systématiquement au démarrage de toute tâche QA/Perf. |
+| references/01-strategie-test-accessibilite.md | Stratégie de Test & Accessibilité | Patterns Testing Library, sélecteurs ARIA, tests d'intégration API, tests E2E Playwright et audits d'accessibilité axe-core / WCAG 2.2. | Lors de la rédaction ou révision de suites de tests unitaires, d'intégration ou E2E. |
+| references/02-performance-eco-conception.md | Performance Web & Éco-conception | Budgets de performance, Core Web Vitals (LCP, INP, CLS), audits Lighthouse CI et règles d'éco-conception RGESN (sobriété CPU/réseau). | Lors d'opérations d'optimisation frontend, d'audit de charge ou d'éco-conception. |
+| references/03-observabilite-logs-sans-pii.md | Observabilité & Sécurité des Logs | Logs structurés JSON, traçabilité OpenTelemetry, masquage strict PII/RGPD et classification des niveaux de log (ERROR, WARN, INFO). | Lors de la mise en place de journalisation, métriques, tracing ou gestion des erreurs. |
 
 ## 5. Grille de Validation QA Globale (7 points de contrôle)
 

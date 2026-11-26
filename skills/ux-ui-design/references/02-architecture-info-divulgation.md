@@ -20,21 +20,11 @@ Spécifications d'ingénierie UX et directives de conception de l'interface util
 
 ### Directives d'Implémentation
 
-A faire (DO)
-
-A ne pas faire (DON'T)
-
-Structurer les formulaires complexes en étapes logiques ou via des tiroirs latéraux secondaires.
-
-Imbriquer des accordéons sur plus de 2 niveaux de profondeur.
-
-Conserver l'accès permanent aux actions principales (ex: enregistrer, valider) au niveau 1.
-
-Masquer une action indispensable ou critique dans un menu contextuel caché ou un survol.
-
-Afficher les métadonnées avancées dans un panneau repliable au clic.
-
-Surcharger l'écran principal avec toutes les données techniques dès le chargement initial.
+| A faire (DO) | A ne pas faire (DON'T) |
+| --- | --- |
+| Structurer les formulaires complexes en étapes logiques ou via des tiroirs latéraux secondaires. | Imbriquer des accordéons sur plus de 2 niveaux de profondeur. |
+| Conserver l'accès permanent aux actions principales (ex: enregistrer, valider) au niveau 1. | Masquer une action indispensable ou critique dans un menu contextuel caché ou un survol. |
+| Afficher les métadonnées avancées dans un panneau repliable au clic. | Surcharger l'écran principal avec toutes les données techniques dès le chargement initial. |
 
 ### Critères QA
 
@@ -68,21 +58,11 @@ Surcharger l'écran principal avec toutes les données techniques dès le charge
 
 ### Directives d'Implémentation
 
-A faire (DO)
-
-A ne pas faire (DON'T)
-
-Démarrer les puces et les labels par le mot-clé d'action (ex: « Exporter le rapport »).
-
-Commencer les titres par des mots vides ou passifs (ex: « Note concernant la possibilité de... »).
-
-Appliquer un max-width: 65ch strict sur les blocs d'instructions et de texte éditorial.
-
-Laisser des paragraphes de texte s'étendre sur toute la largeur d'un écran desktop 1080p+.
-
-Positionner le bouton de confirmation d'une modale au coin inférieur droit du conteneur.
-
-Disperser les actions principales de manière aléatoire hors du chemin visuel naturel en Z.
+| A faire (DO) | A ne pas faire (DON'T) |
+| --- | --- |
+| Démarrer les puces et les labels par le mot-clé d'action (ex: « Exporter le rapport »). | Commencer les titres par des mots vides ou passifs (ex: « Note concernant la possibilité de... »). |
+| Appliquer un max-width: 65ch strict sur les blocs d'instructions et de texte éditorial. | Laisser des paragraphes de texte s'étendre sur toute la largeur d'un écran desktop 1080p+. |
+| Positionner le bouton de confirmation d'une modale au coin inférieur droit du conteneur. | Disperser les actions principales de manière aléatoire hors du chemin visuel naturel en Z. |
 
 ### Critères QA
 
@@ -118,21 +98,11 @@ En moins de 5 secondes d'exposition à n'importe quel écran, un utilisateur doi
 
 ### Directives d'Implémentation
 
-A faire (DO)
-
-A ne pas faire (DON'T)
-
-Utiliser des boutons explicites comme « Enregistrer le budget » ou « Supprimer le compte ».
-
-Utiliser des libellés vagues ou génériques tels que « OK », « Valider » ou « Soumettre ».
-
-Traduire les erreurs API : « Vérifiez le format de la date (JJ/MM/AAAA) ».
-
-Exposer des erreurs système brutes : « Erreur 422 : Unprocessable Entity / Payload invalide ».
-
-Rédiger des messages d'état concis indiquant la résolution au problème rencontré.
-
-Afficher des codes d'erreur HTTP isolés sans explication sur la marche à suivre.
+| A faire (DO) | A ne pas faire (DON'T) |
+| --- | --- |
+| Utiliser des boutons explicites comme « Enregistrer le budget » ou « Supprimer le compte ». | Utiliser des libellés vagues ou génériques tels que « OK », « Valider » ou « Soumettre ». |
+| Traduire les erreurs API : « Vérifiez le format de la date (JJ/MM/AAAA) ». | Exposer des erreurs système brutes : « Erreur 422 : Unprocessable Entity / Payload invalide ». |
+| Rédiger des messages d'état concis indiquant la résolution au problème rencontré. | Afficher des codes d'erreur HTTP isolés sans explication sur la marche à suivre. |
 
 ### Critères QA
 
@@ -163,21 +133,11 @@ Toutes les marges internes (padding) et externes (margin) doivent utiliser exclu
 
 ### Directives d'Implémentation
 
-A faire (DO)
-
-A ne pas faire (DON'T)
-
-Diminuer l'espace entre le titre et son sous-texte (ex: 4px) et augmenter l'espace avec le bloc suivant (ex: 24px).
-
-Appliquer des espacements identiques au-dessus et en dessous d'un titre.
-
-Utiliser les variations de poids (Bold / Regular) et de gris pour différencier les niveaux d'information.
-
-Entourer chaque élément ou carte d'une bordure visible et d'une ombre portée accentuée.
-
-Respecter strictement les valeurs d'espacement définies par l'échelle systématique.
-
-Utiliser des valeurs d'espacement arbitraires dans le CSS (ex: margin-top: 13px).
+| A faire (DO) | A ne pas faire (DON'T) |
+| --- | --- |
+| Diminuer l'espace entre le titre et son sous-texte (ex: 4px) et augmenter l'espace avec le bloc suivant (ex: 24px). | Appliquer des espacements identiques au-dessus et en dessous d'un titre. |
+| Utiliser les variations de poids (Bold / Regular) et de gris pour différencier les niveaux d'information. | Entourer chaque élément ou carte d'une bordure visible et d'une ombre portée accentuée. |
+| Respecter strictement les valeurs d'espacement définies par l'échelle systématique. | Utiliser des valeurs d'espacement arbitraires dans le CSS (ex: margin-top: 13px). |
 
 ### Critères QA
 

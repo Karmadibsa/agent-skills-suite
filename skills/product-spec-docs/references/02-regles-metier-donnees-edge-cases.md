@@ -102,53 +102,13 @@ Le présent chapitre définit l'ensemble des règles de calcul, d'éligibilité,
 
 Cette section définit l'ensemble des exigences non fonctionnelles quantifiables, vérifiables et auditables, structurées selon la norme ISO/IEC 25010.
 
-Catégorie ISO 25010
-
-Exigence & Périmètre
-
-Métrique / Seuil Cible (SLA)
-
-Méthode de Vérification
-
-Performance & Réactivité
-
-Temps de réponse de l'API REST/GraphQL et rendu du UI (LCP/FID/CLS).
-
-Temps de réponse API p95 < 200 ms pour les lectures, p99 < 500 ms pour les écritures. Core Web Vitals : LCP < 2.5s, FID < 100ms, CLS < 0.1.
-
-Tests de charge K6 / Locust & Audits Lighthouse CI intégrés à la CI/CD.
-
-Disponibilité & Résilience
-
-Taux de disponibilité du service et tolérance aux pannes réseau.
-
-Disponibilité mensuelle SLA >= 99.9% (hors maintenance planifiée). Support du mode dégradé avec synchronisation automatique lors du retour en ligne.
-
-Monitoring Datadog / Prometheus & Chaos Engineering (Simulations de pannes réseau).
-
-Sécurité & Chiffrement
-
-Protection des données en transit et au repos, contrôle d'accès.
-
-Chiffrement TLS 1.3 (en transit) et AES-256 (au repos). Authentification OAuth2 / OIDC avec JWT et RBAC/ABAC strict sur l'ensemble des endpoints.
-
-Scans de vulnérabilités SAST/DAST (SonarQube/OWASP ZAP) & Audits de sécurité annuels.
-
-Confidentialité & RGPD
-
-Gestion des données personnelles (PII) et politique de conservation.
-
-Masquage/Anonymisation des logs (Zero PII). purge automatique des comptes inactifs après 36 mois et traitement des demandes de suppression sous 30 jours.
-
-Audit annuel de conformité RGPD & Registre des traitements de données.
-
-Compatibilité & Accessibilité
-
-Support multi-plateforme et accessibilité numérique.
-
-Compatibilité 100% avec les 2 dernières versions majeures de Chrome, Safari, Firefox, Edge, iOS et Android. Conformité WCAG 2.2 niveau AA.
-
-Tests d'accessibilité automatisés avec axe-core & Recette manuelle sur lecteurs d'écran (NVDA/VoiceOver).
+| Catégorie ISO 25010 | Exigence & Périmètre | Métrique / Seuil Cible (SLA) | Méthode de Vérification |
+| --- | --- | --- | --- |
+| Performance & Réactivité | Temps de réponse de l'API REST/GraphQL et rendu du UI (LCP/FID/CLS). | Temps de réponse API p95 < 200 ms pour les lectures, p99 < 500 ms pour les écritures. Core Web Vitals : LCP < 2.5s, FID < 100ms, CLS < 0.1. | Tests de charge K6 / Locust & Audits Lighthouse CI intégrés à la CI/CD. |
+| Disponibilité & Résilience | Taux de disponibilité du service et tolérance aux pannes réseau. | Disponibilité mensuelle SLA >= 99.9% (hors maintenance planifiée). Support du mode dégradé avec synchronisation automatique lors du retour en ligne. | Monitoring Datadog / Prometheus & Chaos Engineering (Simulations de pannes réseau). |
+| Sécurité & Chiffrement | Protection des données en transit et au repos, contrôle d'accès. | Chiffrement TLS 1.3 (en transit) et AES-256 (au repos). Authentification OAuth2 / OIDC avec JWT et RBAC/ABAC strict sur l'ensemble des endpoints. | Scans de vulnérabilités SAST/DAST (SonarQube/OWASP ZAP) & Audits de sécurité annuels. |
+| Confidentialité & RGPD | Gestion des données personnelles (PII) et politique de conservation. | Masquage/Anonymisation des logs (Zero PII). purge automatique des comptes inactifs après 36 mois et traitement des demandes de suppression sous 30 jours. | Audit annuel de conformité RGPD & Registre des traitements de données. |
+| Compatibilité & Accessibilité | Support multi-plateforme et accessibilité numérique. | Compatibilité 100% avec les 2 dernières versions majeures de Chrome, Safari, Firefox, Edge, iOS et Android. Conformité WCAG 2.2 niveau AA. | Tests d'accessibilité automatisés avec axe-core & Recette manuelle sur lecteurs d'écran (NVDA/VoiceOver). |
 
 ## 2. Modèle de Données Conceptuel (MDC)
 
@@ -168,43 +128,15 @@ erDiagram
 
 Description : Représente un compte utilisateur inscrit au sein du système, qu'il soit client, administrateur ou gestionnaire.
 
-Attribut
-
-Type
-
-Obligatoire
-
-Valeur par défaut
-
-Contraintes de validation
-
-id
-
-Immuable, Clef primaire
-
-email
-
-Unique, format RFC 5322, minuscules
-
-display_name
-
-Min 2 car., Max 100 car., Trimmé
-
-role
-
-Valeurs : CUSTOMER, MANAGER, ADMIN
-
-status
-
-Valeurs : PENDING_VERIFICATION, ACTIVE, SUSPENDED, ARCHIVED
-
-created_at
-
-Immuable
-
-deleted_at
-
-Rempli uniquement lors du Soft-Delete
+| Attribut | Contraintes de validation |
+| --- | --- |
+| id | Immuable, Clef primaire |
+| email | Unique, format RFC 5322, minuscules |
+| display_name | Min 2 car., Max 100 car., Trimmé |
+| role | Valeurs : CUSTOMER, MANAGER, ADMIN |
+| status | Valeurs : PENDING_VERIFICATION, ACTIVE, SUSPENDED, ARCHIVED |
+| created_at | Immuable |
+| deleted_at | Rempli uniquement lors du Soft-Delete |
 
 - Relations :
 
@@ -236,63 +168,16 @@ Rempli uniquement lors du Soft-Delete
 
 Description : Représente une transaction d'achat initiée par un utilisateur.
 
-Attribut
-
-Type
-
-Obligatoire
-
-Valeur par défaut
-
-Contraintes de validation
-
-id
-
-Auto-généré
-
-Immuable, Clef primaire
-
-user_id
-
-Aucun
-
-Clef étrangère vers Utilisateur.id
-
-reference_code
-
-Auto-généré
-
-Format CMD-YYYYMM-XXXXX, unique
-
-total_ht
-
-0.00
-
->= 0.00
-
-total_tva
-
-0.00
-
->= 0.00
-
-total_ttc
-
-0.00
-
-Strictly = total_ht + total_tva
-
-status
-
-DRAFT
-
-Valeurs : DRAFT, VALIDATED, PAID, SHIPPED, CANCELLED
-
-created_at
-
-NOW() UTC
-
-Immuable
+| Attribut | Valeur par défaut | Contraintes de validation |
+| --- | --- | --- |
+| id | Auto-généré | Immuable, Clef primaire |
+| user_id | Aucun | Clef étrangère vers Utilisateur.id |
+| reference_code | Auto-généré | Format CMD-YYYYMM-XXXXX, unique |
+| total_ht | 0.00 | >= 0.00 |
+| total_tva | 0.00 | >= 0.00 |
+| total_ttc | 0.00 | Strictly = total_ht + total_tva |
+| status | DRAFT | Valeurs : DRAFT, VALIDATED, PAID, SHIPPED, CANCELLED |
+| created_at | NOW() UTC | Immuable |
 
 - Relations :
 
@@ -324,57 +209,15 @@ Immuable
 
 Description : Article disponible dans le catalogue d'achat.
 
-Attribut
-
-Type
-
-Obligatoire
-
-Valeur par défaut
-
-Contraintes de validation
-
-id
-
-Auto-généré
-
-Immuable, Clef primaire
-
-sku
-
-Aucun
-
-Format SKU-XXXX-XXXX, unique, immuable
-
-name
-
-Aucun
-
-Min 1 car., Max 255 car.
-
-unit_price_ht
-
-Aucun
-
-> 0.00
-
-tva_rate
-
-20.00
-
-Taux en % (ex. 5.50, 20.00)
-
-stock_quantity
-
-0
-
->= 0
-
-is_active
-
-true
-
-Visibilité catalogue
+| Attribut | Valeur par défaut | Contraintes de validation |
+| --- | --- | --- |
+| id | Auto-généré | Immuable, Clef primaire |
+| sku | Aucun | Format SKU-XXXX-XXXX, unique, immuable |
+| name | Aucun | Min 1 car., Max 255 car. |
+| unit_price_ht | Aucun | > 0.00 |
+| tva_rate | 20.00 | Taux en % (ex. 5.50, 20.00) |
+| stock_quantity | 0 | >= 0 |
+| is_active | true | Visibilité catalogue |
 
 - Relations :
 
@@ -384,59 +227,16 @@ Visibilité catalogue
 
 La présente section définit le comportement comportemental obligatoire du système face aux 8 catégories de situations d'exception.
 
-Catégorie
-
-Situation Limite (Edge Case)
-
-Comportement Attendu & Mécanisme Technique / Code HTTP
-
-1. Zero Data
-
-Chargement d'un tableau d'onglets ou de listes sans aucun enregistrement en base.
-
-Ne jamais afficher de page blanche ou d'erreur technique 500 (API renvoie HTTP 200 OK avec tableau vide []). Afficher un composant visuel dédié (Empty State) incluant une illustration claire, un texte explicatif ("Aucune commande enregistrée pour le moment") et un bouton d'action primaire ("Créer une commande").
-
-2. Stress Data
-
-A. Libellé de produit contenant 250 caractères sans espace.B. Panier comportant 10 000 lignes de commande.C. Saisie d'un montant égal à 0,00 € ou négatif.
-
-A. Application de règles CSS strictes (text-overflow: ellipsis, overflow-hidden, break-words) empêchant le cassage du layout UI.B. Pagination obligatoire côté serveur (limit = 50 par appel API) et scroll virtuel (virtual scrolling) sur la vue UI.C. Validation DTO front/back (@Min(0.01)) et rejet immédiat via HTTP 422 Unprocessable Entity avec payload d'erreur détaillé.
-
-3. Données Partielles / Corrompues
-
-A. Import d'un CSV d'utilisateurs avec encodage ISO-8859-1 au lieu de UTF-8.B. Champ optionnel telephone rempli avec des espaces vides uniquement ("   ").
-
-A. Auto-détection du jeu de caractères et conversion UTF-8 en pipeline de traitement, ou rejet propre avec le code HTTP 400 Bad Request ("Le fichier doit être encodé en UTF-8").B. Nettoyage systématique (Sanitize / Trim) au niveau des DTO en entrée d'API pour convertir les chaînes vides ou composées d'espaces en la valeur NULL avant écriture SQL.
-
-4. Conflits & Doublons
-
-A. Deux utilisateurs créent exactement au même instant un compte avec le même email.B. Double-clic frénétique de l'utilisateur sur le bouton "Valider le paiement".
-
-A. Index d'unicité strict BDD (UNIQUE INDEX (email)). Le second appel est bloqué en BDD et renvoie une réponse HTTP 409 Conflict.B. Front-end : Désactivation immédiate du bouton (disabled) dès le 1er clic. Back-end : Header d'idempotence obligatoire (Idempotency-Key: <UUID>) avec verrou distribué Redis.
-
-5. Suppression & Dépendances
-
-Demande de suppression d'un utilisateur ayant 15 commandes associées dans l'historique comptable.
-
-Interdiction de suppression physique SQL (rejet HTTP 400 Bad Request si tentative d'effacement direct). Exécution obligatoire du workflow de Soft-Delete & Anonymisation RGPD (deleted_at = NOW(), emails/noms obfusqués, conservation du user_id pour intégrité comptable).
-
-6. Interruption & Reprise
-
-Perte de connexion réseau (micro-coupure Wi-Fi) ou fermeture accidentelle du navigateur pendant la saisie d'un formulaire de 20 champs.
-
-A. Mise en file d'attente locale (IndexedDB / localStorage) et sauvegarde automatique (Auto-save draft) toutes les 3 secondes.B. Mécanisme de reconnexion avec rejeu des requêtes en attente et bannière de restauration de brouillon UI.
-
-7. Dates, Fuseaux & Arrondis
-
-A. Validation d'une souscription le 29 février d'une année bissextile (ex. 2024) pour une durée de 1 an.B. Opération bancaire effectuée entre deux fuseaux horaires différents (Paris vs UTC-5 Tokyo).
-
-A. Normalisation des calculs d'échéance ramenée au dernier jour valide du mois cible (28/02/2025).B. Échanges API et stockage BDD obligatoirement normalisés en UTC ISO 8601 (YYYY-MM-DDTHH:mm:ss.sssZ). Arrondis monétaires exécutés via HALF_UP à 2 décimales (BigDecimal).
-
-8. Permissions & Confidentialité
-
-A. Un utilisateur modifie l'URL pour accéder à la commande d'un autre client (/orders/550e8400-e29b-41d4-a716-446655440000).B. Journalisation des logs système lors d'un échec d'authentification.
-
-A. Contrôle d'accès basé sur la propriété de ressource (Resource-Based Authorization). Renvoi immédiat de HTTP 403 Forbidden (ou HTTP 404 Not Found pour éviter le balayage d'IDs).B. Obfuscation / PII Redaction dans les logs système (zéro mot de passe ou token en clair, renvoi de HTTP 401 Unauthorized).
+| Catégorie | Situation Limite (Edge Case) | Comportement Attendu & Mécanisme Technique / Code HTTP |
+| --- | --- | --- |
+| 1. Zero Data | Chargement d'un tableau d'onglets ou de listes sans aucun enregistrement en base. | Ne jamais afficher de page blanche ou d'erreur technique 500 (API renvoie HTTP 200 OK avec tableau vide []). Afficher un composant visuel dédié (Empty State) incluant une illustration claire, un texte explicatif ("Aucune commande enregistrée pour le moment") et un bouton d'action primaire ("Créer une commande"). |
+| 2. Stress Data | A. Libellé de produit contenant 250 caractères sans espace.B. Panier comportant 10 000 lignes de commande.C. Saisie d'un montant égal à 0,00 € ou négatif. | A. Application de règles CSS strictes (text-overflow: ellipsis, overflow-hidden, break-words) empêchant le cassage du layout UI.B. Pagination obligatoire côté serveur (limit = 50 par appel API) et scroll virtuel (virtual scrolling) sur la vue UI.C. Validation DTO front/back (@Min(0.01)) et rejet immédiat via HTTP 422 Unprocessable Entity avec payload d'erreur détaillé. |
+| 3. Données Partielles / Corrompues | A. Import d'un CSV d'utilisateurs avec encodage ISO-8859-1 au lieu de UTF-8.B. Champ optionnel telephone rempli avec des espaces vides uniquement ("   "). | A. Auto-détection du jeu de caractères et conversion UTF-8 en pipeline de traitement, ou rejet propre avec le code HTTP 400 Bad Request ("Le fichier doit être encodé en UTF-8").B. Nettoyage systématique (Sanitize / Trim) au niveau des DTO en entrée d'API pour convertir les chaînes vides ou composées d'espaces en la valeur NULL avant écriture SQL. |
+| 4. Conflits & Doublons | A. Deux utilisateurs créent exactement au même instant un compte avec le même email.B. Double-clic frénétique de l'utilisateur sur le bouton "Valider le paiement". | A. Index d'unicité strict BDD (UNIQUE INDEX (email)). Le second appel est bloqué en BDD et renvoie une réponse HTTP 409 Conflict.B. Front-end : Désactivation immédiate du bouton (disabled) dès le 1er clic. Back-end : Header d'idempotence obligatoire (Idempotency-Key: <UUID>) avec verrou distribué Redis. |
+| 5. Suppression & Dépendances | Demande de suppression d'un utilisateur ayant 15 commandes associées dans l'historique comptable. | Interdiction de suppression physique SQL (rejet HTTP 400 Bad Request si tentative d'effacement direct). Exécution obligatoire du workflow de Soft-Delete & Anonymisation RGPD (deleted_at = NOW(), emails/noms obfusqués, conservation du user_id pour intégrité comptable). |
+| 6. Interruption & Reprise | Perte de connexion réseau (micro-coupure Wi-Fi) ou fermeture accidentelle du navigateur pendant la saisie d'un formulaire de 20 champs. | A. Mise en file d'attente locale (IndexedDB / localStorage) et sauvegarde automatique (Auto-save draft) toutes les 3 secondes.B. Mécanisme de reconnexion avec rejeu des requêtes en attente et bannière de restauration de brouillon UI. |
+| 7. Dates, Fuseaux & Arrondis | A. Validation d'une souscription le 29 février d'une année bissextile (ex. 2024) pour une durée de 1 an.B. Opération bancaire effectuée entre deux fuseaux horaires différents (Paris vs UTC-5 Tokyo). | A. Normalisation des calculs d'échéance ramenée au dernier jour valide du mois cible (28/02/2025).B. Échanges API et stockage BDD obligatoirement normalisés en UTC ISO 8601 (YYYY-MM-DDTHH:mm:ss.sssZ). Arrondis monétaires exécutés via HALF_UP à 2 décimales (BigDecimal). |
+| 8. Permissions & Confidentialité | A. Un utilisateur modifie l'URL pour accéder à la commande d'un autre client (/orders/550e8400-e29b-41d4-a716-446655440000).B. Journalisation des logs système lors d'un échec d'authentification. | A. Contrôle d'accès basé sur la propriété de ressource (Resource-Based Authorization). Renvoi immédiat de HTTP 403 Forbidden (ou HTTP 404 Not Found pour éviter le balayage d'IDs).B. Obfuscation / PII Redaction dans les logs système (zéro mot de passe ou token en clair, renvoi de HTTP 401 Unauthorized). |
 
 ## 4. Grille de Validation QA (7 Points de Contrôle)
 

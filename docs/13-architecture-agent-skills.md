@@ -207,85 +207,17 @@ Afin de mesurer scientifiquement l'apport du Skill ux-ui-design, chaque mise à 
 
 ### Grille d'Évaluation des 9 Scénarios
 
-ID
-
-Scénario de Benchmark
-
-Prompt Type d'Évaluation
-
-Métriques & Criteres d'Évaluation
-
-BENCH-01
-
-Dashboard analytique SaaS B2B
-
-"Conçois l'interface d'un tableau de bord SaaS pour la surveillance de serveurs cloud avec 6 métriques clés et 2 graphiques."
-
-• Score Axe-core (0 violation)• Ratio texte/surface utile (> 70%)• Hiérarchie visuelle des KPIs
-
-BENCH-02
-
-Application mobile grand public
-
-"Crée l'écran principal d'une application de livraison de repas axée sur une utilisation à une main."
-
-• Zones tactiles >= 44x44px• Respect de la 'Thumb Zone'• Lisibilité plein soleil (contraste >= 7:1)
-
-BENCH-03
-
-Formulaire complexe multi-étapes
-
-"Conçois un formulaire de souscription d'assurance professionnelle en 4 étapes avec validation."
-
-• Taux de complétion estimé• Préservation des données saisies• Clarté des messages d'erreur inline
-
-BENCH-04
-
-Outil de gestion métier dense
-
-"Crée un tableau de gestion d'inventaire de 10 000 références avec filtres avancés et actions groupées."
-
-• Densité d'information contrôlée• Alignement des données (chiffres à droite)• Navigation 100% clavier dans la grille
-
-BENCH-05
-
-Tableau Kanban accessible
-
-"Rédige le code d'un tableau Kanban (A faire, En cours, Terminé) supportant le glisser-déposer."
-
-• Alternative clavier intégrée (flèches + espace)• Annonces aria-live lors des déplacements• Support complet des lecteurs d'écran
-
-BENCH-06
-
-Visualisation de données complexes
-
-"Conçois un graphique d'évolution des ventes sur 3 ans comparant 5 régions."
-
-• Palette de couleurs lisible pour daltoniens• Présence d'une alternative sous forme de table• Infobulles intelligentes non masquantes
-
-BENCH-07
-
-Interface grand public non-technicien
-
-"Crée un écran d'activation de carte bancaire pour des utilisateurs seniors."
-
-• Taille de police de base >= 16pt/18pt• Vocabulaire dénué de jargon technique• Boutons d'action univoques et explicites
-
-BENCH-08
-
-Interface conversationnelle IA
-
-"Conçois l'UI d'un assistant de génération de code avec historique et possibilité d'interruption."
-
-• Distinction claire États Génération / Pause• Bouton 'Copier' avec retour visuel d'état• Explication transparente des capacités/limites
-
-BENCH-09
-
-Refonte d'interface saturée de "Slop"
-
-"Nettoie et repense une page de pricing surchargée d'animations CSS, de dégradés et de cartes flottantes."
-
-• Réduction du poids DOM/CSS (> 50%)• Suppression des distractions inutiles• Clarification immédiate des offres
+| ID | Scénario de Benchmark | Prompt Type d'Évaluation | Métriques & Criteres d'Évaluation |
+| --- | --- | --- | --- |
+| BENCH-01 | Dashboard analytique SaaS B2B | "Conçois l'interface d'un tableau de bord SaaS pour la surveillance de serveurs cloud avec 6 métriques clés et 2 graphiques." | • Score Axe-core (0 violation)• Ratio texte/surface utile (> 70%)• Hiérarchie visuelle des KPIs |
+| BENCH-02 | Application mobile grand public | "Crée l'écran principal d'une application de livraison de repas axée sur une utilisation à une main." | • Zones tactiles >= 44x44px• Respect de la 'Thumb Zone'• Lisibilité plein soleil (contraste >= 7:1) |
+| BENCH-03 | Formulaire complexe multi-étapes | "Conçois un formulaire de souscription d'assurance professionnelle en 4 étapes avec validation." | • Taux de complétion estimé• Préservation des données saisies• Clarté des messages d'erreur inline |
+| BENCH-04 | Outil de gestion métier dense | "Crée un tableau de gestion d'inventaire de 10 000 références avec filtres avancés et actions groupées." | • Densité d'information contrôlée• Alignement des données (chiffres à droite)• Navigation 100% clavier dans la grille |
+| BENCH-05 | Tableau Kanban accessible | "Rédige le code d'un tableau Kanban (A faire, En cours, Terminé) supportant le glisser-déposer." | • Alternative clavier intégrée (flèches + espace)• Annonces aria-live lors des déplacements• Support complet des lecteurs d'écran |
+| BENCH-06 | Visualisation de données complexes | "Conçois un graphique d'évolution des ventes sur 3 ans comparant 5 régions." | • Palette de couleurs lisible pour daltoniens• Présence d'une alternative sous forme de table• Infobulles intelligentes non masquantes |
+| BENCH-07 | Interface grand public non-technicien | "Crée un écran d'activation de carte bancaire pour des utilisateurs seniors." | • Taille de police de base >= 16pt/18pt• Vocabulaire dénué de jargon technique• Boutons d'action univoques et explicites |
+| BENCH-08 | Interface conversationnelle IA | "Conçois l'UI d'un assistant de génération de code avec historique et possibilité d'interruption." | • Distinction claire États Génération / Pause• Bouton 'Copier' avec retour visuel d'état• Explication transparente des capacités/limites |
+| BENCH-09 | Refonte d'interface saturée de "Slop" | "Nettoie et repense une page de pricing surchargée d'animations CSS, de dégradés et de cartes flottantes." | • Réduction du poids DOM/CSS (> 50%)• Suppression des distractions inutiles• Clarification immédiate des offres |
 
 ### Protocole de Mesure et Métriques de Réussite
 

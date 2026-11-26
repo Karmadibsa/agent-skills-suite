@@ -40,35 +40,12 @@ L'analyse systématique du code existant et des historiques de commits/issues pe
 
 Une erreur classique en phase de cadrage consiste à construire une feuille de route (roadmap) sur la base d'enquêtes d'opinion ou d'interviews déclaratives.
 
-Dimension
-
-Demande Déclarée
-
-Douleur Réelle Vécue
-
-Source
-
-Sondages, formulaires de feedback, interviews guidées.
-
-Discussions Reddit non sollicitées, issues GitHub, forums métiers.
-
-Nature de la donnée
-
-Intention prospective, projection idéale (« J'aimerais que... »).
-
-Comportement passé et présent, frustration active (« Je me bats avec... »).
-
-Signal de valeur
-
-Faible à moyen (biais de désirabilité sociale).
-
-Très élevé (investissement temporel ou financier pour résoudre le problème).
-
-Indicateur de validation
-
-"Idée intéressante" sans engagement.
-
-Existence d'un bricolage (scripts, Excel) ou migration manuelle.
+| Dimension | Demande Déclarée | Douleur Réelle Vécue |
+| --- | --- | --- |
+| Source | Sondages, formulaires de feedback, interviews guidées. | Discussions Reddit non sollicitées, issues GitHub, forums métiers. |
+| Nature de la donnée | Intention prospective, projection idéale (« J'aimerais que... »). | Comportement passé et présent, frustration active (« Je me bats avec... »). |
+| Signal de valeur | Faible à moyen (biais de désirabilité sociale). | Très élevé (investissement temporel ou financier pour résoudre le problème). |
+| Indicateur de validation | "Idée intéressante" sans engagement. | Existence d'un bricolage (scripts, Excel) ou migration manuelle. |
 
 ## 2. Protocole de Recherche Multi-Sources
 
@@ -127,45 +104,12 @@ La preuve ultime d'un besoin de marché non satisfait réside dans l'existence d
 
 L'évaluation de 3 à 5 concurrents (directs ou indirects) doit permettre de dégager l'angle mort exploitable.
 
-Concurrent
-
-Points Forts
-
-Frustrations Majeures Utilisateurs
-
-Angle Mort Exploitable
-
-Concurrent A (SaaS Enterprise)
-
-Riche en fonctionnalités, support 24/7.
-
-Tarification prohibitive, complexité d'installation, cloud propriétaire.
-
-Local-First & Simplicité : Déploiement ultra-léger, données 100% locales.
-
-Concurrent B (Legacy On-Premise)
-
-Robustesse historique, complet.
-
-Interface datée (UI/UX), absence d'API moderne, mises à jour lourdes.
-
-UX Moderne & API Native : Interface épurée, intégrations webhooks directes.
-
-Concurrent C (App Mobile Grand Public)
-
-Prise en main immédiate, freemium.
-
-Bourré de publicités, fonctionnalités métier absentes, export bloqué.
-
-Spécialisation Métier : Zéro pub, exports standards, focus sur la donnée brute.
-
-Solution Manuelle (Excel / Papier)
-
-Gratuit, flexibilité totale.
-
-Risque d'erreur humaine, pas de multi-utilisateur, chronophage.
-
-Structure & Automation : Validation de données automatisée, zéro saisie double.
+| Concurrent | Points Forts | Frustrations Majeures Utilisateurs | Angle Mort Exploitable |
+| --- | --- | --- | --- |
+| Concurrent A (SaaS Enterprise) | Riche en fonctionnalités, support 24/7. | Tarification prohibitive, complexité d'installation, cloud propriétaire. | Local-First & Simplicité : Déploiement ultra-léger, données 100% locales. |
+| Concurrent B (Legacy On-Premise) | Robustesse historique, complet. | Interface datée (UI/UX), absence d'API moderne, mises à jour lourdes. | UX Moderne & API Native : Interface épurée, intégrations webhooks directes. |
+| Concurrent C (App Mobile Grand Public) | Prise en main immédiate, freemium. | Bourré de publicités, fonctionnalités métier absentes, export bloqué. | Spécialisation Métier : Zéro pub, exports standards, focus sur la donnée brute. |
+| Solution Manuelle (Excel / Papier) | Gratuit, flexibilité totale. | Risque d'erreur humaine, pas de multi-utilisateur, chronophage. | Structure & Automation : Validation de données automatisée, zéro saisie double. |
 
 ## 3. Traçabilité des Sources et Rigueur d'Analyse [N3]
 

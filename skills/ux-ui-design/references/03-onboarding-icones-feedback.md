@@ -12,21 +12,17 @@ Spécifications d'interaction et directives d'expérience utilisateur pour le gu
 
 ### Directives de Conception
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- Visor une Time-to-First-Value (TTFV) < 30 secondes. Permettre à l'utilisateur de réaliser une première action créatrice de valeur immédiatement.
+- Offrir un mode invité ou une approche local-first : ne pas imposer la création de compte avant la démonstration concrète de la valeur du produit.
+- Intégrer de l'aide contextuelle Just-In-Time (tooltips discrets, micro-guides déclenchés uniquement au survol ou à l'utilisation initiale de la fonctionnalité).
+- Proposer des choix initiaux légers (2 à 3 options maximum de profilage ou d'objectifs) et s'assurer qu'ils restent toujours réversibles dans les paramètres.
 
-Visor une Time-to-First-Value (TTFV) < 30 secondes. Permettre à l'utilisateur de réaliser une première action créatrice de valeur immédiatement.
+**À éviter**
 
-Offrir un mode invité ou une approche local-first : ne pas imposer la création de compte avant la démonstration concrète de la valeur du produit.
-
-Intégrer de l'aide contextuelle Just-In-Time (tooltips discrets, micro-guides déclenchés uniquement au survol ou à l'utilisation initiale de la fonctionnalité).
-
-Proposer des choix initiaux légers (2 à 3 options maximum de profilage ou d'objectifs) et s'assurer qu'ils restent toujours réversibles dans les paramètres.
-
-Bloquer l'accès à l'application avec un carrousel obligatoire de 5 écrans génériques de bienvenue.
-
-Exiger la saisie d'un formulaire complet d'inscription dès l'ouverture de l'application.
+- Bloquer l'accès à l'application avec un carrousel obligatoire de 5 écrans génériques de bienvenue.
+- Exiger la saisie d'un formulaire complet d'inscription dès l'ouverture de l'application.
 
 ### Critères QA
 
@@ -46,17 +42,15 @@ Exiger la saisie d'un formulaire complet d'inscription dès l'ouverture de l'app
 
 ### Directives de Conception
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- Structurer chaque état vide selon les 3 piliers : (1) Icône ou illustration sobre contextualisée, (2) Phrase d'explication claire sur l'utilité de l'espace, (3) Bouton d'action principal unique pour créer ou charger un exemple.
+- Fournir des erreurs constructives : spécifier la cause de l'erreur, la situation actuelle, et offrir un moyen direct de résoudre le problème en 1 clic (ex: « Réessayer », « Charger un jeu de données test »).
 
-Structurer chaque état vide selon les 3 piliers : (1) Icône ou illustration sobre contextualisée, (2) Phrase d'explication claire sur l'utilité de l'espace, (3) Bouton d'action principal unique pour créer ou charger un exemple.
+**À éviter**
 
-Fournir des erreurs constructives : spécifier la cause de l'erreur, la situation actuelle, et offrir un moyen direct de résoudre le problème en 1 clic (ex: « Réessayer », « Charger un jeu de données test »).
-
-Laisser une zone de contenu vide sans indication visuelle ou textuelle (écran blanc).
-
-Afficher des messages d'erreur génériques, techniques ou culpabilisants (ex: « Erreur 500 », « Action impossible »).
+- Laisser une zone de contenu vide sans indication visuelle ou textuelle (écran blanc).
+- Afficher des messages d'erreur génériques, techniques ou culpabilisants (ex: « Erreur 500 », « Action impossible »).
 
 ### 2.2 Taxonomie des Erreurs & Autonomie Utilisateur (Distinction Erreur Utilisateur vs Erreur Système — Norman & Nielsen)
 
@@ -68,19 +62,16 @@ Afficher des messages d'erreur génériques, techniques ou culpabilisants (ex: �
 
 #### Les 4 types d'erreurs et la réponse UX obligatoire
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- Erreur de saisie / format (faute utilisateur) : Message précis placé directement sous le champ concerné (jamais uniquement en haut de page), formulé sans jargon ni ton culpabilisant, indiquant la règle attendue et un exemple concret (ex. « Le format de date attendu est JJ/MM/AAAA (ex. 25/11/2026) » au lieu de « Date invalide »).
+- Erreur métier / prérequis manquant : Expliquer le blocage en langage humain et fournir un bouton d'action directe vers la solution (ex. « Impossible de valider : aucun compte n'est sélectionné. [Choisir un compte] »).
+- Erreur de droits ou de fichier importé : Indiquer exactement ce qui bloque (ex. « Ce fichier dépasse 5 Mo ou n'est pas au format CSV UTF-8 ») et comment corriger (ex. lien vers un modèle CSV valide ou outil de compression).
+- Erreur technique / réseau (faute système) : Ne jamais afficher de stack trace ou code brut ; indiquer « Le serveur ne répond pas pour le moment. Vos saisies sont conservées localement. [Réessayer] ».
 
-Erreur de saisie / format (faute utilisateur) : Message précis placé directement sous le champ concerné (jamais uniquement en haut de page), formulé sans jargon ni ton culpabilisant, indiquant la règle attendue et un exemple concret (ex. « Le format de date attendu est JJ/MM/AAAA (ex. 25/11/2026) » au lieu de « Date invalide »).
+**À éviter**
 
-Erreur métier / prérequis manquant : Expliquer le blocage en langage humain et fournir un bouton d'action directe vers la solution (ex. « Impossible de valider : aucun compte n'est sélectionné. [Choisir un compte] »).
-
-Erreur de droits ou de fichier importé : Indiquer exactement ce qui bloque (ex. « Ce fichier dépasse 5 Mo ou n'est pas au format CSV UTF-8 ») et comment corriger (ex. lien vers un modèle CSV valide ou outil de compression).
-
-Erreur technique / réseau (faute système) : Ne jamais afficher de stack trace ou code brut ; indiquer « Le serveur ne répond pas pour le moment. Vos saisies sont conservées localement. [Réessayer] ».
-
-Effacer le formulaire après une erreur de validation (l'utilisateur doit pouvoir corriger uniquement le champ en erreur sans tout retaper).
+- Effacer le formulaire après une erreur de validation (l'utilisateur doit pouvoir corriger uniquement le champ en erreur sans tout retaper).
 
 ### Critères QA
 
@@ -104,19 +95,16 @@ Effacer le formulaire après une erreur de validation (l'utilisateur doit pouvoi
 
 ### Directives de Conception
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- Utiliser des icônes universelles autonomes uniquement pour le jeu standardisé : Poubelle (Supprimer), Crayon (Modifier), Loupe (Rechercher), Engrenage (Paramètres), Croix (Fermer), Plus (Ajouter), Flèche retour (Retour), Étoile/Cœur (Favori). Garantir un aria-label et un tooltip explicatif au survol.
+- Associer obligatoirement un libellé textuel court (1 à 2 mots) à toute icône ambiguë, métier ou spécifique au domaine d'application.
+- Maintenir l'homogénéité visuelle : utiliser une seule famille d'icônes (Lucide, Phosphor ou Heroicons), fixer l'épaisseur de trait (stroke-width: 1.75px ou 2px), et respecter le dimensionnement (16px inline, 20px boutons/menus, 24px navigation mobile).
 
-Utiliser des icônes universelles autonomes uniquement pour le jeu standardisé : Poubelle (Supprimer), Crayon (Modifier), Loupe (Rechercher), Engrenage (Paramètres), Croix (Fermer), Plus (Ajouter), Flèche retour (Retour), Étoile/Cœur (Favori). Garantir un aria-label et un tooltip explicatif au survol.
+**À éviter**
 
-Associer obligatoirement un libellé textuel court (1 à 2 mots) à toute icône ambiguë, métier ou spécifique au domaine d'application.
-
-Maintenir l'homogénéité visuelle : utiliser une seule famille d'icônes (Lucide, Phosphor ou Heroicons), fixer l'épaisseur de trait (stroke-width: 1.75px ou 2px), et respecter le dimensionnement (16px inline, 20px boutons/menus, 24px navigation mobile).
-
-Exploiter des icônes seules pour des actions complexes, rares ou propriétaires sans étiquette textuelle associée.
-
-Mélanger plusieurs ensembles d'icônes avec des styles visualement incompatibles (ex: mélanger du solid et du line avec des épaisseurs de trait variables).
+- Exploiter des icônes seules pour des actions complexes, rares ou propriétaires sans étiquette textuelle associée.
+- Mélanger plusieurs ensembles d'icônes avec des styles visualement incompatibles (ex: mélanger du solid et du line avec des épaisseurs de trait variables).
 
 ### Critères QA
 
@@ -136,21 +124,17 @@ Mélanger plusieurs ensembles d'icônes avec des styles visualement incompatible
 
 ### Directives de Conception
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- Fournir un retour visuel immédiat en moins de 100 ms pour toute interaction utilisateur (changement d'état visuel du bouton, micro-spinners, ou animation de transition).
+- Privilégier les notifications de confirmation non bloquantes (Toast / Snackbar) pour les réussites (« Élément enregistré », « Lien copié »). Afficher pendant 3 à 4 secondes sans masquer les éléments critiques de navigation (bas-droite sur Desktop, haut ou au-dessus de la navigation sur Mobile).
+- Mettre en place un Toast avec option « Annuler » (Undo) d'une durée de 5 secondes pour les suppressions courantes, à la place des modales de confirmation.
+- Réserver les modales de confirmation exclusivement aux actions destructives, irréversibles et à fort impact (ex: suppression définitive de compte ou réinitialisation d'une base de données).
 
-Fournir un retour visuel immédiat en moins de 100 ms pour toute interaction utilisateur (changement d'état visuel du bouton, micro-spinners, ou animation de transition).
+**À éviter**
 
-Privilégier les notifications de confirmation non bloquantes (Toast / Snackbar) pour les réussites (« Élément enregistré », « Lien copié »). Afficher pendant 3 à 4 secondes sans masquer les éléments critiques de navigation (bas-droite sur Desktop, haut ou au-dessus de la navigation sur Mobile).
-
-Mettre en place un Toast avec option « Annuler » (Undo) d'une durée de 5 secondes pour les suppressions courantes, à la place des modales de confirmation.
-
-Réserver les modales de confirmation exclusivement aux actions destructives, irréversibles et à fort impact (ex: suppression définitive de compte ou réinitialisation d'une base de données).
-
-Interrompre le flux de travail avec une modale de confirmation (« Êtes-vous sûr ? ») pour des actions réversibles du quotidien.
-
-Laisser un délai d'attente supérieur à 100 ms sans indicateur visuel de chargement ou d'enregistrement.
+- Interrompre le flux de travail avec une modale de confirmation (« Êtes-vous sûr ? ») pour des actions réversibles du quotidien.
+- Laisser un délai d'attente supérieur à 100 ms sans indicateur visuel de chargement ou d'enregistrement.
 
 ### Critères QA
 

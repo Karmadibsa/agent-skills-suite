@@ -34,27 +34,12 @@ Garantir une stabilité visuelle et spatiale stricte lors de la navigation au se
 
 ### Critères de Validation QA
 
-Test
-
-Condition d'acceptation
-
-Validé
-
-Stabilité des dimensions
-
-Les limites bounding box de la modale restent identiques de l'étape 1 à N.
-
-Ancrage des actions
-
-Les boutons « Précédent » et « Suivant » restent positionnés au pixel près.
-
-Isolation du défilement
-
-La barre de défilement n'affecte que la zone centrale de contenu.
-
-Indicateur d'étape
-
-Le titre principal indique la position exacte dans le processus multi-étapes.
+| Test | Condition d'acceptation |
+| --- | --- |
+| Stabilité des dimensions | Les limites bounding box de la modale restent identiques de l'étape 1 à N. |
+| Ancrage des actions | Les boutons « Précédent » et « Suivant » restent positionnés au pixel près. |
+| Isolation du défilement | La barre de défilement n'affecte que la zone centrale de contenu. |
+| Indicateur d'étape | Le titre principal indique la position exacte dans le processus multi-étapes. |
 
 ## 2. Formulaires Intelligents : Pré-remplissage & Matrice Scientifique de Choix des Champs
 
@@ -106,27 +91,12 @@ Minimiser l'effort cognitif et mécanique de saisie en automatisant la saisie co
 
 ### Critères de Validation QA
 
-Test
-
-Condition d'acceptation
-
-Validé
-
-Validation différée
-
-Aucun message d'erreur n'apparaît durant la frappe initiale (onInput).
-
-Composant adapté
-
-Tout champ > 15 options intègre un filtre de recherche texte instantané.
-
-Synchronisation Slider
-
-Modifier la valeur du Slider met à jour le champ numérique et inversement.
-
-Saisie assistée
-
-Les champs pré-remplis restent modifiables sans réinitialisation complète.
+| Test | Condition d'acceptation |
+| --- | --- |
+| Validation différée | Aucun message d'erreur n'apparaît durant la frappe initiale (onInput). |
+| Composant adapté | Tout champ > 15 options intègre un filtre de recherche texte instantané. |
+| Synchronisation Slider | Modifier la valeur du Slider met à jour le champ numérique et inversement. |
+| Saisie assistée | Les champs pré-remplis restent modifiables sans réinitialisation complète. |
 
 ## 3. Architectures de Navigation Avancées & Hybrides
 
@@ -177,23 +147,11 @@ Fournir des chemins de navigation directifs, adaptés à la densité d'informati
 
 ### Critères de Validation QA
 
-Test
-
-Condition d me l'acceptation
-
-Validé
-
-Raccourci Omnibox
-
-Le raccourci Cmd+K ou Ctrl+K ouvre la palette de commandes depuis tout écran.
-
-Réactivité Master-Detail
-
-La sélection d'un item dans la colonne Master met à jour le Detail immédiatement sans rechargement.
-
-Isolation des espaces
-
-La sélection d'un domaine en Topbar réinitialise la Sidebar avec le contexte adéquat.
+| Test | Condition d'acceptation |
+| --- | --- |
+| Raccourci Omnibox | Le raccourci Cmd+K ou Ctrl+K ouvre la palette de commandes depuis tout écran. |
+| Réactivité Master-Detail | La sélection d'un item dans la colonne Master met à jour le Detail immédiatement sans rechargement. |
+| Isolation des espaces | La sélection d'un domaine en Topbar réinitialise la Sidebar avec le contexte adéquat. |
 
 ## 4. Science de l'Optimisation d'Espace & Densité Visuelle
 
@@ -243,23 +201,11 @@ Layout dense recommandé (Économie verticale de 40%)
 
 ### Critères de Validation QA
 
-Test
-
-Condition d'acceptation
-
-Validé
-
-Mesure du Chrome
-
-L'ensemble Topbar + Sidebar + Headers de page occupe < 20 % de la zone d'affichage.
-
-Hauteur des tableaux
-
-La hauteur d'une ligne de tableau de données denses ne dépasse pas 40px.
-
-Absence de suremboîtement
-
-Aucune zone ne présente plus de 2 niveaux de conteneurs (Cards) imbriqués.
+| Test | Condition d'acceptation |
+| --- | --- |
+| Mesure du Chrome | L'ensemble Topbar + Sidebar + Headers de page occupe < 20 % de la zone d'affichage. |
+| Hauteur des tableaux | La hauteur d'une ligne de tableau de données denses ne dépasse pas 40px. |
+| Absence de suremboîtement | Aucune zone ne présente plus de 2 niveaux de conteneurs (Cards) imbriqués. |
 
 ## 5. Protocole de Vérification Interface & Auto-Justification Scientifique
 

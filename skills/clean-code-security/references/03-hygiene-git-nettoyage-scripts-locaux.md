@@ -165,35 +165,12 @@ exec npm run dev
 
 Exposer systématiquement les quatre commandes canoniques suivantes :
 
-Commande
-
-Rôle & Action
-
-Exécuté en arrière-plan
-
-dev
-
-Démarrer l'environnement local de développement avec rechargement à chaud (HMR).
-
-Serveur de dev (ex. Vite, Next, Express)
-
-test
-
-Lancer l'ensemble de la suite de tests automatisés (unitaires et intégration).
-
-Test runner (ex. Vitest, Jest, PyTest)
-
-build
-
-Compiler la version de production, vérifier le typage et générer les bundles.
-
-Compilateur (ex. tsc, build scripts)
-
-clean
-
-Purger intégralement les caches, dossiers de build temporaires et artefacts générés.
-
-Scripts de nettoyage système
+| Commande | Rôle & Action | Exécuté en arrière-plan |
+| --- | --- | --- |
+| dev | Démarrer l'environnement local de développement avec rechargement à chaud (HMR). | Serveur de dev (ex. Vite, Next, Express) |
+| test | Lancer l'ensemble de la suite de tests automatisés (unitaires et intégration). | Test runner (ex. Vitest, Jest, PyTest) |
+| build | Compiler la version de production, vérifier le typage et générer les bundles. | Compilateur (ex. tsc, build scripts) |
+| clean | Purger intégralement les caches, dossiers de build temporaires et artefacts générés. | Scripts de nettoyage système |
 
 Exemple d'implémentation dans package.json :
 
@@ -248,50 +225,12 @@ Contrôle de conformité obligatoire avant chaque jalon de livraison (7 points c
 
 #
 
-Point de contrôle
-
-Critère d'acceptation
-
-Validé
-
-1
-
-Absence de fichiers morts
-
-Aucun fichier comportant les suffixes _old, _backup, _copy ou _v2 dans le dépôt.
-
-2
-
-Nettoyage du code
-
-Absences de blocs de code commenté et d'imports inutilisés dans l'arborescence src/.
-
-3
-
-Étanchéité du .gitignore
-
-Aucun artefact (node_modules/, dist/, .env, .DS_Store) n'est suivi par Git.
-
-4
-
-Script Windows (start.bat)
-
-Lancement à froid fonctionnel sur environnement Windows sans intervention manuelle.
-
-5
-
-Script POSIX (start.sh)
-
-Exécutable (+x), configuré avec set -euo pipefail et fonctionnel sous Linux / macOS.
-
-6
-
-Interface à 4 commandes
-
-Présence et fonctionnement effectif des scripts dev, test, build et clean.
-
-7
-
-Discipline des Commits
-
-Historique conforme à la spécification Conventional Commits 1.0.0 avec commits atomiques.
+| Point de contrôle | Critère d'acceptation | Validé |
+| --- | --- | --- |
+| 1 | Absence de fichiers morts | Aucun fichier comportant les suffixes _old, _backup, _copy ou _v2 dans le dépôt. |
+| 2 | Nettoyage du code | Absences de blocs de code commenté et d'imports inutilisés dans l'arborescence src/. |
+| 3 | Étanchéité du .gitignore | Aucun artefact (node_modules/, dist/, .env, .DS_Store) n'est suivi par Git. |
+| 4 | Script Windows (start.bat) | Lancement à froid fonctionnel sur environnement Windows sans intervention manuelle. |
+| 5 | Script POSIX (start.sh) | Exécutable (+x), configuré avec set -euo pipefail et fonctionnel sous Linux / macOS. |
+| 6 | Interface à 4 commandes | Présence et fonctionnement effectif des scripts dev, test, build et clean. |
+| 7 | Discipline des Commits | Historique conforme à la spécification Conventional Commits 1.0.0 avec commits atomiques. |

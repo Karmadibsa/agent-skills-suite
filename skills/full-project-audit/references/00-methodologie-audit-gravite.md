@@ -28,45 +28,12 @@ Tolérance zéro sur la sécurité & les attentes du README : Vérifier avec la 
 
 Chaque anomalie ou écart détecté lors du balayage d'audit est classé selon une échelle d'impact à quatre niveaux. Ce classement conditionne l'ordre de priorité des corrections et le niveau d'alerte adressé aux équipes de développement.
 
-Niveau
-
-Désignation
-
-Critères d'impact & Typologie
-
-Action requise
-
-P0
-
-Critique / Bloquant
-
-Faille de sécurité exploitable (exposition de secret, injection SQL/XSS, contournement d'authentification ou d'autorisation), perte ou corruption de données, crash bloquant de l'application sans repli, violation légale RGPD ou non-conformité WCAG interdisant l'accès à un parcours critique.
-
-Correction immédiate. Blocage complet du déploiement tant que l'anomalie n'est pas résolue.
-
-P1
-
-Majeur
-
-Dysfonctionnement d'une fonctionnalité métier clé sans possibilité de contournement simple, non-respect d'une règle métier explicite (estampillée [VERROUILLÉ]), défaut d'accessibilité majeur (navigation au clavier impossible, contraste texte/fond insuffisant), absence totale de gestion d'erreur sur un flux critique, fuite importante de complexité d'implémentation.
-
-Correction obligatoire avant la validation du jalon ou de la version courante.
-
-P2
-
-Mineur
-
-Friction d'expérience utilisateur modérée, présence de dette technique localisée mais contenue, fichiers résiduels ou obsolètes (*_old, *_backup, code mort) à nettoyer, documentation technique désynchronisée par rapport au code, manque de couverture de tests unitaires sur un cas secondaire.
-
-Planification dans le lot de maintenance ou le sprint de nettoyage suivant.
-
-P3
-
-Suggestion / Amélioration
-
-Opportunité d'optimisation des performances, proposition de refactorisation pour simplifier le code, amélioration cosmétique non bloquante ou suggestion d'architecture future.
-
-Soumission à arbitrage humain avant toute mise en œuvre.
+| Niveau | Désignation | Critères d'impact & Typologie | Action requise |
+| --- | --- | --- | --- |
+| P0 | Critique / Bloquant | Faille de sécurité exploitable (exposition de secret, injection SQL/XSS, contournement d'authentification ou d'autorisation), perte ou corruption de données, crash bloquant de l'application sans repli, violation légale RGPD ou non-conformité WCAG interdisant l'accès à un parcours critique. | Correction immédiate. Blocage complet du déploiement tant que l'anomalie n'est pas résolue. |
+| P1 | Majeur | Dysfonctionnement d'une fonctionnalité métier clé sans possibilité de contournement simple, non-respect d'une règle métier explicite (estampillée [VERROUILLÉ]), défaut d'accessibilité majeur (navigation au clavier impossible, contraste texte/fond insuffisant), absence totale de gestion d'erreur sur un flux critique, fuite importante de complexité d'implémentation. | Correction obligatoire avant la validation du jalon ou de la version courante. |
+| P2 | Mineur | Friction d'expérience utilisateur modérée, présence de dette technique localisée mais contenue, fichiers résiduels ou obsolètes (*_old, *_backup, code mort) à nettoyer, documentation technique désynchronisée par rapport au code, manque de couverture de tests unitaires sur un cas secondaire. | Planification dans le lot de maintenance ou le sprint de nettoyage suivant. |
+| P3 | Suggestion / Amélioration | Opportunité d'optimisation des performances, proposition de refactorisation pour simplifier le code, amélioration cosmétique non bloquante ou suggestion d'architecture future. | Soumission à arbitrage humain avant toute mise en œuvre. |
 
 ### 2.1. Évaluation Quantitative du Risque & CVSS v4.0
 

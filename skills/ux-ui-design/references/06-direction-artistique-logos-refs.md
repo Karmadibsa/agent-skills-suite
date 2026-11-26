@@ -82,35 +82,12 @@ Dès le premier composant développé, l'intégralité des attributs visuels doi
 
 ### Règles d'exécution visuelle (DO & DON'T)
 
-Domaine
-
-Pratiques Recommandées (DO)
-
-Pratiques Interdites (DON'T)
-
-Typographie
-
-Aligner le texte sur une grille de baseline rigoureuse. Utiliser font-feature-settings: "tnum" pour les chiffres dans les tableaux.
-
-Utiliser plus de deux familles typographiques distinctes dans la même interface.
-
-Couleurs
-
-Définir des teintes neutres légèrement infusées de la couleur primaire (ex. gris bleutés pour un thème froid).
-
-Employer du noir pur (#000000) sur fond blanc pur (#FFFFFF) ou du vert/rouge hyper-saturé.
-
-Ombres
-
-Empiler deux ombres très légères (une pour le contact, une pour l'élévation).
-
-Appliquer des ombres portées floues, sombres et unies (box-shadow: 0 10px 20px #000).
-
-Bordures
-
-Employer des bordures de 1px avec une opacité alpha réduite (ex. rgba(255,255,255,0.08) en dark mode).
-
-Utiliser des bordures de 2px ou plus pour de simples séparations de conteneurs.
+| Domaine | Pratiques Recommandées (DO) | Pratiques Interdites (DON'T) |
+| --- | --- | --- |
+| Typographie | Aligner le texte sur une grille de baseline rigoureuse. Utiliser font-feature-settings: "tnum" pour les chiffres dans les tableaux. | Utiliser plus de deux familles typographiques distinctes dans la même interface. |
+| Couleurs | Définir des teintes neutres légèrement infusées de la couleur primaire (ex. gris bleutés pour un thème froid). | Employer du noir pur (#000000) sur fond blanc pur (#FFFFFF) ou du vert/rouge hyper-saturé. |
+| Ombres | Empiler deux ombres très légères (une pour le contact, une pour l'élévation). | Appliquer des ombres portées floues, sombres et unies (box-shadow: 0 10px 20px #000). |
+| Bordures | Employer des bordures de 1px avec une opacité alpha réduite (ex. rgba(255,255,255,0.08) en dark mode). | Utiliser des bordures de 2px ou plus pour de simples séparations de conteneurs. |
 
 ## 2. Règles Scientifiques et Graphiques d'un Bon Logo & Identité de Marque
 
@@ -229,35 +206,12 @@ Toute identité visuelle professionnelle doit inclure les 5 déclinaisons livrab
 
 - Favicon SVG Adaptatif : Fichier vectoriel gérant nativement la détection automatique du thème utilisateur via CSS (@media (prefers-color-scheme: dark)).
 
-Domaine
-
-Pratiques Recommandées (DO)
-
-Pratiques Interdites (DON'T)
-
-Logomark
-
-Concevoir sur une grille vectorielle stricte avec des angles et alignements snapping.
-
-Dessiner des formes complexes, des masques de découpe multiples ou des illustrations.
-
-Scalabilité
-
-Tester l'icône à des tailles réelles de 16px, 24px, 32px et 64px sur écran basse résolution.
-
-Intégrer un tagline ou un texte secondaire sous le wordmark dans les petites tailles.
-
-Couleurs
-
-Valider les ratios de contraste WCAG AAA (7:1 minimum) pour le texte de marque.
-
-Utiliser des dégradés arc-en-ciel ou des couleurs RVB non imprimables sans alternative solide.
-
-Utilisation
-
-Créer des déclinaisons strictes : Version horizontale, icône isolée, version monochrome.
-
-Autoriser la déformation, la rotation non autorisée ou la modification des proportions du logo.
+| Domaine | Pratiques Recommandées (DO) | Pratiques Interdites (DON'T) |
+| --- | --- | --- |
+| Logomark | Concevoir sur une grille vectorielle stricte avec des angles et alignements snapping. | Dessiner des formes complexes, des masques de découpe multiples ou des illustrations. |
+| Scalabilité | Tester l'icône à des tailles réelles de 16px, 24px, 32px et 64px sur écran basse résolution. | Intégrer un tagline ou un texte secondaire sous le wordmark dans les petites tailles. |
+| Couleurs | Valider les ratios de contraste WCAG AAA (7:1 minimum) pour le texte de marque. | Utiliser des dégradés arc-en-ciel ou des couleurs RVB non imprimables sans alternative solide. |
+| Utilisation | Créer des déclinaisons strictes : Version horizontale, icône isolée, version monochrome. | Autoriser la déformation, la rotation non autorisée ou la modification des proportions du logo. |
 
 ## 3. Bibliothèque de Références Produits (Archétypes pour briefs IA)
 
@@ -397,114 +351,24 @@ Domaine d'excellence : Visualisation de données massives, tableaux de bord de s
 
 Utilisez le tableau suivant pour sélectionner rapidement les paramètres artistiques et les références à intégrer dans vos prompts de génération UI/UX.
 
-Objectif du Projet
-
-Référence Principale
-
-Palette Typique
-
-Rayons & Grille
-
-Mots-clés pour Prompts IA
-
-Agent / Chatbot IA
-
-Claude / ChatGPT
-
-Fond neutre froid, accents violets/bleus discrets
-
-8px inputs, 12px bulles, grille 8px
-
-Conversational UI, bottom input anchor, collapsible sidebar, streaming state, distraction-free.
-
-SaaS B2B / Tooling
-
-Linear
-
-Mode sombre (#0B0C0E), accent violet/indigo
-
-6px inputs, 8px cards, border 1px
-
-High data density, dark mode, 1px subtle borders, keyboard-first, Cmd+K palette, sharp hierarchy.
-
-Finance / Data
-
-Stripe Dashboard
-
-Fonds blancs/gris clair, accents bleu banque/slate
-
-4px inputs, 6px tables, layout rigide
-
-Tabular figures, right-aligned metrics, progressive disclosure, crisp data tables, financial grade.
-
-App Mobile / B2C
-
-Things 3 / Apple
-
-Fonds clairs ou sombres pure, accents pastel
-
-12px inputs, 20px cards, layout très aéré
-
-Mobile-first, thumb-zone layout, spring animations, spacious layout, rounded corners, calm design.
-
-Productivité / KMS
-
-Notion / Raycast
-
-Monochrome, accents contextuels uniques
-
-6px blocks, 10px popovers, layout modulaire
-
-Block-based architecture, slash commands, universal search modal, minimal chrome, contextual tools.
+| Objectif du Projet | Référence Principale | Palette Typique | Rayons & Grille | Mots-clés pour Prompts IA |
+| --- | --- | --- | --- | --- |
+| Agent / Chatbot IA | Claude / ChatGPT | Fond neutre froid, accents violets/bleus discrets | 8px inputs, 12px bulles, grille 8px | Conversational UI, bottom input anchor, collapsible sidebar, streaming state, distraction-free. |
+| SaaS B2B / Tooling | Linear | Mode sombre (#0B0C0E), accent violet/indigo | 6px inputs, 8px cards, border 1px | High data density, dark mode, 1px subtle borders, keyboard-first, Cmd+K palette, sharp hierarchy. |
+| Finance / Data | Stripe Dashboard | Fonds blancs/gris clair, accents bleu banque/slate | 4px inputs, 6px tables, layout rigide | Tabular figures, right-aligned metrics, progressive disclosure, crisp data tables, financial grade. |
+| App Mobile / B2C | Things 3 / Apple | Fonds clairs ou sombres pure, accents pastel | 12px inputs, 20px cards, layout très aéré | Mobile-first, thumb-zone layout, spring animations, spacious layout, rounded corners, calm design. |
+| Productivité / KMS | Notion / Raycast | Monochrome, accents contextuels uniques | 6px blocks, 10px popovers, layout modulaire | Block-based architecture, slash commands, universal search modal, minimal chrome, contextual tools. |
 
 ## 5. Liste de Contrôle et Critères de Validation QA pour la Direction Artistique
 
 Tout livrable d'interface utilisateur ou d'identité visuelle doit être soumis aux vérifications QA suivantes avant validation finale :
 
-Catégorie QA
-
-Critère d'Inspection
-
-Statut de Conduite
-
-Tokens & Grille
-
-Toutes les valeurs de dimensions, marges et paddings sont des multiples de 4px ou 8px sans exception.
-
-Obligatoire (100 %)
-
-Imbrication Rayons
-
-La règle R_enfant = R_parent - Padding est appliquée à tous les conteneurs imbriqués.
-
-Obligatoire (100 %)
-
-Contraste WCAG
-
-Le texte principal respecte le ratio minimal de 7:1 (AAA) et le texte secondaire 4.5:1 (AA).
-
-Obligatoire (100 %)
-
-Échelle Z-Index
-
-Les superpositions visuelles s'appuient exclusivement sur les 6 niveaux d'élévation définis.
-
-Obligatoire (100 %)
-
-Anti-Slop Visuel
-
-Absence d'illustrations 3D plastiques, de dégradés fluo génériques ou d'avatars de stock.
-
-Obligatoire (100 %)
-
-Tests du Logo
-
-Le symbole valide les 5 tests obligatoires (16px, monochrome, flou 5px, inversion, mémorisation).
-
-Obligatoire (100 %)
-
-Typographie UI
-
-Crénage resserré sur grands titres (-0.02em) et élargi sur petites étiquettes majuscules (+0.04em).
-
-Obligatoire (100 %)
+| Catégorie QA | Critère d'Inspection | Statut de Conduite |
+| --- | --- | --- |
+| Tokens & Grille | Toutes les valeurs de dimensions, marges et paddings sont des multiples de 4px ou 8px sans exception. | Obligatoire (100 %) |
+| Imbrication Rayons | La règle R_enfant = R_parent - Padding est appliquée à tous les conteneurs imbriqués. | Obligatoire (100 %) |
+| Contraste WCAG | Le texte principal respecte le ratio minimal de 7:1 (AAA) et le texte secondaire 4.5:1 (AA). | Obligatoire (100 %) |
+| Échelle Z-Index | Les superpositions visuelles s'appuient exclusivement sur les 6 niveaux d'élévation définis. | Obligatoire (100 %) |
+| Anti-Slop Visuel | Absence d'illustrations 3D plastiques, de dégradés fluo génériques ou d'avatars de stock. | Obligatoire (100 %) |
+| Tests du Logo | Le symbole valide les 5 tests obligatoires (16px, monochrome, flou 5px, inversion, mémorisation). | Obligatoire (100 %) |
+| Typographie UI | Crénage resserré sur grands titres (-0.02em) et élargi sur petites étiquettes majuscules (+0.04em). | Obligatoire (100 %) |

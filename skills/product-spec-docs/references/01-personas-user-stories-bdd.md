@@ -14,69 +14,15 @@ Afin de maintenir une sobriété conceptuelle et d'éviter la dispersion des eff
 
 ### 1.2 Grille des Personas du Projet
 
-Champ d'Analyse
-
-Persona Principal : Thomas (Gestionnaire Opérationnel)
-
-Persona Secondaire 1 : Élodie (Usagère Nomade)
-
-Persona Secondaire 2 : Marc (Administrateur Sévère)
-
-1. Provenance Terrain
-
-Basé sur : entretiens terrain / observations Skill 0
-
-Basé sur : entretiens terrain / observations Skill 0
-
-Basé sur : entretiens terrain / observations Skill 0
-
-2. Rôle & Contexte
-
-Gestionnaire de stock et planification logistique sur site industriel.
-
-Reprenante d'activité terrain, consultations sur le pouce.
-
-Responsable conformité et gouvernance des données SI.
-
-3. Job-to-be-Done (JTBD)
-
-Traiter et valider les flux d'entrées/sorties quotidiennes sans erreur de saisie.
-
-Consulter l'état des demandes en cours et valider les urgences à distance.
-
-Auditer l'ensemble des transactions et gérer les accès de manière stricte.
-
-4. Matériel & Aisance
-
-PC bureau double écran, navigateur Chrome à jour. Aisance technique moyenne.
-
-Smartphone sous réseau 4G instable, usage à une main. Aisance élevée.
-
-Station de travail sécurisée, OS verrouillé, navigateur d'entreprise. Expert.
-
-5. Frustrations & Freins
-
-Temps d'attente lors de la saisie, formulaires complexes à rallonge.
-
-Interfaces non-responsives, déconnexions intempestives sans sauvegarde local.
-
-Dépassement de droits non tracé, incertitude sur l'horodatage des actions.
-
-6. Fréquence d'Usage
-
-Quotidienne continue (8h/jour). Réflexes guidés par l'habitude.
-
-Occasionnelle (2-3 fois/jour par sessions de 90 secondes).
-
-Hebdomadaire ou sur alerte ponctuelle de sécurité.
-
-7. Critère de Réussite
-
-Traitement du lot quotidien terminé en moins de 30 minutes sans blocage.
-
-Validation d'un dossier effectuée en 3 clics maximum depuis le terrain.
-
-Exportabilité intégrale des logs de traçabilité sans aucune altération.
+| Champ d'Analyse | Persona Principal : Thomas (Gestionnaire Opérationnel) | Persona Secondaire 1 : Élodie (Usagère Nomade) | Persona Secondaire 2 : Marc (Administrateur Sévère) |
+| --- | --- | --- | --- |
+| 1. Provenance Terrain | Basé sur : entretiens terrain / observations Skill 0 | Basé sur : entretiens terrain / observations Skill 0 | Basé sur : entretiens terrain / observations Skill 0 |
+| 2. Rôle & Contexte | Gestionnaire de stock et planification logistique sur site industriel. | Reprenante d'activité terrain, consultations sur le pouce. | Responsable conformité et gouvernance des données SI. |
+| 3. Job-to-be-Done (JTBD) | Traiter et valider les flux d'entrées/sorties quotidiennes sans erreur de saisie. | Consulter l'état des demandes en cours et valider les urgences à distance. | Auditer l'ensemble des transactions et gérer les accès de manière stricte. |
+| 4. Matériel & Aisance | PC bureau double écran, navigateur Chrome à jour. Aisance technique moyenne. | Smartphone sous réseau 4G instable, usage à une main. Aisance élevée. | Station de travail sécurisée, OS verrouillé, navigateur d'entreprise. Expert. |
+| 5. Frustrations & Freins | Temps d'attente lors de la saisie, formulaires complexes à rallonge. | Interfaces non-responsives, déconnexions intempestives sans sauvegarde local. | Dépassement de droits non tracé, incertitude sur l'horodatage des actions. |
+| 6. Fréquence d'Usage | Quotidienne continue (8h/jour). Réflexes guidés par l'habitude. | Occasionnelle (2-3 fois/jour par sessions de 90 secondes). | Hebdomadaire ou sur alerte ponctuelle de sécurité. |
+| 7. Critère de Réussite | Traitement du lot quotidien terminé en moins de 30 minutes sans blocage. | Validation d'un dossier effectuée en 3 clics maximum depuis le terrain. | Exportabilité intégrale des logs de traçabilité sans aucune altération. |
 
 ## 2. Rédaction des User Stories (Format Mike Cohn & Critères INVEST)
 
@@ -159,10 +105,8 @@ Fonctionnalité: Validation d'une demande d'urgence sur mobile
 
 ### 3.2 Spécification [US-02] — Saisie Groupée d'Inventaire
 
-n
-
+```gherkin
 # language: fr
-
 Fonctionnalité: Saisie et importation groupée d'articles
 En tant que Gestionnaire Opérationnel
 Je veux intégrer une liste d'articles d'un seul coup
@@ -192,66 +136,41 @@ Scénario: Rejet global pour format de fichier invalide
 Quand "Thomas" tente de charger le fichier "inventaire.pdf"
 Alors le bouton "Lancer l'importation" demeure inactif
 Et une alerte de validation "Format de fichier non accepté. Veuillez utiliser un fichier .CSV ou .XLSX" apparaît
+```
 
 ### 3.3 Spécification [US-03] — Audit d'Accès aux Données
 
+```gherkin
 # language: fr
-
 Fonctionnalité: Export de l'historique d'audit des accès aux données
-
   En tant qu'Administrateur
-
   Je veux exporter les logs d'audit
-
   Afin de garantir la conformité réglementaire du système
-
   Contexte:
-
     Étant donné que le système enregistre l'ensemble des transactions et modifications
-
   Scénario: Export CSV complet de l'historique d'audit
-
     Étant donné que l'utilisateur "Marc" est connecté avec le rôle "Administrateur"
-
     Et qu'il se trouve sur la page de gouvernance et conformité
-
     Quand il clique sur le bouton "Exporter l'historique complet (CSV)"
-
     Alors le système génère un fichier CSV contenant l'intégralité des événements d'audit
-
     Et le téléchargement du fichier "audit_logs_complet.csv" démarre automatiquement
-
     Et l'action d'export est elle-même consignée dans le registre d'audit
-
   Scénario: Export filtré de l'historique sur une plage de dates
-
     Étant donné que l'utilisateur "Marc" est connecté avec le rôle "Administrateur"
-
     Et qu'il saisit la date de début "2025-01-01" et la date de fin "2025-01-31" dans les filtres
-
     Quand il clique sur le bouton "Exporter la sélection (CSV)"
-
     Alors le système génère un fichier CSV incluant uniquement les événements compris entre le "2025-01-01" et le "2025-01-31"
-
     Et le fichier téléchargé contient exactement le nombre d'enregistrements correspondant à la période
-
   Scénario: Refus d'accès à l'export d'audit pour un utilisateur non administrateur
-
     Étant donné que l'utilisatrice "Élodie" est connectée avec le rôle "Usagère Nomade"
-
     Quand elle tente d'accéder directement à l'URL d'export de l'audit "/api/v1/audit/export"
-
     Alors le système refuse la requête et renvoie un code d'erreur HTTP 403 Forbidden
-
     Et un message d'erreur "Accès refusé : privilèges d'administrateur requis" s'affiche
-
     Et une alerte de sécurité est enregistrée pour tentative d'accès non autorisé
-
 ---
-
 ## 4. Cartographie des Parcours Utilisateurs (User Flows)
-
 Les parcours décrivent la séquence logique des interactions à travers le système. Ils exposent les points d'entrée, les nœuds de décision, ainsi que la gestion des dégradations ou interruptions.
+```
 
 ### 4.1 Parcours Critical-Path : Validation d'Urgence Terrain (Nomade)
 
