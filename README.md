@@ -2,7 +2,7 @@
 
 Une suite open source d'Agent Skills conformes au standard ouvert agentskills.io, conçue pour guider les assistants IA de développement (Claude Code, Cursor, OpenAI Codex, ChatGPT, Gemini CLI) à chaque étape d'un projet logiciel — de l'idée initiale jusqu'à la mise en production.
 
-0 € de coût de fonctionnement · 100 % open source (MIT + CC BY 4.0) · Basé sur des normes officielles et études empiriques vérifiées
+Aucun abonnement imposé par la suite · Open source (MIT + CC BY 4.0) · Référentiels fondés sur des normes et recherches. Les assistants IA, l'hébergement et les services tiers peuvent avoir leurs propres coûts.
 
 ## 1. Pourquoi ce projet existe ?
 
@@ -38,7 +38,7 @@ Ce dépôt suit le standard ouvert Agent Skills (agentskills.io), conçu pour ne
 
 
 
-## 3. Les 7 Skills de la suite (Détail complet)
+## 3. Les 10 Skills de la suite (6 principaux, 1 transverse, 3 extensions)
 
 Le dépôt est organisé en monorepo : chaque dossier sous skills/ est un Skill autonome que vous pouvez utiliser seul ou combiné avec les autres.
 
@@ -128,73 +128,44 @@ Audit complet à 360° du dépôt existant.
 
 ISO/IEC 25010, OWASP ASVS, WCAG 2.2, Core Web Vitals, Evidence-Based Management.
 
+### Extensions
+
+| Skill | Rôle |
+| --- | --- |
+| [release-deployment](skills/release-deployment/SKILL.md) | Versions, builds, livraison et rollback |
+| [maintenance-incident](skills/maintenance-incident/SKILL.md) | Triage, incidents, sauvegardes et maintenance |
+| [oss-governance](skills/oss-governance/SKILL.md) | Licences, dépendances et gouvernance open source |
+
 ## 4. Arborescence du dépôt
 
+```text
 agent-skills-suite/
-
-├── .github/
-
-│   └── workflows/
-
-│       ├── validate.yml                  # Vérification automatique (YAML, liens, structure)
-
-│       └── release.yml                   # Génération automatique des archives .zip à chaque push
-
 ├── skills/
+│   ├── project-discovery-validation/
+│   ├── product-spec-docs/
+│   ├── ux-ui-design/
+│   ├── api-data-architecture/
+│   ├── clean-code-security/
+│   ├── qa-perf-observability/
+│   ├── full-project-audit/
+│   ├── release-deployment/
+│   ├── maintenance-incident/
+│   └── oss-governance/
+│       # Chaque dossier contient SKILL.md et references/.
+├── docs/
+├── website/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+├── .gitignore
+├── .gitattributes
+├── netlify.toml
+├── LICENSE
+├── LICENSE-DOCS
+└── README.md
+```
 
-│   ├── project-discovery-validation/     # Skill 0 : Discovery, validation scientifique & Roadmap
-
-│   │   ├── SKILL.md
-
-│   │   └── references/
-
-│   ├── product-spec-docs/                # Skill 1 : Cahier des charges, Personas, User Stories & ADR
-
-│   │   ├── SKILL.md
-
-│   │   └── references/
-
-│   ├── ux-ui-design/                     # Skill 2 : UX/UI, WCAG 2.2, Anti-Slop & « Bug ou idée ? »
-
-│   │   ├── SKILL.md
-
-│   │   ├── references/
-
-│   │   ├── scripts/
-
-│   │   └── examples/
-
-│   ├── api-data-architecture/            # Skill 3 : Données, migrations & API
-
-│   │   ├── SKILL.md
-
-│   │   └── references/
-
-│   ├── clean-code-security/              # Skill 4 : Clean code, OWASP, Templates GitHub, CHANGELOG & Git
-
-│   │   ├── SKILL.md
-
-│   │   └── references/
-
-│   ├── qa-perf-observability/            # Skill 5 : Tests E2E, Core Web Vitals & Green IT
-
-│   │   ├── SKILL.md
-
-│   │   └── references/
-
-│   └── full-project-audit/               # Skill transverse : Audit complet 360° du projet
-
-│       ├── SKILL.md
-
-│       └── references/
-
-├── evals/                                # Scénarios de benchmark comparatifs (Avec vs Sans Skill)
-
-├── LICENSE                               # Licence MIT (code, scripts, templates)
-
-├── LICENSE-DOCS                          # Licence CC BY 4.0 (documentation et référentiels)
-
-└── README.md                             # Ce fichier
+La vitrine est statique : Netlify publie le dossier `website/`, sans commande de build. Les workflows de validation, les archives de release et les benchmarks décrits dans les documents d'architecture constituent des pistes à mettre en place ; ils ne sont pas inclus dans ce dépôt à ce stade.
 
 ## 5. Installation et mise à jour en une commande
 
@@ -202,13 +173,13 @@ agent-skills-suite/
 
 - Installer toute la suite :
 
-npx skills add <votre-pseudo>/agent-skills-suite
+npx skills add Karmadibsa/agent-skills-suite
 
 - Installer un seul Skill spécifique (ex. UX/UI ou Discovery) :
 
-npx skills add <votre-pseudo>/agent-skills-suite --skill ux-ui-design
+npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design
 
-npx skills add <votre-pseudo>/agent-skills-suite --skill project-discovery-validation
+npx skills add Karmadibsa/agent-skills-suite --skill project-discovery-validation
 
 - Mettre à jour après une amélioration sur GitHub (sans rien reconfigurer) :
 
@@ -228,13 +199,9 @@ Pour récupérer les dernières mises à jour publiées sur GitHub :
 
 git pull origin main
 
-### Option C — Claude Web, ChatGPT Web & Custom GPTs (Import ZIP)
+### Option C — Import manuel dans un assistant compatible
 
-- Ouvrez l'onglet Releases de ce dépôt GitHub.
-
-- Téléchargez le fichier .zip du Skill souhaité (généré automatiquement à chaque git push).
-
-- Importez-le dans les connaissances de votre projet Claude, dans les Skills ChatGPT ou dans un GPT personnalisé.
+Téléchargez les dossiers de Skills depuis GitHub et conservez `SKILL.md` et ses références ensemble. Créez une archive ZIP si l'interface d'import l'exige. Les possibilités d'import dépendent du client et de sa version ; les archives de release automatiques ne sont pas encore fournies.
 
 ## 6. Rigueur scientifique : la taxonomie à 6 niveaux de preuve
 
@@ -267,6 +234,6 @@ Pour éviter qu'une préférence graphique ou une habitude technique ne soit pr�
 
 Les contributions, signalements d'erreurs scientifiques et améliorations via Pull Requests sont les bienvenus.
 
-- Code, scripts, exemples et configurations : distribués sous licence MIT.
+- Code, scripts, exemples et configurations : [licence MIT](LICENSE).
 
-- Documentation, référentiels et contenus des Skills : distribués sous licence Creative Commons Attribution 4.0 International (CC BY 4.0).
+- Documentation, référentiels et contenus des Skills : [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE-DOCS). Attribuer Agent Skills Suite et ses contributeurs, lier la source et indiquer les modifications selon les termes de la licence.

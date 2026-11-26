@@ -1,191 +1,61 @@
 # 01 — Grille d'Inspection Multi-Domaine (Audit 360°)
 
-Statut : Référentiel Audit Global V2.1 · Skill : full-project-audit
+Statut : Référentiel Audit Global V2.2 · Skill : full-project-audit
 
-### 0. Profilage Conditionnel de l'Audit (Noyau Minimal vs Modules Étendus)
+### 0. Profilage Conditionnel (Adapter l'Audit au Projet)
 
-Pour éviter de noyer un petit outil local sous des contrôles d'entreprise inutiles, sélectionner le profil adapté avant de dérouler la grille :
+- Noyau Minimal (toujours actif) : CHK-GOV-01, CHK-GOV-03, CHK-SEC-01, CHK-SEC-02, CHK-ARC-01, CHK-ARC-02, CHK-QA-01.
 
-- Profil 1 — Noyau Minimal Universel (toujours actif) : CHK-GOV-01, CHK-GOV-03, CHK-SEC-01, CHK-SEC-02, CHK-ARC-01, CHK-ARC-02 (KISS), CHK-QA-01.
+- Profil Web / SaaS : Noyau Minimal + contrôle d'accès/IDOR, CORS/CSRF, pagination/erreurs API, accessibilité (CHK-UX-03), performance (CHK-QA-02) et logs (CHK-QA-03).
 
-- Profil 2 — Web / SaaS Multi-Utilisateurs : Noyau Minimal + tous les contrôles OWASP ASVS, RBAC/IDOR, CORS/CSRF, Rate Limiting, OpenAPI, observabilité et Core Web Vitals.
+- Profil Desktop / CLI Local-First : Noyau Minimal + intégrité/sauvegarde locale (CHK-DAT-01/02), ergonomie (CHK-UX-01/02/03) et logs sans données personnelles (CHK-QA-03).
 
-- Profil 3 — Desktop / Mobile Local-First : Noyau Minimal + SQLite WAL/verrous, sauvegarde locale/portabilité RGPD, ergonomie tactile/clavier et WCAG 2.2 AA.
+## Bloc A — Gouvernance, Documentation & Hygiène Git
 
-## Bloc A — Gouvernance, Cahier des Charges & Hygiène Git (Skill 1 & Skill 4)
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-GOV-01 | Exactitude du README.md et démarrage local | README.md, start.bat, start.sh, Makefile, package.json | Commandes ou promesses fausses / non vérifiées |
+| CHK-GOV-02 | Mémoire projet & synchronisation | 00 — LIRE EN PREMIER, CHANGELOG.md, docs/adr/, docs/HANDOFF.md | Documentation contredisant le code ou absente |
+| CHK-GOV-03 | Propreté du dépôt & dépendances | Fichiers *_old, *_backup, *_v2, code mort, .gitignore, lockfiles | Fichiers morts conservés, .env suivi, lockfile absent |
+| CHK-GOV-04 | Cohérence du vocabulaire métier | Noms d'entités dans la doc, l'UI, la base et le code | Synonymes contradictoires pour un même concept |
 
-ID Contrôle
+## Bloc B — Architecture Propre (KISS) & Sécurité (OWASP)
 
-Intitulé & Description
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-SEC-01 | Zéro secret en dur | Code source, configurations, .env.example, historique Git | Clé API, mot de passe ou jeton en clair |
+| CHK-SEC-02 | Validation stricte aux frontières | Formulaires, API/IPC, imports de fichiers (CSV, JSON, OFX) | Données externes utilisées sans validation ni bornes |
+| CHK-SEC-03 | Injections, accès & dépendances | Requêtes SQL, rendu HTML (innerHTML/XSS), droits d'accès (IDOR), audit dépendances | Concaténation SQL, XSS, accès non vérifié, failles critiques |
+| CHK-ARC-01 | Découplage métier / UI | Séparation entre logique métier testable et composants d'affichage | Calculs ou règles métier mélangés dans la vue |
+| CHK-ARC-02 | Principe KISS (anti-sur-ingénierie) | Complexité des couches, abstractions, dépendances tierces | Sur-ingénierie inutile ou packages lourds pour un besoin simple |
 
-Ce qu'il faut inspecter dans le dépôt
+## Bloc C — Données, Persistance & Contrats API
 
-Critères d'alerte / Refus
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-DAT-01 | Typage exact & base locale | Montants financiers, dates UTC, paramètres SQLite (WAL, clés étrangères) | FLOAT/DOUBLE sur l'argent, dates ambiguës, FK désactivées |
+| CHK-DAT-02 | Migrations & sauvegardes | Scripts de migration, sauvegarde préalable, export/import | Perte de données possible lors d'une mise à jour |
+| CHK-DAT-03 | Contrats d'échange & RGPD | Pagination, format d'erreur structuré, minimisation/effacement des données | Listes non bornées, traces internes exposées, non-conformité RGPD |
 
-CHK-GOV-01
+## Bloc D — Ergonomie UX/UI, Accessibilité (WCAG 2.2 AA) & Anti-Slop
 
-Documentation de démarrage & Véracité du README : Vérifier ligne par ligne que chaque promesse, fonctionnalité, commande et prérequis décrits dans le README.md fonctionne réellement (zéro fonctionnalité fantôme ou commande cassée).
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-UX-01 | Clarté de l'action & sobriété | Parcours principal, hiérarchie visuelle, absence de slop ou jargon inutile | Écran confus, décoration envahissante, libellés obscurs |
+| CHK-UX-02 | États d'interface complets | États vide (empty state), chargement, erreur claire (sans perte de saisie) | Écran blanc, liste vide sans action, formulaire vidé après erreur |
+| CHK-UX-03 | Accessibilité clavier & contrastes | Balises sémantiques, navigation Tab/Esc, focus visible, contrastes, statuts | Clic sur `<div>` non clavier, focus invisible, contraste faible |
+| CHK-UX-04 | Responsive & tactile | Affichage mobile/étroit sans défilement horizontal, cibles tactiles | Débordement horizontal ou boutons difficiles à toucher |
 
-README.md, start.bat, start.sh, Makefile, package.json, docker-compose.yml.
+## Bloc E — Tests, Performance & Observabilité
 
-Absence de README.md, commandes cassées, prérequis omis ou fonctionnalités annoncées inexistantes.
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-QA-01 | Exécution réelle des tests | Tests unitaires, intégration, E2E ; résultats effectivement obtenus | Tests absents, en échec ou faux positifs / tests instables |
+| CHK-QA-02 | Performance & sobriété | Requêtes N+1, grandes listes, stabilité visuelle, traitements inutiles en veille | Lenteurs évitables, sauts de mise en page, boucles inutiles |
+| CHK-QA-03 | Logs structurés sans données perso | Format des journaux, gestion des erreurs globales, masquage ([REDACTED]) | Mots de passe, jetons ou données perso écrites dans les logs |
 
-CHK-GOV-02
+## Bloc F — Alignement Produit
 
-Documentation d'architecture & Mémoire projet : Documentation structurée synchronisée avec l'état réel du code.
-
-00 — LIRE EN PREMIER, CHANGELOG.md, docs/adr/, docs/HANDOFF.md, AGENTS.md / CLAUDE.md.
-
-Documentation obsolète par rapport au code, absence de carnet ADR ou de fichier de passation.
-
-CHK-GOV-03
-
-Hygiène du dépôt & Chaîne logistique (NIST SSDF / OpenSSF) : Recherche de résidus de code, fichiers morts et contrôle des verrous de dépendances.
-
-Arborescence globale (*_old.*, *_backup.*, *_v2.*, .DS_Store, temp/), package-lock.json / Cargo.lock / uv.lock, licences.
-
-Fichiers temporaires/sauvegardes suivis par Git, code mort commenté, absence de lockfile ou licences incompatibles.
-
-CHK-GOV-04
-
-Cohérence Terminologique (Ubiquitous Language) : Les objets métier portent exactement le même nom dans la doc, l'UI et le code.
-
-Glossaire métier, noms de tables/variables, libellés d'interface.
-
-Synonymes contradictoires désignant la même entité métier.
-
-## Bloc B — Architecture Propre (KISS/SOLID) & Sécurité OWASP (Skill 4)
-
-ID Contrôle
-
-Intitulé & Description
-
-Ce qu'il faut inspecter dans le dépôt
-
-Critères d'alerte / Refus
-
-CHK-SEC-01
-
-Zéro Secret en Dur (Secret Management) : Aucun jeton, clé API ou mot de passe dans le code ou l'historique Git (recommandation : scan type gitleaks / trufflehog).
-
-Fichiers de configuration, .env, .gitignore, historique Git, code frontend.
-
-Secrets ou clés API en dur, fichier .env suivi par Git, absence de .env.example.
-
-CHK-SEC-02
-
-Validation Stricte des Entrées (OWASP ASVS) : Toute donnée externe est validée, typée et bornée aux frontières avant traitement.
-
-Endpoints API, commandes IPC, formulaires UI, parseurs CSV/JSON/OFX, webhooks.
-
-Absence de schéma de validation (Zod, Pydantic, Serde), confiance aveugle dans les payloads clients.
-
-CHK-SEC-03
-
-Protection Injections, AuthZ & Dépendances (OWASP Top 10 / ASVS 5.0) : Immunité contre SQLi, XSS, CSRF, BOLA/IDOR, contrôle RBAC/ABAC, hachage Argon2id et audit des dépendances (npm audit / cargo audit / trivy).
-
-Requêtes SQL, rendu HTML (innerHTML / dangerouslySetInnerHTML), gestion JWT/cookies (HttpOnly, SameSite), middleware d'autorisation, dépendances.
-
-Concaténation SQL, injection HTML brute, absence de vérification de propriété de ressource (IDOR), vulnérabilités critiques non patchées.
-
-CHK-ARC-01
-
-Séparation des Responsabilités (Clean Architecture) : Logique métier et calculs critiques découplés de l'interface graphique et testables isolément.
-
-Composants UI, services domaine, contrôleurs, moteurs de calcul.
-
-Règles métier ou calculs financiers codés directement dans les composants UI.
-
-CHK-ARC-02
-
-Principe KISS & Détection de Sur-Ingénierie (ISO/IEC 25010) : Absence d'abstractions prématurées, de couches inutiles ou de dépendances lourdes remplaçables par du natif.
-
-Graphe de dépendances, architecture des dossiers, duplication de code.
-
-Complexité accidentelle injustifiée, sur-abstraction ou bibliothèques massives pour un besoin trivial.
-
-## Bloc C — Données, Persistance & Contrats API (Skill 3)
-
-ID Contrôle
-
-Intitulé & Description
-
-Ce qu'il faut inspecter dans le dépôt
-
-Critères d'alerte / Refus
-
-CHK-DAT-01
-
-Typage Sûr & Concurrence Locale (SQLite WAL / Types exacts) : Aucun type flottant sur l'argent ; dates UTC ISO 8601 / RFC 3339 ; sur SQLite, PRAGMA foreign_keys = ON et mode WAL avec gestion des verrous.
-
-Schémas SQL/ORM, DTOs, initialisation de connexion SQLite/IndexedDB.
-
-Types FLOAT/DOUBLE sur des montants, dates locales sans fuseau, clés étrangères désactivées sur SQLite.
-
-CHK-DAT-02
-
-Intégrité Référentielle, Migrations & Sauvegardes : Clés étrangères, migrations versionnées réversibles (up/down) et sauvegarde préalable (VACUUM INTO / dump).
-
-Contraintes DDL (FOREIGN KEY, UNIQUE, CHECK), dossier migrations/, scripts de backup.
-
-Migrations destructives sans sauvegarde préalable ni procédure de rollback.
-
-CHK-DAT-03
-
-Contrats API (OpenAPI / RFC 9457), Sync Offline & Portabilité RGPD : Pagination bornée, erreurs normalisées application/problem+json, gestion des conflits offline/sync et export ouvert (JSON/CSV).
-
-Endpoints de listing, handlers d'erreur, file offline, module d'export/suppression RGPD Art. 17 & 20.
-
-Listes non paginées, fuite de stack trace dans les erreurs, impossibilité d'exporter ou d'effacer les données personnelles.
-
-## Bloc E — Tests, Performance & Observabilité (Skill 5)
-
-ID Contrôle
-
-Intitulé & Description
-
-Ce qu'il faut inspecter dans le dépôt
-
-Critères d'alerte / Refus
-
-CHK-QA-01
-
-Exécution & Pertinence des Tests (Unitaires, Intégration & E2E) : Tests réels exécutés couvrant les règles métier critiques et parcours principaux (Playwright / Cypress / Pytest / Vitest), sans tests instables (flaky).
-
-Dossiers tests/ / e2e/, configuration CI, résultats d'exécution réels.
-
-Suite de tests absente ou en échec, règles métier critiques non testées, tests E2E dépendants de sélecteurs CSS fragiles.
-
-CHK-QA-02
-
-Performance Réseau, BDD & Stabilité Visuelle : Absence de requêtes N+1, pagination/virtualisation des longues listes, réservation d'espace anti-CLS et animations GPU (transform/opacity).
-
-Requêtes ORM/SQL en boucle, listes volumineuses, CSS transitions.
-
-Boucles de requêtes N+1, rendu de milliers de nœuds DOM sans pagination, décalages visuels (CLS).
-
-CHK-QA-03
-
-Observabilité, Logs Structurés & Traçabilité Exigences ↔ Tests : Journaux d'erreurs structurés sans PII et correspondance claire entre les règles métier / scénarios BDD et les tests.
-
-Configuration du logger, gestionnaires d'erreurs globaux, matrice de traçabilité.
-
-Logs contenant des mots de passe/tokens, absence de journalisation des erreurs critiques.
-
-## Bloc F — Alignement Produit & Sobriété Fonctionnelle (Skill 0)
-
-ID Contrôle
-
-Intitulé & Description
-
-Ce qu'il faut inspecter dans le dépôt
-
-Critères d'alerte / Refus
-
-CHK-PRD-01
-
-Sobriété Fonctionnelle & Justification Backlog : Absence de fonctionnalités gadgets non reliées à un besoin utilisateur validé ou au cahier des charges (Skill 0 / Skill 1).
-
-Arborescence fonctionnelle vs cahier des charges / roadmap.
-
-Fonctionnalités fantômes sur-ingéniérées complexifiant l'interface et la maintenance sans valeur prouvée.
+| ID | Contrôle | Ce qu'il faut inspecter | Alerte / Écart |
+| --- | --- | --- | --- |
+| CHK-PRD-01 | Utilité réelle des fonctionnalités | Cohérence avec le besoin utilisateur et le périmètre validé | Fonctionnalité gadget ou hors périmètre ajoutant de la dette |

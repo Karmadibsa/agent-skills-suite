@@ -1,0 +1,25 @@
+# Local secrets / configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+.netlify/
+.venv/
+__pycache__/
+*.pyc
+
+# Local editor / OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
