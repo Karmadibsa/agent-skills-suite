@@ -172,14 +172,29 @@
     setMode(0, false);
   }
 
+  /* ---------- Avant / après : curseur accessible (input range) + glisser sur l'image ---------- */
+  var baFrame = document.querySelector('[data-ba]');
+  var baRange = document.querySelector('[data-ba-range]');
+  if (baFrame && baRange) {
+    var setBa = function (v) { baFrame.style.setProperty('--ba', clamp(v, 0, 100) + '%'); baRange.value = Math.round(clamp(v, 0, 100)); };
+    baRange.addEventListener('input', function () { setBa(parseFloat(baRange.value)); });
+    var dragging = false;
+    var fromPointer = function (e) { var r = baFrame.getBoundingClientRect(); setBa((e.clientX - r.left) / r.width * 100); };
+    baFrame.addEventListener('pointerdown', function (e) { dragging = true; baFrame.setPointerCapture(e.pointerId); fromPointer(e); });
+    baFrame.addEventListener('pointermove', function (e) { if (dragging) fromPointer(e); });
+    baFrame.addEventListener('pointerup', function () { dragging = false; });
+    baFrame.addEventListener('pointercancel', function () { dragging = false; });
+    baRange.closest('.ba-control').hidden = false;
+    setBa(50);
+  }
+
   /* ---------- Thème ---------- */
   var themeBtn = document.getElementById('theme-toggle');
   if (themeBtn) {
-    var lightQuery = mq('(prefers-color-scheme: light)');
     var current = function () {
       var forced = root.getAttribute('data-theme');
       if (forced) return forced;
-      return lightQuery.matches ? 'light' : 'dark';
+      return 'light'; /* le papier clair est l'identité par défaut */
     };
     var refresh = function () {
       var mode = current();
@@ -192,7 +207,6 @@
       try { localStorage.setItem('ass-theme', next); } catch (e) { /* choix valable pour cette visite */ }
       refresh();
     });
-    if (lightQuery.addEventListener) lightQuery.addEventListener('change', refresh);
     themeBtn.hidden = false;
     refresh();
   }

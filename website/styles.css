@@ -1,90 +1,68 @@
 /* Agent Skills Suite — vitrine
-   Conçue avec le skill ux-ui-design : registre 00B, fiches 04 (accessibilité, motion), 06 (direction artistique,
-   archétype « SaaS / Tooling »), 07 (anti-slop).
-   Mouvement : uniquement transform et opacity, piloté par le scroll ou le pointeur, jamais au premier affichage,
-   désactivé avec prefers-reduced-motion. Chaque effet illustre une idée du produit (chargement par couches,
-   réponse corrigée, part du contexte utilisée). */
+   Direction « éditoriale claire » choisie avec le skill ux-art-direction (section 5, signature propre) :
+   papier chaud, encre, titres en serif système, filets fins plutôt que cartes, crochets et orange comme signature.
+   Règles : ux-ui-design (registre 00B, fiches 04 et 07). Mouvement uniquement sur transform, couleur et contour,
+   piloté par le scroll ou le pointeur, jamais au premier affichage, coupé avec prefers-reduced-motion.
+   Contrastes mesurés : texte ≥ 5:1, texte secondaire 5,1:1, bordures fortes 3,2:1 sur le papier. */
 
 :root {
-  --bg: oklch(0.15 0.012 260);
-  --bg-2: oklch(0.18 0.013 260);
-  --surface: oklch(0.2 0.013 260);
-  --surface-2: oklch(0.24 0.014 260);
-  --line: oklch(0.3 0.014 260);
-  --line-strong: oklch(0.56 0.016 260);
-  --text: oklch(0.96 0.006 260);
-  --text-2: oklch(0.75 0.014 260);
-  --text-3: oklch(0.64 0.014 260);
-  --accent: oklch(0.75 0.16 48);
-  --accent-ink: oklch(0.17 0.02 48);
-  --accent-soft: oklch(0.29 0.055 48);
-  --bad: oklch(0.72 0.15 25);
-  --bad-soft: oklch(0.28 0.06 25);
-  --good: oklch(0.79 0.13 155);
-  --good-soft: oklch(0.27 0.045 155);
-  --code-bg: oklch(0.12 0.01 260);
-  --code-text: oklch(0.93 0.01 260);
-  --code-dim: oklch(0.66 0.02 260);
-  --code-val: oklch(0.83 0.12 70);
-  --grid: oklch(0.96 0.006 260 / 0.05);
+  --bg: #F5F1E8;
+  --bg-2: #EFE9DC;
+  --surface: #FBF9F4;
+  --surface-2: #EDE7DA;
+  --line: #D9D2C3;
+  --line-strong: #8E8778;
+  --text: #14171C;
+  --text-2: #4A4740;
+  --text-3: #6B665C;
+  --accent: #A8441A;
+  --accent-ink: #FBF9F4;
+  --accent-soft: #F6DCC9;
+  --bad: #B42318;
+  --bad-soft: #F8DDD6;
+  --good: #1E6B45;
+  --good-soft: #D9EDDF;
+  --code-bg: #14171C;
+  --code-text: #EDE9E1;
+  --code-dim: #9C958A;
+  --code-val: #F5A86B;
+  --grid: transparent;
   --brand: #F07A2E;
   --brand-ink: #14171C;
 
+  --serif: ui-serif, "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
-  --r-sm: 6px;
-  --r-md: 8px;
-  --r-lg: 12px;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
   --shell: 1180px;
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 144px;
   --fast: 150ms;
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: oklch(0.985 0.003 260);
-    --bg-2: oklch(0.965 0.005 260);
-    --surface: oklch(1 0 0);
-    --surface-2: oklch(0.955 0.006 260);
-    --line: oklch(0.89 0.008 260);
-    --line-strong: oklch(0.6 0.01 260);
-    --text: oklch(0.2 0.02 260);
-    --text-2: oklch(0.42 0.02 260);
-    --text-3: oklch(0.5 0.02 260);
-    --accent: oklch(0.56 0.19 40);
-    --accent-ink: oklch(0.99 0.01 60);
-    --accent-soft: oklch(0.95 0.035 45);
-    --bad: oklch(0.52 0.18 25);
-    --bad-soft: oklch(0.95 0.03 25);
-    --good: oklch(0.47 0.12 155);
-    --good-soft: oklch(0.95 0.04 155);
-    --code-bg: oklch(0.2 0.015 260);
-    --grid: oklch(0.2 0.02 260 / 0.06);
-    color-scheme: light;
-  }
-}
-:root[data-theme="light"] {
-  --bg: oklch(0.985 0.003 260);
-  --bg-2: oklch(0.965 0.005 260);
-  --surface: oklch(1 0 0);
-  --surface-2: oklch(0.955 0.006 260);
-  --line: oklch(0.89 0.008 260);
-  --line-strong: oklch(0.6 0.01 260);
-  --text: oklch(0.2 0.02 260);
-  --text-2: oklch(0.42 0.02 260);
-  --text-3: oklch(0.5 0.02 260);
-  --accent: oklch(0.56 0.19 40);
-  --accent-ink: oklch(0.99 0.01 60);
-  --accent-soft: oklch(0.95 0.035 45);
-  --bad: oklch(0.52 0.18 25);
-  --bad-soft: oklch(0.95 0.03 25);
-  --good: oklch(0.47 0.12 155);
-  --good-soft: oklch(0.95 0.04 155);
-  --code-bg: oklch(0.2 0.015 260);
-  --grid: oklch(0.2 0.02 260 / 0.06);
-  color-scheme: light;
+/* Variante sombre, sur demande de l'utilisateur uniquement (le papier est l'identité par défaut). */
+:root[data-theme="dark"] {
+  --bg: #141210;
+  --bg-2: #1B1916;
+  --surface: #201D19;
+  --surface-2: #2A2621;
+  --line: #3A352E;
+  --line-strong: #8A8273;
+  --text: #F2EEE6;
+  --text-2: #B9B2A5;
+  --text-3: #9C958A;
+  --accent: #F07A2E;
+  --accent-ink: #14171C;
+  --accent-soft: #3A2618;
+  --bad: #F08A7A;
+  --bad-soft: #3B1F1A;
+  --good: #7CCB9A;
+  --good-soft: #1D3326;
+  --code-bg: #0E0D0B;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -436,8 +414,71 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
 .profile-try { color: var(--text) !important; }
 .js .levels dt { display: block !important; margin-bottom: var(--s1); font-weight: 600; }
 
+/* ---------- Direction éditoriale ---------- */
+body { font-size: 1.0625rem; }
+.hero h1, .section-head h2, .demo-head h2, .head-title h2, .profile-text h2, .manifesto-title, .final-title, .howto-step h3, .faq-list summary { font-family: var(--serif); }
+.hero h1 { font-weight: 600; letter-spacing: -0.025em; line-height: 1.02; }
+.section-head h2, .demo-head h2, .head-title h2, .profile-text h2 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+.manifesto-title { font-weight: 600; letter-spacing: -0.025em; }
+.final-title, .howto-step h3 { font-weight: 600; letter-spacing: -0.01em; }
+.faq-list summary { font-weight: 600; font-size: 1.125rem; }
+.dim { color: var(--text-3); font-style: italic; }
+.br-word::before, .br-word::after { color: var(--brand); font-style: normal; }
+.hero-grid-bg { display: none; }
+a { text-decoration-thickness: 1px; }
+
+/* Filets plutôt que cartes */
+.howto-step { border: 0; border-top: 2px solid var(--text); border-radius: 0; background: transparent; padding: var(--s5) 0 0; }
+.faq-list { gap: 0; border-top: 2px solid var(--text); }
+.faq-list details { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
+.faq-list summary { padding-inline: 0; }
+.faq-list details p { padding-inline: 0; }
+.final { border: 0; border-top: 2px solid var(--text); border-radius: 0; background: transparent; padding: var(--s7) 0 0; }
+.howto-web { border-style: solid; border-color: var(--line); background: var(--surface); }
+.prompt-mode { background: transparent; border-color: var(--line); }
+.facts { background: transparent; border-top: 1px solid var(--line); }
+.fact-num { font-family: var(--serif); font-weight: 600; letter-spacing: -0.03em; }
+.fact-num::before, .fact-num::after { font-family: var(--mono); color: var(--brand); }
+
+/* Feuilles de papier dans le hero */
+.file { background: var(--surface); border-color: var(--line); box-shadow: 0 1px 2px rgb(20 23 28 / 0.06), 0 18px 40px -18px rgb(20 23 28 / 0.28); }
+.file-1 { border-color: var(--brand); }
+.file-1 .file-tag { background: var(--accent-soft); }
+
+/* Démo : documents sur papier */
+.demo { background: var(--bg-2); }
+.pane { background: var(--surface); }
+.prompt { background: var(--surface); font-family: var(--serif); font-size: 1.25rem; }
+
+.hero h1 .accent { color: var(--text); font-style: italic; font-weight: 500; }
+
+/* Message unique d'installation */
+.oneshot { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--s5) var(--s7); align-items: start; margin-bottom: var(--s7); padding: var(--s6); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--brand); }
+.oneshot-label { margin: 0 0 var(--s2); font: 600 1.375rem/1.2 var(--serif); }
+.oneshot-text p:last-child { margin: 0; color: var(--text-2); }
+.oneshot .prompt-full { margin: 0; }
+.oneshot .copy-btn { grid-column: 2; justify-self: start; }
+.howto-or { margin: 0 0 var(--s4); color: var(--text-3); font-style: italic; }
+
+/* Avant / après */
+.ba { margin: 0; }
+.ba-frame { position: relative; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 18px 40px -24px rgb(20 23 28 / 0.35); aspect-ratio: 1440 / 900; background: var(--surface); --ba: 50%; }
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: top left; }
+.ba-before-wrap { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--ba)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--ba); width: 2px; margin-left: -1px; background: var(--brand); }
+.ba-handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%; background: var(--brand); box-shadow: 0 2px 8px rgb(20 23 28 / 0.25); }
+.ba-tag { position: absolute; top: var(--s3); padding: 2px 10px; background: var(--text); color: var(--bg); font: 600 0.8125rem/1.6 var(--mono); }
+.ba-tag-before { left: var(--s3); }
+.ba-tag-after { right: var(--s3); background: var(--brand); color: var(--brand-ink); }
+.ba-control { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); margin-top: var(--s4); color: var(--text-2); font-size: 0.9375rem; }
+.ba-control input { flex: 1 1 260px; accent-color: var(--brand); min-height: 44px; }
+.ba figcaption { margin-top: var(--s4); max-width: 80ch; color: var(--text-2); }
+.js .ba-frame { cursor: ew-resize; touch-action: pan-y; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .oneshot { grid-template-columns: minmax(0, 1fr); padding: var(--s5); }
+  .oneshot .copy-btn { grid-column: 1; }
   .howto-steps { grid-template-columns: minmax(0, 1fr); }
   .facts-list { grid-template-columns: repeat(2, 1fr); }
   .facts-list li:nth-child(3) { border-left: 0; padding-left: 0; }

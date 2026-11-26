@@ -20,6 +20,10 @@ La suite étiquette chaque règle entre crochets, de `[N1]` à `[N6]`. Le symbol
 | `website/brand/lockup-horizontal.svg` | Symbole + wordmark, en-têtes et documents |
 | `website/brand/favicon.svg` | Favicon qui s'adapte au thème clair ou sombre |
 
+## Direction : éditoriale claire
+
+Choisie avec la section 5 de `ux-art-direction` (signature propre) pour sortir du gabarit « outil sombre + accent néon ». Fond papier chaud, encre, titres en serif système (italique pour la nuance), filets fins à la place des cartes, crochets et orange réservés à ce qui est étiqueté ou vérifié. Le thème sombre reste disponible sur demande, le clair est l'identité par défaut.
+
 ## Wordmark
 
 `agent-skills/suite` en chasse fixe, graisse 600, `/suite` en neutre. Pas de police téléchargée : la chasse fixe du système (Cascadia Code, SF Mono, Menlo, Consolas).
@@ -29,11 +33,11 @@ La suite étiquette chaque règle entre crochets, de `[N1]` à `[N6]`. Le symbol
 | Nom | Valeur | Usage | Contraste mesuré |
 | --- | --- | --- | --- |
 | Orange signal | `#F07A2E` | Symbole, aplat du manifeste, accents sur fond sombre | 7,0:1 sur Nuit, 6,4:1 avec l'encre en texte |
-| Orange texte | `#C2470F` | Liens et accents sur fond clair | 4,7:1 sur Papier |
-| Encre | `#14171C` | Texte, crochets sur fond clair | 16,9:1 sur Papier |
+| Orange texte | `#A8441A` | Liens et accents sur papier | 5,3:1 sur Papier |
+| Encre | `#14171C` | Texte, crochets sur fond clair | 15,9:1 sur Papier |
 | Nuit | `#0B0C0E` | Fond sombre de référence | |
-| Papier | `#F7F8FA` | Fond clair | |
-| Neutres | gris teintés bleu froid | Surfaces, bordures, texte secondaire | Texte secondaire ≥ 4,5:1 |
+| Papier | `#F5F1E8` | Fond par défaut (identité claire) | |
+| Neutres | gris chauds (`#4A4740`, `#6B665C`, `#8E8778`, `#D9D2C3`) | Texte secondaire, bordures | Texte secondaire 5,1:1, bordures fortes 3,2:1 |
 
 ## Tests de la fiche 06
 

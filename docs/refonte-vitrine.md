@@ -33,6 +33,13 @@ Refonte menée avec le skill `ux-ui-design` : registre 00B, fiches 01 (cognition
 - **Chiffres** : périmètre documenté sur la page ; la tâche de formulaire inclut le registre obligatoire (environ 7 % au lieu de 5 %).
 - **Divers** : icône soleil/lune selon le thème, libellés explicites des boutons de copie, favicon vide (plus de 404), rayons 8/12 px, `start.bat` qui attend le serveur avant d'ouvrir le navigateur.
 
+## Version 4 — identité éditoriale claire
+
+- Direction choisie avec `ux-art-direction` (section 5, signature propre) : papier chaud, encre, titres en serif système, filets à la place des cartes, crochets et orange comme seule signature. Titre principal à l'encre avec italique, plus de titre « en deux couleurs ».
+- Message unique qui fait installer la suite par l'assistant puis lance `start-here`, en plus des trois étapes.
+- Section « Cas réel » : avant/après de ce site (version importée du Drive, commit `a9033a6`, contre la version actuelle), captures Chrome à 1440 px, curseur accessible (champ de type plage, clavier et glisser).
+- Contrastes mesurés sur le papier : texte 15,9:1, secondaire 5,1:1, orange texte 5,3:1, bordures fortes 3,2:1.
+
 ## Vérifications
 
 Effectuées dans le navigateur intégré : rendu desktop 1440 px et mobile 375 px, étapes de la démo épinglée, thèmes clair et sombre, changement d'onglet, aucune erreur console, aucun débordement horizontal à 375 px.

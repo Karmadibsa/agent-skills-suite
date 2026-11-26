@@ -114,6 +114,22 @@
           <p>Pas besoin d'être expert : vous installez une fois, puis vous parlez à votre assistant comme d'habitude.</p>
         </div>
 
+        <div class="oneshot">
+          <div class="oneshot-text">
+            <p class="oneshot-label">Le plus simple : un seul message</p>
+            <p>Collez ce message dans votre assistant (Claude Code, Cursor, Codex…), ouvert dans votre projet. Il installe la suite lui-même, vérifie l'installation puis démarre. Il vous demandera d'autoriser les commandes : c'est normal, lisez-les avant d'accepter.</p>
+          </div>
+<pre class="prompt-full" id="p-oneshot">Installe la suite Agent Skills dans ce projet, puis démarre :
+1. Lance : npx skills add Karmadibsa/agent-skills-suite
+2. Si Node.js n'est pas disponible, clone https://github.com/Karmadibsa/agent-skills-suite dans un dossier temporaire et copie le contenu de son dossier skills/ dans le dossier de skills de ton outil (.claude/skills/ pour Claude Code, .cursor/skills/ pour Cursor, .agents/skills/ sinon), puis supprime le dossier temporaire.
+3. Vérifie que le dossier start-here est bien présent et dis-moi où les skills ont été installés.
+4. Utilise ensuite le skill start-here sur ce projet : pose-moi au plus 3 questions, crée .agents/profile.md et dis-moi quoi faire ensuite.
+Ne modifie aucun autre fichier du projet sans me demander.</pre>
+          <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-oneshot" data-label="Copier le message d'installation automatique" hidden>Copier le message</button>
+        </div>
+
+        <p class="howto-or">Ou, étape par étape :</p>
+
         <ol class="howto-steps">
           <li class="howto-step">
             <span class="howto-num" aria-hidden="true">1</span>
@@ -291,13 +307,43 @@ Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dos
       </div>
     </section>
 
+    <!-- Cas réel : ce site, avant et après les skills -->
+    <section id="avant-apres" class="section beforeafter" aria-labelledby="ba-title">
+      <div class="shell">
+        <div class="section-head">
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[03] Cas réel</p>
+            <h2 id="ba-title">Ce site, avant et après. <span class="dim">Avec les mêmes skills.</span></h2>
+          </div>
+          <p>À gauche, la page importée du Drive au début du projet. À droite, la page refaite avec <code>ux-ui-design</code> et <code>ux-art-direction</code>, puis corrigée après deux audits externes. Mêmes contenus de départ, captures à 1440 px.</p>
+        </div>
+
+        <figure class="ba">
+          <div class="ba-frame" data-ba>
+            <img class="ba-img ba-after" src="assets/avant-apres/apres.png" alt="Page d'accueil actuelle : fond papier, grand titre en serif, mot réfléchir entre crochets orange, pile de fiches à droite." width="1440" height="900" loading="lazy" decoding="async">
+            <div class="ba-before-wrap">
+              <img class="ba-img ba-before" src="assets/avant-apres/avant.png" alt="Page d'accueil d'origine : titre « Des agents IA qui vérifient avant de coder », liste de trois principes dans une carte, sélecteur de commande." width="1440" height="900" loading="lazy" decoding="async">
+            </div>
+            <span class="ba-tag ba-tag-before" aria-hidden="true">Avant</span>
+            <span class="ba-tag ba-tag-after" aria-hidden="true">Après</span>
+            <span class="ba-handle" aria-hidden="true"></span>
+          </div>
+          <label class="ba-control" hidden>
+            <span>Comparer : glissez ou utilisez les flèches</span>
+            <input type="range" min="0" max="100" value="50" data-ba-range aria-label="Part de l'image d'origine affichée">
+          </label>
+          <figcaption>Ce qui a changé et pourquoi : une promesse en une phrase au lieu d'une liste de normes, une identité propre (crochets des niveaux de preuve) au lieu d'un gabarit générique, une démo qui montre au lieu d'affirmer, des contrastes et des cibles vérifiés.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- 3. Fenêtre de contexte : vrais chiffres du dépôt -->
     <section id="contexte" class="section context" aria-labelledby="ctx-title">
       <div>
         <div class="shell">
           <div class="section-head">
             <div class="head-title">
-              <p class="kicker" aria-hidden="true">[03] Sous le capot</p>
+              <p class="kicker" aria-hidden="true">[04] Sous le capot</p>
               <h2 id="ctx-title">99 000 mots de méthode. <span class="dim">Votre IA n'en lit que ce qui sert.</span></h2>
             </div>
             <p>Installer toute la suite ne ralentit pas votre assistant : il ne lit en détail que le skill et la fiche utiles à votre demande. Exemple pour un formulaire : environ 7 % du total.</p>
@@ -338,7 +384,7 @@ Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dos
     <section class="section profile-section" aria-labelledby="profile-title">
       <div class="shell profile">
         <div class="profile-text reveal">
-          <p class="kicker" aria-hidden="true">[04] Profil projet</p>
+          <p class="kicker" aria-hidden="true">[05] Profil projet</p>
           <h2 id="profile-title">Vous réglez une fois. <span class="dim">Tous les skills s'adaptent.</span></h2>
           <p>À la première utilisation, <code>start-here</code> remplit une fiche d'identité de votre projet : son type, votre budget, s'il manipule des données sensibles, et le niveau d'exigence voulu. Il l'enregistre dans le fichier <code>.agents/profile.md</code>, à droite.</p>
           <p>Ensuite, chaque skill relit cette fiche avant de travailler. Vous n'avez rien à répéter, et vous pouvez la modifier à la main à tout moment.</p>
@@ -373,7 +419,7 @@ Accessibilité : <span class="v">WCAG 2.2 AA</span></code></pre>
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[05] Skills et prompts</p>
+            <p class="kicker" aria-hidden="true">[06] Skills et prompts</p>
             <h2 id="skills-title">Seize skills. <span class="dim">Un prompt prêt pour chacun.</span></h2>
           </div>
           <p>Ouvrez un skill, copiez le prompt, remplacez les crochets et collez-le dans votre assistant. Chaque skill fonctionne seul ; l'ordre ci-dessous est un parcours conseillé.</p>
@@ -616,7 +662,7 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[06] Niveaux de preuve</p>
+            <p class="kicker" aria-hidden="true">[07] Niveaux de preuve</p>
             <h2 id="ev-title">Une préférence n'est pas une norme.</h2>
           </div>
           <p>Chaque règle porte son niveau de preuve. En cas de conflit, le plus solide l'emporte.</p>
@@ -637,7 +683,7 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[07] Installation</p>
+            <p class="kicker" aria-hidden="true">[08] Installation</p>
             <h2 id="install-title">Autres façons d'installer.</h2>
           </div>
           <p>La commande de l'étape 1 suffit dans la plupart des cas. Sinon, choisissez votre outil ci-dessous.</p>
@@ -683,7 +729,7 @@ Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dos
       <div class="shell">
         <div class="section-head">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[08] Questions</p>
+            <p class="kicker" aria-hidden="true">[09] Questions</p>
             <h2 id="faq-title">Questions fréquentes.</h2>
           </div>
           <p>Les réponses courtes aux questions qu'on se pose avant de commencer.</p>

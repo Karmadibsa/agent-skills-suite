@@ -8,8 +8,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     :root {
-      --ink: #14171C; --paper: #F7F8FA; --brand: #F07A2E; --brand-text: #C2470F;
-      --n1: #EEF0F3; --n3: #C9CED6; --n5: #8A92A0; --n6: #5B6270; --n8: #23272F; --n9: #191C22;
+      --ink: #14171C; --paper: #F5F1E8; --brand: #F07A2E; --brand-text: #A8441A;
+      --n1: #EDE7DA; --n3: #D9D2C3; --n5: #8E8778; --n6: #6B665C; --n8: #23272F; --n9: #191C22;
       --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
       --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
@@ -92,18 +92,18 @@
   <h2>Palette</h2>
   <div class="swatches">
     <div class="sw"><i style="background:var(--brand)"></i><div><b>Orange signal</b><code>#F07A2E</code><br>Symbole, accents sur fond sombre</div></div>
-    <div class="sw"><i style="background:var(--brand-text)"></i><div><b>Orange texte</b><code>#C2470F</code><br>Liens et accents sur fond clair (contraste AA)</div></div>
+    <div class="sw"><i style="background:var(--brand-text)"></i><div><b>Orange texte</b><code>#A8441A</code><br>Liens et accents sur papier (5,3:1)</div></div>
     <div class="sw"><i style="background:var(--ink)"></i><div><b>Encre</b><code>#14171C</code><br>Texte, crochets sur fond clair</div></div>
     <div class="sw"><i style="background:#0B0C0E"></i><div><b>Nuit</b><code>#0B0C0E</code><br>Fond sombre</div></div>
-    <div class="sw"><i style="background:var(--paper)"></i><div><b>Papier</b><code>#F7F8FA</code><br>Fond clair</div></div>
-    <div class="sw"><i style="background:var(--n5)"></i><div><b>Neutre 500</b><code>#8A92A0</code><br>Neutres teintés bleu froid</div></div>
+    <div class="sw"><i style="background:var(--paper)"></i><div><b>Papier</b><code>#F5F1E8</code><br>Fond par défaut, chaud</div></div>
+    <div class="sw"><i style="background:var(--n5)"></i><div><b>Neutre 500</b><code>#8E8778</code><br>Neutres chauds, bordures fortes</div></div>
   </div>
 
   <h2>Typographie</h2>
   <div class="type-sample">
-    <p class="t-display">Réfléchir avant de coder.</p>
+    <p class="t-display" style="font-family: ui-serif, Charter, Cambria, Georgia, serif; font-weight: 600; letter-spacing: -0.025em">Réfléchir <em>avant</em> de coder.</p>
     <p class="t-mono">agent-skills/suite · [N1] · start-here</p>
-    <p>Deux familles seulement : la police système de l'appareil pour le texte (titres en 700–750, interlettrage serré) et une chasse fixe pour la marque, le code et les étiquettes. Aucune police téléchargée.</p>
+    <p>Trois familles système, rien à télécharger : une serif pour les titres (italique pour la nuance), une linéale pour le texte courant, une chasse fixe pour la marque, le code et les étiquettes entre crochets.</p>
   </div>
 
   <h2>Recette</h2>
@@ -114,7 +114,7 @@
     <tr><td>Flou 5 px</td><td class="todo">À juger sur cette page</td></tr>
     <tr><td>Inversion clair / sombre</td><td class="todo">À juger sur cette page</td></tr>
     <tr><td>Mémorisation</td><td class="todo">Non fait (test humain)</td></tr>
-    <tr><td>Contraste orange texte #C2470F sur #F7F8FA</td><td class="ok">4,7:1 (AA texte courant). Orange signal sur Nuit : 7,0:1</td></tr>
+    <tr><td>Contraste de l'orange texte</td><td class="ok">Orange texte #A8441A sur papier : 5,3:1. Orange signal sur Nuit : 7,0:1</td></tr>
   </table>
 </main>
 </body>
