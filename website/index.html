@@ -1,240 +1,81 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="system">
+<!doctype html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Skills Suite — Standards & Compétences pour Agents IA Productifs</title>
-  <meta name="description" content="Suite open-source (0 €/mois) pour guider vos agents IA : cadrage JTBD & Kano, cahier des charges, UX/UI sobre et accessible WCAG 2.2 AA, données/API, sécurité OWASP, QA et audit 360°.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://agent-skills-suite.netlify.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Agent Skills Suite — Guides & Garde-Fous pour Agents IA">
-  <meta property="og:description" content="7 Skills principaux et 3 extensions à 0 €/mois pour éviter la complaisance IA, le slop et la dette technique.">
-  <meta property="og:url" content="https://agent-skills-suite.netlify.app/">
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    (function() {
-      const saved = localStorage.getItem('ais_theme') || 'system';
-      document.documentElement.setAttribute('data-theme', saved);
-      if (saved === 'system') {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.add(prefersDark ? 'dark-theme' : 'light-theme');
-      } else {
-        document.documentElement.classList.add(saved === 'dark' ? 'dark-theme' : 'light-theme');
-      }
-    })();
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dix Agent Skills open source pour guider le développement logiciel, du cadrage à la maintenance. Explorez les référentiels et essayez une démonstration UX interactive.">
+<meta name="theme-color" content="#f5f4ee">
+<title>Agent Skills Suite — Un cadre pour mieux développer avec l’IA</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-  <header class="navbar" role="banner">
-    <div class="container navbar-inner">
-      <a href="#" class="brand-logo" aria-label="Agent Skills Suite — Accueil">
-        <span aria-hidden="true">⚡</span>
-        <span>Agent Skills Suite</span>
-      </a>
-      <nav role="navigation" aria-label="Navigation principale">
-        <ul class="nav-links">
-          <li><a href="#hero-install" class="nav-link">Installation</a></li>
-          <li><a href="#demo-before-after" class="nav-link">Démo Avant / Après</a></li>
-          <li><a href="#skills-explorer" class="nav-link">Explorateur</a></li>
-          <li><a href="#evidence-section" class="nav-link">Preuves [N1-N6]</a></li>
-          <li><a href="#feedback-module" class="nav-link">Bug ou idée ?</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <button type="button" id="quick-feedback-btn" class="btn-copy" aria-haspopup="dialog" aria-controls="feedback-modal">
-          <span aria-hidden="true">💡</span>
-          <span>Bug ou idée ?</span>
-        </button>
-        <label for="theme-select" class="sr-only">Thème d'affichage</label>
-        <select id="theme-select" class="form-control" aria-label="Thème d'affichage">
-          <option value="system">💻 Système</option>
-          <option value="light">☀️ Clair</option>
-          <option value="dark">🌙 Sombre</option>
-        </select>
-      </div>
-    </div>
-  </header>
-  <main id="main-content">
-    <section class="hero-section" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-badge">
-          <span class="hero-badge-dot" aria-hidden="true"></span>
-          <span>0 € / mois · Open Source · Standard agentskills.io</span>
-        </div>
-        <h1 id="hero-title" class="hero-title">
-          Transformez vos agents IA en <span class="hero-title-gradient">coéquipiers rigoureux</span>.
-        </h1>
-        <p class="hero-description">
-          Une suite modulaire (Skills 00 à 06 + 3 extensions) pour imposer la validation scientifique, le principe KISS, l'accessibilité WCAG 2.2 AA, la sécurité OWASP et des tests fiables — sans « slop » ni sur-ingénierie.
-        </p>
-        <noscript>
-          <div class="comparison-card before" style="max-width: 640px; margin: 0 auto 2rem;">
-            <h3>JavaScript désactivé</h3>
-            <p>Les modules interactifs (démo Avant/Après, filtre des Skills et retours locaux) nécessitent JavaScript. Les sections informatives et la commande CLI restent lisibles ci-dessous.</p>
-          </div>
-        </noscript>
-        <div class="cli-container" id="hero-install">
-          <div class="cli-header">
-            <label for="cli-command-select" class="sr-only">Choisir un Skill ou la suite complète</label>
-            <div class="cli-select-wrapper">
-              <select id="cli-command-select" class="cli-select">
-                <option value="suite">Suite complète (00 à 06 + Extensions)</option>
-                <option value="project-discovery-validation">00 — project-discovery-validation</option>
-                <option value="product-spec-docs">01 — product-spec-docs</option>
-                <option value="ux-ui-design">02 — ux-ui-design</option>
-                <option value="api-data-architecture">03 — api-data-architecture</option>
-                <option value="clean-code-security">04 — clean-code-security</option>
-                <option value="qa-perf-observability">05 — qa-perf-observability</option>
-                <option value="full-project-audit">06 — full-project-audit (Audit 360°)</option>
-              </select>
-            </div>
-            <span style="color:#94a3b8;font-size:0.75rem;">1 commande</span>
-          </div>
-          <div class="cli-body">
-            <code id="cli-command-code" class="cli-code"><span class="cli-prompt">$</span>npx agent-skills-suite init --full</code>
-            <button type="button" id="cli-copy-btn" class="btn-copy" aria-label="Copier la commande d'installation">
-              <span>📋</span>
-              <span>Copier</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="demo-before-after" class="section reveal-on-scroll" aria-labelledby="demo-title">
-      <div class="container">
-        <h2 id="demo-title" class="section-title">Démo Interactive : Avant / Après</h2>
-        <p class="section-subtitle">
-          Simulation pédagogique illustrant l'écart entre une génération IA non cadrée et un workflow encadré par Agent Skills Suite.
-        </p>
-        <div class="skills-filter-bar">
-          <label for="scenario-selector" class="form-label" style="margin:0;">Scénario :</label>
-          <select id="scenario-selector" class="form-control" style="max-width:320px;"></select>
-          <div role="tablist" aria-label="Mode de comparaison Avant ou Après" style="display:flex;gap:0.5rem;">
-            <button type="button" id="tab-btn-after" class="filter-btn active" role="tab" aria-selected="true">
-              ✨ APRÈS (Avec Agent Skills Suite)
-            </button>
-            <button type="button" id="tab-btn-before" class="filter-btn" role="tab" aria-selected="false">
-              ❌ AVANT (IA sans cadre / Slop)
-            </button>
-          </div>
-        </div>
-        <div id="demo-content-container"></div>
-      </div>
-    </section>
-    <section id="skills-explorer" class="section reveal-on-scroll" aria-labelledby="skills-title">
-      <div class="container">
-        <h2 id="skills-title" class="section-title">Explorateur des Skills (00 à 06 + 3 Extensions)</h2>
-        <p class="section-subtitle">
-          Filtrez les compétences selon la phase de votre projet : cadrage, conception/données ou qualité/livraison.
-        </p>
-        <div class="skills-filter-bar" role="tablist" aria-label="Filtrer les compétences">
-          <button type="button" class="skill-filter-btn filter-btn active" role="tab" aria-selected="true" data-category="all">Tous</button>
-          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="cadrage">Cadrage &amp; Spec</button>
-          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="design">Design &amp; Données</button>
-          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="qualite">Qualité &amp; Livraison</button>
-        </div>
-        <div id="skills-grid-container" class="skills-grid"></div>
-      </div>
-    </section>
-    <section id="evidence-section" class="section reveal-on-scroll" aria-labelledby="evidence-title">
-      <div class="container">
-        <h2 id="evidence-title" class="section-title">Taxonomie des Preuves [N1]–[N6]</h2>
-        <p class="section-subtitle">
-          Chaque règle distingue les exigences légales/normatives des heuristiques et hypothèses à vérifier.
-        </p>
-        <div class="skills-grid">
-          <article class="skill-card">
-            <h4>[N1] Exigence légale ou normative</h4>
-            <p>Obligations juridiques et cadres officiels vérifiés (RGPD, accessibilité WCAG 2.2 AA, sécurité OWASP).</p>
-          </article>
-          <article class="skill-card">
-            <h4>[N2] Principe fondamental</h4>
-            <p>Lois de conception et d'ingénierie éprouvées (séparation des préoccupations, moindre privilège, charge cognitive).</p>
-          </article>
-          <article class="skill-card">
-            <h4>[N3] Référentiel &amp; retour terrain</h4>
-            <p>Études empiriques reconnues, standards d'interopérabilité (RFC 9457, OpenAPI 3.1, RGESN) et signaux utilisateurs réels.</p>
-          </article>
-          <article class="skill-card">
-            <h4>[N4] Convention d'ingénierie</h4>
-            <p>Pratiques de développement éprouvées (KISS, migrations réversibles, SemVer, tests reproductibles).</p>
-          </article>
-          <article class="skill-card">
-            <h4>[N5] Choix d'outillage / stack</h4>
-            <p>Adaptations techniques selon le contexte (Local-First vs Client-Serveur, hébergements gratuits 0 €/mois).</p>
-          </article>
-          <article class="skill-card">
-            <h4>[N6] Hypothèse à tester</h4>
-            <p>Piste ou seuil interne à valider par mesure ou test utilisateur avant généralisation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section id="feedback-module" class="section reveal-on-scroll" aria-labelledby="feedback-title">
-      <div class="container">
-        <h2 id="feedback-title" class="section-title">Module Local « Bug ou idée ? »</h2>
-        <p class="section-subtitle">
-          Stockage 100 % local dans votre navigateur (zéro envoi serveur, zéro donnée personnelle collectée), avec export Markdown ou JSON.
-        </p>
-        <div class="comparison-grid">
-          <form id="feedback-form" class="skill-card">
-            <div class="form-group">
-              <label for="feedback-type" class="form-label">Type de retour</label>
-              <select id="feedback-type" class="form-control">
-                <option value="bug">🐛 Bug / Anomalie</option>
-                <option value="idea">💡 Idée / Amélioration</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="feedback-zone" class="form-label">Zone ou Skill concerné</label>
-              <input type="text" id="feedback-zone" class="form-control" placeholder="Ex. Démo Avant/Après, Skill 03, Navigation clavier">
-            </div>
-            <div class="form-group">
-              <label for="feedback-content" class="form-label">Description précise</label>
-              <textarea id="feedback-content" class="form-control" required placeholder="Décrivez le comportement observé ou l'idée proposée..."></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Enregistrer localement</button>
-          </form>
-          <div class="skill-card">
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-              <h3>Retours locaux</h3>
-              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-                <button type="button" id="feedback-copy-summary-btn" class="filter-btn">Copier résumé (.md)</button>
-                <button type="button" id="feedback-download-btn" class="filter-btn">Télécharger (.md)</button>
-                <button type="button" id="feedback-clear-all-btn" class="filter-btn">Tout effacer</button>
-              </div>
-            </div>
-            <div id="feedback-list" aria-live="polite"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="navbar" role="contentinfo" style="position:static;margin-top:3rem;">
-    <div class="container navbar-inner" style="height:auto;padding-top:1.5rem;padding-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
-      <div>
-        <strong>Agent Skills Suite</strong> — Open Source (Code MIT · Docs CC BY 4.0) · 0 €/mois.
-      </div>
-      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-        <a href="https://github.com/Karmadibsa/agent-skills-suite" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
-        <a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">Spécification agentskills.io</a>
-        <a href="#feedback-module">Bug ou idée ?</a>
-      </div>
-    </div>
-  </footer>
-  <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
-  <dialog id="feedback-modal" class="drawer" aria-labelledby="feedback-modal-title">
-    <div class="drawer-header">
-      <h3 id="feedback-modal-title">Retour rapide — Bug ou idée ?</h3>
-      <button type="button" id="btn-close-modal" class="drawer-close" aria-label="Fermer la fenêtre">✕</button>
-    </div>
-    <div class="drawer-body">
-      <p style="margin-bottom:1rem;">Enregistrez un retour local instantané ou ouvrez le module complet avec export Markdown.</p>
-      <button type="button" id="btn-scroll-to-feedback" class="btn-submit">Aller au formulaire complet</button>
-    </div>
-  </dialog>
-  <script src="app.js"></script>
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="#top" aria-label="Agent Skills Suite, accueil"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true"><path d="M4 9h9v9H4zM19 9h9v9h-9zM11.5 23h9" stroke="currentColor" stroke-width="2"/><path d="M13 13.5h6M8.5 18v5h3M23.5 18v5h-3" stroke="currentColor" stroke-width="2"/></svg><span>Agent Skills<span class="brand-suite"> Suite</span></span></a>
+<nav aria-label="Navigation principale"><a href="#demo">Démo</a><a href="#skills">Skills</a><a href="#installation">Installation</a><a href="#feedback">Bug ou idée ?</a></nav>
+<a class="repo-link" href="https://github.com/Karmadibsa/agent-skills-suite">GitHub <span aria-hidden="true">↗</span></a>
+</div>
+</header>
+<main id="main-content">
+<section class="hero wrap" id="top">
+<div class="hero-copy"><p class="eyebrow">Référentiel open source · agentskills.io</p><h1>Un cadre pour<br class="desktop-break"> mieux développer<br class="desktop-break"> avec l’IA.</h1><p class="hero-description">Dix compétences modulaires pour passer d’une idée à un logiciel utile, accessible et maintenable. Des règles explicites, des exemples et des critères vérifiables.</p><div class="hero-actions"><a class="button" href="#demo">Essayer la démo <span aria-hidden="true">↓</span></a><a class="secondary-link" href="https://github.com/Karmadibsa/agent-skills-suite">Consulter le dépôt <span aria-hidden="true">↗</span></a></div><p class="quiet">Aucun abonnement imposé par la suite. Les outils IA et services tiers peuvent avoir leurs propres coûts.</p></div>
+<aside class="hero-aside" aria-label="Cycle de vie couvert par les Skills"><div class="aside-heading"><span>DU BESOIN AU LOGICIEL</span><span>00 — 05</span></div><ol class="process-list"><li><span>00</span><a href="#skills">Cadrer</a><span aria-hidden="true">—</span><span>Valider le besoin</span></li><li><span>01</span><a href="#skills">Spécifier</a><span aria-hidden="true">—</span><span>Définir les exigences</span></li><li><span>02</span><a href="#skills">Concevoir</a><span aria-hidden="true">—</span><span>Concevoir l’expérience</span></li><li><span>03</span><a href="#skills">Structurer</a><span aria-hidden="true">—</span><span>Organiser les données</span></li><li><span>04</span><a href="#skills">Construire</a><span aria-hidden="true">—</span><span>Écrire le code</span></li><li><span>05</span><a href="#skills">Vérifier</a><span aria-hidden="true">—</span><span>Vérifier le résultat</span></li></ol><p class="aside-foot">+ Audit transverse · Release · Maintenance · Gouvernance</p></aside>
+</section>
+<section class="section wrap demo-section" id="demo" aria-labelledby="demo-title">
+<div class="section-heading"><p class="eyebrow">01 / Démonstration</p><h2 id="demo-title">Même projet. Deux interfaces.</h2><p>Un exemple concret d’application des Skills UX/UI et QA. Les deux interfaces manipulent les six mêmes tâches fictives, avec des états indépendants.</p></div>
+<div class="demo-brief"><div><span class="micro-label">À vous de jouer</span><strong>Repérez « Export CSV » et marquez cette tâche comme terminée dans chaque version.</strong><p>Essayez aussi la recherche, le filtre par statut et la réinitialisation.</p></div><div class="demo-view js-only" role="group" aria-label="Affichage de la comparaison"><button type="button" data-view="both" aria-pressed="true">Les deux</button><button type="button" data-view="before" aria-pressed="false">Avant</button><button type="button" data-view="after" aria-pressed="false">Après</button></div></div>
+<noscript><p class="notice">La comparaison reste lisible sans JavaScript. Activez-le pour manipuler les tâches.</p></noscript>
+<div class="comparison" id="comparison">
+<article class="demo-panel before" data-panel="before" aria-labelledby="before-title">
+ <div class="panel-caption"><span class="eyebrow">01 / Avant</span><h3 id="before-title">Un tableau de bord classique</h3><p>Vue générale par cartes, classée par dernière modification.</p></div>
+ <div class="sample-app">
+  <div class="app-toolbar"><span class="app-brand"><span class="app-mark" aria-hidden="true">P</span> Projet Atlas</span><span class="app-team">Espace de test</span></div>
+  <div class="app-body">
+   <h4>Vue d’ensemble</h4>
+   <div class="summary-metrics" aria-label="Résumé des tâches"><div><strong data-count="todo">4</strong><span>À faire</span></div><div><strong data-count="blocked">1</strong><span>Bloquées</span></div><div><strong data-count="done">1</strong><span>Terminées</span></div></div>
+   <div class="task-tools js-only"><label class="search-label" for="before-search">Rechercher<input id="before-search" type="search" placeholder="Nom ou domaine" data-search></label><label for="before-filter">Statut<select id="before-filter" data-filter><option value="all">Tous</option><option value="todo">À faire</option><option value="blocked">Bloqué</option><option value="done">Terminé</option></select></label></div>
+   
+   <ul class="task-list"><li class="task task-todo" data-task="invite" data-initial="todo" data-state="todo" data-priority="normal" data-name="Invitation des membres" data-area="Compte"><div class="task-main"><strong>Invitation des membres</strong><span class="task-area">Compte</span><p class="task-note">Préparer le texte de l’invitation.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="invite" aria-label="Terminer : Invitation des membres">Terminer</button></div></li><li class="task task-todo" data-task="theme" data-initial="todo" data-state="todo" data-priority="low" data-name="Thème sombre" data-area="Interface"><div class="task-main"><strong>Thème sombre</strong><span class="task-area">Interface</span><p class="task-note">Amélioration facultative.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité basse</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="theme" aria-label="Terminer : Thème sombre">Terminer</button></div></li><li class="task task-blocked" data-task="import" data-initial="blocked" data-state="blocked" data-priority="high" data-name="Import des données" data-area="Données"><div class="task-main"><strong>Import des données</strong><span class="task-area">Données</span><p class="task-note">En attente d’un fichier de test.</p></div><div class="task-meta"><span class="task-status">Bloqué</span><span class="task-priority">Priorité haute</span></div><div class="task-end"><span class="task-unavailable">En attente</span></div></li><li class="task task-todo" data-task="export" data-initial="todo" data-state="todo" data-priority="high" data-name="Export CSV" data-area="Données"><div class="task-main"><strong>Export CSV</strong><span class="task-area">Données</span><p class="task-note">Les données de test sont disponibles.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité haute</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="export" aria-label="Terminer : Export CSV">Terminer</button></div></li><li class="task task-todo" data-task="docs" data-initial="todo" data-state="todo" data-priority="normal" data-name="Guide de démarrage" data-area="Documentation"><div class="task-main"><strong>Guide de démarrage</strong><span class="task-area">Documentation</span><p class="task-note">Décrire le premier lancement.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="docs" aria-label="Terminer : Guide de démarrage">Terminer</button></div></li><li class="task task-done" data-task="login" data-initial="done" data-state="done" data-priority="normal" data-name="Écran de connexion" data-area="Compte"><div class="task-main"><strong>Écran de connexion</strong><span class="task-area">Compte</span><p class="task-note">Recette terminée.</p></div><div class="task-meta"><span class="task-status">Terminé</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="login" aria-label="Rouvrir : Écran de connexion">Rouvrir</button></div></li></ul>
+   <p class="empty-results" hidden data-empty>Aucune tâche ne correspond à la recherche.</p>
+   <div class="app-footer"><span data-summary>1 tâche terminée sur 6</span><button class="text-button js-only" type="button" data-reset>Réinitialiser</button></div><p class="demo-status sr-only" role="status"></p>
+  </div>
+ </div>
+ <p class="panel-observation">Les informations sont présentes, mais la prochaine tâche à traiter n’est pas mise en évidence.</p>
+</article>
+<article class="demo-panel after" data-panel="after" aria-labelledby="after-title">
+ <div class="panel-caption"><span class="eyebrow">02 / Après</span><h3 id="after-title">Une liste orientée vers l’action</h3><p>Priorités explicites, prochaine action et statut à proximité du nom.</p></div>
+ <div class="sample-app">
+  <div class="app-toolbar"><span class="app-brand"><span class="app-mark" aria-hidden="true">P</span> Projet Atlas</span><span class="app-team">Espace de test</span></div>
+  <div class="app-body">
+   <h4>Mes tâches</h4>
+   <div class="next-task"><div><span class="micro-label">Prochaine action disponible</span><strong data-next-name>Export CSV</strong><span data-next-note>Priorité haute · Données</span></div><button type="button" data-next-action class="button button-small js-only">Terminer</button></div>
+   <div class="task-tools js-only"><label class="search-label" for="after-search">Rechercher<input id="after-search" type="search" placeholder="Nom ou domaine" data-search></label><label for="after-filter">Statut<select id="after-filter" data-filter><option value="all">Tous</option><option value="todo">À faire</option><option value="blocked">Bloqué</option><option value="done">Terminé</option></select></label></div>
+   <div class="list-heading"><span>Tâche</span><span>Statut / priorité</span><span>Action</span></div>
+   <ul class="task-list"><li class="task task-todo" data-task="export" data-initial="todo" data-state="todo" data-priority="high" data-name="Export CSV" data-area="Données"><div class="task-main"><strong>Export CSV</strong><span class="task-area">Données</span><p class="task-note">Les données de test sont disponibles.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité haute</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="export" aria-label="Terminer : Export CSV">Terminer</button></div></li><li class="task task-todo" data-task="invite" data-initial="todo" data-state="todo" data-priority="normal" data-name="Invitation des membres" data-area="Compte"><div class="task-main"><strong>Invitation des membres</strong><span class="task-area">Compte</span><p class="task-note">Préparer le texte de l’invitation.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="invite" aria-label="Terminer : Invitation des membres">Terminer</button></div></li><li class="task task-todo" data-task="docs" data-initial="todo" data-state="todo" data-priority="normal" data-name="Guide de démarrage" data-area="Documentation"><div class="task-main"><strong>Guide de démarrage</strong><span class="task-area">Documentation</span><p class="task-note">Décrire le premier lancement.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="docs" aria-label="Terminer : Guide de démarrage">Terminer</button></div></li><li class="task task-todo" data-task="theme" data-initial="todo" data-state="todo" data-priority="low" data-name="Thème sombre" data-area="Interface"><div class="task-main"><strong>Thème sombre</strong><span class="task-area">Interface</span><p class="task-note">Amélioration facultative.</p></div><div class="task-meta"><span class="task-status">À faire</span><span class="task-priority">Priorité basse</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="theme" aria-label="Terminer : Thème sombre">Terminer</button></div></li><li class="task task-blocked" data-task="import" data-initial="blocked" data-state="blocked" data-priority="high" data-name="Import des données" data-area="Données"><div class="task-main"><strong>Import des données</strong><span class="task-area">Données</span><p class="task-note">En attente d’un fichier de test.</p></div><div class="task-meta"><span class="task-status">Bloqué</span><span class="task-priority">Priorité haute</span></div><div class="task-end"><span class="task-unavailable">En attente</span></div></li><li class="task task-done" data-task="login" data-initial="done" data-state="done" data-priority="normal" data-name="Écran de connexion" data-area="Compte"><div class="task-main"><strong>Écran de connexion</strong><span class="task-area">Compte</span><p class="task-note">Recette terminée.</p></div><div class="task-meta"><span class="task-status">Terminé</span><span class="task-priority">Priorité normale</span></div><div class="task-end"><button type="button" class="task-action js-only" data-task-action="login" aria-label="Rouvrir : Écran de connexion">Rouvrir</button></div></li></ul>
+   <p class="empty-results" hidden data-empty>Aucune tâche ne correspond à la recherche.</p>
+   <div class="app-footer"><span data-summary>1 tâche terminée sur 6</span><button class="text-button js-only" type="button" data-reset>Réinitialiser</button></div><p class="demo-status sr-only" role="status"></p>
+  </div>
+ </div>
+ <p class="panel-observation">Le Skill UX/UI recommande de rapprocher l’information utile et l’action, sans cacher les tâches bloquées.</p>
+</article></div>
+<div class="demo-explanation"><h3>Ce qui change réellement</h3><div class="explanation-grid"><div><h4>Hiérarchie</h4><p>La prochaine action est identifiable sans parcourir toutes les cartes.</p></div><div><h4>Densité</h4><p>Les noms, statuts et priorités sont alignés pour faciliter la lecture.</p></div><div><h4>Contrôle</h4><p>Le même état métier, les mêmes filtres et les mêmes possibilités de terminer ou rouvrir.</p></div></div><p class="quiet">Prototype illustratif, construit à la main. Aucun résultat de benchmark ni gain de temps mesuré n’est revendiqué. <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/ux-ui-design/references/07-anti-patterns-et-anti-slop.md">Voir les règles anti-slop.</a></p></div>
+</section>
+<section class="section wrap" id="skills" aria-labelledby="skills-title">
+<div class="section-heading"><p class="eyebrow">02 / Référentiel</p><h2 id="skills-title">Un Skill pour chaque besoin.</h2><p>Six étapes principales, un audit transverse et trois extensions. Installez uniquement les compétences utiles à votre projet.</p></div>
+<ul class="skills-list"><li class="skill-row"><span class="skill-index">00</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/project-discovery-validation/SKILL.md">Cadrer<span aria-hidden="true"> ↗</span></a><code>project-discovery-validation</code></div><p>Vérifier le besoin, confronter les hypothèses et définir un MVP.</p></li><li class="skill-row"><span class="skill-index">01</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/product-spec-docs/SKILL.md">Spécifier<span aria-hidden="true"> ↗</span></a><code>product-spec-docs</code></div><p>Règles métier, parcours, critères d’acceptation et décisions.</p></li><li class="skill-row"><span class="skill-index">02</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/ux-ui-design/SKILL.md">Concevoir<span aria-hidden="true"> ↗</span></a><code>ux-ui-design</code></div><p>Architecture de l’information, accessibilité et interfaces utilisables.</p></li><li class="skill-row"><span class="skill-index">03</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/api-data-architecture/SKILL.md">Structurer<span aria-hidden="true"> ↗</span></a><code>api-data-architecture</code></div><p>Modèles de données, contrats API, migrations et confidentialité.</p></li><li class="skill-row"><span class="skill-index">04</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/clean-code-security/SKILL.md">Construire<span aria-hidden="true"> ↗</span></a><code>clean-code-security</code></div><p>Code maintenable, sécurité et hygiène du dépôt.</p></li><li class="skill-row"><span class="skill-index">05</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/qa-perf-observability/SKILL.md">Vérifier<span aria-hidden="true"> ↗</span></a><code>qa-perf-observability</code></div><p>Tests, performances, résilience et observabilité.</p></li><li class="skill-row"><span class="skill-index">↗</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/full-project-audit/SKILL.md">Auditer<span aria-hidden="true"> ↗</span></a><code>full-project-audit</code></div><p>Inspection indépendante et plan de remédiation priorisé.</p></li><li class="skill-row"><span class="skill-index">E1</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/release-deployment/SKILL.md">Publier<span aria-hidden="true"> ↗</span></a><code>release-deployment</code></div><p>Build, version, livraison et retour arrière.</p></li><li class="skill-row"><span class="skill-index">E2</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/maintenance-incident/SKILL.md">Maintenir<span aria-hidden="true"> ↗</span></a><code>maintenance-incident</code></div><p>Triage, incidents, restauration et suivi.</p></li><li class="skill-row"><span class="skill-index">E3</span><div><a class="skill-name" href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/oss-governance/SKILL.md">Gouverner<span aria-hidden="true"> ↗</span></a><code>oss-governance</code></div><p>Licences, dépendances et contributions open source.</p></li></ul>
+<details class="evidence"><summary>Comment les règles sont-elles justifiées ?</summary><p>Le référentiel distingue notamment normes, résultats scientifiques, recommandations empiriques et conventions de conception. Une règle n’est pas une preuve de conformité d’un produit. Les tests et le contexte déterminent ce qui est applicable.</p><a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/ux-ui-design/references/00B-registre-central-regles.md">Lire le registre des preuves et règles ↗</a></details>
+</section>
+<section class="section wrap install-section" id="installation" aria-labelledby="installation-title">
+<div class="section-heading"><p class="eyebrow">03 / Installation</p><h2 id="installation-title">Démarrer sans infrastructure.</h2><p>Récupérez le dépôt, puis copiez les dossiers de Skills souhaités dans le répertoire reconnu par votre assistant.</p></div>
+<div class="install-grid"><div><h3>Récupérer les fichiers</h3><div class="code-block"><code id="clone-command">git clone https://github.com/Karmadibsa/agent-skills-suite.git</code><button type="button" class="js-only" data-copy="clone-command">Copier</button></div><p id="copy-clone-status" class="copy-status" role="status"></p><p class="quiet">Gardez le fichier SKILL.md et son dossier references/ ensemble.</p></div><div><h3>Choisir le dossier de destination</h3><dl class="install-paths"><div><dt>Claude Code</dt><dd><code>.claude/skills/</code></dd></div><div><dt>Cursor</dt><dd><code>.cursor/skills/</code></dd></div><div><dt>Codex</dt><dd><code>.agents/skills/</code></dd></div></dl><p class="quiet">Les modalités dépendent de la version et de l’environnement de l’assistant. Pour ChatGPT, consultez les possibilités d’installation disponibles dans votre interface.</p><a href="https://github.com/Karmadibsa/agent-skills-suite#readme">Consulter le README ↗</a></div></div>
+</section>
+<section class="section wrap feedback-section" id="feedback" aria-labelledby="feedback-title">
+<div class="section-heading"><p class="eyebrow">04 / Contribution</p><h2 id="feedback-title">Bug ou idée ?</h2><p>Préparez un retour contextualisé et relisez-le avant de le publier sur GitHub. Le site ne collecte ni n’envoie automatiquement vos messages.</p></div>
+<div class="feedback-grid"><form id="feedback-form"><div class="form-row"><label for="feedback-type">Type de retour<select id="feedback-type" name="type" required><option value="Bug">Bug</option><option value="Idée">Idée d’amélioration</option></select></label><label for="feedback-context">Zone concernée<select id="feedback-context" name="context" required><option value="Démo Avant / Après">Démo Avant / Après</option><option value="Catalogue des Skills">Catalogue des Skills</option><option value="Installation">Installation</option><option value="Vitrine">Vitrine</option><option value="Autre">Autre</option></select></label></div><label for="feedback-content">Votre retour<textarea id="feedback-content" name="content" rows="5" maxlength="1500" required placeholder="Ce que vous avez observé, ce que vous attendiez ou votre proposition."></textarea></label><p class="quiet">Ne saisissez aucune information personnelle, confidentielle ou liée à une faille de sécurité dans un ticket public.</p><button type="submit" class="button js-only">Préparer mon retour</button><noscript><p>Copiez votre message manuellement et utilisez le lien GitHub ci-contre.</p></noscript></form><div class="feedback-preview"><h3>Aperçu avant publication</h3><p id="feedback-hint">Le retour préparé apparaîtra ici. Vous choisissez ensuite de le copier ou de le publier.</p><label for="feedback-draft" class="sr-only">Retour Markdown préparé</label><textarea id="feedback-draft" rows="7" readonly hidden></textarea><div class="feedback-actions"><button class="button outline js-only" type="button" id="feedback-copy" disabled>Copier le retour</button><a class="secondary-link" href="https://github.com/Karmadibsa/agent-skills-suite/issues/new">Ouvrir un ticket GitHub ↗</a></div><p id="feedback-status" class="copy-status" role="status"></p><p class="quiet">Pour une vulnérabilité, privilégiez un signalement privé au mainteneur plutôt qu’un ticket public.</p></div></div>
+</section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><span>Agent Skills Suite</span><span>Open source · <a href="https://github.com/Karmadibsa/agent-skills-suite">Code et référentiels sur GitHub ↗</a></span><a href="#top">Retour en haut ↑</a></div></footer>
 </body>
 </html>
