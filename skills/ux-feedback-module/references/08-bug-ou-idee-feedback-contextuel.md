@@ -459,13 +459,13 @@ Voici la spécification stricte que tu dois appliquer à la lettre :
    - Boutons "Élargir la zone" (remonte au parent DOM) et "Changer d'élément" (ré-inspecte sans perdre la saisie).
    - Champs : Toggle Bug/Idée (obligatoire), Titre (optionnel, max 90 car.), Description (obligatoire).
    - Accordéon "Préciser" : si Bug -> Étapes de repro + Gravité ; si Idée -> Problème résolu.
-   - Checkbox "Joindre une capture d'écran" (cochée par défaut).
+   - Checkbox "Joindre une capture d'écran" (décochée par défaut ; l'utilisateur la coche à chaque retour, après un avertissement sur le contenu visible). Option absente si le profil projet indique des données de santé, de finance ou de mineurs.
    - Si fermeture alors que la description n'est pas vide -> Confirmation d'abandon.
 4. CAPTURE D'ÉCRAN NATIVE (WEB API) :
    - Utilise `navigator.mediaDevices.getDisplayMedia({ video: { displaySurface: 'browser' }, preferCurrentTab: true, selfBrowserSurface: 'include' })`.
    - Masque temporairement le panneau de formulaire pendant la capture, garde le rectangle de surbrillance, attend 400ms.
    - Calcule le ratio `videoWidth / innerWidth`.
-   - Génère deux PNG en Canvas : vue "zone" (élément + marge 160px bornée au viewport) et vue "full" (viewport complet).
+   - Uniquement si la case est cochée et le dialogue accepté : génère deux PNG en Canvas, vue "zone" (élément + marge 160px bornée au viewport) et vue "full" (viewport complet). Prévenir que la vue complète peut contenir des informations non masquées et permettre de la supprimer avant l'enregistrement.
    - Dans le bloc `finally`, stoppe impérativement toutes les pistes (`track.stop()`) du flux vidéo.
    - Si refus ou SecurityError, gère l'erreur élégamment et propose le fallback manuel ("Win + Maj + S").
 5. CONFIDENTIALITÉ ET SANITIZATION :

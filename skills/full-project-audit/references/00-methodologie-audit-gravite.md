@@ -86,7 +86,7 @@ Chaque point soulevé dans le rapport final doit impérativement comporter les c
 - [RISQUE SUPPOSÉ À TESTER] : L'anomalie est théorique ou déduite de la structure, mais nécessite des tests complémentaires en environnement réel pour confirmation.
 
 ```
-[AUD-04] Data/API — Gravité: P1 — Règle: [N1] (OWASP API3:2023)
+[AUD-04] Data/API — Gravité: P1 — Règle: [N3] (OWASP API3:2023 ; [N1] si des données personnelles sont exposées, RGPD art. 32)
 Localisation : src/api/controllers/userController.ts:112
 Statut : [CONSTATÉ DANS LE CODE]
 Description : L'endpoint /api/v1/users/{id} ne vérifie pas les droits de la session courante avant de renvoyer l'objet utilisateur complet, permettant un accès direct aux objets (BOLA/IDOR).

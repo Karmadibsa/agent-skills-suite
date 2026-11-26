@@ -1,6 +1,6 @@
 ---
 name: start-here
-description: Point d'entrée de la suite Agent Skills. Diagnostique l'état d'un projet (idée, cadrage, développement, production, reprise d'un dépôt existant), crée ou met à jour le profil projet .agents/profile.md, puis indique quel skill charger et dans quel ordre. À activer au début d'une session sur un projet, quand on ne sait pas quel skill utiliser, pour reprendre un projet existant ou pour adapter la suite à un nouveau contexte. Triggers: start a project, onboard an existing repo, which skill should I use.
+description: Point d'entrée de la suite Agent Skills. Diagnostique l'état d'un projet (idée, cadrage, développement, production, reprise d'un dépôt existant), crée ou met à jour le profil projet .agents/profile.md, puis indique quel skill charger et dans quel ordre. À activer au début d'une session sur un projet, quand on ne sait pas quel skill utiliser, pour reprendre un projet existant ou pour adapter la suite à un nouveau contexte. Use it to start a project, onboard an existing repository or pick the right skill.
 license: CC-BY-4.0 / MIT
 metadata:
   version: "1.1.0"
@@ -123,6 +123,7 @@ Remplir `.agents/profile.md` à partir de `references/profile-template.md`.
 Règles d'aiguillage :
 
 - **Projet existant** : ne pas renvoyer vers la discovery par principe. Commencer par la tâche demandée ; proposer `full-project-audit` seulement si le dépôt est mal connu ou si l'utilisateur veut un état des lieux.
+- **Projet en cours sans tâche précisée** : demander la prochaine tâche concrète (c'est l'une des trois questions autorisées). Sans réponse, recommander `full-project-audit` en lecture seule pour établir les priorités.
 - **Une seule recommandation principale**, éventuellement une seconde. Pas de parcours complet imposé.
 - **Rigueur `légère`** : recommander directement le skill du domaine de la tâche, sans étape amont.
 
@@ -134,7 +135,7 @@ Format de sortie, court :
 **Diagnostic** : stade `<stade>` — <une phrase de preuve>.
 **Profil** : `.agents/profile.md` <créé | mis à jour | inchangé> (rigueur `<valeur>`, budget `<valeur>`, données sensibles `<valeur>`).
 **Prochain skill** : `<skill>` — <pourquoi, en une phrase>. Fiche à charger : `<skill>/references/<fiche>.md`.
-**Prompt suggéré** : « Utilise le skill <skill> pour <tâche concrète>. »
+**Prompt suggéré** : « Utilise le skill <skill> et charge la fiche <skill>/references/<fiche>.md pour <tâche concrète>. »
 **Hypothèses à confirmer** : <liste courte, ou « aucune »>.
 ```
 

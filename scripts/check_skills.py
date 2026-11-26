@@ -3,7 +3,8 @@
 
 Usage :
     python scripts/check_skills.py          # vérifie, code de sortie 1 en cas d'erreur
-    python scripts/check_skills.py --fix    # recopie shared/skill-preamble.md dans chaque SKILL.md
+    python scripts/check_skills.py --fix    # régénère le bloc commun, les copies du registre et l'index
+    python scripts/check_skills.py --strict # exige PyYAML (utilisé en CI)
 
 Contrôles :
 - frontmatter YAML : name (= nom du dossier, minuscules/chiffres/tirets, <= 64 car.)
@@ -20,6 +21,11 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+try:  # validation YAML stricte si PyYAML est disponible (obligatoire en CI avec --strict)
+    import yaml
+except ImportError:  # pragma: no cover
+    yaml = None
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
@@ -50,8 +56,22 @@ def frontmatter(text: str) -> dict[str, str] | None:
     end = text.find("\n---\n", 4)
     if end == -1:
         return None
+    raw = text[4:end]
+    if yaml is not None:
+        try:
+            data = yaml.safe_load(raw)
+        except yaml.YAMLError as exc:
+            return {"__error__": " ".join(str(exc).split())[:160]}
+        if not isinstance(data, dict):
+            return {"__error__": "le frontmatter n'est pas un dictionnaire YAML"}
+        bad = [k for k in ("name", "description", "license") if k in data and not isinstance(data[k], str)]
+        if "metadata" in data and not isinstance(data["metadata"], dict):
+            bad.append("metadata")
+        if bad:
+            return {"__error__": "types invalides pour : " + ", ".join(bad)}
+        return {k: v for k, v in data.items() if isinstance(v, str)}
     fields: dict[str, str] = {}
-    for line in text[4:end].split("\n"):
+    for line in raw.split("\n"):
         m = re.match(r"^([a-z_-]+):\s*(.*)$", line)
         if m:
             fields[m.group(1)] = m.group(2).strip().strip('"')
@@ -160,6 +180,11 @@ def flattened_runs(text: str, min_run: int = 6) -> list[int]:
 
 def main() -> int:
     fix = "--fix" in sys.argv
+    if yaml is None:
+        if "--strict" in sys.argv:
+            print("ERREUR : PyYAML est requis avec --strict (pip install pyyaml).")
+            return 1
+        print("avertissement : PyYAML absent, frontmatter vérifié sans parseur YAML (pip install pyyaml).")
     errors: list[str] = []
     warnings: list[str] = []
     skill_dirs = sorted(p for p in SKILLS.iterdir() if p.is_dir())
@@ -183,6 +208,8 @@ def main() -> int:
         fm = frontmatter(text)
         if fm is None:
             errors.append(f"{rel}: frontmatter YAML absent ou mal fermé")
+        elif "__error__" in fm:
+            errors.append(f"{rel}: frontmatter YAML invalide — {fm['__error__']}")
         else:
             name, desc = fm.get("name", ""), fm.get("description", "")
             if name != d.name:

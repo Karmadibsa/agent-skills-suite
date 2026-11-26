@@ -56,13 +56,13 @@ George A. Miller (1956), « The Magical Number Seven, Plus or Minus Two », Psyc
 
 La mémoire de travail humaine a une capacité de traitement limitée. Si Miller évaluait initialement cette limite à $7 \pm 2$ éléments, les recherches modernes de Cowan démontrent que la capacité réelle du stockage à court terme, sans répétition mentale, est limitée à $4 \pm 1$ blocs (chunks) d'information distincts.
 
-### Application & Règles d me d'implémentation
+### Application & Règles d'implémentation
 
-- Règle opérationnelle (DO) : Structurer l'information visuelle en regroupements logiques (chunking) d'au maximum 3 à 5 éléments. Appliquer ce principe au formatage des numéros (cartes bancaires, téléphones), à la segmentation des étapes d'un formulaire et au regroupement d'options dans les barres de navigation.
+- Règle opérationnelle (DO) : Structurer l'information visuelle en regroupements logiques (chunking), de préférence de 3 à 5 éléments. Ce repère est une heuristique d'interface [N3] inspirée de Cowan (2001), dont la mesure porte sur la mémoire de travail en conditions de laboratoire : ce n'est pas une limite universelle, l'adapter à la familiarité et à la fréquence d'usage. Appliquer ce principe au formatage des numéros (cartes bancaires, téléphones), à la segmentation des étapes d'un formulaire et au regroupement d'options dans les barres de navigation.
 
 - Interdit (DON'T) : Ne pas présenter de suites ininterrompues de données alphanumériques (ex: 16 chiffres consécutifs). Ne pas forcer l'utilisateur à retenir une information de l'écran A pour la ressaisir à l'écran B.
 
-- Critère de vérification (QA) : Aucune liste non structurée ne dépasse 5 éléments sans séparation visuelle (espacement, séparateur ou sous-titre).
+- Critère de vérification (QA) : Les listes longues sont découpées en groupes visuels (espacement, séparateur ou sous-titre) ; tout écart au repère de 3 à 5 éléments est justifié par l'usage.
 
 ## 4. Loi de Jakob
 
@@ -139,7 +139,7 @@ Walter J. Doherty & Ahrvind Thadani (1982), « The Economic Value of Rapid Respo
 
 ### Principe
 
-La productivité des utilisateurs augmente de manière exponentielle lorsque le temps d'interaction entre l'utilisateur et l'ordinateur est inférieur à 400 millisecondes. Au-delà de cette durée, le fil de pensée de l'utilisateur est interrompu et l'attention décline.
+Doherty et Thadani ont observé, sur des postes de travail IBM, une hausse nette de productivité quand le temps de réponse du système descend sous environ 400 millisecondes ; au-delà, le fil de pensée de l'utilisateur tend à s'interrompre. Ce résultat porte sur le temps de réponse du système, pas sur la durée des animations, et ne justifie pas une forme de courbe précise : l'utiliser comme repère [N3] à valider par la mesure.
 
 ### Application & Règles d'implémentation
 

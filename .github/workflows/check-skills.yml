@@ -2,7 +2,7 @@ name: Vérification des skills
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
 
 permissions:
@@ -16,5 +16,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Structure, frontmatter, références, bloc commun et tableaux
-        run: python scripts/check_skills.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Installer PyYAML
+        run: python -m pip install pyyaml==6.0.2
+      - name: Tests du vérificateur
+        run: python scripts/test_check_skills.py
+      - name: Frontmatter YAML, références, bloc commun, index et tableaux
+        run: python scripts/check_skills.py --strict
+      - name: Syntaxe JavaScript du site
+        run: node --check website/app.js
+      - name: Installation d'un skill seul (copie isolée)
+        run: |
+          tmp="$(mktemp -d)"
+          cp -r skills/ux-forms-navigation "$tmp/"
+          test -f "$tmp/ux-forms-navigation/SKILL.md"
+          grep -o 'references/[A-Za-z0-9_.-]*\.md' "$tmp/ux-forms-navigation/SKILL.md" | sort -u | while read -r ref; do
+            test -f "$tmp/ux-forms-navigation/$ref" || { echo "manquant hors de la suite : $ref"; exit 1; }
+          done

@@ -165,4 +165,4 @@ Corriger immédiatement tout défaut identifié lors de l'audit (contrastes insu
 
 ## Étape 10 : Restitution documentée et transparente
 
-Livrer le travail en fournissant une justification synthétique des choix structurants s'appuyant sur les identifiants de preuve ([ID][Niveau]) du référentiel (ex: [FITTS][N1], [COWAN][N1]). Déclarer avec transparence les points qui n'ont pas pu faire l'objet d'un test visuel direct ou d'une validation sur terminal physique.
+Livrer le travail en fournissant une justification synthétique des choix structurants s'appuyant sur les identifiants de preuve ([ID][Niveau]) du référentiel (ex : [ACC-01][N1], [COG-01][N2]). Déclarer avec transparence les points qui n'ont pas pu faire l'objet d'un test visuel direct ou d'une validation sur terminal physique.
