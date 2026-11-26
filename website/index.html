@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Skills Suite — Standards & Compétences pour Agents IA Productifs</title>
+  <meta name="description" content="Suite open-source (0 €/mois) pour guider vos agents IA : cadrage JTBD & Kano, cahier des charges, UX/UI sobre et accessible WCAG 2.2 AA, données/API, sécurité OWASP, QA et audit 360°.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agent-skills-suite.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agent Skills Suite — Guides & Garde-Fous pour Agents IA">
+  <meta property="og:description" content="7 Skills principaux et 3 extensions à 0 €/mois pour éviter la complaisance IA, le slop et la dette technique.">
+  <meta property="og:url" content="https://agent-skills-suite.netlify.app/">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('ais_theme') || 'system';
+      document.documentElement.setAttribute('data-theme', saved);
+      if (saved === 'system') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.add(prefersDark ? 'dark-theme' : 'light-theme');
+      } else {
+        document.documentElement.classList.add(saved === 'dark' ? 'dark-theme' : 'light-theme');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <header class="navbar" role="banner">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-logo" aria-label="Agent Skills Suite — Accueil">
+        <span aria-hidden="true">⚡</span>
+        <span>Agent Skills Suite</span>
+      </a>
+      <nav role="navigation" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#hero-install" class="nav-link">Installation</a></li>
+          <li><a href="#demo-before-after" class="nav-link">Démo Avant / Après</a></li>
+          <li><a href="#skills-explorer" class="nav-link">Explorateur</a></li>
+          <li><a href="#evidence-section" class="nav-link">Preuves [N1-N6]</a></li>
+          <li><a href="#feedback-module" class="nav-link">Bug ou idée ?</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" id="quick-feedback-btn" class="btn-copy" aria-haspopup="dialog" aria-controls="feedback-modal">
+          <span aria-hidden="true">💡</span>
+          <span>Bug ou idée ?</span>
+        </button>
+        <label for="theme-select" class="sr-only">Thème d'affichage</label>
+        <select id="theme-select" class="form-control" aria-label="Thème d'affichage">
+          <option value="system">💻 Système</option>
+          <option value="light">☀️ Clair</option>
+          <option value="dark">🌙 Sombre</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span>0 € / mois · Open Source · Standard agentskills.io</span>
+        </div>
+        <h1 id="hero-title" class="hero-title">
+          Transformez vos agents IA en <span class="hero-title-gradient">coéquipiers rigoureux</span>.
+        </h1>
+        <p class="hero-description">
+          Une suite modulaire (Skills 00 à 06 + 3 extensions) pour imposer la validation scientifique, le principe KISS, l'accessibilité WCAG 2.2 AA, la sécurité OWASP et des tests fiables — sans « slop » ni sur-ingénierie.
+        </p>
+        <noscript>
+          <div class="comparison-card before" style="max-width: 640px; margin: 0 auto 2rem;">
+            <h3>JavaScript désactivé</h3>
+            <p>Les modules interactifs (démo Avant/Après, filtre des Skills et retours locaux) nécessitent JavaScript. Les sections informatives et la commande CLI restent lisibles ci-dessous.</p>
+          </div>
+        </noscript>
+        <div class="cli-container" id="hero-install">
+          <div class="cli-header">
+            <label for="cli-command-select" class="sr-only">Choisir un Skill ou la suite complète</label>
+            <div class="cli-select-wrapper">
+              <select id="cli-command-select" class="cli-select">
+                <option value="suite">Suite complète (00 à 06 + Extensions)</option>
+                <option value="project-discovery-validation">00 — project-discovery-validation</option>
+                <option value="product-spec-docs">01 — product-spec-docs</option>
+                <option value="ux-ui-design">02 — ux-ui-design</option>
+                <option value="api-data-architecture">03 — api-data-architecture</option>
+                <option value="clean-code-security">04 — clean-code-security</option>
+                <option value="qa-perf-observability">05 — qa-perf-observability</option>
+                <option value="full-project-audit">06 — full-project-audit (Audit 360°)</option>
+              </select>
+            </div>
+            <span style="color:#94a3b8;font-size:0.75rem;">1 commande</span>
+          </div>
+          <div class="cli-body">
+            <code id="cli-command-code" class="cli-code"><span class="cli-prompt">$</span>npx agent-skills-suite init --full</code>
+            <button type="button" id="cli-copy-btn" class="btn-copy" aria-label="Copier la commande d'installation">
+              <span>📋</span>
+              <span>Copier</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="demo-before-after" class="section reveal-on-scroll" aria-labelledby="demo-title">
+      <div class="container">
+        <h2 id="demo-title" class="section-title">Démo Interactive : Avant / Après</h2>
+        <p class="section-subtitle">
+          Simulation pédagogique illustrant l'écart entre une génération IA non cadrée et un workflow encadré par Agent Skills Suite.
+        </p>
+        <div class="skills-filter-bar">
+          <label for="scenario-selector" class="form-label" style="margin:0;">Scénario :</label>
+          <select id="scenario-selector" class="form-control" style="max-width:320px;"></select>
+          <div role="tablist" aria-label="Mode de comparaison Avant ou Après" style="display:flex;gap:0.5rem;">
+            <button type="button" id="tab-btn-after" class="filter-btn active" role="tab" aria-selected="true">
+              ✨ APRÈS (Avec Agent Skills Suite)
+            </button>
+            <button type="button" id="tab-btn-before" class="filter-btn" role="tab" aria-selected="false">
+              ❌ AVANT (IA sans cadre / Slop)
+            </button>
+          </div>
+        </div>
+        <div id="demo-content-container"></div>
+      </div>
+    </section>
+    <section id="skills-explorer" class="section reveal-on-scroll" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title" class="section-title">Explorateur des Skills (00 à 06 + 3 Extensions)</h2>
+        <p class="section-subtitle">
+          Filtrez les compétences selon la phase de votre projet : cadrage, conception/données ou qualité/livraison.
+        </p>
+        <div class="skills-filter-bar" role="tablist" aria-label="Filtrer les compétences">
+          <button type="button" class="skill-filter-btn filter-btn active" role="tab" aria-selected="true" data-category="all">Tous</button>
+          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="cadrage">Cadrage &amp; Spec</button>
+          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="design">Design &amp; Données</button>
+          <button type="button" class="skill-filter-btn filter-btn" role="tab" aria-selected="false" data-category="qualite">Qualité &amp; Livraison</button>
+        </div>
+        <div id="skills-grid-container" class="skills-grid"></div>
+      </div>
+    </section>
+    <section id="evidence-section" class="section reveal-on-scroll" aria-labelledby="evidence-title">
+      <div class="container">
+        <h2 id="evidence-title" class="section-title">Taxonomie des Preuves [N1]–[N6]</h2>
+        <p class="section-subtitle">
+          Chaque règle distingue les exigences légales/normatives des heuristiques et hypothèses à vérifier.
+        </p>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h4>[N1] Exigence légale ou normative</h4>
+            <p>Obligations juridiques et cadres officiels vérifiés (RGPD, accessibilité WCAG 2.2 AA, sécurité OWASP).</p>
+          </article>
+          <article class="skill-card">
+            <h4>[N2] Principe fondamental</h4>
+            <p>Lois de conception et d'ingénierie éprouvées (séparation des préoccupations, moindre privilège, charge cognitive).</p>
+          </article>
+          <article class="skill-card">
+            <h4>[N3] Référentiel &amp; retour terrain</h4>
+            <p>Études empiriques reconnues, standards d'interopérabilité (RFC 9457, OpenAPI 3.1, RGESN) et signaux utilisateurs réels.</p>
+          </article>
+          <article class="skill-card">
+            <h4>[N4] Convention d'ingénierie</h4>
+            <p>Pratiques de développement éprouvées (KISS, migrations réversibles, SemVer, tests reproductibles).</p>
+          </article>
+          <article class="skill-card">
+            <h4>[N5] Choix d'outillage / stack</h4>
+            <p>Adaptations techniques selon le contexte (Local-First vs Client-Serveur, hébergements gratuits 0 €/mois).</p>
+          </article>
+          <article class="skill-card">
+            <h4>[N6] Hypothèse à tester</h4>
+            <p>Piste ou seuil interne à valider par mesure ou test utilisateur avant généralisation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="feedback-module" class="section reveal-on-scroll" aria-labelledby="feedback-title">
+      <div class="container">
+        <h2 id="feedback-title" class="section-title">Module Local « Bug ou idée ? »</h2>
+        <p class="section-subtitle">
+          Stockage 100 % local dans votre navigateur (zéro envoi serveur, zéro donnée personnelle collectée), avec export Markdown ou JSON.
+        </p>
+        <div class="comparison-grid">
+          <form id="feedback-form" class="skill-card">
+            <div class="form-group">
+              <label for="feedback-type" class="form-label">Type de retour</label>
+              <select id="feedback-type" class="form-control">
+                <option value="bug">🐛 Bug / Anomalie</option>
+                <option value="idea">💡 Idée / Amélioration</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="feedback-zone" class="form-label">Zone ou Skill concerné</label>
+              <input type="text" id="feedback-zone" class="form-control" placeholder="Ex. Démo Avant/Après, Skill 03, Navigation clavier">
+            </div>
+            <div class="form-group">
+              <label for="feedback-content" class="form-label">Description précise</label>
+              <textarea id="feedback-content" class="form-control" required placeholder="Décrivez le comportement observé ou l'idée proposée..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enregistrer localement</button>
+          </form>
+          <div class="skill-card">
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+              <h3>Retours locaux</h3>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                <button type="button" id="feedback-copy-summary-btn" class="filter-btn">Copier résumé (.md)</button>
+                <button type="button" id="feedback-download-btn" class="filter-btn">Télécharger (.md)</button>
+                <button type="button" id="feedback-clear-all-btn" class="filter-btn">Tout effacer</button>
+              </div>
+            </div>
+            <div id="feedback-list" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="navbar" role="contentinfo" style="position:static;margin-top:3rem;">
+    <div class="container navbar-inner" style="height:auto;padding-top:1.5rem;padding-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <strong>Agent Skills Suite</strong> — Open Source (Code MIT · Docs CC BY 4.0) · 0 €/mois.
+      </div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <a href="https://github.com/Karmadibsa/agent-skills-suite" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+        <a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">Spécification agentskills.io</a>
+        <a href="#feedback-module">Bug ou idée ?</a>
+      </div>
+    </div>
+  </footer>
+  <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
+  <dialog id="feedback-modal" class="drawer" aria-labelledby="feedback-modal-title">
+    <div class="drawer-header">
+      <h3 id="feedback-modal-title">Retour rapide — Bug ou idée ?</h3>
+      <button type="button" id="btn-close-modal" class="drawer-close" aria-label="Fermer la fenêtre">✕</button>
+    </div>
+    <div class="drawer-body">
+      <p style="margin-bottom:1rem;">Enregistrez un retour local instantané ou ouvrez le module complet avec export Markdown.</p>
+      <button type="button" id="btn-scroll-to-feedback" class="btn-submit">Aller au formulaire complet</button>
+    </div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
