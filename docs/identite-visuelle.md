@@ -24,6 +24,16 @@ La suite étiquette chaque règle entre crochets, de `[N1]` à `[N6]`. Le symbol
 
 Choisie avec la section 5 de `ux-art-direction` (signature propre) pour sortir du gabarit « outil sombre + accent néon ». Fond papier chaud, encre, titres en serif système (italique pour la nuance), filets fins à la place des cartes, crochets et orange réservés à ce qui est étiqueté ou vérifié. Le thème sombre reste disponible sur demande, le clair est l'identité par défaut.
 
+## Typographie
+
+| Usage | Police | Licence | Pourquoi |
+| --- | --- | --- | --- |
+| Titres | Fraunces (variable, droit et italique) | SIL OFL 1.1 | Serif éditoriale avec du caractère, italique pour la nuance |
+| Texte | Atkinson Hyperlegible (400, 400 italique, 700) | SIL OFL 1.1 | Conçue par le Braille Institute pour la lisibilité : cohérente avec une suite qui défend l'accessibilité |
+| Marque, code, étiquettes | Chasse fixe du système | — | Rien à télécharger de plus |
+
+Fichiers woff2 (sous-ensemble latin, accents français compris) dans `website/assets/fonts/`, avec les licences `OFL-*.txt`. Source : paquets npm Fontsource 5.3.0. Hébergement sur le site, sans appel à Google Fonts (pas de transfert d'adresse IP à un tiers). Poids total : environ 135 Ko, les deux fichiers principaux sont préchargés.
+
 ## Wordmark
 
 `agent-skills/suite` en chasse fixe, graisse 600, `/suite` en neutre. Pas de police téléchargée : la chasse fixe du système (Cascadia Code, SF Mono, Menlo, Consolas).

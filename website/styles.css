@@ -5,6 +5,14 @@
    piloté par le scroll ou le pointeur, jamais au premier affichage, coupé avec prefers-reduced-motion.
    Contrastes mesurés : texte ≥ 5:1, texte secondaire 5,1:1, bordures fortes 3,2:1 sur le papier. */
 
+/* Polices hébergées sur le site (aucun appel à un service tiers), licence SIL OFL 1.1 : voir assets/fonts/OFL-*.txt.
+   Atkinson Hyperlegible (Braille Institute) pour le texte, Fraunces pour les titres. Sous-ensemble latin. */
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("assets/fonts/atkinson-hyperlegible-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-wght-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+
 :root {
   --bg: #F5F1E8;
   --bg-2: #EFE9DC;
@@ -30,8 +38,8 @@
   --brand: #F07A2E;
   --brand-ink: #14171C;
 
-  --serif: ui-serif, "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Fraunces", ui-serif, "Iowan Old Style", Charter, Cambria, Georgia, serif;
+  --font: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
   --r-sm: 4px;
   --r-md: 6px;
@@ -502,6 +510,16 @@ h3 { font-weight: 600; }
 .btn { font-weight: 600; letter-spacing: 0.01em; }
 .cmd .cmd-text, .prompt-full { font-size: 0.875rem; }
 .hero-lead, .section-head p { font-size: 1.125rem; line-height: 1.6; }
+
+/* Réglages typographiques pour Fraunces et Atkinson */
+.hero h1, .section-head h2, .head-title h2, .demo-head h2, .profile-text h2, .manifesto-title { font-optical-sizing: auto; font-variation-settings: "SOFT" 0, "WONK" 0; }
+.hero h1 { font-weight: 560; letter-spacing: -0.03em; }
+.hero h1 .accent { font-weight: 420; }
+.section-head h2, .head-title h2, .demo-head h2, .profile-text h2 { font-weight: 540; letter-spacing: -0.025em; }
+.dim { font-weight: 380; }
+.manifesto-title { font-weight: 560; letter-spacing: -0.03em; }
+.howto-step h3, .final-title, .oneshot-label, .faq-list summary { font-weight: 540; }
+.prompt { font-weight: 450; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
