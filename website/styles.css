@@ -27,6 +27,8 @@
   --code-dim: oklch(0.66 0.02 260);
   --code-val: oklch(0.83 0.12 70);
   --grid: oklch(0.96 0.006 260 / 0.05);
+  --brand: #F07A2E;
+  --brand-ink: #14171C;
 
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
@@ -104,8 +106,9 @@ code, kbd, pre { font-family: var(--mono); font-size: 0.875em; }
 /* ---------- Barre du haut ---------- */
 .topbar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.4) blur(10px); }
 .topbar-inner { display: flex; align-items: center; gap: var(--s5); min-height: 60px; }
-.wordmark { display: inline-flex; align-items: center; min-height: 44px; font: 600 1rem/1 var(--mono); text-decoration: none; letter-spacing: -0.01em; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; min-height: 44px; font: 600 1rem/1 var(--mono); text-decoration: none; letter-spacing: -0.01em; }
 .wordmark-dim { color: var(--text-3); }
+.logo-mark { width: 24px; height: 24px; flex: none; color: var(--text); }
 .nav { display: flex; gap: var(--s5); margin-left: auto; }
 .nav a { color: var(--text-2); text-decoration: none; font-size: 0.9375rem; padding: var(--s2) 0; }
 .nav a:hover { color: var(--text); }
@@ -141,7 +144,7 @@ code, kbd, pre { font-family: var(--mono); font-size: 0.875em; }
 .hero-inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--s7); align-items: center; }
 .hero-copy { transform: translate3d(0, calc(var(--p, 0) * 90px), 0); opacity: calc(1 - var(--p, 0) * 1.1); }
 .hero-kicker { margin: 0 0 var(--s5); color: var(--text-3); font-size: 0.9375rem; }
-.hero h1 { margin: 0; font-size: clamp(2.5rem, 6vw, 5.25rem); line-height: 0.98; letter-spacing: -0.04em; font-weight: 750; text-wrap: balance; }
+.hero h1 { margin: 0; font-size: clamp(2.5rem, 5.4vw, 4.75rem); line-height: 0.98; letter-spacing: -0.04em; font-weight: 750; text-wrap: balance; }
 .hero h1 .accent { display: block; margin-top: 0.08em; }
 .hero-lead { max-width: 54ch; margin: var(--s5) 0 0; color: var(--text-2); font-size: 1.1875rem; line-height: 1.55; }
 .hero-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); margin-top: var(--s7); max-width: 600px; }
@@ -342,7 +345,7 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
 .install-h { margin-bottom: var(--s3); }
 .js .install-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .note { margin: var(--s3) 0 0; color: var(--text-2); font-size: 0.9375rem; }
-.final { margin-top: var(--s9); padding-top: var(--s7); border-top: 1px solid var(--line); }
+.final { margin-top: var(--s9); padding: var(--s7); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
 .final-sub { margin: var(--s5) 0 var(--s3); color: var(--text-2); }
 .final-title { margin: 0; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; }
 
@@ -355,8 +358,52 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
 .toast { position: fixed; left: 50%; bottom: 24px; z-index: 60; margin: 0; padding: var(--s3) var(--s4); border-radius: var(--r-sm); background: var(--text); color: var(--bg); font-size: 0.875rem; font-weight: 500; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; transition: opacity var(--fast), transform var(--fast); }
 .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------- Identité : crochets de marque ---------- */
+.br-word { position: relative; white-space: nowrap; }
+.br-word::before, .br-word::after { font-family: var(--mono); font-weight: 500; color: var(--text-3); }
+.br-word::before { content: "["; margin-right: 0.04em; }
+.br-word::after { content: "]"; margin-left: 0.04em; }
+.big-br { position: absolute; top: 2%; height: 96%; width: 40px; color: var(--brand); z-index: 4; pointer-events: none; }
+.big-br-l { left: calc(50% - 250px - var(--p, 0) * 60px); transform: translate3d(calc(var(--mx, 0) * -6px), 0, 0); }
+.big-br-r { right: calc(50% - 250px - var(--p, 0) * 60px); transform: translate3d(calc(var(--mx, 0) * 6px), 0, 0); }
+
+.kicker { margin: 0 0 var(--s3); font: 600 0.8125rem/1.4 var(--mono); color: var(--accent); letter-spacing: 0.02em; }
+
+/* Bandeau de faits (chiffres réels du dépôt) */
+.facts { border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.facts-list { display: grid; grid-template-columns: repeat(4, 1fr); margin-block: 0; padding: 0; list-style: none; }
+.facts-list li { display: grid; gap: var(--s1); padding: var(--s6) var(--s5); border-left: 1px solid var(--line); }
+.facts-list li:first-child { border-left: 0; padding-left: 0; }
+.fact-num { font: 700 clamp(2.25rem, 5vw, 3.5rem)/1 var(--mono); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: var(--text); }
+.fact-num::before { content: "["; color: var(--text-3); font-weight: 500; }
+.fact-num::after { content: "]"; color: var(--text-3); font-weight: 500; }
+.fact-label { color: var(--text-2); font-size: 0.9375rem; }
+
+/* Manifeste : aplat de couleur de marque */
+.manifesto { background: var(--brand); color: var(--brand-ink); padding: var(--s10) 0; }
+.manifesto-title { margin: 0; max-width: 18ch; font-size: clamp(2.25rem, 5.6vw, 4.5rem); line-height: 1; letter-spacing: -0.04em; font-weight: 750; text-wrap: balance; }
+.manifesto-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s6); margin: var(--s8) 0 0; padding: 0; list-style: none; }
+.manifesto-list li { padding-top: var(--s4); border-top: 2px solid var(--brand-ink); font-size: 1rem; line-height: 1.5; }
+.manifesto-list strong { display: block; margin-bottom: var(--s2); font-size: 1.25rem; letter-spacing: -0.015em; }
+.m-num { display: block; margin-bottom: var(--s3); font: 600 0.875rem/1 var(--mono); }
+.manifesto ::selection { background: var(--brand-ink); color: var(--brand); }
+
+/* Bloc final et pied de page */
+.final-mark { margin-bottom: var(--s5); }
+.final-mark .logo-mark { width: 64px; height: 64px; }
+.footer-brand { display: grid; gap: var(--s1); }
+.footer-brand p { margin: 0; }
+.wordmark-static { min-height: 0; color: var(--text); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .facts-list { grid-template-columns: repeat(2, 1fr); }
+  .facts-list li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .facts-list li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .manifesto-list { grid-template-columns: 1fr; gap: var(--s5); }
+  .manifesto { padding: var(--s9) 0; }
+  .big-br-l { left: calc(50% - 215px); }
+  .big-br-r { right: calc(50% - 215px); }
   .hero-copy, .stack, .scroll-cue, .hero-grid-bg { --p: 0; }
   .hero-inner, .section-head, .profile, .compare { grid-template-columns: minmax(0, 1fr); }
   .section-head { gap: var(--s3); }
@@ -395,6 +442,8 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
   .hero-actions .cmd-text { flex-basis: calc(100% - 32px); }
   .hero-actions .copy-btn { width: 100%; }
   .layer-cost { font-size: 1.25rem; }
+  .final { padding: var(--s5); }
+  .big-br { display: none; }
   .code-body .line code { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 @media (pointer: coarse) {

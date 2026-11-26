@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 32" width="236" height="32" role="img" aria-label="Agent Skills Suite">
+  <!-- Lockup horizontal : symbole 32 px + wordmark en chasse fixe. Zone de protection : 32 px tout autour. -->
+  <g transform="scale(1.3333)">
+    <path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="#14171C" stroke-width="2.5" stroke-linecap="square"/>
+    <rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" fill="#F07A2E"/>
+  </g>
+  <text x="44" y="22" font-family="ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace" font-size="17" font-weight="600" fill="#14171C" letter-spacing="-0.2">agent-skills<tspan fill="#5B6270">/suite</tspan></text>
+</svg>

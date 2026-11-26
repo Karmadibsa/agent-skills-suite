@@ -18,7 +18,7 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
 
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a href="#haut" class="wordmark" translate="no">agent-skills<span class="wordmark-dim">/suite</span></a>
+      <a href="#haut" class="wordmark" translate="no" aria-label="Agent Skills Suite, accueil"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/><rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" fill="var(--brand)"/></svg><span>agent-skills<span class="wordmark-dim">/suite</span></span></a>
       <nav class="nav" aria-label="Navigation principale">
         <a href="#demo">Démo</a>
         <a href="#contexte">Fonctionnement</a>
@@ -51,7 +51,7 @@
       <div class="shell hero-inner">
         <div class="hero-copy">
           <p class="hero-kicker">Open source · format agentskills.io · Claude Code, Cursor, Codex, Gemini CLI</p>
-          <h1 id="hero-title">Votre assistant IA code vite.<span class="accent"> Ces skills le font réfléchir avant.</span></h1>
+          <h1 id="hero-title">Votre assistant IA code vite.<span class="accent"> Ces skills le font <span class="br-word">réfléchir</span> avant.</span></h1>
           <p class="hero-lead">Quinze skills qui apprennent à votre assistant à challenger une idée avant de la coder, à concevoir des écrans accessibles, à sécuriser le code et à dire honnêtement ce qu'il a vérifié.</p>
           <div class="hero-actions">
             <div class="cmd">
@@ -64,6 +64,8 @@
         </div>
 
         <div class="stack" aria-hidden="true">
+          <svg class="big-br big-br-l" viewBox="0 0 40 400" preserveAspectRatio="none"><path d="M36 4H6v392h30" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square" vector-effect="non-scaling-stroke"/></svg>
+          <svg class="big-br big-br-r" viewBox="0 0 40 400" preserveAspectRatio="none"><path d="M4 4h30v392H4" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square" vector-effect="non-scaling-stroke"/></svg>
           <div class="file file-3">
             <p class="file-path">ux-forms-navigation/references/11-formulaires-modales-espace.md</p>
             <p class="file-line"><span class="t-h">## Matrice de choix des champs</span></p>
@@ -92,12 +94,24 @@
       <a class="scroll-cue" href="#demo"><span>Faites défiler</span><span class="scroll-cue-line" aria-hidden="true"></span></a>
     </section>
 
+    <section class="facts" aria-label="La suite en chiffres">
+      <ul class="shell facts-list">
+        <li><span class="fact-num">15</span><span class="fact-label">skills autonomes</span></li>
+        <li><span class="fact-num">45</span><span class="fact-label">fiches de référence</span></li>
+        <li><span class="fact-num">6</span><span class="fact-label">niveaux de preuve</span></li>
+        <li><span class="fact-num">0</span><span class="fact-label">dépendance à installer</span></li>
+      </ul>
+    </section>
+
     <!-- 2. Démo épinglée : la réponse complaisante se fait barrer, la bonne arrive -->
     <section id="demo" class="demo" data-pin aria-labelledby="demo-title">
       <div class="pin">
         <div class="shell">
           <div class="demo-head">
-            <h2 id="demo-title">Même demande. <span class="dim">Deux assistants.</span></h2>
+            <div class="head-title">
+              <p class="kicker" aria-hidden="true">[01] Démo</p>
+              <h2 id="demo-title">Même demande. <span class="dim">Deux assistants.</span></h2>
+            </div>
             <div class="tabs" role="tablist" aria-label="Choisir un scénario" hidden>
               <button type="button" role="tab" id="tab-idee" aria-controls="sc-idee" aria-selected="true">Nouvelle fonctionnalité</button>
               <button type="button" role="tab" id="tab-ui" aria-controls="sc-ui" aria-selected="false" tabindex="-1">Formulaire</button>
@@ -217,12 +231,26 @@
       </div>
     </section>
 
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <div class="shell">
+        <h2 id="manifesto-title" class="manifesto-title">Une IA qui répond «&nbsp;Excellente idée&nbsp;!&nbsp;» à&nbsp;tout ne vous aide pas.</h2>
+        <ol class="manifesto-list">
+          <li><span class="m-num">[1]</span><strong>Contredire avant de coder.</strong> Chaque fonctionnalité passe un contre-argument et une alternative plus simple.</li>
+          <li><span class="m-num">[2]</span><strong>Prouver ce qu'on affirme.</strong> Chaque règle porte son niveau de preuve, de la loi à la simple hypothèse.</li>
+          <li><span class="m-num">[3]</span><strong>Dire ce qui n'a pas été vérifié.</strong> Un test qui n'a pas tourné n'est jamais annoncé comme réussi.</li>
+        </ol>
+      </div>
+    </section>
+
     <!-- 3. Fenêtre de contexte : vrais chiffres du dépôt -->
     <section id="contexte" class="section context" aria-labelledby="ctx-title">
       <div>
         <div class="shell">
           <div class="section-head">
-            <h2 id="ctx-title">94 000 mots de méthode. <span class="dim">Votre IA en lit environ 7 %.</span></h2>
+            <div class="head-title">
+              <p class="kicker" aria-hidden="true">[02] Fonctionnement</p>
+              <h2 id="ctx-title">94 000 mots de méthode. <span class="dim">Votre IA en lit environ 7 %.</span></h2>
+            </div>
             <p>Un skill se charge par couches. Estimation sur ce dépôt, pour une tâche de formulaire, lectures obligatoires comprises.</p>
           </div>
 
@@ -261,6 +289,7 @@
     <section class="section profile-section" aria-labelledby="profile-title">
       <div class="shell profile">
         <div class="profile-text reveal">
+          <p class="kicker" aria-hidden="true">[03] Profil projet</p>
           <h2 id="profile-title">Un profil par projet. <span class="dim">Pas de règle imposée.</span></h2>
           <p><code>start-here</code> diagnostique votre projet et écrit <code>.agents/profile.md</code>. Tous les skills le lisent et s'adaptent à votre budget, à vos données et au niveau de rigueur voulu.</p>
           <div class="seg" role="radiogroup" aria-label="Niveau de rigueur" hidden>
@@ -292,7 +321,10 @@ Accessibilité : <span class="v">WCAG 2.2 AA</span></code></pre>
     <section id="skills" class="section" aria-labelledby="skills-title">
       <div class="shell">
         <div class="section-head reveal">
-          <h2 id="skills-title">Quinze skills. <span class="dim">Un prompt prêt pour chacun.</span></h2>
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[04] Skills et prompts</p>
+            <h2 id="skills-title">Quinze skills. <span class="dim">Un prompt prêt pour chacun.</span></h2>
+          </div>
           <p>Ouvrez un skill, copiez le prompt, remplacez les crochets et collez-le dans votre assistant. Chaque skill fonctionne seul ; l'ordre ci-dessous est un parcours conseillé.</p>
         </div>
 
@@ -509,7 +541,10 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
     <section id="preuves" class="section" aria-labelledby="ev-title">
       <div class="shell">
         <div class="section-head reveal">
-          <h2 id="ev-title">Une préférence n'est pas une norme.</h2>
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[05] Niveaux de preuve</p>
+            <h2 id="ev-title">Une préférence n'est pas une norme.</h2>
+          </div>
           <p>Chaque règle porte son niveau de preuve. En cas de conflit, le plus solide l'emporte.</p>
         </div>
         <ol class="scale reveal">
@@ -527,7 +562,10 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
     <section id="installer" class="section install" aria-labelledby="install-title">
       <div class="shell">
         <div class="section-head reveal">
-          <h2 id="install-title">Installer en une commande.</h2>
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[06] Installation</p>
+            <h2 id="install-title">Installer en une commande.</h2>
+          </div>
           <p>Toute la suite ou un seul skill. Gratuit et open source ; votre assistant et votre hébergeur peuvent avoir leurs propres coûts.</p>
         </div>
 
@@ -555,6 +593,7 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
         </div>
 
         <div class="final reveal">
+          <div class="final-mark" aria-hidden="true"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/><rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" fill="var(--brand)"/></svg></div>
           <p class="final-title">Premier message à envoyer</p>
           <p class="final-sub">Suite installée dans le projet (Claude Code, Cursor, Codex…) :</p>
           <div class="cmd cmd-xl"><code class="cmd-text">Utilise le skill start-here.</code><button type="button" class="btn btn-primary copy-btn" data-copy="Utilise le skill start-here." hidden>Copier</button></div>
@@ -570,7 +609,7 @@ Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dos
 
   <footer class="footer">
     <div class="shell footer-inner">
-      <p>Agent Skills Suite · Code sous licence MIT · Contenus sous CC BY 4.0</p>
+      <div class="footer-brand"><span class="wordmark wordmark-static" translate="no"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/><rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" fill="var(--brand)"/></svg><span>agent-skills<span class="wordmark-dim">/suite</span></span></span><p>Code sous licence MIT · Contenus sous CC BY 4.0</p></div>
       <nav class="footer-links" aria-label="Liens externes">
         <a href="https://github.com/Karmadibsa/agent-skills-suite">GitHub</a>
         <a href="https://github.com/Karmadibsa/agent-skills-suite/issues/new">Signaler un bug ou une idée</a>

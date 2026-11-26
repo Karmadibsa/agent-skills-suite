@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identité — Agent Skills Suite</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #14171C; --paper: #F7F8FA; --brand: #F07A2E; --brand-text: #C2470F;
+      --n1: #EEF0F3; --n3: #C9CED6; --n5: #8A92A0; --n6: #5B6270; --n8: #23272F; --n9: #191C22;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--font); }
+    main { width: min(100% - 32px, 1080px); margin: 0 auto; padding: 64px 0 96px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 64px 0 16px; letter-spacing: -0.01em; }
+    p { margin: 0 0 12px; max-width: 68ch; color: var(--n6); }
+    code { font-family: var(--mono); font-size: 0.875em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .tile { border: 1px solid var(--n3); border-radius: 12px; background: #fff; padding: 24px; display: grid; gap: 16px; align-content: start; }
+    .tile.dark { background: #0B0C0E; border-color: #2A2E36; color: var(--n1); }
+    .tile.dark p { color: var(--n5); }
+    .tile h3 { margin: 0; font-size: 0.9375rem; }
+    .tile p { margin: 0; font-size: 0.875rem; }
+    .row { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+    .mark { display: block; }
+    .mark { flex: none; }
+    .mono { --sq: currentColor; }
+    .blur { filter: blur(5px); }
+    .lockup { white-space: nowrap; display: inline-flex; align-items: center; gap: 12px; font: 600 1.375rem/1 var(--mono); letter-spacing: -0.01em; }
+    .lockup span { color: var(--n6); }
+    .dark .lockup span { color: var(--n5); }
+    .lockup-v { display: inline-grid; justify-items: center; gap: 12px; font: 600 1.125rem/1 var(--mono); }
+    .clear { position: relative; display: inline-block; padding: 48px; background: repeating-linear-gradient(45deg, #fff 0 6px, #F1F2F5 6px 12px); border: 1px dashed var(--n5); border-radius: 8px; }
+    .clear > div { background: #fff; padding: 0; }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .sw { border-radius: 12px; overflow: hidden; border: 1px solid var(--n3); background: #fff; }
+    .sw i { display: block; height: 88px; }
+    .sw div { padding: 12px; font-size: 0.8125rem; }
+    .sw b { display: block; font-size: 0.875rem; }
+    .sw code { color: var(--n6); }
+    .type-sample { display: grid; gap: 8px; }
+    .t-display { font: 750 clamp(2rem, 5vw, 3.5rem)/1 var(--font); letter-spacing: -0.04em; margin: 0; color: var(--ink); }
+    .t-mono { font: 600 1.125rem/1.4 var(--mono); color: var(--ink); margin: 0; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #FDE9DC; font: 600 0.8125rem/1.6 var(--mono); color: var(--ink); }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; background: #fff; border: 1px solid var(--n3); border-radius: 12px; overflow: hidden; }
+    th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--n3); vertical-align: top; }
+    th { background: var(--n1); border-top: 0; font-size: 0.8125rem; }
+    .ok { color: #1F7A4D; font-weight: 600; }
+    .todo { color: var(--n6); font-weight: 600; }
+  </style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="m" viewBox="0 0 24 24">
+    <path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+    <rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" style="fill: var(--sq, #F07A2E)"/>
+  </symbol>
+</svg>
+<main>
+  <h1>Identité visuelle</h1>
+  <p>Planche de travail, non publiée dans la navigation. Construite avec le skill <code>ux-art-direction</code> (fiche 06 : règles d'un bon logo, palette restreinte, tests obligatoires).</p>
+
+  <h2>Idée</h2>
+  <p>La suite étiquette chaque règle entre crochets : <span class="tag">[N1]</span> à <span class="tag">[N6]</span>. Le symbole reprend ces crochets autour d'un carré plein : une affirmation encadrée, donc vérifiée. Deux primitives seulement (segments et carré), grille 24 × 24, trait de 2,5 unités.</p>
+
+  <h2>Déclinaisons</h2>
+  <div class="grid">
+    <div class="tile"><h3>Symbole</h3><svg class="mark" width="64" height="64"><use href="#m"/></svg><p>Avatars, favicon, application.</p></div>
+    <div class="tile"><h3>Lockup horizontal</h3><span class="lockup"><svg class="mark" width="32" height="32"><use href="#m"/></svg>agent-skills<span>/suite</span></span><p>Barre de navigation, en-têtes.</p></div>
+    <div class="tile"><h3>Lockup vertical</h3><span class="lockup-v"><svg class="mark" width="56" height="56"><use href="#m"/></svg>agent-skills</span><p>Écrans de démarrage, documents.</p></div>
+    <div class="tile dark"><h3>Sur fond sombre</h3><span class="lockup"><svg class="mark" width="32" height="32"><use href="#m"/></svg>agent-skills<span>/suite</span></span><p>Même tracé, crochets clairs.</p></div>
+  </div>
+
+  <h2>Tests obligatoires de la fiche 06</h2>
+  <div class="grid">
+    <div class="tile"><h3>1. Petites tailles</h3><div class="row"><svg class="mark" width="16" height="16"><use href="#m"/></svg><svg class="mark" width="24" height="24"><use href="#m"/></svg><svg class="mark" width="32" height="32"><use href="#m"/></svg><svg class="mark" width="64" height="64"><use href="#m"/></svg></div><p>16, 24, 32 et 64 px.</p></div>
+    <div class="tile"><h3>2. Monochrome pur</h3><div class="row"><svg class="mark mono" width="48" height="48" style="color:#000"><use href="#m"/></svg></div><p>Noir pur sur blanc, sans la couleur de marque.</p></div>
+    <div class="tile"><h3>3. Flou gaussien 5 px</h3><div class="row"><svg class="mark blur" width="64" height="64"><use href="#m"/></svg></div><p>La silhouette doit rester reconnaissable.</p></div>
+    <div class="tile dark"><h3>4. Inversion</h3><div class="row"><svg class="mark" width="48" height="48"><use href="#m"/></svg><svg class="mark mono" width="48" height="48" style="color:#fff"><use href="#m"/></svg></div><p>Fond #0B0C0E, couleur et blanc pur.</p></div>
+  </div>
+  <p style="margin-top:16px">Test 5 (mémorisation : regarder 5 secondes, puis dessiner de mémoire) : à faire faire à deux ou trois personnes, il ne se vérifie pas à l'écran.</p>
+
+  <h2>Zone de protection</h2>
+  <p>Aucun texte ni bord à moins d'une hauteur de symbole autour du lockup.</p>
+  <div class="clear"><div class="lockup"><svg class="mark" width="48" height="48"><use href="#m"/></svg>agent-skills<span>/suite</span></div></div>
+
+  <h2>Palette</h2>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--brand)"></i><div><b>Orange signal</b><code>#F07A2E</code><br>Symbole, accents sur fond sombre</div></div>
+    <div class="sw"><i style="background:var(--brand-text)"></i><div><b>Orange texte</b><code>#C2470F</code><br>Liens et accents sur fond clair (contraste AA)</div></div>
+    <div class="sw"><i style="background:var(--ink)"></i><div><b>Encre</b><code>#14171C</code><br>Texte, crochets sur fond clair</div></div>
+    <div class="sw"><i style="background:#0B0C0E"></i><div><b>Nuit</b><code>#0B0C0E</code><br>Fond sombre</div></div>
+    <div class="sw"><i style="background:var(--paper)"></i><div><b>Papier</b><code>#F7F8FA</code><br>Fond clair</div></div>
+    <div class="sw"><i style="background:var(--n5)"></i><div><b>Neutre 500</b><code>#8A92A0</code><br>Neutres teintés bleu froid</div></div>
+  </div>
+
+  <h2>Typographie</h2>
+  <div class="type-sample">
+    <p class="t-display">Réfléchir avant de coder.</p>
+    <p class="t-mono">agent-skills/suite · [N1] · start-here</p>
+    <p>Deux familles seulement : la police système de l'appareil pour le texte (titres en 700–750, interlettrage serré) et une chasse fixe pour la marque, le code et les étiquettes. Aucune police téléchargée.</p>
+  </div>
+
+  <h2>Recette</h2>
+  <table>
+    <tr><th>Test</th><th>Résultat</th></tr>
+    <tr><td>Favicon 16 px net</td><td class="todo">À juger sur cette page</td></tr>
+    <tr><td>Monochrome</td><td class="todo">À juger sur cette page</td></tr>
+    <tr><td>Flou 5 px</td><td class="todo">À juger sur cette page</td></tr>
+    <tr><td>Inversion clair / sombre</td><td class="todo">À juger sur cette page</td></tr>
+    <tr><td>Mémorisation</td><td class="todo">Non fait (test humain)</td></tr>
+    <tr><td>Contraste orange texte #C2470F sur #F7F8FA</td><td class="ok">4,7:1 (AA texte courant). Orange signal sur Nuit : 7,0:1</td></tr>
+  </table>
+</main>
+</body>
+</html>
