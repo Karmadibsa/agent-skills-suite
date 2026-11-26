@@ -1,239 +1,157 @@
-# Agent Skills Suite — Référentiel Scientifique & Opérationnel pour IA
+# Agent Skills Suite
 
-Une suite open source d'Agent Skills conformes au standard ouvert agentskills.io, conçue pour guider les assistants IA de développement (Claude Code, Cursor, OpenAI Codex, ChatGPT, Gemini CLI) à chaque étape d'un projet logiciel — de l'idée initiale jusqu'à la mise en production.
+Des skills au format ouvert [agentskills.io](https://agentskills.io) pour encadrer les assistants IA de développement (Claude Code, Cursor, Codex, Gemini CLI…) à chaque étape d'un projet : de l'idée à la production, sur un projet neuf comme sur un dépôt existant.
 
-Aucun abonnement imposé par la suite · Open source (MIT + CC BY 4.0) · Référentiels fondés sur des normes et recherches. Les assistants IA, l'hébergement et les services tiers peuvent avoir leurs propres coûts.
+Open source : MIT pour le code, CC BY 4.0 pour les contenus. La suite elle-même est gratuite ; les assistants, hébergeurs et services tiers peuvent avoir leurs propres coûts.
 
-## 1. Pourquoi ce projet existe ?
+## Pourquoi
 
-Les assistants IA actuels sont capables de générer du code très rapidement, mais souffrent de 4 défauts récurrents lorsqu'ils ne sont pas encadrés :
+Sans cadre, un assistant IA a tendance à :
 
-- L'effet « Oui-Oui » (complaisance) : ils valident toutes les idées de fonctionnalités sans vérifier leur utilité réelle ni leur impact sur la charge cognitive.
+- **valider toutes les idées** sans vérifier leur utilité ni leur coût ;
+- **coder dans le désordre**, des écrans avant les règles métier et le modèle de données ;
+- **produire du « slop »** : interfaces génériques, faux KPI, contrastes insuffisants ;
+- **laisser de la dette** : fichiers morts, entrées non validées, tests absents, résultats annoncés mais jamais exécutés.
 
-- Le codage dans le désordre : ils génèrent des écrans avant d'avoir verrouillé les règles métier, le modèle de données ou la roadmap.
+Chaque skill donne à l'assistant un workflow, des garde-fous et des références étiquetées par niveau de preuve, sans imposer de style graphique.
 
-- Le « Slop IA » visuel et ergonomique : interfaces génériques surchargées de fausses cartes KPI, contrastes insuffisants, navigation confuse sur mobile ou pavés de texte.
+## Démarrer sur un projet en 2 minutes
 
-- La dette technique et les failles silencieuses : fichiers obsolètes laissés dans le dépôt, absence de scripts de lancement simple, validation des entrées manquante ou manque de tests.
+1. Installer la suite dans le projet (voir [Installation](#installation)).
+2. Ouvrir une session et écrire :
 
-Agent Skills Suite résout ces problèmes en fournissant aux IA un cadre méthodologique structuré par étapes, appuyé sur des normes internationales (W3C WCAG 2.2, ISO 9241, RGPD, OWASP Top 10) et des recherches scientifiques reconnues, sans jamais imposer un style graphique uniforme.
+   > Utilise le skill start-here.
 
-## 2. Comment ça fonctionne concrètement ? (Divulgation Progressive)
+3. L'assistant diagnostique le projet, crée `.agents/profile.md` (au plus trois questions) et indique le skill à utiliser ensuite, avec un prompt prêt à copier.
 
-Ce dépôt suit le standard ouvert Agent Skills (agentskills.io), conçu pour ne pas saturer la fenêtre de contexte de votre assistant IA :
+Le profil projet règle la suite pour ce projet : rigueur (`légère`, `standard`, `stricte`), budget d'infrastructure, données sensibles, module de retours, conventions. Tous les skills le lisent au démarrage. Modèle : [skills/start-here/references/profile-template.md](skills/start-here/references/profile-template.md).
 
-- Découverte légère (~100 tokens) : Au démarrage d'une session, l'IA lit uniquement les quelques lignes d'en-tête YAML (name et description) de chaque Skill installé.
+## Les 11 skills
 
-- Activation à la demande : Dès que votre demande correspond à une étape du projet (ex. cadrer une idée, concevoir un écran, sécuriser une API), l'IA charge le fichier SKILL.md correspondant.
-
-- Chargement chirurgical des références (references/) : Depuis la table de routage du SKILL.md, l'IA ouvre uniquement les fiches détaillées utiles pour la tâche en cours (et laisse le reste de côté).
-
-- Exécution, vérification et transparence : L'IA applique le workflow étape par étape, exécute les contrôles disponibles et précise honnêtement ce qui a été vérifié ou non.
-
-[0. Discovery & Roadmap] ──▶ [1. Cahier des charges] ──▶ [2. UX/UI Design (+ Feedback)]
-
-                                                                 │
-
-[5. Recette, Perf & Logs] ◀── [4. Clean Code & Sécu] ◀── [3. Données & API]
-
-
-
-## 3. Les 10 Skills de la suite (6 principaux, 1 transverse, 3 extensions)
-
-Le dépôt est organisé en monorepo : chaque dossier sous skills/ est un Skill autonome que vous pouvez utiliser seul ou combiné avec les autres.
-
-Ordre
-
-Skill (Dossier)
-
-Rôle & Ce qu'il fait faire à l'IA
-
-Fondements & Normes
-
-0
-
-project-discovery-validation
-
-Réflexion produit, validation scientifique & Roadmap.
-• Analyse l'existant (GitHub, Reddit, forums, concurrents).
-• Évalue chaque feature (Jobs-to-be-Done, modèle de Kano, charge cognitive, faisabilité).
-• Applique un contre-argument obligatoire et propose une alternative 3× plus simple.
-• Découpe le projet en jalons (Jalon 0 → Noyau → Prototype HTML avec module « Bug ou idée ? » → MVP → V1).
-
-Evidence-Based Management, JTBD, Modèle de Kano, Deci & Ryan, Popper, The Mom Test, Local-First.
-
-1
-
-product-spec-docs
-
-Cahier des charges, Governance & Documentation de développement.
-• Transforme le périmètre validé en spécification exécutable et hiérarchisée (00 — LIRE EN PREMIER).
-• Sépare strictement les règles verrouillées des hypothèses à tester.
-• Définit les Personas, User Stories, Architecture Decision Records (ADR), le modèle de données conceptuel et les critères d'acceptation testables.
-
-ISO/IEC/IEEE 29148, Behavior-Driven Development (BDD / Gherkin), Architecture Decision Records (ADR), Agile Personas & User Stories.
-
-2
-
-ux-ui-design
-
-Ergonomie cognitive, Accessibilité, Anti-Slop IA & Feedback.
-• Conçoit des interfaces claires adaptées au support (gestion à une main sur mobile, densité clavier sur PC) et aux utilisateurs non-techniciens.
-• Applique WCAG 2.2 AA, l'optimisation d'espace, la data visualisation scientifique et élimine le slop IA.
-• Embarque par défaut le module contextuel « Bug ou idée ? » (sélection DOM, export .zip local, blocage automatique des captures sur données sensibles).
-
-W3C WCAG 2.2, WAI-ARIA APG, W3C COGA, ISO 9241-11/210, Fitts, Hick, Cowan, NN/g, Baymard, Cleveland & McGill.
-
-3
-
-api-data-architecture
-
-Modélisation des données, Migrations & Contrats d'API.
-• Conçoit des schémas propres et évolutifs (migrations sans perte de données).
-• Standardise les endpoints, la pagination et les réponses d'erreur.
-• Applique la minimisation des données et la portabilité (exports ouverts) dès le schéma.
-
-Normalisation relationnelle, OpenAPI 3.1, RFC 9457 (Problem Details), RGPD (Privacy by Design).
-
-4
-
-clean-code-security
-
-Architecture propre, Sécurité applicative, Governance & Git.
-• Sépare la logique métier de l'interface (SOLID, KISS, DRY).
-• Protège contre les failles courantes (validation stricte des entrées, XSS, CSRF, zéro secret en dur).
-• Maintient un dépôt propre (zéro fichier mort *_old / *_backup), impose des scripts de démarrage local à la racine (start.bat / start.sh), génère les templates d'Issues/PR (avec labels/tags), le CHANGELOG.md, le README.md projet et normalise les commits.
-
-OWASP Top 10 / ASVS, CWE, ISO/IEC 25010, Conventional Commits, Semantic Versioning, GitHub Community Standards.
-
-5
-
-qa-perf-observability
-
-Tests automatisés, Performance Web & Sobriété numérique.
-• Écrit des tests E2E résilients ciblant les rôles accessibles ARIA plutôt que des sélecteurs CSS fragiles.
-• Contrôle les Core Web Vitals (LCP, INP, CLS), les budgets JS/CSS et la résilience hors ligne.
-• Met en place une journalisation structurée et des plans de recette complets.
-
-Google Core Web Vitals (p75), Playwright / Testing Library, RGESN (Éco-conception), OpenTelemetry.
-
-Transverse
-
-full-project-audit
-
-Audit complet à 360° du dépôt existant.
-• Croise l'ensemble des Skills de la suite pour réaliser un diagnostic global.
-• Vérifie la cohérence du cahier des charges, de l'UX/UI, de l'architecture API/données, du clean code, de la sécurité OWASP, des performances et de la propreté Git.
-• Fournit un rapport d'audit détaillé avec plan d'action priorisé.
-
-ISO/IEC 25010, OWASP ASVS, WCAG 2.2, Core Web Vitals, Evidence-Based Management.
-
-### Extensions
-
-| Skill | Rôle |
+| Skill | À utiliser pour |
 | --- | --- |
-| [release-deployment](skills/release-deployment/SKILL.md) | Versions, builds, livraison et rollback |
-| [maintenance-incident](skills/maintenance-incident/SKILL.md) | Triage, incidents, sauvegardes et maintenance |
-| [oss-governance](skills/oss-governance/SKILL.md) | Licences, dépendances et gouvernance open source |
+| [start-here](skills/start-here/SKILL.md) | Point d'entrée : diagnostic du projet, profil, choix du skill suivant |
+| [project-discovery-validation](skills/project-discovery-validation/SKILL.md) | Challenger une idée ou une fonctionnalité, analyser l'existant, construire la roadmap |
+| [product-spec-docs](skills/product-spec-docs/SKILL.md) | Cahier des charges exécutable : règles métier, user stories, Gherkin, ADR, lots |
+| [ux-ui-design](skills/ux-ui-design/SKILL.md) | Concevoir ou auditer des écrans : ergonomie, WCAG 2.2, mobile et desktop, anti-slop |
+| [api-data-architecture](skills/api-data-architecture/SKILL.md) | Schéma de données, migrations, contrats d'API, RGPD |
+| [clean-code-security](skills/clean-code-security/SKILL.md) | Écrire et sécuriser le code : architecture simple, OWASP, secrets, hygiène Git |
+| [qa-perf-observability](skills/qa-perf-observability/SKILL.md) | Tests, Core Web Vitals, sobriété, logs sans données personnelles |
+| [full-project-audit](skills/full-project-audit/SKILL.md) | État des lieux 360° d'un dépôt, en lecture seule, avec plan de remédiation |
+| [release-deployment](skills/release-deployment/SKILL.md) | Versions SemVer, builds reproductibles, déploiement et rollback |
+| [maintenance-incident](skills/maintenance-incident/SKILL.md) | Incidents, bugs en production, sauvegardes et restauration |
+| [oss-governance](skills/oss-governance/SKILL.md) | Licences, dépendances, SECURITY.md, CODEOWNERS |
 
-## 4. Arborescence du dépôt
+Parcours type d'un projet neuf : discovery → spec → UX/UI, données/API, code → QA → release. Rien n'est obligatoire : chaque skill fonctionne seul. Si un livrable amont manque (spécification, lots, règles), le skill le reconstitue depuis le code, le marque `[N6] À CONFIRMER` et continue.
+
+## Comment ça marche
+
+Le format Agent Skills charge le contexte par étapes pour ne pas saturer l'assistant :
+
+1. **Découverte** : au démarrage, l'assistant ne lit que le `name` et la `description` de chaque skill.
+2. **Activation** : quand la demande correspond, il charge le `SKILL.md` du skill concerné.
+3. **Références à la demande** : la table de routage du `SKILL.md` lui indique quelle fiche de `references/` ouvrir pour la tâche en cours, et seulement celle-là.
+
+Chaque `SKILL.md` commence par un bloc commun (profil projet, entrées facultatives, emplacements des livrables, niveaux de preuve, règles d'honnêteté). Sa source unique est [shared/skill-preamble.md](shared/skill-preamble.md) ; il est recopié dans chaque skill pour qu'un skill installé seul reste complet.
+
+### Emplacements communs des livrables
+
+| Livrable | Emplacement |
+| --- | --- |
+| Profil projet | `.agents/profile.md` |
+| Cadrage et roadmap | `docs/discovery.md` |
+| Spécification | `docs/spec/` |
+| Décisions d'architecture | `docs/adr/` |
+| Passation entre sessions | `docs/HANDOFF.md` |
+| Historique | `CHANGELOG.md` |
+| Rapports d'audit | `docs/audit/` |
+
+### Niveaux de preuve
+
+Chaque règle porte un niveau, pour ne pas présenter une préférence comme une vérité :
+
+| Niveau | Signification | Exemples |
+| --- | --- | --- |
+| [N1] | Obligation légale ou norme officielle | RGPD, WCAG 2.2 AA |
+| [N2] | Résultat scientifique ou principe fondamental établi | Fitts, Hick-Hyman, ACID |
+| [N3] | Standard reconnu ou signal terrain vérifié | OWASP, NN/g, retours utilisateurs sourcés |
+| [N4] | Convention d'ingénierie éprouvée | SemVer, RFC 9457, Core Web Vitals au p75 |
+| [N5] | Choix contextuel argumenté | stack, arbitrage produit, direction artistique |
+| [N6] | Hypothèse à tester | intuition, estimation non mesurée |
+
+## Installation
+
+### Avec la CLI `skills`
+
+```bash
+# Toute la suite
+npx skills add Karmadibsa/agent-skills-suite
+
+# Un seul skill
+npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design
+
+# Mettre à jour
+npx skills update
+```
+
+### Avec Git
+
+Copier le contenu de `skills/` dans le dossier de skills de l'outil :
+
+| Outil | Dossier du projet | Pour tous les projets |
+| --- | --- | --- |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Cursor | `.cursor/skills/` | selon la version |
+| Autres outils compatibles | `.agents/skills/` | selon l'outil |
+
+```bash
+git clone https://github.com/Karmadibsa/agent-skills-suite.git
+cp -r agent-skills-suite/skills/* mon-projet/.claude/skills/
+```
+
+### Import manuel
+
+Télécharger un dossier de skill et garder `SKILL.md` avec son dossier `references/`. Créer une archive ZIP si l'outil l'exige.
+
+## Exemples de prompts
+
+- « Utilise le skill start-here. »
+- « Utilise project-discovery-validation. Mon idée : [description]. Challenge mes fonctionnalités et propose une roadmap jusqu'au MVP. »
+- « Utilise product-spec-docs pour écrire les règles métier et les critères d'acceptation du MVP. »
+- « Utilise ux-ui-design pour concevoir l'écran principal, mobile à une main et desktop. »
+- « Utilise full-project-audit sur ce dépôt et donne-moi les 5 corrections prioritaires. »
+
+## Structure du dépôt
 
 ```text
 agent-skills-suite/
-├── skills/
-│   ├── project-discovery-validation/
-│   ├── product-spec-docs/
-│   ├── ux-ui-design/
-│   ├── api-data-architecture/
-│   ├── clean-code-security/
-│   ├── qa-perf-observability/
-│   ├── full-project-audit/
-│   ├── release-deployment/
-│   ├── maintenance-incident/
-│   └── oss-governance/
-│       # Chaque dossier contient SKILL.md et references/.
-├── docs/
-├── website/
-│   ├── index.html
-│   ├── styles.css
-│   └── app.js
-├── .gitignore
-├── .gitattributes
-├── netlify.toml
-├── LICENSE
-├── LICENSE-DOCS
-└── README.md
+├── skills/<nom>/        # SKILL.md + references/*.md, un dossier par skill
+├── shared/              # source du bloc commun recopié dans chaque SKILL.md
+├── scripts/             # check_skills.py : vérification de la suite
+├── evals/               # scénarios de test manuels
+├── docs/                # architecture, synthèse, notes de refonte
+├── website/             # vitrine statique publiée par Netlify
+├── .github/workflows/   # vérification automatique à chaque push et PR
+├── LICENSE              # MIT (code)
+└── LICENSE-DOCS         # CC BY 4.0 (contenus)
 ```
 
-La vitrine est statique : Netlify publie le dossier `website/`, sans commande de build. Les workflows de validation, les archives de release et les benchmarks décrits dans les documents d'architecture constituent des pistes à mettre en place ; ils ne sont pas inclus dans ce dépôt à ce stade.
+## Contribuer
 
-## 5. Installation et mise à jour en une commande
+1. Modifier un skill, ou `shared/skill-preamble.md` pour le bloc commun.
+2. Recopier le bloc commun et vérifier :
 
-### Option A — Via le gestionnaire CLI skills (Claude Code, Cursor, Codex, Gemini CLI…)
+   ```bash
+   python scripts/check_skills.py --fix
+   python scripts/check_skills.py
+   ```
 
-- Installer toute la suite :
+   Le script contrôle le frontmatter, la taille des `SKILL.md`, les liens vers `references/`, la synchronisation du bloc commun et l'absence de tableaux cassés. La même vérification tourne sur GitHub à chaque push et pull request.
+3. Jouer les scénarios concernés de [evals/scenarios.md](evals/scenarios.md) et noter le résultat dans la PR.
 
-npx skills add Karmadibsa/agent-skills-suite
+Les signalements d'erreurs scientifiques sont particulièrement bienvenus : indiquez la règle, la source et le niveau de preuve contesté.
 
-- Installer un seul Skill spécifique (ex. UX/UI ou Discovery) :
+## Licences
 
-npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design
-
-npx skills add Karmadibsa/agent-skills-suite --skill project-discovery-validation
-
-- Mettre à jour après une amélioration sur GitHub (sans rien reconfigurer) :
-
-npx skills update
-
-### Option B — Via Git (clonage direct dans un projet)
-
-Copiez ou clonez le dossier skills/ dans le répertoire de configuration de votre outil :
-
-- Claude Code : .claude/skills/ (ou ~/.claude/skills/ pour tous vos projets)
-
-- Cursor : .cursor/skills/
-
-- Standard universel : .agents/skills/
-
-Pour récupérer les dernières mises à jour publiées sur GitHub :
-
-git pull origin main
-
-### Option C — Import manuel dans un assistant compatible
-
-Téléchargez les dossiers de Skills depuis GitHub et conservez `SKILL.md` et ses références ensemble. Créez une archive ZIP si l'interface d'import l'exige. Les possibilités d'import dépendent du client et de sa version ; les archives de release automatiques ne sont pas encore fournies.
-
-## 6. Rigueur scientifique : la taxonomie à 6 niveaux de preuve
-
-Pour éviter qu'une préférence graphique ou une habitude technique ne soit présentée comme une vérité scientifique absolue, chaque règle de la suite est étiquetée selon son niveau réel de justification :
-
-- [N1] Norme officielle / Obligation légale : exigence vérifiable (WCAG 2.2 AA, RGPD Art. 5).
-
-- [N2] Résultat scientifique publié : relation établie par la recherche empirique (Fitts, Hick-Hyman, Cowan, Deci & Ryan, Cleveland & McGill).
-
-- [N3] Recommandation empirique terrain : principe appuyé sur des études d'utilisabilité à grande échelle (Nielsen Norman Group, Baymard Institute, WAI-ARIA APG, ISO 9241).
-
-- [N4] Convention technique / Ingénierie : standard d'architecture ou de performance (Core Web Vitals au 75e percentile, grille 4/8 px, OWASP).
-
-- [N5] Préférence esthétique / Profil configurable : choix de direction artistique adaptable selon l'identité du projet.
-
-- [N6] Hypothèse à tester : piste ergonomique ou produit à valider auprès de vrais utilisateurs avant généralisation.
-
-## 7. Exemples de prompts pour démarrer un projet
-
-- Démarrer un nouveau projet (Skill 0) :
-« Utilise le skill project-discovery-validation. Voici mon idée de projet : [description]. Analyse l'existant, challenge mes fonctionnalités sans complaisance et propose une roadmap par jalons jusqu'au MVP. »
-
-- Rédiger le cahier des charges (Skill 1) :
-« Utilise le skill product-spec-docs pour rédiger les spécifications verrouillées, le modèle de données et les critères d'acceptation du MVP validé. »
-
-- Concevoir ou auditer une interface (Skill 2) :
-« Utilise le skill ux-ui-design pour concevoir l'écran principal en mode mobile à une main et desktop, sans slop IA, et intègre le module "Bug ou idée ?". »
-
-## 8. Contribution et licences
-
-Les contributions, signalements d'erreurs scientifiques et améliorations via Pull Requests sont les bienvenus.
-
-- Code, scripts, exemples et configurations : [licence MIT](LICENSE).
-
-- Documentation, référentiels et contenus des Skills : [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE-DOCS). Attribuer Agent Skills Suite et ses contributeurs, lier la source et indiquer les modifications selon les termes de la licence.
+- Code, scripts, exemples et configurations : [MIT](LICENSE).
+- Documentation, référentiels et contenus des skills : [CC BY 4.0](LICENSE-DOCS). Créditer Agent Skills Suite et ses contributeurs, lier la source et indiquer les modifications.
