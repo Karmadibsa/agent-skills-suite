@@ -133,6 +133,7 @@ agent-skills-suite/
 ├── evals/               # scénarios de test manuels
 ├── docs/                # architecture, synthèse, notes de refonte
 ├── website/             # vitrine statique publiée par Netlify sur agent-skills-suite.am-creative.fr
+├── start.bat            # aperçu local de la vitrine sous Windows (http://localhost:8080)
 ├── .github/workflows/   # vérification automatique à chaque push et PR
 ├── LICENSE              # MIT (code)
 └── LICENSE-DOCS         # CC BY 4.0 (contenus)

@@ -1,21 +1,22 @@
-# Refonte de la vitrine — décisions et vérifications
+# Refonte de la vitrine — novembre 2026
 
-## Constat
-L'ancien app.js appelait moveElement() sans définition dans le fichier. Les modules interactifs pouvaient donc s'arrêter au démarrage. Les sections masquées pour une animation au scroll aggravaient cet échec. Le site proposait également des commandes npx agent-skills-suite alors qu'aucun paquet de ce nom n'était fourni par le dépôt.
+Site : https://agent-skills-suite.am-creative.fr/ · Aperçu local : `start.bat` à la racine (Windows), ou `python -m http.server 8080 --directory website`.
+
+## Démarche
+
+Refonte menée avec le skill `ux-ui-design` : registre 00B, fiches 01 (cognition), 02 (divulgation progressive), 04 (accessibilité, couleurs), 06 (direction artistique, archétype « SaaS / Tooling ») et 07 (anti-slop).
 
 ## Décisions
-- Skill UX/UI, références 00B, 01, 02, 04, 06, 07, 08 : hiérarchie, divulgation progressive, contraste, direction artistique sobre, pas de dégradés ni KPI décoratifs, retour contextualisé et explicite.
-- Démonstration : mêmes six tâches fictives, mêmes fonctions métier, ordre et présentation différents. Les deux versions ont des états indépendants. Les actions sont réversibles et les tâches bloquées ne sont pas modifiables. Aucun benchmark ni résultat scientifique inventé.
-- HTML lisible sans JavaScript, aucun CDN, police système, aucun stockage persistant ou envoi automatique de retours. Les commandes interactives ne sont exposées qu'après initialisation.
-- Installation : commande Git réelle, chemins indicatifs selon assistant.
-- Le site suit la préférence claire/sombre du système.
 
-## Recette à réaliser sur le déploiement
-1. Ouvrir la vitrine, vérifier la console et les trois fichiers statiques.
-2. Tester le parcours Export CSV dans chaque version et la réouverture. Vérifier l'indépendance des états, recherche, filtre, cas vide, réinitialisation et changement de vue.
-3. Tester une tâche bloquée : aucune action de clôture. Vérifier le recalcul de la prochaine action, des compteurs et du résumé.
-4. Tester le formulaire vide, espaces seuls, aperçu, modification après aperçu, copie autorisée/refusée et lien vers la création de ticket.
-5. Naviguer au clavier et à 320 px, 200 % de zoom, mode sombre et réduction des animations. Vérifier contraste, axe-core et lecteur d'écran.
-6. Désactiver JavaScript : le contenu, les deux exemples, les références et le lien de signalement restent accessibles.
+- **Message** : une promesse en deux lignes, puis la preuve. La pièce centrale est une démo « même demande, deux assistants » sur trois cas réels (nouvelle fonctionnalité, formulaire, bug en production), annoncée comme illustrative.
+- **Structure** : démo → fonctionnement (chargement progressif + profil projet) → parcours des skills → niveaux de preuve → installation. Chaque skill a un prompt de départ copiable et un lien vers son `SKILL.md`.
+- **Direction artistique** : surfaces neutres, une seule couleur d'accent, bordures 1 px, aucune ombre décorative, aucun dégradé, aucune grille de cartes à icônes. Polices système, aucune dépendance externe.
+- **Accessibilité** : HTML sémantique, onglets et groupe radio au clavier (motifs WAI-ARIA APG), focus visible, cibles d'au moins 40 px, `prefers-reduced-motion`, thème clair/sombre suivant le système avec bascule manuelle.
+- **Sans JavaScript** : tout le contenu reste lisible (scénarios et méthodes d'installation listés les uns sous les autres) ; les boutons de copie et les onglets n'apparaissent qu'une fois le script chargé.
+- **Retours** : le module local « Bug ou idée ? » est retiré de la vitrine (site public, pas un prototype en test, conformément au réglage par défaut du profil). Le lien « Signaler un bug ou une idée » ouvre une issue GitHub.
 
-Statut : validation statique et syntaxe JS effectuées lors de la préparation du commit. Recette navigateur, WCAG et déploiement réel : NOT RUN.
+## Vérifications
+
+Effectuées dans le navigateur intégré : rendu desktop 1280 px et mobile 375 px, thèmes clair et sombre, changement d'onglet, aucune erreur console, aucun débordement horizontal à 375 px.
+
+Non effectuées : audit axe-core, lecteur d'écran, zoom 200 %, test sur le déploiement Netlify réel.

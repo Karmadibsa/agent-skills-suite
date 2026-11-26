@@ -1,267 +1,410 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Skills Suite — Référentiel Opérationnel pour Agents IA</title>
-  <meta name="description" content="Suite open-source (0 €/mois) de compétences agentskills.io : cadrage produit, spécifications, ergonomie WCAG 2.2 AA, données/API, code propre/sécurité, QA et audit 360°.">
-  <meta name="robots" content="index, follow">
+  <title>Agent Skills Suite</title>
+  <meta name="description" content="Des skills open source pour que votre assistant IA de développement challenge vos idées, respecte l'accessibilité, sécurise le code et dise ce qu'il a vraiment vérifié.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Agent Skills Suite — Référentiel Opérationnel pour Agents IA">
-  <meta property="og:description" content="Compétences modulaires à 0 €/mois pour éviter la complaisance IA, la sur-ingénierie et les régressions.">
-  <link rel="stylesheet" href="styles.css">
+  <meta property="og:url" content="https://agent-skills-suite.am-creative.fr/">
+  <meta property="og:title" content="Agent Skills Suite">
+  <meta property="og:description" content="Votre assistant IA code vite. Ces skills le font réfléchir avant.">
+  <link rel="canonical" href="https://agent-skills-suite.am-creative.fr/">
+  <meta name="color-scheme" content="light dark">
   <script>
-    (function() {
-      let saved = 'light';
-      try { saved = localStorage.getItem('ais_theme') || 'light'; } catch (_) { /* storage unavailable */ }
-      if (saved === 'system') saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('ass-theme'); } catch (e) { /* stockage indisponible */ }
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-  <header class="topbar" role="banner">
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <header class="topbar">
     <div class="shell topbar-inner">
-      <a href="#top" class="brand" aria-label="Agent Skills Suite — Accueil">
-        <span class="brand-mark" aria-hidden="true">00–06</span>
-        <span>Agent Skills Suite</span>
-      </a>
+      <a href="#haut" class="wordmark">agent-skills<span class="wordmark-dim">/suite</span></a>
       <nav class="nav" aria-label="Navigation principale">
-        <a href="#install">Installation</a>
-        <a href="#demo">Avant / Après</a>
+        <a href="#demo">Démo</a>
+        <a href="#fonctionnement">Fonctionnement</a>
         <a href="#skills">Skills</a>
-        <a href="#preuves">Preuves</a>
-        <a href="#retours">Bug ou idée ?</a>
+        <a href="#installer">Installer</a>
       </nav>
       <div class="topbar-actions">
-        <button type="button" id="quick-feedback-btn" class="btn btn-secondary" aria-haspopup="dialog" aria-controls="feedback-modal">
-          Bug ou idée ?
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Changer de thème" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
         </button>
-        <label for="theme-select" class="sr-only">Thème d'affichage</label>
-        <select id="theme-select" class="select-compact" aria-label="Thème d'affichage">
-          <option value="light">Clair</option>
-          <option value="dark">Sombre</option>
-          <option value="system">Système</option>
-        </select>
+        <a class="btn btn-ghost" href="https://github.com/Karmadibsa/agent-skills-suite">GitHub</a>
       </div>
     </div>
   </header>
-  <main id="main-content">
-    <section id="top" class="hero" aria-labelledby="hero-heading">
-      <div class="shell hero-grid">
-        <div>
-          <p class="eyebrow">Standard agentskills.io · 0 € / mois · Open Source</p>
-          <h1 id="hero-heading">Des agents IA qui vérifient avant de coder.</h1>
-          <p class="hero-lead">
-            Un ensemble de Skills modulaires (cadrage critique, spécifications, ergonomie WCAG 2.2 AA, données/API, code propre &amp; sécurité, tests/performance et audit 360°) pour garder la maîtrise du produit et du code.
-          </p>
-          <noscript>
-            <div class="notice-banner" role="alert">
-              JavaScript est désactivé : la commande d'installation et les sections de référence restent lisibles, tandis que les modules interactifs nécessitent JavaScript.
-            </div>
-          </noscript>
-          <div id="install" class="cli-box">
-            <div class="cli-top">
-              <label for="cli-command-select" class="sr-only">Choisir un Skill ou la suite</label>
-              <select id="cli-command-select" class="cli-select">
-                <option value="suite">Suite complète</option>
-                <option value="project-discovery-validation">00 — project-discovery-validation</option>
-                <option value="product-spec-docs">01 — product-spec-docs</option>
-                <option value="ux-ui-design">02 — ux-ui-design</option>
-                <option value="api-data-architecture">03 — api-data-architecture</option>
-                <option value="clean-code-security">04 — clean-code-security</option>
-                <option value="qa-perf-observability">05 — qa-perf-observability</option>
-                <option value="full-project-audit">06 — full-project-audit</option>
-              </select>
-              <span class="cli-meta">Chargement progressif</span>
-            </div>
-            <div class="cli-row">
-              <code id="cli-command-code" class="cli-code"><span class="cli-dollar">$</span> npx skills add Karmadibsa/agent-skills-suite</code>
-              <button type="button" id="cli-copy-btn" class="btn btn-primary" aria-label="Copier la commande">Copier</button>
-            </div>
-          </div>
-        </div>
-        <aside class="hero-panel" aria-label="Principes clés">
-          <div class="panel-row">
-            <span class="panel-num">01</span>
-            <div>
-              <h2>Anti-complaisance</h2>
-              <p>Contre-argument et alternative plus simple avant de valider une idée.</p>
-            </div>
-          </div>
-          <div class="panel-row">
-            <span class="panel-num">02</span>
-            <div>
-              <h2>Principe KISS</h2>
-              <p>Découplage clair, zéro fichier mort et lancement local en une commande.</p>
-            </div>
-          </div>
-          <div class="panel-row">
-            <span class="panel-num">03</span>
-            <div>
-              <h2>Preuves tracées</h2>
-              <p>Distinction nette entre faits vérifiés, lecture de code et hypothèses.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-    <section id="demo" class="section reveal" aria-labelledby="demo-heading">
+
+  <main id="contenu">
+    <section id="haut" class="hero" aria-labelledby="hero-title">
       <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Simulation comparative</p>
-            <h2 id="demo-heading">Avant / Après</h2>
+        <p class="hero-kicker">Open source · format agentskills.io · Claude Code, Cursor, Codex, Gemini CLI</p>
+        <h1 id="hero-title">Votre assistant IA code vite.<br><span class="accent">Ces skills le font réfléchir avant.</span></h1>
+        <p class="hero-lead">Onze skills qui apprennent à votre assistant à challenger une idée avant de la coder, à concevoir des écrans accessibles, à sécuriser le code et à dire honnêtement ce qu'il a vérifié. Sur un projet neuf comme sur un dépôt existant.</p>
+
+        <div class="install-hero">
+          <div class="cmd" data-copy-root>
+            <span class="cmd-prompt" aria-hidden="true">$</span>
+            <code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code>
+            <button type="button" class="btn btn-primary copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button>
           </div>
-          <p class="section-sub">
-            Illustration pédagogique de l'impact d'un cadre rigoureux sur une demande produit ou technique.
-          </p>
-        </div>
-        <div class="controls-bar">
-          <div class="control-group">
-            <label for="scenario-selector" class="control-label">Scénario</label>
-            <select id="scenario-selector" class="select-input"></select>
-          </div>
-          <div class="segmented" role="tablist" aria-label="Comparer Avant ou Après">
-            <button type="button" id="tab-btn-after" class="seg-btn is-active" role="tab" aria-selected="true">Après (Avec Skills)</button>
-            <button type="button" id="tab-btn-before" class="seg-btn" role="tab" aria-selected="false">Avant (Sans cadre)</button>
-          </div>
-        </div>
-        <div id="demo-content-container" class="demo-stage"></div>
-      </div>
-    </section>
-    <section id="skills" class="section section-alt reveal" aria-labelledby="skills-heading">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Architecture modulaire</p>
-            <h2 id="skills-heading">Catalogue des Skills</h2>
-          </div>
-          <p class="section-sub">
-            Chaque Skill ne charge que les références utiles à l'étape en cours pour préserver le contexte de l'IA.
-          </p>
-        </div>
-        <div class="controls-bar" role="tablist" aria-label="Filtrer par catégorie">
-          <button type="button" class="skill-filter-btn seg-btn is-active" role="tab" aria-selected="true" data-category="all">Tous</button>
-          <button type="button" class="skill-filter-btn seg-btn" role="tab" aria-selected="false" data-category="cadrage">Cadrage &amp; Spec</button>
-          <button type="button" class="skill-filter-btn seg-btn" role="tab" aria-selected="false" data-category="design">Design &amp; Données</button>
-          <button type="button" class="skill-filter-btn seg-btn" role="tab" aria-selected="false" data-category="qualite">Qualité &amp; Audit</button>
-        </div>
-        <div id="skills-grid-container" class="skills-grid"></div>
-      </div>
-    </section>
-    <section id="preuves" class="section reveal" aria-labelledby="preuves-heading">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Rigueur documentaire</p>
-            <h2 id="preuves-heading">Niveaux de preuve [N1]–[N6]</h2>
-          </div>
-          <p class="section-sub">
-            Évite de confondre une obligation légale ou une norme avec une préférence ou une hypothèse.
-          </p>
-        </div>
-        <div class="evidence-grid">
-          <article class="evidence-card">
-            <span class="ev-code">[N1]</span>
-            <h3>Obligation légale / norme</h3>
-            <p>Exigence réglementaire ou standard vérifié (RGPD, WCAG 2.2 AA, OWASP).</p>
-          </article>
-          <article class="evidence-card">
-            <span class="ev-code">[N2]</span>
-            <h3>Principe fondamental</h3>
-            <p>Fondement établi (moindre privilège, séparation des préoccupations, charge cognitive).</p>
-          </article>
-          <article class="evidence-card">
-            <span class="ev-code">[N3]</span>
-            <h3>Référentiel &amp; terrain</h3>
-            <p>Spécification reconnue (RFC 9457, OpenAPI 3.1, RGESN) ou observation terrain.</p>
-          </article>
-          <article class="evidence-card">
-            <span class="ev-code">[N4]</span>
-            <h3>Convention d'ingénierie</h3>
-            <p>Pratique éprouvée (KISS, migrations réversibles, SemVer, tests reproductibles).</p>
-          </article>
-          <article class="evidence-card">
-            <span class="ev-code">[N5]</span>
-            <h3>Choix d'outillage</h3>
-            <p>Adaptation selon le contexte (Local-First vs Serveur, outils gratuits 0 €/mois).</p>
-          </article>
-          <article class="evidence-card">
-            <span class="ev-code">[N6]</span>
-            <h3>Hypothèse à tester</h3>
-            <p>Piste à vérifier par mesure ou test réel avant de la généraliser.</p>
-          </article>
+          <p class="install-then">Puis, dans votre assistant : <kbd>Utilise le skill start-here.</kbd></p>
         </div>
       </div>
     </section>
-    <section id="retours" class="section section-alt reveal" aria-labelledby="retours-heading">
+
+    <section id="demo" class="section demo" aria-labelledby="demo-title">
       <div class="shell">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Retour local sans serveur</p>
-            <h2 id="retours-heading">Bug ou idée ?</h2>
-          </div>
-          <p class="section-sub">
-            Les retours sont conservés uniquement dans votre navigateur (`localStorage`) et exportables en Markdown.
-          </p>
+          <h2 id="demo-title">Même demande, deux assistants</h2>
+          <p>À gauche, un assistant sans cadre. À droite, le même avec le skill adapté. Réponses rédigées pour illustrer le comportement attendu, pas des sorties enregistrées.</p>
         </div>
-        <div class="feedback-layout">
-          <form id="feedback-form" class="card-box">
-            <div class="field">
-              <label for="feedback-type" class="field-label">Type</label>
-              <select id="feedback-type" class="select-input">
-                <option value="bug">Bug</option>
-                <option value="idea">Idée</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="feedback-zone" class="field-label">Section ou Skill</label>
-              <input type="text" id="feedback-zone" class="text-input" placeholder="Ex. Démo Avant / Après, Skill 03, Navigation">
-            </div>
-            <div class="field">
-              <label for="feedback-content" class="field-label">Description</label>
-              <textarea id="feedback-content" class="textarea-input" required placeholder="Décrivez précisément le point observé ou l'idée..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full">Enregistrer localement</button>
-          </form>
-          <div class="card-box">
-            <div class="feedback-toolbar">
-              <h3>Retours enregistrés</h3>
-              <div class="toolbar-actions">
-                <button type="button" id="feedback-copy-summary-btn" class="btn btn-secondary btn-sm">Copier (.md)</button>
-                <button type="button" id="feedback-download-btn" class="btn btn-secondary btn-sm">Télécharger (.md)</button>
-                <button type="button" id="feedback-clear-all-btn" class="btn btn-secondary btn-sm">Tout effacer</button>
+
+        <div class="tabs" role="tablist" aria-label="Choisir un scénario" hidden>
+          <button type="button" role="tab" id="tab-idee" aria-controls="sc-idee" aria-selected="true">Nouvelle fonctionnalité</button>
+          <button type="button" role="tab" id="tab-ui" aria-controls="sc-ui" aria-selected="false" tabindex="-1">Formulaire</button>
+          <button type="button" role="tab" id="tab-reprise" aria-controls="sc-reprise" aria-selected="false" tabindex="-1">Bug en production</button>
+        </div>
+
+        <article class="scenario" id="sc-idee" role="tabpanel" aria-labelledby="tab-idee">
+          <p class="prompt"><span class="prompt-label">Vous</span>Ajoute un chatbot IA, des badges et un fil social à mon appli de budget.</p>
+          <div class="compare">
+            <div class="pane pane-before">
+              <p class="pane-label">Sans skill</p>
+              <div class="pane-body">
+                <p>Excellente idée ! Voici le plan :</p>
+                <ol>
+                  <li>Intégrer une API de LLM pour le chatbot.</li>
+                  <li>Créer un système de badges et de niveaux.</li>
+                  <li>Ajouter un fil d'activité entre amis.</li>
+                </ol>
+                <p>Je commence par le chatbot ?</p>
               </div>
+              <ul class="flags" aria-label="Problèmes">
+                <li>Valide tout sans question</li>
+                <li>Aucun coût ni risque évoqué</li>
+              </ul>
             </div>
-            <div id="feedback-list" aria-live="polite"></div>
+            <div class="pane pane-after">
+              <p class="pane-label">Avec <code>project-discovery-validation</code></p>
+              <div class="pane-body">
+                <p>Avant de coder, trois objections.</p>
+                <ul>
+                  <li><strong>Chatbot</strong> : quel besoin couvre-t-il que la recherche ne couvre pas ? Il ajoute un coût d'API récurrent et envoie des données financières à un tiers <span class="ev">N1</span>. Alternative plus simple : catégorisation automatique en local.</li>
+                  <li><strong>Badges</strong> : utile seulement si l'abandon est le problème observé <span class="ev">N6</span>.</li>
+                  <li><strong>Fil social</strong> : hors du besoin principal, risque de confidentialité.</li>
+                </ul>
+                <p>Proposition : tester la catégorisation avec 5 utilisateurs. Critère d'abandon : moins de 3 l'utilisent après une semaine.</p>
+              </div>
+              <ul class="flags flags-good" aria-label="Apports">
+                <li>Contre-argument</li>
+                <li>Alternative plus simple</li>
+                <li>Niveau de preuve</li>
+              </ul>
+            </div>
           </div>
+        </article>
+
+        <article class="scenario" id="sc-ui" role="tabpanel" aria-labelledby="tab-ui">
+          <p class="prompt"><span class="prompt-label">Vous</span>Fais-moi un formulaire d'inscription moderne.</p>
+          <div class="compare">
+            <div class="pane pane-before">
+              <p class="pane-label">Sans skill</p>
+              <div class="pane-body">
+<pre><code>&lt;div class="glass-card gradient"&gt;
+  &lt;input placeholder="Email"&gt;
+  &lt;input placeholder="Mot de passe"&gt;
+  &lt;button class="neon"&gt;Go 🚀&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <ul class="flags" aria-label="Problèmes">
+                <li>Pas de libellé visible</li>
+                <li>Contraste non vérifié</li>
+                <li>Bouton ambigu</li>
+              </ul>
+            </div>
+            <div class="pane pane-after">
+              <p class="pane-label">Avec <code>ux-ui-design</code></p>
+              <div class="pane-body">
+<pre><code>&lt;label for="email"&gt;Adresse e-mail&lt;/label&gt;
+&lt;input id="email" type="email"
+  autocomplete="email" required
+  aria-describedby="email-err"&gt;
+&lt;p id="email-err" role="alert" hidden&gt;&lt;/p&gt;
+&lt;button type="submit"&gt;Créer mon compte&lt;/button&gt;</code></pre>
+                <p>Libellés au-dessus des champs, erreur affichée à la sortie du champ, contraste 4,5:1 <span class="ev">N1</span>, cible d'au moins 24 px <span class="ev">N1</span>.</p>
+              </div>
+              <ul class="flags flags-good" aria-label="Apports">
+                <li>WCAG 2.2 AA</li>
+                <li>Action explicite</li>
+                <li>Zéro décor gratuit</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="scenario" id="sc-reprise" role="tabpanel" aria-labelledby="tab-reprise">
+          <p class="prompt"><span class="prompt-label">Vous</span>L'export CSV plante depuis ce matin, corrige-le.</p>
+          <div class="compare">
+            <div class="pane pane-before">
+              <p class="pane-label">Sans skill</p>
+              <div class="pane-body">
+                <p>J'ai réécrit <code>export.js</code> et gardé l'ancien dans <code>export_old.js</code> par sécurité.</p>
+                <p>Tous les tests passent ✅</p>
+              </div>
+              <ul class="flags" aria-label="Problèmes">
+                <li>Fichier mort ajouté</li>
+                <li>Tests jamais lancés</li>
+              </ul>
+            </div>
+            <div class="pane pane-after">
+              <p class="pane-label">Avec <code>maintenance-incident</code></p>
+              <div class="pane-body">
+                <p>Reproduit : une virgule dans un libellé casse la ligne. Correctif de 3 lignes dans <code>export.js</code> (échappement RFC 4180), aucun fichier copié. Test de non-régression ajouté.</p>
+                <p><strong>Non vérifié</strong> : je n'ai pas pu lancer la suite de tests ici. Commande à exécuter : <code>npm test</code>.</p>
+              </div>
+              <ul class="flags flags-good" aria-label="Apports">
+                <li>Correctif minimal</li>
+                <li>Preuve honnête</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="fonctionnement" class="section" aria-labelledby="how-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="how-title">Le bon contexte, au bon moment</h2>
+          <p>Un skill ne charge que ce dont la tâche a besoin. Votre assistant garde sa fenêtre de contexte pour votre code.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-cost">~100 tokens</span>
+            <h3>Découverte</h3>
+            <p>Au démarrage, l'assistant lit seulement le nom et la description des onze skills.</p>
+          </li>
+          <li>
+            <span class="step-cost">1 fichier</span>
+            <h3>Activation</h3>
+            <p>Votre demande correspond à un skill : il charge son <code>SKILL.md</code>, le workflow et les garde-fous.</p>
+          </li>
+          <li>
+            <span class="step-cost">1 fiche</span>
+            <h3>Référence ciblée</h3>
+            <p>La table de routage lui indique la seule fiche utile : formulaires, migrations, OWASP…</p>
+          </li>
+        </ol>
+
+        <div class="profile">
+          <div class="profile-text">
+            <h3>Un profil par projet</h3>
+            <p><code>start-here</code> diagnostique votre projet et écrit <code>.agents/profile.md</code>. Tous les skills le lisent : ils s'adaptent à votre budget, à vos données et au niveau de rigueur voulu.</p>
+            <div class="seg" role="radiogroup" aria-label="Niveau de rigueur" hidden>
+              <button type="button" role="radio" aria-checked="false" data-level="legere">Légère</button>
+              <button type="button" role="radio" aria-checked="true" data-level="standard">Standard</button>
+              <button type="button" role="radio" aria-checked="false" data-level="stricte">Stricte</button>
+            </div>
+            <dl class="levels">
+              <div data-level-desc="legere"><dt>Légère</dt><dd>Prototype ou outil perso : checklists réduites aux points bloquants, aucune cérémonie.</dd></div>
+              <div data-level-desc="standard"><dt>Standard</dt><dd>Projet suivi : workflow complet, preuves sur les points critiques.</dd></div>
+              <div data-level-desc="stricte"><dt>Stricte</dt><dd>Production, données sensibles : checklists complètes, chaque affirmation sourcée.</dd></div>
+            </dl>
+          </div>
+<pre class="profile-file" aria-label="Exemple de profil projet"><code><span class="c"># .agents/profile.md</span>
+Stade : <span class="v">développement</span>
+Type : <span class="v">application web</span>
+Stack : <span class="v">SvelteKit, SQLite</span>
+
+<span class="c">## Réglages de la suite</span>
+Rigueur : <span class="v" id="profile-level">standard</span>
+Budget : <span class="v">0 €/mois</span>
+Données sensibles : <span class="v">personnelles</span>
+Module « Bug ou idée ? » : <span class="v">prototypes</span>
+Accessibilité : <span class="v">WCAG 2.2 AA</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="skills-title">Onze skills, utilisables seuls</h2>
+          <p>Le parcours ci-dessous est un ordre conseillé, pas une obligation. Si un livrable amont manque, le skill le reconstitue depuis votre code et le signale.</p>
+        </div>
+
+        <ol class="track">
+          <li class="track-item track-entry">
+            <details>
+              <summary><span class="t-name">start-here</span><span class="t-desc">Diagnostique le projet, crée le profil, choisit le skill suivant</span></summary>
+              <div class="t-more">
+                <p>À utiliser en premier sur un projet, ou quand vous ne savez pas quel skill appeler.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise le skill start-here.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise le skill start-here." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/start-here/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item">
+            <details>
+              <summary><span class="t-name">project-discovery-validation</span><span class="t-desc">Challenge l'idée, analyse l'existant, construit la roadmap</span></summary>
+              <div class="t-more">
+                <p>Jobs-to-be-Done, Kano, RICE, contre-argument obligatoire et alternative plus simple, jalons jusqu'au MVP.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise project-discovery-validation. Mon idée : …</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise project-discovery-validation. Mon idée : " hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/project-discovery-validation/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item">
+            <details>
+              <summary><span class="t-name">product-spec-docs</span><span class="t-desc">Écrit une spécification que l'IA peut exécuter</span></summary>
+              <div class="t-more">
+                <p>Règles métier verrouillées, user stories, scénarios Gherkin, ADR, CHANGELOG et découpage en lots atomiques.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise product-spec-docs pour spécifier le MVP.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise product-spec-docs pour spécifier le MVP." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/product-spec-docs/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item track-branch">
+            <details>
+              <summary><span class="t-name">ux-ui-design</span><span class="t-desc">Conçoit et audite les écrans : WCAG 2.2, mobile, anti-slop</span></summary>
+              <div class="t-more">
+                <p>Quatorze fiches : lois cognitives, accessibilité, formulaires, navigation, dataviz, direction artistique, module « Bug ou idée ? ».</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise ux-ui-design pour revoir cet écran.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise ux-ui-design pour revoir cet écran." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/ux-ui-design/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item track-branch">
+            <details>
+              <summary><span class="t-name">api-data-architecture</span><span class="t-desc">Schéma, migrations sans perte, contrats d'API, RGPD</span></summary>
+              <div class="t-more">
+                <p>Normalisation, UUID, dates UTC, montants exacts, erreurs RFC 9457, pagination bornée, minimisation des données.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise api-data-architecture pour cette migration.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise api-data-architecture pour cette migration." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/api-data-architecture/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item track-branch">
+            <details>
+              <summary><span class="t-name">clean-code-security</span><span class="t-desc">Code simple, OWASP, secrets, dépôt propre</span></summary>
+              <div class="t-more">
+                <p>Séparation domaine et interface, validation des entrées, aucun secret en dur, aucun fichier <code>_old</code>, scripts de lancement en une commande.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise clean-code-security pour refactoriser ce module.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise clean-code-security pour refactoriser ce module." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/clean-code-security/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item">
+            <details>
+              <summary><span class="t-name">qa-perf-observability</span><span class="t-desc">Tests accessibles, Core Web Vitals, logs sans données perso</span></summary>
+              <div class="t-more">
+                <p>Tests E2E par rôles ARIA, axe-core, budgets de performance, sobriété RGESN, logs structurés.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise qa-perf-observability pour tester ce parcours.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise qa-perf-observability pour tester ce parcours." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/qa-perf-observability/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item">
+            <details>
+              <summary><span class="t-name">release-deployment</span><span class="t-desc">Versions SemVer, builds reproductibles, rollback</span></summary>
+              <div class="t-more">
+                <p>CHANGELOG, tags, CI gratuite, déploiement Netlify, Vercel ou Cloudflare Pages, plan de retour arrière.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise release-deployment pour préparer la 1.2.0.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise release-deployment pour préparer la 1.2.0." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/release-deployment/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+          <li class="track-item">
+            <details>
+              <summary><span class="t-name">maintenance-incident</span><span class="t-desc">Incidents, correctifs minimaux, sauvegardes</span></summary>
+              <div class="t-more">
+                <p>Triage par priorité, reproduction avant correction, sauvegarde préalable, test de non-régression.</p>
+                <div class="cmd cmd-sm"><code class="cmd-text">Utilise maintenance-incident : l'export plante.</code><button type="button" class="btn btn-ghost copy-btn" data-copy="Utilise maintenance-incident : l'export plante." hidden>Copier</button></div>
+                <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/maintenance-incident/SKILL.md">Lire le SKILL.md</a>
+              </div>
+            </details>
+          </li>
+        </ol>
+
+        <div class="side-skills">
+          <p class="side-label">À tout moment</p>
+          <ul>
+            <li><a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/full-project-audit/SKILL.md"><span class="t-name">full-project-audit</span></a> État des lieux 360° en lecture seule, gravité P0 à P3, plan de remédiation.</li>
+            <li><a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/oss-governance/SKILL.md"><span class="t-name">oss-governance</span></a> Licences, audit des dépendances, SECURITY.md, CODEOWNERS.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="preuves" class="section" aria-labelledby="ev-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="ev-title">Une préférence n'est pas une norme</h2>
+          <p>Chaque règle porte son niveau de preuve. En cas de conflit, le plus solide l'emporte.</p>
+        </div>
+        <ol class="scale">
+          <li><span class="ev ev-lg">N1</span><strong>Obligation légale ou norme</strong><span>RGPD, WCAG 2.2 AA</span></li>
+          <li><span class="ev ev-lg">N2</span><strong>Résultat scientifique</strong><span>Fitts, Hick-Hyman, ACID</span></li>
+          <li><span class="ev ev-lg">N3</span><strong>Standard ou terrain vérifié</strong><span>OWASP, NN/g</span></li>
+          <li><span class="ev ev-lg">N4</span><strong>Convention d'ingénierie</strong><span>SemVer, RFC 9457</span></li>
+          <li><span class="ev ev-lg">N5</span><strong>Choix contextuel</strong><span>stack, direction artistique</span></li>
+          <li><span class="ev ev-lg">N6</span><strong>Hypothèse à tester</strong><span>intuition, estimation</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="installer" class="section install" aria-labelledby="install-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="install-title">Installer en une commande</h2>
+          <p>Toute la suite ou un seul skill. Gratuit et open source ; votre assistant et votre hébergeur peuvent avoir leurs propres coûts.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Méthode d'installation" hidden>
+          <button type="button" role="tab" id="tab-cli" aria-controls="in-cli" aria-selected="true">CLI skills</button>
+          <button type="button" role="tab" id="tab-claude" aria-controls="in-claude" aria-selected="false" tabindex="-1">Claude Code</button>
+          <button type="button" role="tab" id="tab-cursor" aria-controls="in-cursor" aria-selected="false" tabindex="-1">Cursor et autres</button>
+        </div>
+
+        <div class="install-panel" id="in-cli" role="tabpanel" aria-labelledby="tab-cli">
+          <h3 class="install-h">CLI skills</h3>
+          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code><button type="button" class="btn btn-ghost copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button></div>
+          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design</code><button type="button" class="btn btn-ghost copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design" hidden>Copier</button></div>
+          <p class="note">Mise à jour : <code>npx skills update</code></p>
+        </div>
+        <div class="install-panel" id="in-claude" role="tabpanel" aria-labelledby="tab-claude">
+          <h3 class="install-h">Claude Code</h3>
+          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">git clone https://github.com/Karmadibsa/agent-skills-suite.git</code><button type="button" class="btn btn-ghost copy-btn" data-copy="git clone https://github.com/Karmadibsa/agent-skills-suite.git" hidden>Copier</button></div>
+          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">cp -r agent-skills-suite/skills/* .claude/skills/</code><button type="button" class="btn btn-ghost copy-btn" data-copy="cp -r agent-skills-suite/skills/* .claude/skills/" hidden>Copier</button></div>
+          <p class="note">Pour tous vos projets : <code>~/.claude/skills/</code></p>
+        </div>
+        <div class="install-panel" id="in-cursor" role="tabpanel" aria-labelledby="tab-cursor">
+          <h3 class="install-h">Cursor et autres outils</h3>
+          <p class="note">Copiez le contenu de <code>skills/</code> dans <code>.cursor/skills/</code> pour Cursor, ou dans <code>.agents/skills/</code> pour les outils qui suivent le format universel. Gardez chaque <code>SKILL.md</code> avec son dossier <code>references/</code>.</p>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer" role="contentinfo">
+
+  <footer class="footer">
     <div class="shell footer-inner">
-      <span>Agent Skills Suite · Code MIT · Docs CC BY 4.0 · 0 €/mois</span>
-      <div class="footer-links">
-        <a href="https://github.com/Karmadibsa/agent-skills-suite" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">agentskills.io</a>
-        <a href="#retours">Bug ou idée ?</a>
-      </div>
+      <p>Agent Skills Suite · Code sous licence MIT · Contenus sous CC BY 4.0</p>
+      <nav class="footer-links" aria-label="Liens externes">
+        <a href="https://github.com/Karmadibsa/agent-skills-suite">GitHub</a>
+        <a href="https://github.com/Karmadibsa/agent-skills-suite/issues/new">Signaler un bug ou une idée</a>
+        <a href="https://agentskills.io">agentskills.io</a>
+      </nav>
     </div>
   </footer>
-  <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
-  <dialog id="feedback-modal" class="drawer-dialog" aria-labelledby="feedback-modal-title">
-    <div class="dialog-header">
-      <h2 id="feedback-modal-title">Bug ou idée ?</h2>
-      <button type="button" id="btn-close-modal" class="btn btn-secondary btn-sm" aria-label="Fermer la fenêtre">Fermer</button>
-    </div>
-    <p class="dialog-copy">
-      Ajoutez un retour dans le formulaire local de la page pour l'exporter en Markdown sans envoi externe.
-    </p>
-    <button type="button" id="btn-scroll-to-feedback" class="btn btn-primary btn-full">Aller au formulaire</button>
-  </dialog>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
   <script src="app.js"></script>
 </body>
 </html>
