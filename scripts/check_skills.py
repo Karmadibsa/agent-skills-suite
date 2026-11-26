@@ -11,6 +11,8 @@ Contrôles :
 - SKILL.md de moins de 500 lignes ;
 - chaque `references/*.md` cité dans SKILL.md existe, et chaque fiche est citée (sinon avertissement) ;
 - le bloc commun (shared/skill-preamble.md) est présent et à jour dans chaque SKILL.md ;
+- les fiches partagées (registre 00B) sont des copies identiques de leur source ;
+- l'index global skills/start-here/references/index-fiches.md est à jour ;
 - aucun tableau aplati par un export Google Docs (suite de lignes courtes isolées).
 """
 from __future__ import annotations
@@ -27,6 +29,15 @@ END = "<!-- suite:preamble:end -->"
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 REF_RE = re.compile(r"references/[A-Za-z0-9_.-]+\.md")
 SECTION_ONE_RE = re.compile(r"^#{1,2} 1\. ")
+EXTERNAL_SRC = ROOT / "shared" / "external-skills.md"
+INDEX_PATH = SKILLS / "start-here" / "references" / "index-fiches.md"
+REGISTRY = "skills/ux-ui-design/references/00B-registre-central-regles.md"
+SHARED_COPIES = {
+    REGISTRY: [
+        f"skills/{s}/references/00B-registre-central-regles.md"
+        for s in ("ux-forms-navigation", "ux-dataviz-admin", "ux-art-direction", "ux-feedback-module")
+    ],
+}
 
 
 def read(path: Path) -> str:
@@ -62,6 +73,49 @@ def sync_preamble(text: str) -> str:
     if idx is None:
         raise ValueError("aucune section « 1. » où insérer le bloc commun")
     return "\n".join(lines[:idx] + [block, ""] + lines[idx:])
+
+
+def short(text: str, limit: int = 180) -> str:
+    text = re.sub(r"\s*(<br>|•)\s*", " · ", text).strip(" ·")
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+
+def build_index(skill_dirs: list[Path]) -> str:
+    """Index compact de toutes les fiches, extrait des tables de routage des SKILL.md."""
+    copies = {Path(c).parent.parent.name for targets in SHARED_COPIES.values() for c in targets}
+    out = [
+        "# Index des fiches de la suite",
+        "",
+        "<!-- Généré par scripts/check_skills.py --fix à partir des tables de routage des SKILL.md. Ne pas modifier à la main. -->",
+        "",
+        "Utilisation : repérer la ligne qui correspond à la tâche, charger le SKILL.md du skill indiqué, puis seulement la fiche citée. "
+        "Les chemins sont relatifs au dossier où les skills sont installés. Si le skill n'est pas installé, le signaler à l'utilisateur.",
+        "",
+    ]
+    for d in skill_dirs:
+        if d.name == "start-here":
+            continue
+        text = read(d / "SKILL.md")
+        fm = frontmatter(text) or {}
+        rows = []
+        for line in text.split(chr(10)):
+            if not line.startswith("| references/"):
+                continue
+            cells = [c.strip() for c in line.strip().strip("|").split(" | ")]
+            ref = cells[0]
+            if ref.endswith("00B-registre-central-regles.md") and d.name in copies:
+                continue
+            desc = cells[1] if len(cells) > 1 else ""
+            when = cells[-1] if len(cells) > 2 else ""
+            rows.append(f"| `{d.name}/{ref}` | {short(desc)} | {short(when, 120)} |")
+        out += [f"## {d.name}", "", short(fm.get("description", ""), 260), ""]
+        if rows:
+            out += ["| Fiche | Contenu | Quand la charger |", "| --- | --- | --- |", *rows, ""]
+        else:
+            out += ["Pas de fiche listée dans la table de routage : lire le SKILL.md.", ""]
+    if EXTERNAL_SRC.exists():
+        out += [read(EXTERNAL_SRC).strip(), ""]
+    return chr(10).join(out)
 
 
 def flattened_runs(text: str, min_run: int = 6) -> list[int]:
@@ -155,6 +209,22 @@ def main() -> int:
             for f in sorted(ref_dir.glob("*.md")):
                 if f"references/{f.name}" not in cited:
                     warnings.append(f"{rel}: references/{f.name} n'est cité nulle part dans SKILL.md")
+    for src, targets in SHARED_COPIES.items():
+        src_text = read(ROOT / src)
+        for target in targets:
+            path = ROOT / target
+            if fix and (not path.exists() or read(path) != src_text):
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(src_text, encoding="utf-8")
+                print(f"copie mise à jour : {target}")
+            if not path.exists() or read(path) != src_text:
+                errors.append(f"{target}: copie absente ou différente de {src} (lancer --fix)")
+    index = build_index(skill_dirs)
+    if fix and (not INDEX_PATH.exists() or read(INDEX_PATH) != index):
+        INDEX_PATH.write_text(index, encoding="utf-8")
+        print(f"index régénéré : {INDEX_PATH.relative_to(ROOT).as_posix()}")
+    if not INDEX_PATH.exists() or read(INDEX_PATH) != index:
+        errors.append("skills/start-here/references/index-fiches.md: index obsolète (lancer --fix)")
     md_files = [ROOT / "README.md", *sorted((ROOT / "docs").rglob("*.md")), *sorted(SKILLS.rglob("*.md"))]
     for f in md_files:
         for line in flattened_runs(read(f)):

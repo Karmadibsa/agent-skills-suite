@@ -1,9 +1,9 @@
 ---
 name: ux-ui-design
-description: Référentiel scientifique et opérationnel de conception, d'implémentation et d'audit d'interfaces utilisateur (Web, SaaS, Mobile, Desktop). À activer dès qu'une tâche implique la création, la refonte ou l'audit d'écrans, composants UI, formulaires, tableaux, graphiques, navigation, accessibilité WCAG 2.2 ou la suppression du slop IA.
+description: Socle de conception, d'implémentation et d'audit d'interfaces (Web, SaaS, mobile, desktop) — workflow en 10 étapes, registre des règles et niveaux de preuve, lois cognitives, architecture de l'information, feedback et états vides, accessibilité WCAG 2.2, anti-slop IA, IA et i18n. À activer dès qu'une tâche crée, refond ou audite un écran ou un composant. Oriente vers ux-forms-navigation, ux-dataviz-admin, ux-art-direction ou ux-feedback-module pour les sujets spécialisés.
 license: CC-BY-4.0 / MIT
 metadata:
-  version: "2.0.0"
+  version: "3.0.0"
   standard: "agentskills.io"
 ---
 
@@ -62,26 +62,32 @@ Pour maintenir des performances optimales et éviter la saturation du contexte l
 
 - Chargement contextuel à la demande : Ne chargez jamais l'intégralité du dossier references/ dans le contexte global. Chargez uniquement et exclusivement les fiches thématiques de references/ requises pour la tâche spécifique en cours, en vous appuyant rigoureusement sur la Table de Routage ci-dessous.
 
-# 2. Table de Routage Complète (references/)
+# 2. Table de routage
 
-L'intégralité des 14 documents du référentiel V2 est préservée et indexée ci-après :
+Ce skill porte le socle commun à toute interface : registre des règles, cognition, structure, feedback, accessibilité, anti-slop. Les sujets spécialisés vivent dans des skills voisins, à charger seulement si la tâche les touche.
+
+## Fiches de ce skill (references/)
 
 | Document de référence | Description & Domaine d'expertise | Condition d'activation / Déclencheur |
 | --- | --- | --- |
-| references/00-index-routage.md | Index détaillé des fiches avec cas de chargement, prompts types et règles de justification. | Facultatif : si la table ci-dessous ne suffit pas pour choisir une fiche |
 | references/00B-registre-central-regles.md | Source unique de vérité, matrice des 6 niveaux de preuve ([N1] à [N6]), mécanismes d'arbitrage et résolution formelle des contradictions. | Toujours obligatoire (Lecture initiale systématique) |
 | references/01-fondamentaux-cognitifs.md | Psychologie cognitive appliquée : Lois de Fitts, Hick-Hyman, Cowan (4±1), Jakob, Tesler, Gestalt, Effet Doherty. | Toujours (Socle conceptuel d'ergonomie) |
 | references/02-architecture-info-divulgation.md | Divulgation progressive (3 niveaux), patterns de balayage visuel (F, Z, Layer-cake), microcopy fonctionnelle, hiérarchie par le vide (Spacers 8pt). | Toujours (Structure et lisibilité de page) |
 | references/03-onboarding-icones-feedback.md | Minimisation du Time-to-First-Value (TTFV), Empty States constructifs, grammaire d'icônes, pattern Toast avec Undo, états de chargement (Skeleton UI vs Spinners). | Dès qu'il y a un parcours utilisateur, des formulaires ou des actions CRUD |
 | references/04-accessibilite-typo-couleurs-motion.md | Conformité WCAG 2.2 (AA/AAA), échelles typographiques fluides, palettes perceptuelles OKLCH, animations à valeur informative & gestion de prefers-reduced-motion. | Dès qu'on définit ou audite le Design System, les variables CSS ou l'accessibilité |
-| references/05-desktop-et-mobile-une-main.md | Économie gestuelle : Zone du pouce (mobile à une main), cibles tactiles minimales (44-48px), densité d'information desktop, raccourcis clavier et focus state visible. | Selon la cible d'affichage (Desktop, Mobile, PWA, Responsive) |
-| references/06-direction-artistique-logos-refs.md | Direction artistique structurée : modèle de lumière cohérent, élévation Z-index (système à 5 niveaux), crénage, grille de construction de logo, 8 archétypes esthétiques produits. | Lors d'une création d'identité visuelle, de charte graphique ou d'une refonte DA |
 | references/07-anti-patterns-et-anti-slop.md | Liste noire des anti-patterns d'interfaces IA, règles strictes d'éradication du slop visuel/structurel/textuel/code, grille et prompt d'audit pré-livraison. | Avant toute génération de code frontend ou revue de conception |
-| references/08-bug-ou-idee-feedback-contextuel.md | Spécification du module de signalement visuel « Bug ou idée ? » (sélection d'élément DOM, capture enrichie optionnelle, anonymisation RGPD, export ZIP/payload API). | Activé par défaut sur les applications interactives (avec blocage strict des captures en santé/finance) |
-| references/09-admin-dataviz-performance-scroll.md | Graphiques d'analyse (choix par type de donnée), architecture de back-office/dashboards, Core Web Vitals (p75), Shimmer UI & maîtrise de l'expérience de défilement. | Back-office, dashboards analytiques, optimisation de performance visuelle |
-| references/10-navigation-listes-kanban-statuts.md | Systèmes de navigation (Sidebar collapsible vs Topbar), prévention de l'effet « boîtes dans les boîtes », listes de données, Kanban accessible, statuts triple-codés, vulgarisation non-technique. | Architecture d'application complexe, vues de gestion métier, interfaces grand public |
-| references/11-formulaires-modales-espace.md | Modales stables vs tiroirs contextuels, matrice de choix des champs (Baymard / WAI-ARIA APG), 7 navigations hybrides, optimisation de la zone utile (Chrome vs Content). | Formulaires complexes, assistants multi-étapes, optimisation d'espace d'écran |
 | references/12-coga-humain-ia-ethique-i18n.md | Recommandations cognitives W3C COGA, guidage des interactions Humain-IA, prévention des Dark Patterns, internationalisation (LTR/RTL) & gestion de l'état déconnecté. | Interfaces intégrant de l'IA, applications internationales ou public spécifique |
+
+## Skills spécialisés de la même famille
+
+| Skill | Contenu | À charger quand |
+| --- | --- | --- |
+| `ux-forms-navigation` | Mobile à une main et desktop, navigation, listes, kanban, statuts, formulaires, modales, optimisation de l'espace | La tâche touche un formulaire, une navigation, une liste ou l'adaptation mobile/desktop |
+| `ux-dataviz-admin` | Choix des graphiques, back-office, dashboards, Core Web Vitals côté interface, défilement | Dashboard, graphique, écran d'administration ou performance perçue |
+| `ux-art-direction` | Direction artistique, lumière et élévation, typographie de marque, logos, archétypes produits | Identité visuelle, charte, refonte esthétique |
+| `ux-feedback-module` | Spécification complète du module « Bug ou idée ? » | Ajout ou maintenance du module de retours contextuels |
+
+Si le skill spécialisé n'est pas installé, le signaler et appliquer le socle de ce skill sans inventer les règles manquantes.
 
 # 3. Hiérarchie de résolution des conflits
 
@@ -145,7 +151,7 @@ Rédiger un code propre, performant et directement maintenable :
 
 ## Étape 7 : Intégration du composant de feedback contextuel
 
-Activer le module « Bug ou idée ? » (references/08-bug-ou-idee-feedback-contextuel.md) selon le réglage du profil projet (défaut : prototypes et applications interactives en phase de test ; jamais de capture sur des données de santé ou de finance).
+Activer le module « Bug ou idée ? » (skill `ux-feedback-module`) selon le réglage du profil projet (défaut : prototypes et applications interactives en phase de test ; jamais de capture sur des données de santé ou de finance).
 
 - Sécurité : Appliquer le masquage automatique des zones de saisie et désactiver la capture d'écran si l'application traite des données de santé, bancaires ou hautement confidentielles.
 

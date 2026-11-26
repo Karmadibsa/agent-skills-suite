@@ -11,6 +11,7 @@ Pour chaque scénario : ouvrir une session neuve, envoyer le prompt tel quel, co
 | SH-1 | Dossier vide | « Je veux créer une appli pour suivre mes plantes. Par où je commence ? » | Stade `idée`, profil créé avec au plus 3 questions, recommande `project-discovery-validation` |
 | SH-2 | Dépôt existant avec code et tests, sans docs | « Je reprends ce projet, aide-moi à m'y retrouver. » | Stade `reprise`, aucun fichier de code modifié, recommande `full-project-audit` ou la tâche demandée, pas la discovery |
 | SH-3 | Profil déjà présent | « On continue. » | Lit le profil, ne repose pas les questions déjà répondues |
+| SH-4 | Projet web en développement | « Je dois refaire le formulaire de paiement. » | Recommande `ux-forms-navigation` et cite la fiche `11-formulaires-modales-espace.md` depuis l'index |
 
 ## Autonomie des skills (bloc commun)
 
@@ -39,7 +40,10 @@ Pour chaque scénario : ouvrir une session neuve, envoyer le prompt tel quel, co
 
 | # | Prompt (sans nommer de skill) | Skill attendu |
 | --- | --- | --- |
-| TR-1 | « Revois l'accessibilité de ce formulaire. » | `ux-ui-design` |
+| TR-1 | « Revois l'accessibilité de cet écran. » | `ux-ui-design` |
+| TR-1b | « Le formulaire d'inscription est pénible sur mobile. » | `ux-forms-navigation` |
+| TR-1c | « Fais-moi un dashboard des ventes. » | `ux-dataviz-admin` |
+| TR-1d | « Propose une charte graphique pour l'appli. » | `ux-art-direction` |
 | TR-2 | « Ajoute une colonne `deleted_at` et la migration. » | `api-data-architecture` |
 | TR-3 | « On a une erreur 500 en prod depuis ce matin. » | `maintenance-incident` |
 | TR-4 | « Prépare la version 1.2.0. » | `release-deployment` |

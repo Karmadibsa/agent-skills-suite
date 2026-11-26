@@ -3,7 +3,7 @@ name: start-here
 description: Point d'entrée de la suite Agent Skills. Diagnostique l'état d'un projet (idée, cadrage, développement, production, reprise d'un dépôt existant), crée ou met à jour le profil projet .agents/profile.md, puis indique quel skill charger et dans quel ordre. À activer au début d'une session sur un projet, quand on ne sait pas quel skill utiliser, pour reprendre un projet existant ou pour adapter la suite à un nouveau contexte. Triggers: start a project, onboard an existing repo, which skill should I use.
 license: CC-BY-4.0 / MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   standard: "agentskills.io"
   order: "entry-point"
 ---
@@ -106,6 +106,10 @@ Remplir `.agents/profile.md` à partir de `references/profile-template.md`.
 | Idée ou nouvelle fonctionnalité à challenger | `project-discovery-validation` | `product-spec-docs` |
 | Périmètre validé, il faut des règles et des critères d'acceptation | `product-spec-docs` | skill du domaine concerné |
 | Écran, composant, parcours ou accessibilité | `ux-ui-design` | `qa-perf-observability` |
+| Formulaire, navigation, liste, adaptation mobile ou desktop | `ux-forms-navigation` | `ux-ui-design` pour le socle |
+| Graphique, dashboard, back-office | `ux-dataviz-admin` | `qa-perf-observability` |
+| Identité visuelle, charte, refonte esthétique | `ux-art-direction` | `ux-ui-design` |
+| Module de retours « Bug ou idée ? » | `ux-feedback-module` | `qa-perf-observability` |
 | Schéma de données, migration, API, RGPD | `api-data-architecture` | `clean-code-security` |
 | Écriture, refactorisation ou sécurisation de code | `clean-code-security` | `qa-perf-observability` |
 | Tests, performance, logs, recette | `qa-perf-observability` | `release-deployment` |
@@ -113,6 +117,8 @@ Remplir `.agents/profile.md` à partir de `references/profile-template.md`.
 | Préparer une version ou un déploiement | `release-deployment` | `maintenance-incident` |
 | Incident, bug en production, restauration | `maintenance-incident` | `qa-perf-observability` |
 | Ouverture du code, licences, dépendances | `oss-governance` | `release-deployment` |
+
+**Aller jusqu'à la fiche.** Pour désigner la fiche précise à charger (et pas seulement le skill), consulter `references/index-fiches.md` : une ligne par fiche de toute la suite, avec son déclencheur, plus quelques compléments externes facultatifs. Indiquer dans la réponse le skill et la fiche.
 
 Règles d'aiguillage :
 
@@ -127,7 +133,7 @@ Format de sortie, court :
 ```markdown
 **Diagnostic** : stade `<stade>` — <une phrase de preuve>.
 **Profil** : `.agents/profile.md` <créé | mis à jour | inchangé> (rigueur `<valeur>`, budget `<valeur>`, données sensibles `<valeur>`).
-**Prochain skill** : `<skill>` — <pourquoi, en une phrase>.
+**Prochain skill** : `<skill>` — <pourquoi, en une phrase>. Fiche à charger : `<skill>/references/<fiche>.md`.
 **Prompt suggéré** : « Utilise le skill <skill> pour <tâche concrète>. »
 **Hypothèses à confirmer** : <liste courte, ou « aucune »>.
 ```
@@ -143,3 +149,4 @@ Format de sortie, court :
 | Fichier | Contenu | Quand le lire |
 | --- | --- | --- |
 | references/profile-template.md | Modèle du profil projet, valeurs possibles et défauts | À l'étape 3, à chaque création ou mise à jour du profil |
+| references/index-fiches.md | Index généré de toutes les fiches de la suite et des compléments externes | À l'étape 4, pour désigner la fiche précise |

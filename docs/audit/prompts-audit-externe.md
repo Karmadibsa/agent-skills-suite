@@ -2,7 +2,7 @@
 
 Deux audits indépendants du dépôt, lancés en local avec d'autres assistants que celui qui a écrit le code. Les deux utilisent les skills de la suite par leur chemin : ça teste aussi que les skills fonctionnent hors de Claude Code.
 
-Ouvrir chaque outil à la racine du dépôt cloné, sur la branche `main` à jour. Ne pas leur donner d'accès en écriture au dépôt distant.
+Ouvrir chaque outil à la racine du dépôt cloné, sur la branche `dev` à jour (`git switch dev && git pull`). Ne pas leur donner d'accès en écriture au dépôt distant.
 
 ## Codex (CLI ou app, en local)
 
@@ -33,7 +33,7 @@ Tu audites le dépôt courant « agent-skills-suite » en deux temps. LECTURE SE
 
 Partie 1 — Le site vitrine, dans le navigateur.
 Lance un serveur local : `python -m http.server 8080 --directory website` (ou start.bat sous Windows), puis ouvre http://localhost:8080.
-Lis d'abord skills/ux-ui-design/SKILL.md, puis references/00B-registre-central-regles.md, 04-accessibilite-typo-couleurs-motion.md, 06-direction-artistique-logos-refs.md et 07-anti-patterns-et-anti-slop.md. Juge le site avec ces règles :
+Lis d’abord skills/ux-ui-design/SKILL.md, puis ses fiches references/00B-registre-central-regles.md, 04-accessibilite-typo-couleurs-motion.md et 07-anti-patterns-et-anti-slop.md, ainsi que skills/ux-art-direction/SKILL.md et sa fiche 06-direction-artistique-logos-refs.md. Juge le site avec ces règles :
 - première impression : le message est-il compris en 5 secondes ? Le site est-il mémorable sans tomber dans le « slop IA » (dégradés gratuits, cartes à icônes, faux chiffres) ?
 - parcours complet au scroll sur desktop (1440 px) et mobile (375 px) : la pile de fichiers du hero, la démo épinglée « Même demande, deux assistants » et ses trois onglets, la fenêtre de contexte, les prompts copiables de chaque skill ;
 - clavier seul (Tab, flèches dans les onglets), focus visible, contraste en thème clair et sombre, zoom 200 %, préférence « réduire les animations » ;
