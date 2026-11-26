@@ -1,11 +1,27 @@
 /* Agent Skills Suite — vitrine
    Amélioration progressive : sans JavaScript, ou avec prefers-reduced-motion, tout le contenu est affiché
-   dans son état final. Les effets ne modifient que des propriétés CSS (transform, opacity) via des variables. */
+   dans son état final et reste lisible. Les effets ne modifient que des variables CSS lues par transform,
+   la couleur ou les contours ; aucun texte n'est rendu illisible pendant une animation. */
 (function () {
   'use strict';
   var root = document.documentElement;
-  var reduced = root.classList.contains('static');
   var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var mq = function (q) { return window.matchMedia ? window.matchMedia(q) : { matches: false, addEventListener: null }; };
+  var motionQuery = mq('(prefers-reduced-motion: reduce)');
+  var reduced = motionQuery.matches;
+
+  /* La classe .js n'est posée qu'ici : si ce fichier ne se charge pas, la page reste en mode statique lisible. */
+  root.classList.add('js');
+  root.classList.toggle('static', reduced);
+
+  /* Écrit une variable CSS seulement si sa valeur change (évite des recalculs de style inutiles). */
+  function setVar(el, name, value) {
+    var v = value.toFixed(3);
+    var key = '_' + name;
+    if (el[key] === v) return;
+    el[key] = v;
+    el.style.setProperty(name, v);
+  }
 
   /* ---------- Toast ---------- */
   var toastEl = document.getElementById('toast');
@@ -70,9 +86,13 @@
       if (targetId) { var el = document.getElementById(targetId); return el ? el.textContent.trim() : ''; }
       return btn.getAttribute('data-copy');
     };
-    if (!btn.getAttribute('aria-label')) {
-      btn.setAttribute('aria-label', targetId ? btn.textContent.trim() + ' ' + targetId.replace('p-', '') : 'Copier : ' + getText());
+    var label = btn.getAttribute('data-label');
+    if (!label && targetId) {
+      var item = btn.closest('details');
+      var name = item ? item.querySelector('.t-name') : null;
+      label = name ? 'Copier le prompt du skill ' + name.textContent.trim() : 'Copier le prompt';
     }
+    btn.setAttribute('aria-label', label || 'Copier : ' + getText());
     btn.hidden = false;
     btn.addEventListener('click', function () {
       copyText(getText()).then(function () {
@@ -88,7 +108,7 @@
   if (seg) {
     var radios = Array.prototype.slice.call(seg.querySelectorAll('[role="radio"]'));
     var descs = document.querySelectorAll('[data-level-desc]');
-    var label = document.getElementById('profile-level');
+    var levelLabel = document.getElementById('profile-level');
     var names = { legere: 'légère', standard: 'standard', stricte: 'stricte' };
     var setLevel = function (index, focus) {
       var level = radios[index].getAttribute('data-level');
@@ -97,7 +117,7 @@
         r.tabIndex = i === index ? 0 : -1;
       });
       Array.prototype.forEach.call(descs, function (d) { d.classList.toggle('is-on', d.getAttribute('data-level-desc') === level); });
-      if (label) label.textContent = names[level];
+      if (levelLabel) levelLabel.textContent = names[level];
       if (focus) radios[index].focus();
     };
     radios.forEach(function (r, i) {
@@ -116,97 +136,169 @@
   /* ---------- Thème ---------- */
   var themeBtn = document.getElementById('theme-toggle');
   if (themeBtn) {
-    var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
+    var lightQuery = mq('(prefers-color-scheme: light)');
     var current = function () {
       var forced = root.getAttribute('data-theme');
       if (forced) return forced;
-      return media && media.matches ? 'light' : 'dark';
+      return lightQuery.matches ? 'light' : 'dark';
     };
-    var refresh = function () { themeBtn.setAttribute('aria-label', current() === 'dark' ? 'Passer en thème clair' : 'Passer en thème sombre'); };
+    var refresh = function () {
+      var mode = current();
+      themeBtn.setAttribute('data-mode', mode);
+      themeBtn.setAttribute('aria-label', mode === 'dark' ? 'Passer en thème clair' : 'Passer en thème sombre');
+    };
     themeBtn.addEventListener('click', function () {
       var next = current() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('ass-theme', next); } catch (e) { /* choix valable pour cette visite */ }
       refresh();
     });
-    if (media && media.addEventListener) media.addEventListener('change', refresh);
+    if (lightQuery.addEventListener) lightQuery.addEventListener('change', refresh);
     themeBtn.hidden = false;
     refresh();
   }
 
   /* ---------- Scènes pilotées par le scroll ---------- */
   var hero = document.querySelector('[data-scene]');
-  var pins = Array.prototype.slice.call(document.querySelectorAll('[data-pin]'));
   var track = document.querySelector('[data-track]');
-  var wide = window.matchMedia ? window.matchMedia('(min-width: 961px)') : { matches: true };
+  var wide = mq('(min-width: 961px)');
   var ticking = false;
+
+  /* Mise en cache : pour chaque section épinglée, ses scénarios et leurs éléments animés. */
+  var pins = Array.prototype.map.call(document.querySelectorAll('[data-pin]'), function (section) {
+    var scenarios = Array.prototype.map.call(section.querySelectorAll('.scenario'), function (sc) {
+      return {
+        el: sc,
+        steps: Array.prototype.map.call(sc.querySelectorAll('[data-at]'), function (el) {
+          return { el: el, at: parseFloat(el.getAttribute('data-at')) };
+        }),
+        before: sc.querySelector('.pane-before'),
+        after: sc.querySelector('.pane-after')
+      };
+    });
+    var stepper = section.querySelector('.stepper');
+    return {
+      section: section,
+      scenarios: scenarios,
+      stepper: stepper,
+      stepButtons: stepper ? Array.prototype.slice.call(stepper.querySelectorAll('[data-step]')) : []
+    };
+  });
 
   function pinActive() { return !reduced && wide.matches; }
 
-  function applyPin(section, p) {
-    Array.prototype.forEach.call(section.querySelectorAll('[data-at]'), function (el) {
-      var at = parseFloat(el.getAttribute('data-at'));
-      el.style.setProperty('--r', clamp((p - at) / 0.06, 0, 1).toFixed(3));
-    });
-    Array.prototype.forEach.call(section.querySelectorAll('.pane-before'), function (el) {
-      el.style.setProperty('--s', clamp((p - 0.32) / 0.14, 0, 1).toFixed(3));
-    });
-    Array.prototype.forEach.call(section.querySelectorAll('.pane-after'), function (el) {
-      el.style.setProperty('--a', clamp((p - 0.48) / 0.1, 0, 1).toFixed(3));
+  function applyScenario(sc, p) {
+    sc.steps.forEach(function (s) { setVar(s.el, '--r', clamp((p - s.at) / 0.06, 0, 1)); });
+    if (sc.before) setVar(sc.before, '--s', clamp((p - 0.32) / 0.14, 0, 1));
+    if (sc.after) setVar(sc.after, '--a', clamp((p - 0.48) / 0.1, 0, 1));
+  }
+
+  function updateStepper(pin, p, active) {
+    if (!pin.stepper) return;
+    pin.stepper.hidden = !active;
+    var idx = p < 0.4 ? 0 : (p < 0.55 ? 1 : 2);
+    pin.stepButtons.forEach(function (b, i) {
+      if (i === idx) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
     });
   }
 
   function update() {
     ticking = false;
     var vh = window.innerHeight;
-    var doc = document.documentElement;
-    root.style.setProperty('--page', clamp(window.scrollY / Math.max(1, doc.scrollHeight - vh), 0, 1).toFixed(4));
-    if (reduced) return;
-
-    if (hero) {
-      var hr = hero.getBoundingClientRect();
-      hero.style.setProperty('--p', clamp(-hr.top / Math.max(1, hr.height), 0, 1).toFixed(4));
-    }
+    setVar(root, '--page', clamp(window.scrollY / Math.max(1, root.scrollHeight - vh), 0, 1));
 
     var active = pinActive();
-    pins.forEach(function (section) {
-      section.classList.toggle('is-pinned', active);
-      if (!active) { applyPin(section, 1); return; }
-      var r = section.getBoundingClientRect();
-      var p = clamp(-r.top / Math.max(1, r.height - vh), 0, 1);
-      applyPin(section, p);
+    pins.forEach(function (pin) {
+      pin.section.classList.toggle('is-pinned', active);
+      var p = 1;
+      if (active) {
+        var r = pin.section.getBoundingClientRect();
+        p = clamp(-r.top / Math.max(1, r.height - vh), 0, 1);
+      }
+      pin.scenarios.forEach(function (sc) { if (!sc.el.hidden) applyScenario(sc, p); });
+      updateStepper(pin, p, active);
     });
 
+    if (reduced) {
+      if (hero) setVar(hero, '--p', 0);
+      if (track) setVar(track, '--t', 1);
+      return;
+    }
+    if (hero) {
+      var hr = hero.getBoundingClientRect();
+      if (hr.bottom > 0) setVar(hero, '--p', clamp(-hr.top / Math.max(1, hr.height), 0, 1));
+    }
     if (track) {
       var tr = track.getBoundingClientRect();
-      track.style.setProperty('--t', clamp((vh * 0.6 - tr.top) / Math.max(1, tr.height), 0, 1).toFixed(4));
+      setVar(track, '--t', clamp((vh * 0.6 - tr.top) / Math.max(1, tr.height), 0, 1));
     }
   }
   function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  /* Défilement animé maison (le défilement doux natif n'est pas fiable partout), instantané en mouvement réduit. */
+  var scrollAnim = null;
+  function scrollToY(target) {
+    if (scrollAnim) cancelAnimationFrame(scrollAnim);
+    var start = window.scrollY, dist = target - start, t0 = null, dur = 450;
+    if (reduced || Math.abs(dist) < 2) { window.scrollTo(0, target); return; }
+    var stop = function () { if (scrollAnim) cancelAnimationFrame(scrollAnim); scrollAnim = null; window.removeEventListener('wheel', stop); window.removeEventListener('touchstart', stop); };
+    window.addEventListener('wheel', stop, { passive: true, once: true });
+    window.addEventListener('touchstart', stop, { passive: true, once: true });
+    var stepFn = function (ts) {
+      if (t0 === null) t0 = ts;
+      var k = clamp((ts - t0) / dur, 0, 1);
+      var e = 1 - Math.pow(1 - k, 3);
+      window.scrollTo(0, start + dist * e);
+      if (k < 1) scrollAnim = requestAnimationFrame(stepFn); else stop();
+    };
+    scrollAnim = requestAnimationFrame(stepFn);
+  }
+
+  /* Barre d'étapes : aller directement à un moment de la démo, au clic comme au clavier. */
+  pins.forEach(function (pin) {
+    pin.stepButtons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var s = pin.section;
+        var target = s.getBoundingClientRect().top + window.scrollY + (s.offsetHeight - window.innerHeight) * parseFloat(b.getAttribute('data-step'));
+        scrollToY(target);
+      });
+    });
+  });
 
   Array.prototype.forEach.call(document.querySelectorAll('.tabs'), setupTabs);
   window.addEventListener('scroll', requestTick, { passive: true });
   window.addEventListener('resize', requestTick);
   if (wide.addEventListener) wide.addEventListener('change', requestTick);
+
+  /* La préférence « réduire les animations » peut changer pendant la visite. */
+  if (motionQuery.addEventListener) {
+    motionQuery.addEventListener('change', function (e) {
+      reduced = e.matches;
+      root.classList.toggle('static', reduced);
+      if (reduced) Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el) { el.classList.add('is-in'); });
+      requestTick();
+    });
+  }
   update();
 
   /* Pointeur : inclinaison de la pile (souris uniquement, pas au toucher) */
   var stack = document.querySelector('.stack');
-  if (stack && hero && !reduced && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  if (stack && hero && mq('(hover: hover) and (pointer: fine)').matches) {
     var raf = null, tx = 0, ty = 0;
     hero.addEventListener('pointermove', function (e) {
+      if (reduced) return;
       var r = hero.getBoundingClientRect();
       tx = clamp((e.clientX - r.left) / r.width * 2 - 1, -1, 1);
       ty = clamp((e.clientY - r.top) / r.height * 2 - 1, -1, 1);
       if (!raf) raf = requestAnimationFrame(function () {
         raf = null;
-        stack.style.setProperty('--mx', tx.toFixed(3));
-        stack.style.setProperty('--my', ty.toFixed(3));
+        setVar(stack, '--mx', tx);
+        setVar(stack, '--my', ty);
       });
     });
     hero.addEventListener('pointerleave', function () {
-      stack.style.setProperty('--mx', '0');
-      stack.style.setProperty('--my', '0');
+      setVar(stack, '--mx', 0);
+      setVar(stack, '--my', 0);
     });
   }
 

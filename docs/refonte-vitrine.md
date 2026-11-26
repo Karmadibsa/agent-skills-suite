@@ -23,6 +23,16 @@ Refonte menée avec le skill `ux-ui-design` : registre 00B, fiches 01 (cognition
 - **Sources de style consultées** : Emil Kowalski (courbe `cubic-bezier(0.23, 1, 0.32, 1)`, survols réservés à la souris, pression à 0,97), Vercel Web Interface Guidelines (transform/opacity uniquement, `touch-action`, chiffres tabulaires, `translate="no"` sur les noms), Taste Skill (un ou deux moments par page, version statique sur mobile et en mouvement réduit).
 - **Mobile et mouvement réduit** : pas d'épinglage, contenu dans son état final.
 
+## Version 3 — corrections après audits Codex et Antigravity
+
+- **Démo toujours lisible** : les deux réponses sont entièrement visibles à toute position ; la progression ne pilote que la rature, un repère latéral, le contour et la couleur des étiquettes. Barre d'étapes cliquable (1. réponse sans skill, 2. défauts relevés, 3. réponse avec skill). Panneaux d'onglets focusables.
+- **Mobile** : pas de parallaxe sous 960 px, code de la démo qui passe à la ligne, cibles de 44 px au toucher.
+- **Contrastes non textuels** relevés au-dessus de 3:1 (bordures fortes, boutons fantômes).
+- **Mouvement** : transitions de 350 ms au plus, changement de « réduire les animations » pris en compte sans recharger, classe `.js` posée par `app.js` (si le script échoue, la page reste lisible).
+- **Performances** : éléments animés mis en cache, seul l'onglet visible est mis à jour, aucune écriture de variable CSS si la valeur ne change pas.
+- **Chiffres** : périmètre documenté sur la page ; la tâche de formulaire inclut le registre obligatoire (environ 7 % au lieu de 5 %).
+- **Divers** : icône soleil/lune selon le thème, libellés explicites des boutons de copie, favicon vide (plus de 404), rayons 8/12 px, `start.bat` qui attend le serveur avant d'ouvrir le navigateur.
+
 ## Vérifications
 
 Effectuées dans le navigateur intégré : rendu desktop 1440 px et mobile 375 px, étapes de la démo épinglée, thèmes clair et sombre, changement d'onglet, aucune erreur console, aucun débordement horizontal à 375 px.

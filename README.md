@@ -118,6 +118,7 @@ Copier le contenu de `skills/` dans le dossier de skills de l'outil :
 
 ```bash
 git clone https://github.com/Karmadibsa/agent-skills-suite.git
+mkdir -p mon-projet/.claude/skills
 cp -r agent-skills-suite/skills/* mon-projet/.claude/skills/
 ```
 

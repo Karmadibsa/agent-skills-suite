@@ -14,12 +14,11 @@
   <script>
     (function () {
       var d = document.documentElement, t = null;
-      d.classList.add('js');
       try { t = localStorage.getItem('ass-theme'); } catch (e) { /* stockage indisponible */ }
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('static');
     })();
   </script>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,7 +35,8 @@
       </nav>
       <div class="topbar-actions">
         <button type="button" class="icon-btn" id="theme-toggle" aria-label="Changer de thème" hidden>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+          <svg class="ic-moon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+          <svg class="ic-sun" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></g></svg>
         </button>
         <a class="btn btn-ghost" href="https://github.com/Karmadibsa/agent-skills-suite">GitHub</a>
       </div>
@@ -104,8 +104,13 @@
               <button type="button" role="tab" id="tab-bug" aria-controls="sc-bug" aria-selected="false" tabindex="-1">Bug en production</button>
             </div>
           </div>
+          <ol class="stepper" aria-label="Étapes de la démo" hidden>
+            <li><button type="button" data-step="0.30"><span class="stepper-num">1</span>Réponse sans skill</button></li>
+            <li><button type="button" data-step="0.48"><span class="stepper-num">2</span>Défauts relevés</button></li>
+            <li><button type="button" data-step="0.97"><span class="stepper-num">3</span>Réponse avec skill</button></li>
+          </ol>
 
-          <article class="scenario" id="sc-idee" role="tabpanel" aria-labelledby="tab-idee">
+          <article class="scenario" id="sc-idee" role="tabpanel" aria-labelledby="tab-idee" tabindex="0">
             <p class="prompt"><span class="prompt-label">Vous</span>Ajoute un chatbot IA, des badges et un fil social à mon appli de budget.</p>
             <div class="compare">
               <div class="pane pane-before">
@@ -140,7 +145,7 @@
             </div>
           </article>
 
-          <article class="scenario" id="sc-ui" role="tabpanel" aria-labelledby="tab-ui">
+          <article class="scenario" id="sc-ui" role="tabpanel" aria-labelledby="tab-ui" tabindex="0">
             <p class="prompt"><span class="prompt-label">Vous</span>Fais-moi un formulaire d'inscription moderne.</p>
             <div class="compare">
               <div class="pane pane-before">
@@ -177,7 +182,7 @@
             </div>
           </article>
 
-          <article class="scenario" id="sc-bug" role="tabpanel" aria-labelledby="tab-bug">
+          <article class="scenario" id="sc-bug" role="tabpanel" aria-labelledby="tab-bug" tabindex="0">
             <p class="prompt"><span class="prompt-label">Vous</span>L'export CSV plante depuis ce matin, corrige-le.</p>
             <div class="compare">
               <div class="pane pane-before">
@@ -217,29 +222,29 @@
       <div>
         <div class="shell">
           <div class="section-head">
-            <h2 id="ctx-title">94 000 mots de méthode. <span class="dim">Votre IA n'en lit qu'environ 5 %.</span></h2>
-            <p>Un skill se charge par couches. Exemple réel, pour une tâche de formulaire.</p>
+            <h2 id="ctx-title">94 000 mots de méthode. <span class="dim">Votre IA en lit environ 7 %.</span></h2>
+            <p>Un skill se charge par couches. Estimation sur ce dépôt, pour une tâche de formulaire, lectures obligatoires comprises.</p>
           </div>
 
           <div class="window reveal">
-            <div class="window-bar" role="img" aria-label="Sur 94 350 mots, la tâche en charge environ 5 100 : 793 de descriptions, 1 022 pour le SKILL.md, 3 251 pour une fiche.">
+            <div class="window-bar" role="img" aria-label="Sur 94 525 mots, la tâche en charge environ 6 505 : 780 de descriptions, 2 474 pour le SKILL.md et le registre, 3 251 pour une fiche.">
               <span class="seg-fill seg-1"></span>
               <span class="seg-fill seg-2"></span>
               <span class="seg-fill seg-3"></span>
             </div>
-            <div class="window-scale" aria-hidden="true"><span>0</span><span>toute la suite : 94 350 mots</span></div>
+            <div class="window-scale" aria-hidden="true"><span>0</span><span>toute la suite : 94 525 mots</span></div>
           </div>
 
           <ol class="layers reveal">
             <li>
               <span class="layer-num">01</span>
               <div><h3>Découverte</h3><p>Les descriptions des quinze skills, toujours en mémoire.</p></div>
-              <span class="layer-cost">793 mots</span>
+              <span class="layer-cost">780 mots</span>
             </li>
             <li>
               <span class="layer-num">02</span>
-              <div><h3>Activation</h3><p>La demande parle d'un formulaire : <code>ux-forms-navigation/SKILL.md</code> se charge.</p></div>
-              <span class="layer-cost">1 022 mots</span>
+              <div><h3>Activation</h3><p>La demande parle d'un formulaire : <code>ux-forms-navigation/SKILL.md</code> et son registre obligatoire se chargent.</p></div>
+              <span class="layer-cost">2 474 mots</span>
             </li>
             <li>
               <span class="layer-num">03</span>
@@ -247,6 +252,7 @@
               <span class="layer-cost">3 251 mots</span>
             </li>
           </ol>
+          <p class="ctx-note">Comptage des mots séparés par des espaces dans les fichiers <code>SKILL.md</code> et <code>references/</code>, hors copies du registre, bloc commun compté une fois, hors index généré. Un mot n'est pas un token : l'ordre de grandeur compte, pas la décimale.</p>
         </div>
       </div>
     </section>
@@ -334,7 +340,7 @@ Rédige docs/spec/ en commençant par 00-LIRE-EN-PREMIER.md : règles métier nu
             <details>
               <summary><span class="t-name" translate="no">ux-ui-design</span><span class="t-desc">Conçoit et audite les écrans : WCAG 2.2, mobile, anti-slop</span></summary>
               <div class="t-more">
-                <p>Quatorze fiches : lois cognitives, accessibilité, formulaires, navigation, dataviz, direction artistique.</p>
+                <p>Sept fiches socles : registre des règles, lois cognitives, divulgation progressive, feedback et états vides, WCAG 2.2, anti-slop, IA et i18n.</p>
 <pre class="prompt-full" id="p-ux">Utilise le skill ux-ui-design.
 Écran ou composant : [nom, ou chemin du fichier]
 Utilisateurs et support : [ex. grand public, mobile à une main]
@@ -531,19 +537,19 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
           <button type="button" role="tab" id="tab-cursor" aria-controls="in-cursor" aria-selected="false" tabindex="-1">Cursor et autres</button>
         </div>
 
-        <div class="install-panel" id="in-cli" role="tabpanel" aria-labelledby="tab-cli">
+        <div class="install-panel" id="in-cli" role="tabpanel" aria-labelledby="tab-cli" tabindex="0">
           <h3 class="install-h">CLI skills</h3>
           <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code><button type="button" class="btn btn-ghost copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button></div>
           <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design</code><button type="button" class="btn btn-ghost copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite --skill ux-ui-design" hidden>Copier</button></div>
           <p class="note">Mise à jour : <code>npx skills update</code></p>
         </div>
-        <div class="install-panel" id="in-claude" role="tabpanel" aria-labelledby="tab-claude">
+        <div class="install-panel" id="in-claude" role="tabpanel" aria-labelledby="tab-claude" tabindex="0">
           <h3 class="install-h">Claude Code</h3>
           <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">git clone https://github.com/Karmadibsa/agent-skills-suite.git</code><button type="button" class="btn btn-ghost copy-btn" data-copy="git clone https://github.com/Karmadibsa/agent-skills-suite.git" hidden>Copier</button></div>
-          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">cp -r agent-skills-suite/skills/* .claude/skills/</code><button type="button" class="btn btn-ghost copy-btn" data-copy="cp -r agent-skills-suite/skills/* .claude/skills/" hidden>Copier</button></div>
+          <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">mkdir -p .claude/skills &amp;&amp; cp -r agent-skills-suite/skills/* .claude/skills/</code><button type="button" class="btn btn-ghost copy-btn" data-copy="mkdir -p .claude/skills &amp;&amp; cp -r agent-skills-suite/skills/* .claude/skills/" hidden>Copier</button></div>
           <p class="note">Pour tous vos projets : <code>~/.claude/skills/</code></p>
         </div>
-        <div class="install-panel" id="in-cursor" role="tabpanel" aria-labelledby="tab-cursor">
+        <div class="install-panel" id="in-cursor" role="tabpanel" aria-labelledby="tab-cursor" tabindex="0">
           <h3 class="install-h">Cursor et autres outils</h3>
           <p class="note">Copiez le contenu de <code>skills/</code> dans <code>.cursor/skills/</code> pour Cursor, ou dans <code>.agents/skills/</code> pour les outils qui suivent le format universel. Gardez chaque <code>SKILL.md</code> avec son dossier <code>references/</code>.</p>
         </div>
@@ -556,7 +562,7 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
 <pre class="prompt-full" id="p-noinstall">Lis https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/start-here/SKILL.md et applique-le à mon projet.
 Mon projet : [décris-le en quelques lignes, ou colle son README]
 Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dossier skills/) avant de l'appliquer.</pre>
-          <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-noinstall" hidden>Copier le prompt</button>
+          <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-noinstall" data-label="Copier le prompt sans installation" hidden>Copier le prompt</button>
         </div>
       </div>
     </section>
