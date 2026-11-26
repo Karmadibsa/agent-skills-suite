@@ -95,6 +95,7 @@ Repérer aussi : type de produit, plateforme cible, stack, données sensibles, p
 Remplir `.agents/profile.md` à partir de `references/profile-template.md`.
 
 - Déduire tout ce qui peut l'être du dépôt.
+- Proposer le niveau de rigueur avec le tableau « Choisir le niveau de rigueur » du modèle, en une phrase de justification.
 - Poser **au plus trois questions** à l'utilisateur, uniquement sur ce qui change la suite du travail et ne peut pas être déduit. Les plus utiles : la rigueur voulue, la présence de données sensibles, le budget d'infrastructure.
 - Si l'utilisateur ne répond pas, appliquer les valeurs par défaut et l'écrire dans le profil.
 - Montrer le profil à l'utilisateur avant de l'écrire s'il modifie un fichier existant.

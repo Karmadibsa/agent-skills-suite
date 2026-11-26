@@ -117,13 +117,15 @@
         <div class="oneshot">
           <div class="oneshot-text">
             <p class="oneshot-label">Le plus simple : un seul message</p>
-            <p>Collez ce message dans votre assistant (Claude Code, Cursor, Codex…), ouvert dans votre projet. Il installe la suite lui-même, vérifie l'installation puis démarre. Il vous demandera d'autoriser les commandes : c'est normal, lisez-les avant d'accepter.</p>
+            <p>Collez ce message dans votre assistant (Claude Code, Cursor, Codex…), ouvert dans votre projet. Il installe la suite lui-même, crée votre profil, puis : si le projet existe déjà, il fait un audit complet et propose un plan de correction ; s'il démarre de zéro, il avance avec vous étape par étape. Il vous demandera d'autoriser les commandes : c'est normal, lisez-les avant d'accepter.</p>
           </div>
 <pre class="prompt-full" id="p-oneshot">Installe la suite Agent Skills dans ce projet, puis démarre :
 1. Lance : npx skills add Karmadibsa/agent-skills-suite
 2. Si Node.js n'est pas disponible, clone https://github.com/Karmadibsa/agent-skills-suite dans un dossier temporaire et copie le contenu de son dossier skills/ dans le dossier de skills de ton outil (.claude/skills/ pour Claude Code, .cursor/skills/ pour Cursor, .agents/skills/ sinon), puis supprime le dossier temporaire.
 3. Vérifie que le dossier start-here est bien présent et dis-moi où les skills ont été installés.
-4. Utilise ensuite le skill start-here sur ce projet : pose-moi au plus 3 questions, crée .agents/profile.md et dis-moi quoi faire ensuite.
+4. Utilise le skill start-here : pose-moi au plus 3 questions et crée .agents/profile.md.
+5. Si le projet contient déjà du code : utilise ensuite le skill full-project-audit en lecture seule (interface, code, sécurité, données, tests, performance, conformité juridique), écris le rapport dans docs/audit/ et propose-moi un plan de correction par petits lots.
+   Si le projet démarre de zéro : utilise ensuite project-discovery-validation et avançons étape par étape, en me demandant mon accord avant chaque étape.
 Ne modifie aucun autre fichier du projet sans me demander.</pre>
           <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-oneshot" data-label="Copier le message d'installation automatique" hidden>Copier le message</button>
         </div>
@@ -136,19 +138,21 @@ Ne modifie aucun autre fichier du projet sans me demander.</pre>
             <h3>Installez la suite dans votre projet</h3>
             <p>Ouvrez un terminal dans le dossier de votre projet et collez cette commande. Elle ajoute les skills au projet, rien d'autre.</p>
             <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code><button type="button" class="btn btn-primary copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button></div>
-            <p class="howto-alt">Pas de terminal ou pas de Node.js ? <a href="#installer">Autres façons d'installer</a>.</p>
+            <p class="howto-note">Pas de terminal ou pas de Node.js ? <a href="#installer">Autres façons d'installer</a>.</p>
           </li>
           <li class="howto-step">
             <span class="howto-num" aria-hidden="true">2</span>
             <h3>Demandez à votre assistant de démarrer</h3>
-            <p>Ouvrez votre assistant IA dans ce projet (Claude Code, Cursor, Codex…) et envoyez exactement cette phrase :</p>
+            <p>Ouvrez votre assistant IA dans ce projet (Claude Code, Cursor, Codex…) et envoyez exactement cette phrase.</p>
             <div class="cmd"><code class="cmd-text">Utilise le skill start-here.</code><button type="button" class="btn btn-primary copy-btn" data-copy="Utilise le skill start-here." hidden>Copier</button></div>
+            <p class="howto-note">Fonctionne aussi sur un projet déjà commencé.</p>
           </li>
           <li class="howto-step">
             <span class="howto-num" aria-hidden="true">3</span>
             <h3>Suivez ses recommandations</h3>
-            <p>Il regarde où en est votre projet, vous pose au plus trois questions, puis vous dit quoi faire ensuite et vous donne la phrase à copier pour l'étape suivante.</p>
-            <p class="howto-result">Résultat : un fichier <code>.agents/profile.md</code> qui retient vos choix, pour ne plus avoir à les répéter.</p>
+            <p>Il regarde où en est votre projet, pose au plus trois questions, puis vous dit quoi faire ensuite avec la phrase à copier.</p>
+            <div class="howto-file"><code>.agents/profile.md</code><span>créé, vos choix sont retenus</span></div>
+            <p class="howto-note">Vous pouvez le modifier à la main à tout moment.</p>
           </li>
         </ol>
 
@@ -389,6 +393,7 @@ Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dos
           <p>À la première utilisation, <code>start-here</code> remplit une fiche d'identité de votre projet : son type, votre budget, s'il manipule des données sensibles, et le niveau d'exigence voulu. Il l'enregistre dans le fichier <code>.agents/profile.md</code>, à droite.</p>
           <p>Ensuite, chaque skill relit cette fiche avant de travailler. Vous n'avez rien à répéter, et vous pouvez la modifier à la main à tout moment.</p>
           <p class="profile-try">Essayez : même demande, <strong>« Ajoute un formulaire de contact »</strong>, selon le niveau d'exigence.</p>
+          <p class="profile-why"><strong>Comment choisir ?</strong> Selon le risque, pas selon l'envie de bien faire. <em>Stricte</em> dès qu'il y a de vrais utilisateurs en production, des données de santé, de paiement ou de mineurs. <em>Légère</em> pour un prototype jetable ou un outil perso. <em>Standard</em> pour le reste. <code>start-here</code> propose le niveau à partir de ces critères. Pourquoi pas stricte partout ? Parce que chaque vérification coûte du temps et des questions : sur un prototype qu'on jettera la semaine prochaine, c'est du temps perdu.</p>
           <div class="seg" role="radiogroup" aria-label="Niveau d'exigence" hidden>
             <button type="button" role="radio" aria-checked="false" data-level="legere">Légère</button>
             <button type="button" role="radio" aria-checked="true" data-level="standard">Standard</button>
@@ -668,13 +673,14 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
           <p>Chaque règle porte son niveau de preuve. En cas de conflit, le plus solide l'emporte.</p>
         </div>
         <ol class="scale reveal">
-          <li><span class="ev ev-lg">N1</span><strong>Obligation légale ou norme</strong><span>RGPD, WCAG 2.2 AA</span></li>
-          <li><span class="ev ev-lg">N2</span><strong>Résultat scientifique</strong><span>Fitts, Hick-Hyman, ACID</span></li>
-          <li><span class="ev ev-lg">N3</span><strong>Standard ou terrain vérifié</strong><span>OWASP, NN/g</span></li>
-          <li><span class="ev ev-lg">N4</span><strong>Convention d'ingénierie</strong><span>SemVer, RFC 9457</span></li>
-          <li><span class="ev ev-lg">N5</span><strong>Choix contextuel</strong><span>stack, direction artistique</span></li>
-          <li><span class="ev ev-lg">N6</span><strong>Hypothèse à tester</strong><span>intuition, estimation</span></li>
+          <li><span class="ev ev-lg">N1</span><strong>Obligation légale ou norme</strong><span class="src"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">RGPD</a>, <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a></span></li>
+          <li><span class="ev ev-lg">N2</span><strong>Résultat scientifique</strong><span class="src"><a href="https://doi.org/10.1037/h0055392">Fitts 1954</a>, <a href="https://doi.org/10.1080/17470215208416600">Hick 1952</a>, <a href="https://doi.org/10.1017/S0140525X01003922">Cowan 2001</a></span></li>
+          <li><span class="ev ev-lg">N3</span><strong>Standard ou terrain vérifié</strong><span class="src"><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>, <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">NN/g</a></span></li>
+          <li><span class="ev ev-lg">N4</span><strong>Convention d'ingénierie</strong><span class="src"><a href="https://semver.org/lang/fr/">SemVer</a>, <a href="https://www.rfc-editor.org/rfc/rfc9457">RFC 9457</a></span></li>
+          <li><span class="ev ev-lg">N5</span><strong>Choix contextuel</strong><span class="src">stack, direction artistique : justifiés dans le projet</span></li>
+          <li><span class="ev ev-lg">N6</span><strong>Hypothèse à tester</strong><span class="src">à valider par un test ou une mesure</span></li>
         </ol>
+        <p class="scale-more reveal">Chaque skill cite ses propres sources dans ses fiches. Le registre des règles d'interface, avec la source de chacune : <a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/ux-ui-design/references/00B-registre-central-regles.md">00B — registre central</a>.</p>
       </div>
     </section>
 

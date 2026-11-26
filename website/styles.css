@@ -475,8 +475,37 @@ a { text-decoration-thickness: 1px; }
 .ba figcaption { margin-top: var(--s4); max-width: 80ch; color: var(--text-2); }
 .js .ba-frame { cursor: ew-resize; touch-action: pan-y; }
 
+/* Étapes alignées : sous-grille commune (numéro, titre, texte, bloc, note) */
+.howto-steps { grid-template-rows: auto auto auto auto auto; row-gap: 0; }
+.howto-step { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: var(--s3); align-items: start; }
+.howto-step .cmd { margin-top: 0; align-self: stretch; }
+.howto-num { align-self: start; }
+.howto-note { font-size: 0.875rem; color: var(--text-3) !important; }
+.howto-file { display: flex; flex-direction: column; justify-content: center; gap: var(--s1); padding: var(--s4); border: 1px dashed var(--line-strong); border-radius: var(--r-md); }
+.howto-file code { align-self: flex-start; font-size: 0.9375rem; }
+.howto-file span { color: var(--text-2); font-size: 0.875rem; }
+.profile-why { padding: var(--s4); border-left: 3px solid var(--brand); background: var(--surface); color: var(--text-2) !important; font-size: 0.9375rem; }
+.profile-why strong { color: var(--text); }
+.scale .src a { color: var(--text-2); }
+.scale-more { margin: var(--s4) 0 0; color: var(--text-3); font-size: 0.9375rem; }
+
+/* Typographie : hiérarchie plus calme et plus éditoriale */
+h3 { font-weight: 600; }
+.howto-step h3, .final-title { font-weight: 500; font-size: 1.375rem; letter-spacing: -0.01em; line-height: 1.2; }
+.section-head h2, .head-title h2, .demo-head h2, .profile-text h2 { font-weight: 500; }
+.hero h1 { font-weight: 500; }
+.manifesto-title { font-weight: 500; }
+.faq-list summary { font-weight: 500; }
+.dim { font-weight: 400; }
+.kicker { font-family: var(--font); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.kicker::first-letter { letter-spacing: 0; }
+.btn { font-weight: 600; letter-spacing: 0.01em; }
+.cmd .cmd-text, .prompt-full { font-size: 0.875rem; }
+.hero-lead, .section-head p { font-size: 1.125rem; line-height: 1.6; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .howto-step { grid-row: auto; grid-template-rows: none; display: flex; }
   .oneshot { grid-template-columns: minmax(0, 1fr); padding: var(--s5); }
   .oneshot .copy-btn { grid-column: 1; }
   .howto-steps { grid-template-columns: minmax(0, 1fr); }

@@ -48,13 +48,25 @@ Règles :
 - <question en attente de réponse>
 ```
 
+## Choisir le niveau de rigueur
+
+Le niveau suit le risque du projet, pas l'envie de bien faire : chaque vérification coûte du temps et des questions. Proposer le niveau à l'utilisateur à partir de ces critères, puis le laisser trancher.
+
+| Niveau | Quand le proposer | Ce que ça change |
+| --- | --- | --- |
+| `stricte` | Utilisateurs réels en production, données de santé, de paiement ou de mineurs, obligations légales fortes, équipe nombreuse | Checklists complètes, chaque règle sourcée, tests et preuves exigés, revue sécurité et conformité |
+| `standard` | Projet suivi destiné à être utilisé, sans données sensibles, petite équipe | Workflow complet, preuves sur les points critiques |
+| `légère` | Prototype jetable, démo, outil personnel, exploration | Seulement les points bloquants, aucune documentation en plus |
+
+Règle de départage : au moindre critère « stricte », proposer `stricte` ; en cas de doute entre `légère` et `standard`, proposer `standard`.
+
 ## Valeurs par défaut
 
 Quand une valeur n'est pas connue et que l'utilisateur ne répond pas :
 
 | Champ | Défaut | Pourquoi |
 | --- | --- | --- |
-| Rigueur | `standard` | Équilibre entre vitesse et preuves |
+| Rigueur | proposée selon le tableau ci-dessus, `standard` si rien n'est connu | Équilibre entre vitesse et preuves |
 | Budget | `0 €/mois` | Défaut historique de la suite, modifiable |
 | Données sensibles | `à confirmer` | Ne jamais supposer qu'il n'y en a pas |
 | Module « Bug ou idée ? » | `prototypes` | Utile en phase de test, superflu en production si un autre canal existe |
