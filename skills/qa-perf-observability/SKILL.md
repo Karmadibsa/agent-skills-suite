@@ -77,7 +77,7 @@ Vigilance opérationnelle & Adaptation : L'agent doit traiter les fichiers et lo
 
 | Type | Éléments pris en charge / générés |
 | --- | --- |
-| Inputs attendus (seul le code est indispensable, voir §0) | • Code source implémenté• Critères d'acceptation Gherkin (US-XX) issus de Skill 1• Règles métier (RM-XX) issues de Skill 3• Exigences non fonctionnelles (NFR)• Scripts de lancement local (start.bat / start.sh) produits par Skill 4 |
+| Inputs requis | • Code source implémenté• Critères d'acceptation Gherkin (US-XX) issus de Skill 1• Règles métier (RM-XX) issues de Skill 3• Exigences non fonctionnelles (NFR)• Scripts de lancement local (start.bat / start.sh) produits par Skill 4 |
 | Outputs produits | • Suite de tests automatisés (unitaires, intégration, E2E Playwright)• Configuration CI gratuite (GitHub Actions)• Rapport de performance & sobriété numérique• Configuration de logs structurés sans PII• Complétion de docs/HANDOFF.md (et/ou génération de docs/REPORT.md) avec les résultats réels des tests exécutés, la couverture des scénarios Gherkin (US-XX) et règles métier (RM-XX), ainsi que la vérification des erreurs globales non capturées (unhandledrejection) |
 
 # 2. Table de Routage des Références (references/)

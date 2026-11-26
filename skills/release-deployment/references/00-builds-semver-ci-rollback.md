@@ -130,11 +130,11 @@ En cas d'échec du Smoke Check ou d'anomalie critique détectée post-livraison,
 
 La grille ci-dessous récapitule les 6 points de contrôle obligatoires à valider avant de considérer une version comme officiellement publiée et stable.
 
-| ID | Point de contrôle | Description & Critère de succès |
-| --- | --- | --- |
-| CK-01 | Build & Tests CI | L'ensemble de la suite de tests automatisés (unitaires, intégration) passe au vert (npm test, cargo test) sur le commit cible de release. |
-| CK-02 | Lockfile & Déterministe | Les dépendances sont scellées via un fichier de verrouillage à jour (package-lock.json, etc.) et la commande de build CI utilise le mode strict. |
-| CK-03 | Conformité SemVer | Le numéro de version choisi (X.Y.Z) reflète exactement l'impact des changements (Breaking, Minor, Patch). |
-| CK-04 | Changelog Mises à jour | Le fichier CHANGELOG.md a été mis à jour : les entrées de [Unreleased] ont été transférées sous la version [X.Y.Z] - AAAA-MM-JJ. |
-| CK-05 | Tagging Repository | Un tag Git annoté au format vX.Y.Z a été créé et poussé sur le dépôt distant (git push origin vX.Y.Z). |
-| CK-06 | Smoke Check & Rollback Ready | Les parcours critiques post-déploiement sont validés en production, et le mécanisme de rollback instantané est opérationnel en cas d'alerte. |
+| ID | Point de contrôle | Description & Critère de succès | Validation |
+| --- | --- | --- | --- |
+| CK-01 | Build & Tests CI | L'ensemble de la suite de tests automatisés (unitaires, intégration) passe au vert (npm test, cargo test) sur le commit cible de release. | [ ] Validé |
+| CK-02 | Lockfile & Déterministe | Les dépendances sont scellées via un fichier de verrouillage à jour (package-lock.json, etc.) et la commande de build CI utilise le mode strict. | [ ] Validé |
+| CK-03 | Conformité SemVer | Le numéro de version choisi (X.Y.Z) reflète exactement l'impact des changements (Breaking, Minor, Patch). | [ ] Validé |
+| CK-04 | Changelog Mises à jour | Le fichier CHANGELOG.md a été mis à jour : les entrées de [Unreleased] ont été transférées sous la version [X.Y.Z] - AAAA-MM-JJ. | [ ] Validé |
+| CK-05 | Tagging Repository | Un tag Git annoté au format vX.Y.Z a été créé et poussé sur le dépôt distant (git push origin vX.Y.Z). | [ ] Validé |
+| CK-06 | Smoke Check & Rollback Ready | Les parcours critiques post-déploiement sont validés en production, et le mécanisme de rollback instantané est opérationnel en cas d'alerte. | [ ] Validé |

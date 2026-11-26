@@ -16,13 +16,13 @@ La conception logicielle et l'architecture d'expériences utilisateurs ne doiven
 
 Le tableau suivant établit la classification théorique et opérationnelle des sources documentaires, de la preuve la plus robuste au simple signal qualitatif.
 
-| Niveau | Type de Source | Description & Exemples Académiques / Techniques | Valeur Décisionnelle |
-| --- | --- | --- | --- |
-| Niveau 1 | Méta-analyses & Revues Systématiques | Synthèses quantitatives et qualitatives d'études contrôlées publiées dans des revues à comité de lecture (Psychological Bulletin, ACM Transactions on Computer-Human Interaction). | Preuve absolue. Base de cadrage conceptuel et fonctionnel. |
-| Niveau 2 | Études Expérimentales Contrôlées | Essais contrôlés randomisés (RCT) et études de laboratoire validées par les pairs (ACM CHI, UIST, Journal of Experimental Psychology). | Fiabilité élevée. Validation des mécanismes d'interaction complexes. |
-| Niveau 3 | Normes Officiellement Reconnues | Spécifications et standards établis par des organismes internationaux (W3C WCAG 2.2, ISO 9241, OWASP Top 10). | Référence normative et légale. Conformité obligatoire. |
-| Niveau 4 | Études Empiriques Terrain à Grande Échelle | Rapports d'instituts de recherche UX et audits à grande échelle (Nielsen Norman Group, Baymard Institute, audits d'accessibilité multi-sites). | Recommandation empirique métier. Directives d'implémentation UX. |
-| Niveau 5 | Publications Informelles & Billets d'Opinion | Articles de blog, publications sur réseaux sociaux, retours d'expérience non contrôlés, avis d'experts non sourcés. | Piste de réflexion ou hypothèse à tester. Valeur de preuve nulle. |
+| Niveau | Type de Source | Description & Exemples Académiques / Techniques | Valeur Décisionnelle | Statut |
+| --- | --- | --- | --- | --- |
+| Niveau 1 | Méta-analyses & Revues Systématiques | Synthèses quantitatives et qualitatives d'études contrôlées publiées dans des revues à comité de lecture (Psychological Bulletin, ACM Transactions on Computer-Human Interaction). | Preuve absolue. Base de cadrage conceptuel et fonctionnel. | [N2] |
+| Niveau 2 | Études Expérimentales Contrôlées | Essais contrôlés randomisés (RCT) et études de laboratoire validées par les pairs (ACM CHI, UIST, Journal of Experimental Psychology). | Fiabilité élevée. Validation des mécanismes d'interaction complexes. | [N2] |
+| Niveau 3 | Normes Officiellement Reconnues | Spécifications et standards établis par des organismes internationaux (W3C WCAG 2.2, ISO 9241, OWASP Top 10). | Référence normative et légale. Conformité obligatoire. | [N1] / [N4] |
+| Niveau 4 | Études Empiriques Terrain à Grande Échelle | Rapports d'instituts de recherche UX et audits à grande échelle (Nielsen Norman Group, Baymard Institute, audits d'accessibilité multi-sites). | Recommandation empirique métier. Directives d'implémentation UX. | [N3] |
+| Niveau 5 | Publications Informelles & Billets d'Opinion | Articles de blog, publications sur réseaux sociaux, retours d'expérience non contrôlés, avis d'experts non sourcés. | Piste de réflexion ou hypothèse à tester. Valeur de preuve nulle. | [N5] / [N6] |
 
 ## 3. Cartographie des Disciplines Scientifiques par Domaine Produit
 

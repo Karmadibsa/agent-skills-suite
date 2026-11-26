@@ -36,12 +36,12 @@ Standard d'ergonomie inter-plateformes pour le design d'interfaces adaptatives, 
 
 - Critère QA : Zéro erreur de frappe (« fat-finger error ») constatée lors des tests d'accessibilité sur appareils mobiles de diagonale moyenne (4.7" à 6.7").
 
-| Plateforme / Norme | Taille minimale de cible |
-| --- | --- |
-| Apple iOS (HIG) | 44 × 44 pt |
-| Android (Material 3) | 48 × 48 dp |
-| WCAG 2.5.8 (Niveau AA) | 24 × 24 px |
-| WCAG 2.5.5 (Niveau AAA) | 44 × 44 px |
+| Plateforme / Norme | Taille minimale de cible | Espacement minimal adjacent |
+| --- | --- | --- |
+| Apple iOS (HIG) | 44 × 44 pt | 8 px |
+| Android (Material 3) | 48 × 48 dp | 8 px |
+| WCAG 2.5.8 (Niveau AA) | 24 × 24 px | Marge globale compensatoire |
+| WCAG 2.5.5 (Niveau AAA) | 44 × 44 px | 8 px |
 
 ### 3. Navigation Mobile & Safe Areas
 

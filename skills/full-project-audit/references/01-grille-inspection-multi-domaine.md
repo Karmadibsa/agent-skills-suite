@@ -43,7 +43,7 @@ Statut : Référentiel Audit Global V2.2 · Skill : full-project-audit
 | --- | --- | --- | --- |
 | CHK-UX-01 | Clarté de l'action & sobriété | Parcours principal, hiérarchie visuelle, absence de slop ou jargon inutile | Écran confus, décoration envahissante, libellés obscurs |
 | CHK-UX-02 | États d'interface complets | États vide (empty state), chargement, erreur claire (sans perte de saisie) | Écran blanc, liste vide sans action, formulaire vidé après erreur |
-| CHK-UX-03 | Accessibilité clavier & contrastes | Balises sémantiques, navigation Tab/Esc, focus visible, contrastes, statuts | Clic sur `<div>` non clavier, focus invisible, contraste faible |
+| CHK-UX-03 | Accessibilité clavier & contrastes | Balises sémantiques, navigation Tab/Esc, focus visible, contrastes, statuts | Clic sur <div> non clavier, focus invisible, contraste faible |
 | CHK-UX-04 | Responsive & tactile | Affichage mobile/étroit sans défilement horizontal, cibles tactiles | Débordement horizontal ou boutons difficiles à toucher |
 
 ## Bloc E — Tests, Performance & Observabilité

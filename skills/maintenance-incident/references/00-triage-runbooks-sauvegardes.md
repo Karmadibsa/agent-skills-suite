@@ -56,11 +56,11 @@ Chaque intervention corrective doit suivre un protocole strict et reproductible 
 
 Avant toute mise en production ou clôture d'un ticket de maintenance, le responsable d'intervention doit valider intégralement la grille de contrôle ci-dessous :
 
-| N° | Point de Contrôle | Description & Critère d'Acceptation |
-| --- | --- | --- |
-| 1 | Sauvegarde Préalable | Une copie de sauvegarde complète de la base/des fichiers a été réalisée et vérifiée avant le début des travaux. |
-| 2 | Reproduction Avérée | L'incident a été reproduit avec succès à l'aide d'un jeu de données de test minimal et documenté. |
-| 3 | Correction Ciblée | La modification se limite au code strictement nécessaire, sans refactorisation hors périmètre ni résidu d'expérimentation. |
-| 4 | Nettoyage Code & Fichiers | Absence totale de code mort, de commentaires temporaires, de fichiers orphelins ou de logs de debug résiduels. |
-| 5 | Test de Non-Régression | Un test ciblé couvrant le cas corrigé a été ajouté et l'ensemble de la suite de tests passe avec succès. |
-| 6 | Traçabilité & Changelog | Les entrées ont été renseignées dans CHANGELOG.md (Fixed) et l'état final documenté dans docs/HANDOFF.md. |
+| N° | Point de Contrôle | Description & Critère d'Acceptation | État |
+| --- | --- | --- | --- |
+| 1 | Sauvegarde Préalable | Une copie de sauvegarde complète de la base/des fichiers a été réalisée et vérifiée avant le début des travaux. | [ ] |
+| 2 | Reproduction Avérée | L'incident a été reproduit avec succès à l'aide d'un jeu de données de test minimal et documenté. | [ ] |
+| 3 | Correction Ciblée | La modification se limite au code strictement nécessaire, sans refactorisation hors périmètre ni résidu d'expérimentation. | [ ] |
+| 4 | Nettoyage Code & Fichiers | Absence totale de code mort, de commentaires temporaires, de fichiers orphelins ou de logs de debug résiduels. | [ ] |
+| 5 | Test de Non-Régression | Un test ciblé couvrant le cas corrigé a été ajouté et l'ensemble de la suite de tests passe avec succès. | [ ] |
+| 6 | Traçabilité & Changelog | Les entrées ont été renseignées dans CHANGELOG.md (Fixed) et l'état final documenté dans docs/HANDOFF.md. | [ ] |

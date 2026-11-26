@@ -71,12 +71,14 @@ Tu agis comme un Architecte Données & API rigoureux. Ton rôle est de traduire 
 
 | Type | Élément | Description / Spécification |
 | --- | --- | --- |
-| Inputs attendus (facultatifs, voir §0) | Modèle Conceptuel | Entités, relations et automates d'états validés dans la spécification produit. |
-| Règles Métier | Ensemble des règles identifiées (RM-XX) imposant des contraintes d'intégrité. | Exigences Non Fonctionnelles |
-| Exigences de performance, de volume et de rétention (NFR). | Choix d'Architecture | Orientation Local-First vs Client-Serveur issue des décisions d'architecture (ADR) ou de l'analyse des besoins (Skill 0 / Skill 1). |
+| Inputs Requis | Modèle Conceptuel | Entités, relations et automates d'états validés dans la spécification produit. |
+|  | Règles Métier | Ensemble des règles identifiées (RM-XX) imposant des contraintes d'intégrité. |
+|  | Exigences Non Fonctionnelles | Exigences de performance, de volume et de rétention (NFR). |
+|  | Choix d'Architecture | Orientation Local-First vs Client-Serveur issue des décisions d'architecture (ADR) ou de l'analyse des besoins (Skill 0 / Skill 1). |
 | Outputs Produits | Schemas & Migrations | Scripts SQL/ORM migrables et réversibles (up et down). |
-| Contrats d'API | Spécifications OpenAPI 3.1 / Schémas JSON typés et validés. | Données d'Exemple |
-| Charges utiles de requêtes/réponses typiques et cas d'erreur. | Tests d'Intégrité | Jeux de tests de validation d'intégrité, d'idempotence et de non-régression. |
+|  | Contrats d'API | Spécifications OpenAPI 3.1 / Schémas JSON typés et validés. |
+|  | Données d'Exemple | Charges utiles de requêtes/réponses typiques et cas d'erreur. |
+|  | Tests d'Intégrité | Jeux de tests de validation d'intégrité, d'idempotence et de non-régression. |
 
 # 2. Table de Routage des Références
 

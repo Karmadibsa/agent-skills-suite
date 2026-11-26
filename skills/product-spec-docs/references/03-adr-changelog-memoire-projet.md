@@ -163,11 +163,11 @@ Afin de garantir une continuité de contexte sans perte d'information lors du ch
 
 Chaque revue documentaire ou fin de phase de développement doit valider l'exactitude du système de mémoire long terme au travers de la grille de contrôle suivante :
 
-| N° | Point de contrôle | Critère d'acceptation |
-| --- | --- | --- |
-| 01 | Présence du dossier ADR | Le répertoire docs/adr/ existe et contient l'ensemble des décisions d'architecture numérotées séquentiellement (ADR-001, ADR-002...). |
-| 02 | Immuabilité des ADR | Aucun historique de décision n'a été effacé. Les décisions obsolètes sont marquées Statut : Remplacé et liées au nouvel ADR correspondant. |
-| 03 | Langage Ubiquitaire | La totalité des termes métier employés dans la doc et le code respectent sans déviation le glossaire central (Ubiquitous Language). |
-| 04 | Conformité Changelog | Le fichier CHANGELOG.md respecte la norme SemVer, inclut la section [Unreleased] et utilise uniquement les 6 rubriques autorisées. |
-| 05 | Passation Synthetique | Le fichier docs/HANDOFF.md est à jour, concis (moins de 80 lignes) et définit clairement les priorités de la session suivante. |
-| 06 | Absence de Logs Bruts | Le Changelog ne contient aucun copier-coller direct de commits Git (git log), garantissant une lecture lisible par un humain ou une IA. |
+| N° | Point de contrôle | Critère d'acceptation | Validation |
+| --- | --- | --- | --- |
+| 01 | Présence du dossier ADR | Le répertoire docs/adr/ existe et contient l'ensemble des décisions d'architecture numérotées séquentiellement (ADR-001, ADR-002...). | [ ] Conforme |
+| 02 | Immuabilité des ADR | Aucun historique de décision n'a été effacé. Les décisions obsolètes sont marquées Statut : Remplacé et liées au nouvel ADR correspondant. | [ ] Conforme |
+| 03 | Langage Ubiquitaire | La totalité des termes métier employés dans la doc et le code respectent sans déviation le glossaire central (Ubiquitous Language). | [ ] Conforme |
+| 04 | Conformité Changelog | Le fichier CHANGELOG.md respecte la norme SemVer, inclut la section [Unreleased] et utilise uniquement les 6 rubriques autorisées. | [ ] Conforme |
+| 05 | Passation Synthetique | Le fichier docs/HANDOFF.md est à jour, concis (moins de 80 lignes) et définit clairement les priorités de la session suivante. | [ ] Conforme |
+| 06 | Absence de Logs Bruts | Le Changelog ne contient aucun copier-coller direct de commits Git (git log), garantissant une lecture lisible par un humain ou une IA. | [ ] Conforme |

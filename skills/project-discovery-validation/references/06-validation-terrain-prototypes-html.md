@@ -194,12 +194,12 @@ Le processus d'itération fonctionne en boucle fermée. Les retours du terrain s
 
 Avant de déclarer un prototype validé et d'autoriser le passage à la phase de développement backend (Gate 2), l'ensemble des critères suivants doit être vérifié et validé.
 
-| N° | Point de contrôle | Description du critère |
-| --- | --- | --- |
-| 01 | Données réalistes | Absence totale de Lorem Ipsum. Les textes, montants, noms et dates reflètent la réalité du domaine métier. |
-| 02 | Couverture des 3 états | Les états Vide (Zero State), Normal (Standard) et Limite (Edge Case) sont directement vérifiables dans le prototype. |
-| 03 | Module « Bug ou idée ? » | Le script local est intégré, fonctionnel et permet la capture d'éléments d'interface avec aperçu des retours. |
-| 04 | Export ZIP opérationnel | La génération du fichier retours.zip produit un fichier retours.md valide et exploitable par l'IA d'assistance. |
-| 05 | Exécution des scénarios | 100 % des 3 à 5 scénarios de test ont été soumis à une cohorte de 3 à 5 utilisateurs cibles. |
-| 06 | Traçabilité des corrections | 100 % des retours classés comme "bloquants" ou "ambigus" ont fait l'objet d'une correction dans le HTML/CSS/JS. |
-| 07 | Approbation Gate 2 | Le prototype corrigé (v2 ou ultérieur) permet l'exécution fluide des scénarios sans assistance externe. |
+| N° | Point de contrôle | Description du critère | Statut |
+| --- | --- | --- | --- |
+| 01 | Données réalistes | Absence totale de Lorem Ipsum. Les textes, montants, noms et dates reflètent la réalité du domaine métier. | [ ] Validé |
+| 02 | Couverture des 3 états | Les états Vide (Zero State), Normal (Standard) et Limite (Edge Case) sont directement vérifiables dans le prototype. | [ ] Validé |
+| 03 | Module « Bug ou idée ? » | Le script local est intégré, fonctionnel et permet la capture d'éléments d'interface avec aperçu des retours. | [ ] Validé |
+| 04 | Export ZIP opérationnel | La génération du fichier retours.zip produit un fichier retours.md valide et exploitable par l'IA d'assistance. | [ ] Validé |
+| 05 | Exécution des scénarios | 100 % des 3 à 5 scénarios de test ont été soumis à une cohorte de 3 à 5 utilisateurs cibles. | [ ] Validé |
+| 06 | Traçabilité des corrections | 100 % des retours classés comme "bloquants" ou "ambigus" ont fait l'objet d'une correction dans le HTML/CSS/JS. | [ ] Validé |
+| 07 | Approbation Gate 2 | Le prototype corrigé (v2 ou ultérieur) permet l'exécution fluide des scénarios sans assistance externe. | [ ] Validé |

@@ -35,9 +35,10 @@ L'intégration de bibliothèques tierces requiert une vérification stricte de c
 
 | Licence du projet principal | Licence de la dépendance | Niveau de risque | Recommandation opérationnelle |
 | --- | --- | --- | --- |
-| MIT / Apache-2.0 / BSD-3-Clause | Faible | Conformité directe. Conserver les avis de copyright. | LGPL-3.0-only |
-| Moyen | Autorisée uniquement en liaison dynamique (dynamic linking). Aucun changement direct dans la bibliothèque tierce. | GPL-3.0-only | Élevé |
-| Incompatibilité de distribution. Le projet principal bascule sous GPL ou la dépendance doit être retirée. | AGPL-3.0-only | Critique | Risque de contamination du code source en cas d'exposition via un service réseau. Soumettre à validation juridique formelle. |
+| MIT / Apache-2.0 | MIT / Apache-2.0 / BSD-3-Clause | Faible | Conformité directe. Conserver les avis de copyright. |
+| MIT / Apache-2.0 | LGPL-3.0-only | Moyen | Autorisée uniquement en liaison dynamique (dynamic linking). Aucun changement direct dans la bibliothèque tierce. |
+| MIT / Apache-2.0 | GPL-3.0-only | Élevé | Incompatibilité de distribution. Le projet principal bascule sous GPL ou la dépendance doit être retirée. |
+| Tout type (SaaS / Web) | AGPL-3.0-only | Critique | Risque de contamination du code source en cas d'exposition via un service réseau. Soumettre à validation juridique formelle. |
 
 ### Procédure de validation
 

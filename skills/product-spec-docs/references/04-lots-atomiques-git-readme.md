@@ -118,9 +118,23 @@ Séparation obligatoire en deux niveaux lisibles :
 
 ### A. Taxonomie Standardisée des Tags / Labels GitHub
 
-| Catégorie | Tag / Label | Code Couleur |
-| --- | --- | --- |
-| Description | Type | feat |
+| Catégorie | Tag / Label | Code Couleur | Description |
+| --- | --- | --- | --- |
+| Type | feat | #A2EEEF | Nouvelle fonctionnalité applicative ou technique. |
+|  | bug | #D73A4A | Dysfonctionnement avéré ou comportement non conforme. |
+|  | ux | #7057FF | Amélioration ergonomique, visuelle ou d'accessibilité. |
+|  | security | #B60205 | Correction de vulnérabilité ou renforcement sécuritaire. |
+|  | perf | #D4C5F9 | Optimisation des temps de réponse ou de la mémoire. |
+|  | tech-debt | #008672 | Refactoring, nettoyage de code ou mise à jour de dépendances. |
+|  | docs | #0075CA | Modification ou ajout de documentation explicite. |
+| Priorité | prio:critique | #B60205 | Bloquant total en production ou sur le flux principal. |
+|  | prio:haute | #D93F0B | Requis pour le MVP ou jalon imminent. |
+|  | prio:normale | #FBCA04 | Traitement standard dans le backlog opérationnel. |
+|  | prio:basse | #0E8A16 | Amélioration secondaire à traiter à opportunité. |
+| Statut | mvp | #0052CC | Inclus dans le périmètre du Produit Minimum Viable. |
+|  | v1 | #1D76DB | Programmé pour la version 1.0 post-MVP. |
+|  | needs-repro | #E99695 | Manque d'éléments pour reproduire l'anomalie. |
+|  | wontfix | #FFFFFF | Ticket classé sans suite après arbitrage produit. |
 
 #A2EEEF
 

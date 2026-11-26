@@ -73,10 +73,12 @@ En tant que Responsable Gouvernance Open Source & Conformité Pragmatique, vous 
 
 | Type | Élément / Fichier | Description |
 | --- | --- | --- |
-| Manifestes de dépendances | Fichiers de gestion de dépendances de l'écosystème (package.json, Cargo.toml, pyproject.toml, go.mod, etc.). | Fichiers de licence |
-| Licences existantes à la racine du projet (LICENSE, LICENSE-DOCS, en-têtes de fichiers). | Historique Git & Contributeurs | Métadonnées du dépôt, structure des répertoires et historique des contributions. |
-| Rapport de conformité SCA | Audit de compatibilité des licences tierces et matrice des vulnérabilités connues (CVE). | Politiques de gouvernance |
-| Fichiers normalisés .github/SECURITY.md et .github/CODEOWNERS. | Journal de traçabilité | Mise à jour du fichier docs/HANDOFF.md avec consignation des décisions et écarts. |
+| Inputs | Manifestes de dépendances | Fichiers de gestion de dépendances de l'écosystème (package.json, Cargo.toml, pyproject.toml, go.mod, etc.). |
+| Inputs | Fichiers de licence | Licences existantes à la racine du projet (LICENSE, LICENSE-DOCS, en-têtes de fichiers). |
+| Inputs | Historique Git & Contributeurs | Métadonnées du dépôt, structure des répertoires et historique des contributions. |
+| Outputs | Rapport de conformité SCA | Audit de compatibilité des licences tierces et matrice des vulnérabilités connues (CVE). |
+| Outputs | Politiques de gouvernance | Fichiers normalisés .github/SECURITY.md et .github/CODEOWNERS. |
+| Outputs | Journal de traçabilité | Mise à jour du fichier docs/HANDOFF.md avec consignation des décisions et écarts. |
 
 # 3. Workflow d'Exécution en 4 Étapes
 

@@ -165,12 +165,12 @@ La gestion des erreurs ne doit jamais être un traitement secondaire. Un systèm
 
 Chaque revue de code ou validation de PR (Pull Request) doit obligatoirement valider la grille d'évaluation ci-dessous :
 
-| N° | Point de Contrôle QA | Critère d'Acceptation |
-| --- | --- | --- |
-| 1 | Testabilité Métier Pure | 100 % de la logique domain/ est exécutable via des tests unitaires sans monter de composant UI ni initialiser de DOM. |
-| 2 | Absence de Sur-Abstraction | Moins de 3 occurrences similaires ne génèrent pas d'interface ou de classe abstraite prématurée. |
-| 3 | Application des Guard Clauses | Aucune fonction ne comporte plus de 3 niveaux d'indentation imbriqués (if/for). |
-| 4 | Constantes Nommées | Aucune valeur littérale (« magic number » ou string en dur) n'est présente dans la logique conditionnelle. |
-| 5 | Gestion des Erreurs | Aucun bloc catch vide ou réduit à un simple log passif n'existe dans le code. |
-| 6 | Taille des Fonctions | Aucune fonction ne dépasse 50 lignes sans justification explicite (parseur, dispatch switch). |
-| 7 | Alignement du Nommage | Les identifiants respectent la convention verbe + objet et le vocabulaire du glossaire métier. |
+| N° | Point de Contrôle QA | Critère d'Acceptation | Validation |
+| --- | --- | --- | --- |
+| 1 | Testabilité Métier Pure | 100 % de la logique domain/ est exécutable via des tests unitaires sans monter de composant UI ni initialiser de DOM. | [ ] |
+| 2 | Absence de Sur-Abstraction | Moins de 3 occurrences similaires ne génèrent pas d'interface ou de classe abstraite prématurée. | [ ] |
+| 3 | Application des Guard Clauses | Aucune fonction ne comporte plus de 3 niveaux d'indentation imbriqués (if/for). | [ ] |
+| 4 | Constantes Nommées | Aucune valeur littérale (« magic number » ou string en dur) n'est présente dans la logique conditionnelle. | [ ] |
+| 5 | Gestion des Erreurs | Aucun bloc catch vide ou réduit à un simple log passif n'existe dans le code. | [ ] |
+| 6 | Taille des Fonctions | Aucune fonction ne dépasse 50 lignes sans justification explicite (parseur, dispatch switch). | [ ] |
+| 7 | Alignement du Nommage | Les identifiants respectent la convention verbe + objet et le vocabulaire du glossaire métier. | [ ] |

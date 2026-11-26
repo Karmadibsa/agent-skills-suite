@@ -225,12 +225,12 @@ Contrôle de conformité obligatoire avant chaque jalon de livraison (7 points c
 
 #
 
-| Point de contrôle | Critère d'acceptation | Validé |
-| --- | --- | --- |
-| 1 | Absence de fichiers morts | Aucun fichier comportant les suffixes _old, _backup, _copy ou _v2 dans le dépôt. |
-| 2 | Nettoyage du code | Absences de blocs de code commenté et d'imports inutilisés dans l'arborescence src/. |
-| 3 | Étanchéité du .gitignore | Aucun artefact (node_modules/, dist/, .env, .DS_Store) n'est suivi par Git. |
-| 4 | Script Windows (start.bat) | Lancement à froid fonctionnel sur environnement Windows sans intervention manuelle. |
-| 5 | Script POSIX (start.sh) | Exécutable (+x), configuré avec set -euo pipefail et fonctionnel sous Linux / macOS. |
-| 6 | Interface à 4 commandes | Présence et fonctionnement effectif des scripts dev, test, build et clean. |
-| 7 | Discipline des Commits | Historique conforme à la spécification Conventional Commits 1.0.0 avec commits atomiques. |
+| # | Point de contrôle | Critère d'acceptation | Validé |
+| --- | --- | --- | --- |
+| 1 | Absence de fichiers morts | Aucun fichier comportant les suffixes _old, _backup, _copy ou _v2 dans le dépôt. | [ ] |
+| 2 | Nettoyage du code | Absences de blocs de code commenté et d'imports inutilisés dans l'arborescence src/. | [ ] |
+| 3 | Étanchéité du .gitignore | Aucun artefact (node_modules/, dist/, .env, .DS_Store) n'est suivi par Git. | [ ] |
+| 4 | Script Windows (start.bat) | Lancement à froid fonctionnel sur environnement Windows sans intervention manuelle. | [ ] |
+| 5 | Script POSIX (start.sh) | Exécutable (+x), configuré avec set -euo pipefail et fonctionnel sous Linux / macOS. | [ ] |
+| 6 | Interface à 4 commandes | Présence et fonctionnement effectif des scripts dev, test, build et clean. | [ ] |
+| 7 | Discipline des Commits | Historique conforme à la spécification Conventional Commits 1.0.0 avec commits atomiques. | [ ] |

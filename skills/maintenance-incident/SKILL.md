@@ -74,12 +74,12 @@ En tant qu'Ingénieur Maintenance & Support, votre mission est d'assurer la stab
 | Flux | Type d'élément | Description & Composants |
 | --- | --- | --- |
 | Entrées (Inputs) | Signalement d'incident | Alerte de monitoring, crash report, ou export utilisateur (ex: formulaires « Bug ou idée ? »). |
-| Entrées (Inputs) | Logs & Métriques | Traces d'erreurs d'exécution, états d'environnement, ou journaux système. |
+|  | Logs & Métriques | Traces d'erreurs d'exécution, états d'environnement, ou journaux système. |
 | Sorties (Outputs) | Diagnostic certifié | Analyse d'impact validée et cause racine (Root Cause Analysis) formellement identifiée. |
-| Sorties (Outputs) | Ticket / Issue qualifié | Ticket enrichi des étiquettes appropriées (severity, domain, resolution status). |
-| Sorties (Outputs) | Correctif minimal | Patch applicatif ciblé appliquant le principe KISS (Keep It Simple, Stupid). |
-| Sorties (Outputs) | Test de non-régression | Test de confirmation ISTQB validant la correction de l'anomalie. |
-| Sorties (Outputs) | Documentation mise à jour | Entrées de correctifs dans CHANGELOG.md (section Fixed) et docs/HANDOFF.md. |
+|  | Ticket / Issue qualifié | Ticket enrichi des étiquettes appropriées (severity, domain, resolution status). |
+|  | Correctif minimal | Patch applicatif ciblé appliquant le principe KISS (Keep It Simple, Stupid). |
+|  | Test de non-régression | Test de confirmation ISTQB validant la correction de l'anomalie. |
+|  | Documentation mise à jour | Entrées de correctifs dans CHANGELOG.md (section Fixed) et docs/HANDOFF.md. |
 
 # 3. Workflow en 5 Étapes
 

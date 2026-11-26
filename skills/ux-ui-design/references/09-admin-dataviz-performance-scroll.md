@@ -274,20 +274,20 @@ Le tableau suivant regroupe l'ensemble des points de contrôle obligatoires à v
 
 #
 
-| Domaine | Libellé du Test / Point de Contrôle | Condition d'Acceptation (PASS) | Méthode de Vérification |
-| --- | --- | --- | --- |
-| 01 | Démarrage à zéro de l'axe | L'axe des valeurs Y (ou X) de tous les Bar Charts commence exactement à 0. | Inspection visuelle / DevTools SVG |
-| 02 | Limitation des Donut/Pie Charts | Les Pie/Donut Charts comportent $\le 4$ segments et totalisent exactement 100 %. | Inspection code & données |
-| 03 | Ratio Data-Ink & Lignes de grille | Absence de 3D, dégradés d'arrière-plan opaques ou bordures lourdes sur les canvas visualisations. | Inspection visuelle |
-| 04 | Formatage des nombres et infobulles | Nombres affichés en font tabulaire (tabular-nums) avec séparateurs de milliers. Survol < 50ms. | Test utilisateur & CSS |
-| 05 | Structure en 3 étages | Alignement vertical strict : (1) Filtres/KPI $\rightarrow$ (2) Graphiques $\rightarrow$ (3) Table détaillée. | Audit visuel d'interface |
-| 06 | Hauteur de fenêtre 100vh / No Global Scroll | Absence de scroll global injustifié sur la racine de l'application métier (recommandation [N4]). | Check CSS Layout / Resizing |
-| 07 | Interdiction du Double Scroll | Les zones de défilement imbriquées sont évitées pour prévenir les pièges de défilement [N4]. | Test de défilement molette |
-| 08 | Virtualisation des listes longues | Une liste ou table $> 50$ éléments génère uniquement les nœuds du viewport dans le DOM. | Inspection de l'arbre DOM |
-| 09 | Largest Contentful Paint (LCP) | Chargement du composant visuel principal effectué en moins de 2,5 secondes. | Audit Google Lighthouse |
-| 10 | Interaction to Next Paint (INP) | Latence à l'interaction (clic, recherche, filtre) inférieure à 100 ms. | Chrome Performance Profiler |
-| 11 | Cumulative Layout Shift (CLS) | Score de saut d'interface égal à 0.0 lors du chargement ou du switch de filtres. | Audit Web Vitals |
-| 12 | Propriétés animées GPU uniquement | Transitions CSS exécutées exclusivement via transform et opacity (60 fps sans reflow). | Inspection règles CSS |
+| # | Domaine | Libellé du Test / Point de Contrôle | Condition d'Acceptation (PASS) | Méthode de Vérification |
+| --- | --- | --- | --- | --- |
+| 01 | DataViz | Démarrage à zéro de l'axe | L'axe des valeurs Y (ou X) de tous les Bar Charts commence exactement à 0. | Inspection visuelle / DevTools SVG |
+| 02 | DataViz | Limitation des Donut/Pie Charts | Les Pie/Donut Charts comportent $\le 4$ segments et totalisent exactement 100 %. | Inspection code & données |
+| 03 | DataViz | Ratio Data-Ink & Lignes de grille | Absence de 3D, dégradés d'arrière-plan opaques ou bordures lourdes sur les canvas visualisations. | Inspection visuelle |
+| 04 | DataViz | Formatage des nombres et infobulles | Nombres affichés en font tabulaire (tabular-nums) avec séparateurs de milliers. Survol < 50ms. | Test utilisateur & CSS |
+| 05 | Admin UI | Structure en 3 étages | Alignement vertical strict : (1) Filtres/KPI $\rightarrow$ (2) Graphiques $\rightarrow$ (3) Table détaillée. | Audit visuel d'interface |
+| 06 | Scroll | Hauteur de fenêtre 100vh / No Global Scroll | Absence de scroll global injustifié sur la racine de l'application métier (recommandation [N4]). | Check CSS Layout / Resizing |
+| 07 | Scroll | Interdiction du Double Scroll | Les zones de défilement imbriquées sont évitées pour prévenir les pièges de défilement [N4]. | Test de défilement molette |
+| 08 | Performance | Virtualisation des listes longues | Une liste ou table $> 50$ éléments génère uniquement les nœuds du viewport dans le DOM. | Inspection de l'arbre DOM |
+| 09 | Performance | Largest Contentful Paint (LCP) | Chargement du composant visuel principal effectué en moins de 2,5 secondes. | Audit Google Lighthouse |
+| 10 | Performance | Interaction to Next Paint (INP) | Latence à l'interaction (clic, recherche, filtre) inférieure à 100 ms. | Chrome Performance Profiler |
+| 11 | Performance | Cumulative Layout Shift (CLS) | Score de saut d'interface égal à 0.0 lors du chargement ou du switch de filtres. | Audit Web Vitals |
+| 12 | Performance | Propriétés animées GPU uniquement | Transitions CSS exécutées exclusivement via transform et opacity (60 fps sans reflow). | Inspection règles CSS<br>3.4 Animation de Chargement « Effet Scan / Shimmer » & Transitions d'Apparition<br>Règle opérationnelle (DO)<br>Skeleton Screen avec animation Shimmer : Utiliser un balayage lumineux horizontal en dégradé CSS sur les squelettes de chargement, une technique validée par Luke Wroblewski et Google Material Design pour réduire la perception du temps d'attente et l'anxiété de l'utilisateur.<br>Implémenter le Shimmer via un dégradé linéaire (linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)) animé exclusivement via transform: translateX(-100%) à translateX(100%) sur 1.4s ease-in-out infinite (accélération GPU pure sans reflow/layout).<br>Transitions d'apparition échelonnées (Staggered Entrance) : Animer l'apparition du contenu après chargement avec une transition douce (opacity: 0 → 1 et translateY(6px → 0)) sur une durée de 180 à 220 ms en ease-out. Appliquer un décalage (stagger) de 25 à 40 ms entre les éléments d'une liste.<br>Interdit (DON'T)<br>Ne jamais faire dépasser la durée totale du stagger au-delà de 250 ms au total pour ne pas retarder l'accès aux données.<br>Ne jamais exécuter d'animations de transition ou de Shimmer lorsque la media query prefers-reduced-motion: reduce est activée par l'utilisateur.<br>Critères de Validation QA<br>L'animation Shimmer ne provoque aucun saut d'image (60 fps constants) et n'affecte pas les propriétés de layout/reflow.<br>En activant la réduction de mouvement dans le système d'exploitation, toutes les apparitions échelonnées et le Shimmer sont désactivés instantanément. |
 
 ### 3.4 Animation de Chargement « Effet Scan / Shimmer » & Transitions d'Apparition
 

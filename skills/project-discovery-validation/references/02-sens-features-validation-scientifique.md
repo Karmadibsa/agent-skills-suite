@@ -316,14 +316,14 @@ Ce gabarit synthétique doit être renseigné pour trancher objectivement l'oppo
 | --- | --- | --- |
 | 01 | Nom de la Feature | [Ex. Exportation Automatisée des Rapports Hebdomadaires] |
 | 02 | Formule JTBD (3 Dimensions) | Quand [situation], je veux [action/progrès], afin de [bénéfice fonctionnel, émotionnel & social]. |
-| 03 | Classification Kano (5 Catégories) | [ ] Obligatoire    [ ] Performance    [ ] Attractif    [ ] Indifférent    [ ] Inverse |
+| 03 | Classification Kano (5 Catégories) | [ ] Obligatoire    [ ] Performance    [ ] Attractif    [ ] Indifférent    [ ] Inverse |
 | 04 | Score RICE & Priorisation | R: [ ] × I: [ ] × C: [ ]% / E: [ ] = Score RICE Final : [ Score ] |
 | 05 | Validation Comportementale | Deci & Ryan (3 besoins), Charge Sweller/Cowan & Divulgation progressive : [Validé / À réviser] |
 | 06 | Test de Falsifiabilité (Popper) | Critère d'invalidation produit : [Objectif interne chiffré + horizon temporel] |
 | 07 | Risques, RGPD & Éthique IA | Privacy by Design : [Conforme] — Risk Register & Éthique : [Validé / Risque identifié] |
 | 08 | Faisabilité & Business Case | Stack compatible & Edge Cases : [Oui/Non] — Viabilité économique : [Validée] |
 | 09 | KPI & North Star Metric | Métrique de succès actionnable : [Indicateur clé de valeur mesurable] |
-| 10 | DÉCISION FINALE |  |
+| 10 | DÉCISION FINALE | [ GO / NO-GO / RE-DESIGN ] — Réviseur : Personne |
 
 ```
 [ GO / NO-GO / RE-DESIGN ] — Réviseur : 

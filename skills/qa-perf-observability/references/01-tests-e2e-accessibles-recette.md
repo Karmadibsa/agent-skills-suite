@@ -142,12 +142,12 @@ Le plan de recette s'appuie sur la méthodologie ISTQB pour structurer la valida
 
 Toute PR contenant des tests automatisés E2E doit être évaluée selon la grille de contrôle ci-dessous avant d'être validée.
 
-| N° | Point de Contrôle | Critère de Validation |
-| --- | --- | --- |
-| 1 | Sélecteurs Accessibles | Utilisation prioritaire de getByRole, getByLabel ou getByText. Absence de sélecteurs par classe CSS ou XPath. |
-| 2 | Absence de Délais Fixes | Aucun appel à waitForTimeout() ou d'attente passive sleep présent dans le code. |
-| 3 | Assertions Robustes | Utilisation d'assertions auto-attendantes (expect(...).toBeVisible(), etc.). |
-| 4 | Isolation des Données | Le test crée et nettoie ses propres données (état indépendant, exécutable en parallèle). |
-| 5 | Couverture Accessibilité | Passage de l'audit @axe-core/playwright sans erreur bloquante sur le parcours. |
-| 6 | Exécution Multi-Écrans | Test exécuté et validé sur les viewports Mobile (375×812) et Desktop (1440×900). |
-| 7 | Gestion des Erreurs | Validation des cas d'erreur (saisies invalides, coupure réseau) et affichage des messages utilisateur. |
+| N° | Point de Contrôle | Critère de Validation | Conformité |
+| --- | --- | --- | --- |
+| 1 | Sélecteurs Accessibles | Utilisation prioritaire de getByRole, getByLabel ou getByText. Absence de sélecteurs par classe CSS ou XPath. | [ ] Validé |
+| 2 | Absence de Délais Fixes | Aucun appel à waitForTimeout() ou d'attente passive sleep présent dans le code. | [ ] Validé |
+| 3 | Assertions Robustes | Utilisation d'assertions auto-attendantes (expect(...).toBeVisible(), etc.). | [ ] Validé |
+| 4 | Isolation des Données | Le test crée et nettoie ses propres données (état indépendant, exécutable en parallèle). | [ ] Validé |
+| 5 | Couverture Accessibilité | Passage de l'audit @axe-core/playwright sans erreur bloquante sur le parcours. | [ ] Validé |
+| 6 | Exécution Multi-Écrans | Test exécuté et validé sur les viewports Mobile (375×812) et Desktop (1440×900). | [ ] Validé |
+| 7 | Gestion des Erreurs | Validation des cas d'erreur (saisies invalides, coupure réseau) et affichage des messages utilisateur. | [ ] Validé |

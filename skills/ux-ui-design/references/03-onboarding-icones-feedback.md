@@ -152,21 +152,17 @@ Spécifications d'interaction et directives d'expérience utilisateur pour le gu
 
 - Règles des seuils temporels de réponse (Miller / Nielsen) : La perception de l'attente varie fortement selon la durée du traitement et nécessite des indicateurs visuels adaptés à chaque palier de temps.
 
-Type
+**À faire**
 
-Spécification & Règle d'Implantation
+- < 100 ms : Ne présenter aucun indicateur de chargement (la réponse du système est perçue comme instantanée).
+- 100 ms à 1 s : Afficher un indicateur rotatif sobre (Spinner) directement dans le bouton déclencheur (en désactivant le bouton pour éviter les doubles soumissions et en conservant sa largeur fixe pour éviter tout saut de mise en page / CLS) ou au centre de la zone concernée, avec role="status" et aria-label="Chargement en cours".
+- 1 s à 5 s : Afficher un Skeleton Screen (gabarit fantôme reproduisant la structure exacte du contenu attendu) pour réduire la perception du temps d'attente.
+- > 5 s (exports lourds, traitement IA, génération de fichiers) : Afficher une barre de progression déterminée avec pourcentage ou étape explicite (« Analyse des données… 2/3 ») et la possibilité d'annuler l'action.
 
-< 100 ms : Ne présenter aucun indicateur de chargement (la réponse du système est perçue comme instantanée).
+**À éviter**
 
-100 ms à 1 s : Afficher un indicateur rotatif sobre (Spinner) directement dans le bouton déclencheur (en désactivant le bouton pour éviter les doubles soumissions et en conservant sa largeur fixe pour éviter tout saut de mise en page / CLS) ou au centre de la zone concernée, avec role="status" et aria-label="Chargement en cours".
-
-1 s à 5 s : Afficher un Skeleton Screen (gabarit fantôme reproduisant la structure exacte du contenu attendu) pour réduire la perception du temps d'attente.
-
-> 5 s (exports lourds, traitement IA, génération de fichiers) : Afficher une barre de progression déterminée avec pourcentage ou étape explicite (« Analyse des données… 2/3 ») et la possibilité d'annuler l'action.
-
-Afficher un spinner plein écran bloquant ou un indicateur indéterminé pour un traitement long (> 5 s) sans option d'annulation.
-
-Faire varier la taille du bouton lors de l'apparition du spinner inline, provoquant un saut d'agencement (CLS).
+- Afficher un spinner plein écran bloquant ou un indicateur indéterminé pour un traitement long (> 5 s) sans option d'annulation.
+- Faire varier la taille du bouton lors de l'apparition du spinner inline, provoquant un saut d'agencement (CLS).
 
 ### Critères QA — États de Chargement
 

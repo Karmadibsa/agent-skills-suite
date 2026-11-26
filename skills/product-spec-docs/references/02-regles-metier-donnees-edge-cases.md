@@ -128,15 +128,15 @@ erDiagram
 
 Description : Représente un compte utilisateur inscrit au sein du système, qu'il soit client, administrateur ou gestionnaire.
 
-| Attribut | Contraintes de validation |
-| --- | --- |
-| id | Immuable, Clef primaire |
-| email | Unique, format RFC 5322, minuscules |
-| display_name | Min 2 car., Max 100 car., Trimmé |
-| role | Valeurs : CUSTOMER, MANAGER, ADMIN |
-| status | Valeurs : PENDING_VERIFICATION, ACTIVE, SUSPENDED, ARCHIVED |
-| created_at | Immuable |
-| deleted_at | Rempli uniquement lors du Soft-Delete |
+| Attribut | Type | Obligatoire | Valeur par défaut | Contraintes de validation |
+| --- | --- | --- | --- | --- |
+| id | UUIDv4 | Oui | Auto-généré | Immuable, Clef primaire |
+| email | String | Oui | Aucun | Unique, format RFC 5322, minuscules |
+| display_name | String | Oui | Aucun | Min 2 car., Max 100 car., Trimmé |
+| role | Enum | Oui | CUSTOMER | Valeurs : CUSTOMER, MANAGER, ADMIN |
+| status | Enum | Oui | PENDING_VERIFICATION | Valeurs : PENDING_VERIFICATION, ACTIVE, SUSPENDED, ARCHIVED |
+| created_at | Timestamp | Oui | NOW() UTC | Immuable |
+| deleted_at | Timestamp | Non | NULL | Rempli uniquement lors du Soft-Delete |
 
 - Relations :
 
@@ -168,16 +168,16 @@ Description : Représente un compte utilisateur inscrit au sein du système, qu'
 
 Description : Représente une transaction d'achat initiée par un utilisateur.
 
-| Attribut | Valeur par défaut | Contraintes de validation |
-| --- | --- | --- |
-| id | Auto-généré | Immuable, Clef primaire |
-| user_id | Aucun | Clef étrangère vers Utilisateur.id |
-| reference_code | Auto-généré | Format CMD-YYYYMM-XXXXX, unique |
-| total_ht | 0.00 | >= 0.00 |
-| total_tva | 0.00 | >= 0.00 |
-| total_ttc | 0.00 | Strictly = total_ht + total_tva |
-| status | DRAFT | Valeurs : DRAFT, VALIDATED, PAID, SHIPPED, CANCELLED |
-| created_at | NOW() UTC | Immuable |
+| Attribut | Type | Obligatoire | Valeur par défaut | Contraintes de validation |
+| --- | --- | --- | --- | --- |
+| id | UUIDv4 | Oui | Auto-généré | Immuable, Clef primaire |
+| user_id | UUIDv4 | Oui | Aucun | Clef étrangère vers Utilisateur.id |
+| reference_code | String | Oui | Auto-généré | Format CMD-YYYYMM-XXXXX, unique |
+| total_ht | Decimal(12,2) | Oui | 0.00 | >= 0.00 |
+| total_tva | Decimal(12,2) | Oui | 0.00 | >= 0.00 |
+| total_ttc | Decimal(12,2) | Oui | 0.00 | Strictly = total_ht + total_tva |
+| status | Enum | Oui | DRAFT | Valeurs : DRAFT, VALIDATED, PAID, SHIPPED, CANCELLED |
+| created_at | Timestamp | Oui | NOW() UTC | Immuable |
 
 - Relations :
 
@@ -209,15 +209,15 @@ Description : Représente une transaction d'achat initiée par un utilisateur.
 
 Description : Article disponible dans le catalogue d'achat.
 
-| Attribut | Valeur par défaut | Contraintes de validation |
-| --- | --- | --- |
-| id | Auto-généré | Immuable, Clef primaire |
-| sku | Aucun | Format SKU-XXXX-XXXX, unique, immuable |
-| name | Aucun | Min 1 car., Max 255 car. |
-| unit_price_ht | Aucun | > 0.00 |
-| tva_rate | 20.00 | Taux en % (ex. 5.50, 20.00) |
-| stock_quantity | 0 | >= 0 |
-| is_active | true | Visibilité catalogue |
+| Attribut | Type | Obligatoire | Valeur par défaut | Contraintes de validation |
+| --- | --- | --- | --- | --- |
+| id | UUIDv4 | Oui | Auto-généré | Immuable, Clef primaire |
+| sku | String | Oui | Aucun | Format SKU-XXXX-XXXX, unique, immuable |
+| name | String | Oui | Aucun | Min 1 car., Max 255 car. |
+| unit_price_ht | Decimal(10,2) | Oui | Aucun | > 0.00 |
+| tva_rate | Decimal(4,2) | Oui | 20.00 | Taux en % (ex. 5.50, 20.00) |
+| stock_quantity | Integer | Oui | 0 | >= 0 |
+| is_active | Boolean | Oui | true | Visibilité catalogue |
 
 - Relations :
 

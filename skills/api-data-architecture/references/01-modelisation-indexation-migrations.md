@@ -108,13 +108,13 @@ La dénormalisation est autorisée exclusivement sous forme contrôlée et docum
 
 #
 
-| Point de Contrôle | Invariant Technique | Statut Validé |
-| --- | --- | --- |
-| 01 | Typage Financier | Absence absolue de FLOAT/DOUBLE. Usage de INTEGER (centimes) ou DECIMAL. |
-| 02 | Horodatage Universalité | Présence de created_at et updated_at formatés en UTC ISO 8601 (Z). |
-| 03 | Clés Primaires | Usage d'UUIDv7 ou UUIDv4 immuables (aucune donnée métier comme PK). |
-| 04 | Intégrité Référentielle | Clés étrangères déclarées avec RESTRICT par défaut (CASCADE proscrit sur le métier). |
-| 05 | Performance Indexation | Foreign Keys et filtres récurrents indexés ; absence d'index redondants. |
-| 06 | Pattern Migration | Application du schéma Expand-Contract pour tout changement destructif. |
-| 07 | Sauvegarde & Rollback | Backup complet exécuté et validé avant le passage de chaque script DDL. |
-| 08 | Imports Fichiers & Idempotence | Prévisualisation dry-run affichée et empreinte unique (hash) calculée pour éviter tout import en doublon. |
+| # | Point de Contrôle | Invariant Technique | Statut Validé |
+| --- | --- | --- | --- |
+| 01 | Typage Financier | Absence absolue de FLOAT/DOUBLE. Usage de INTEGER (centimes) ou DECIMAL. | Personne |
+| 02 | Horodatage Universalité | Présence de created_at et updated_at formatés en UTC ISO 8601 (Z). | Personne |
+| 03 | Clés Primaires | Usage d'UUIDv7 ou UUIDv4 immuables (aucune donnée métier comme PK). | Personne |
+| 04 | Intégrité Référentielle | Clés étrangères déclarées avec RESTRICT par défaut (CASCADE proscrit sur le métier). | Personne |
+| 05 | Performance Indexation | Foreign Keys et filtres récurrents indexés ; absence d'index redondants. | Personne |
+| 06 | Pattern Migration | Application du schéma Expand-Contract pour tout changement destructif. | Personne |
+| 07 | Sauvegarde & Rollback | Backup complet exécuté et validé avant le passage de chaque script DDL. | Personne |
+| 08 | Imports Fichiers & Idempotence | Prévisualisation dry-run affichée et empreinte unique (hash) calculée pour éviter tout import en doublon. | Personne |
