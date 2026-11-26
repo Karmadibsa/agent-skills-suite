@@ -1,7 +1,7 @@
 ---
 name: start-here
 description: Point d'entrée de la suite Agent Skills. Diagnostique l'état d'un projet (idée, cadrage, développement, production, reprise d'un dépôt existant), crée ou met à jour le profil projet .agents/profile.md, puis indique quel skill charger et dans quel ordre. À activer au début d'une session sur un projet, quand on ne sait pas quel skill utiliser, pour reprendre un projet existant ou pour adapter la suite à un nouveau contexte. Use it to start a project, onboard an existing repository or pick the right skill.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.1.0"
   standard: "agentskills.io"

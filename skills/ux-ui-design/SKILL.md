@@ -1,7 +1,7 @@
 ---
 name: ux-ui-design
 description: Socle de conception, d'implémentation et d'audit d'interfaces (Web, SaaS, mobile, desktop) — workflow en 10 étapes, registre des règles et niveaux de preuve, lois cognitives, architecture de l'information, feedback et états vides, accessibilité WCAG 2.2, anti-slop IA, IA et i18n. À activer dès qu'une tâche crée, refond ou audite un écran ou un composant. Oriente vers ux-forms-navigation, ux-dataviz-admin, ux-art-direction ou ux-feedback-module pour les sujets spécialisés.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "3.0.0"
   standard: "agentskills.io"

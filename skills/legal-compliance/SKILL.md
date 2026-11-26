@@ -1,7 +1,7 @@
 ---
 name: legal-compliance
 description: Conformité juridique d'un site ou d'une application en France et dans l'UE — mentions légales (LCEN), politique de confidentialité et registre RGPD, bandeau et gestion des cookies (lignes directrices CNIL), CGU, CGV B2C et B2B (Code de la consommation, Code de commerce), droit de rétractation, médiation, déclaration d'accessibilité. Détermine les obligations selon le profil du projet, rédige des projets de documents sourcés et la liste de mise en œuvre technique. À activer avant une mise en ligne, l'ajout d'un formulaire, d'un outil de mesure d'audience, d'un paiement ou d'une vente en ligne. Ne remplace pas un avocat.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

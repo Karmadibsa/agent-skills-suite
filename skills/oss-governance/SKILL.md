@@ -1,7 +1,7 @@
 ---
 name: oss-governance
 description: Référentiel de gouvernance open source (licences SPDX, compatibilité des dépendances, audit SCA, SECURITY.md et CODEOWNERS) pour maintenir un dépôt sain à 0 €/mois. À activer lors de la création d'un dépôt open source, de l'ajout de dépendances tierces ou d'une release majeure.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

@@ -1,7 +1,7 @@
 ---
 name: qa-perf-observability
 description: Référentiel d'assurance qualité logicielle (Pyramide des tests, tests E2E Playwright accessibles par rôles ARIA, non-régression), d'optimisation des performances (Core Web Vitals p75), de sobriété numérique (RGESN) et d'observabilité sans PII. À activer pour valider, tester, optimiser ou superviser un projet avant livraison.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.0.0"
   standard: "agentskills.io"

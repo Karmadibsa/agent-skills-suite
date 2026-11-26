@@ -1,7 +1,7 @@
 ---
 name: ux-feedback-module
 description: Spécification et implémentation du module de retour contextuel « Bug ou idée ? » — sélection d'un élément de la page, description, capture optionnelle, diagnostic technique anonymisé, stockage local et export ZIP ou API, avec blocage des captures sur les données sensibles. À activer pour ajouter ce module à un prototype ou une application en test, le corriger ou l'auditer. Complète ux-ui-design et project-discovery-validation.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

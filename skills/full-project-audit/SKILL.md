@@ -1,7 +1,7 @@
 ---
 name: full-project-audit
 description: Audit 360° d'un dépôt logiciel en lecture seule (gouvernance, sécurité, architecture KISS, données/API, UX/WCAG, tests/performance) avec gravité P0–P3, preuves vérifiées et plan de remédiation par lots.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.2.0"
   standard: "agentskills.io"

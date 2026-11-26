@@ -1,7 +1,7 @@
 ---
 name: release-deployment
 description: Référentiel de mise en version (SemVer 2.0.0), de builds reproductibles, de publication de releases et de déploiement à 0 €/mois (Netlify, Vercel, Cloudflare Pages, GitHub Pages, GitHub Actions) avec plan de rollback. À activer lors de la préparation d'une version, d'une release ou d'un déploiement.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

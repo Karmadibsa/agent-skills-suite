@@ -1,7 +1,7 @@
 ---
 name: clean-code-security
 description: Référentiel d'architecture logicielle propre (KISS, SOLID mesuré, séparation domaine/UI), de sécurité applicative (OWASP Top 10 / ASVS, gestion des secrets), d'hygiène Git (zéro fichier mort) et d'automatisation locale (scripts de lancement racine). À activer dès qu'on écrit, refactorise ou sécurise du code source.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.0.0"
   standard: "agentskills.io"

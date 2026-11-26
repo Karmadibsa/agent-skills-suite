@@ -1,7 +1,7 @@
 ---
 name: api-data-architecture
 description: Référentiel d'ingénierie des données, modélisation relationnelle/locale (SQLite/PostgreSQL), migrations sans perte, contrats d'API REST/JSON (OpenAPI 3.1, RFC 9457) et conformité RGPD Privacy-by-Design. À activer dès qu'on conçoit ou modifie un schéma de base de données, une migration, un stockage local ou une API.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.0.0"
   standard: "agentskills.io"

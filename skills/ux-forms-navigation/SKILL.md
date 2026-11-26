@@ -1,7 +1,7 @@
 ---
 name: ux-forms-navigation
 description: Règles d'ergonomie pour les formulaires, modales, navigation, listes, kanban, statuts et l'adaptation mobile à une main / desktop clavier. Choix du bon champ selon le nombre d'options, validation inline, modales stables, sidebar ou topbar, densité et optimisation de l'espace, cibles tactiles. À activer quand une tâche crée ou audite un formulaire, un parcours multi-étapes, une navigation, une liste ou un écran à adapter au mobile ou au desktop. Complète ux-ui-design.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

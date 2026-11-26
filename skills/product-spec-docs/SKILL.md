@@ -1,7 +1,7 @@
 ---
 name: product-spec-docs
 description: Référentiel d'ingénierie des exigences (ISO/IEC/IEEE 29148), de rédaction de cahier des charges exécutable par IA (00 — LIRE EN PREMIER, statuts verrouillés, BDD/Gherkin, ADR, Changelog) et de structuration GitHub (README, Issues, PR, lots atomiques). À activer après la discovery (Skill 0) et avant toute implémentation de code ou d'interface.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.0.0"
   standard: "agentskills.io"

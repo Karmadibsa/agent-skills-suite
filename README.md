@@ -4,7 +4,7 @@ Des skills au format ouvert [agentskills.io](https://agentskills.io) pour encadr
 
 Site : [agent-skills-suite.am-creative.fr](https://agent-skills-suite.am-creative.fr/)
 
-Open source : MIT pour le code, CC BY 4.0 pour les contenus. La suite elle-même est gratuite ; les assistants, hébergeurs et services tiers peuvent avoir leurs propres coûts.
+Gratuit pour tout usage non commercial : contenus sous CC BY-NC-SA 4.0, scripts sous MIT. Licence commerciale sur demande. Les assistants, hébergeurs et services tiers peuvent avoir leurs propres coûts.
 
 ## Pourquoi
 
@@ -156,8 +156,8 @@ agent-skills-suite/
 ├── website/             # vitrine statique publiée par Netlify sur agent-skills-suite.am-creative.fr
 ├── start.bat            # aperçu local de la vitrine sous Windows (http://localhost:8080)
 ├── .github/workflows/   # vérification automatique à chaque push et PR
-├── LICENSE              # MIT (code)
-└── LICENSE-DOCS         # CC BY 4.0 (contenus)
+├── LICENSE              # MIT (scripts et code du site)
+└── LICENSE-DOCS         # CC BY-NC-SA 4.0 (contenus), licence commerciale sur demande
 ```
 
 ## Contribuer
@@ -177,5 +177,10 @@ Les signalements d'erreurs scientifiques sont particulièrement bienvenus : indi
 
 ## Licences
 
-- Code, scripts, exemples et configurations : [MIT](LICENSE).
-- Documentation, référentiels et contenus des skills : [CC BY 4.0](LICENSE-DOCS). Créditer Agent Skills Suite et ses contributeurs, lier la source et indiquer les modifications.
+- **Contenus** (skills, références, documentation, textes du site) : [CC BY-NC-SA 4.0](LICENSE-DOCS). Utilisation, partage et modification gratuits, à condition de créditer la suite, de ne pas en faire un usage commercial et de diffuser les versions modifiées sous la même licence.
+- **Usage commercial** (vente, intégration dans une offre ou un produit payant, publication sur une place de marché payante) : licence commerciale séparée, sur demande en [ouvrant une issue](https://github.com/Karmadibsa/agent-skills-suite/issues/new) intitulée « Licence commerciale ».
+- **Scripts et code du site** : [MIT](LICENSE).
+- **Nom, logo et identité visuelle** : tous droits réservés.
+- **Polices** (`website/assets/fonts/`) : SIL Open Font License 1.1.
+
+Les versions antérieures au 27 novembre 2026 étaient publiées sous CC BY 4.0 et MIT.

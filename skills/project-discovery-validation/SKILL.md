@@ -1,7 +1,7 @@
 ---
 name: project-discovery-validation
 description: Référentiel scientifique et méthodologique de cadrage produit, d'analyse de l'existant (GitHub, Reddit, concurrents), de validation/infirmation des fonctionnalités par la science et de construction de Roadmap (Jalon 0 → Jalon 1 → Jalon 2 → Jalon 3 → Jalon 4+). À activer dès le démarrage d'un projet ou avant d'ajouter une nouvelle fonctionnalité.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "2.0.0"
   standard: "agentskills.io"

@@ -1,7 +1,7 @@
 ---
 name: maintenance-incident
 description: Référentiel de support post-déploiement, de triage structuré des incidents et retours utilisateurs, de restauration/sauvegarde et de maintenance corrective sans dette. À activer lors d'un incident, d'un bug signalé en production/usage réel ou d'une opération de maintenance.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"

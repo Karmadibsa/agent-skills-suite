@@ -1,7 +1,7 @@
 ---
 name: ux-art-direction
 description: Direction artistique d'une interface sans slop — modèle de lumière et élévation cohérents, typographie et couleurs de marque, bordures et ombres, règles d'un bon logo, archétypes produits (outil SaaS, finance, mobile grand public, productivité, agent IA) avec mots-clés de brief. À activer pour créer une identité visuelle, une charte, refondre l'esthétique d'un produit ou rédiger un brief visuel pour une IA. Complète ux-ui-design.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.1.0"
   standard: "agentskills.io"

@@ -1,7 +1,7 @@
 ---
 name: ux-dataviz-admin
 description: Règles pour les graphiques, dashboards et interfaces d'administration — choix du graphique selon l'intention analytique (tendance, comparaison, répartition, distribution), différence entre dashboard opérationnel et analytique, tableaux denses, maîtrise du défilement, performance perçue et Core Web Vitals côté interface. À activer pour concevoir ou auditer un graphique, un tableau de bord, un back-office ou un écran lent. Complète ux-ui-design.
-license: CC-BY-4.0 / MIT
+license: CC-BY-NC-SA-4.0 (contenus, usage non commercial ; licence commerciale sur demande)
 metadata:
   version: "1.0.0"
   standard: "agentskills.io"
