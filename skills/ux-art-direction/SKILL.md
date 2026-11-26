@@ -3,7 +3,7 @@ name: ux-art-direction
 description: Direction artistique d'une interface sans slop — modèle de lumière et élévation cohérents, typographie et couleurs de marque, bordures et ombres, règles d'un bon logo, archétypes produits (outil SaaS, finance, mobile grand public, productivité, agent IA) avec mots-clés de brief. À activer pour créer une identité visuelle, une charte, refondre l'esthétique d'un produit ou rédiger un brief visuel pour une IA. Complète ux-ui-design.
 license: CC-BY-4.0 / MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   standard: "agentskills.io"
   order: "2-ux-art-direction"
 ---
@@ -73,12 +73,35 @@ Ce skill suit le workflow général de `ux-ui-design`. S'il est installé, lire 
 # 3. Workflow
 
 1. **Partir du produit** : public, usage, ton voulu. Choisir un archétype dans la fiche `06` comme point de départ, pas comme modèle à copier.
+1b. **Trouver la signature propre** avec la section 5 avant de choisir couleurs et polices : un concept issu du produit, un procédé visuel qui en découle, et le test du logo caché.
 2. **Fixer les tokens** avant les écrans : couleurs (OKLCH, neutres teintés, une couleur d'accent), échelle typographique, rayons concentriques, espacement 8 pt, élévation.
 3. **Définir un modèle de lumière unique** : une seule source, ombres à deux couches seulement pour les vrais calques, bordures fines pour les séparations.
 4. **Choisir un ou deux moments forts** par page (animation, illustration, mise en page marquante) et garder le reste calme.
 5. **Vérifier contre la grille QA** de la fiche `06` et les contrastes WCAG ; montrer le rendu clair et sombre si les deux existent.
 
-# 4. Règles qui ne se négocient pas
+# 5. Signature propre : ne pas avoir l'air généré par une IA
+
+Une interface « propre » mais interchangeable est l'échec le plus courant des IA : elle respecte les règles et ne ressemble à rien. L'identité ne vient pas d'un effet, elle vient du produit.
+
+**Signes d'une interface interchangeable** (à éviter quand ils sont combinés et non justifiés) :
+
+- fond sombre, une seule couleur d'accent vive, police à chasse fixe partout pour faire « technique » ;
+- grand titre en deux couleurs, petit label au-dessus de chaque titre, sous-titre gris ;
+- grilles de cartes identiques avec une icône générique dans un carré arrondi ;
+- dégradés, halos, verre dépoli, formes 3D ou « blobs » sans lien avec le produit ;
+- chiffres ronds, faux logos clients, témoignages génériques ;
+- textes vagues (« Boostez votre productivité ») qui pourraient décrire n'importe quoi.
+
+**Méthode en quatre temps :**
+
+1. **Un concept tiré du produit lui-même** : un mot, un objet, un geste de son domaine (pour cette suite : les crochets des niveaux de preuve). Pas une tendance graphique.
+2. **Un procédé visuel qui en découle**, utilisé partout avec la même logique : forme du logo, repères, mise en valeur, transitions. Il doit porter du sens (il étiquette, montre ou relie quelque chose de réel), sinon c'est de la décoration.
+3. **Des choix qui ont du caractère** : une typographie de titre choisie pour le ton du produit (pas seulement la police système), une palette qui n'est pas « fond noir + accent néon » par défaut, une mise en page qui ose une asymétrie ou un grand aplat.
+4. **Du contenu réel** : captures du vrai produit, vraies données, vrais exemples, vrai ton de voix. Rien ne remplace ce que seul ce produit peut montrer.
+
+**Test du logo caché** : masquer le logo et le nom. Si la page pourrait appartenir à un autre produit du même secteur, la signature est insuffisante ; recommencer à l'étape 1.
+
+# 6. Règles qui ne se négocient pas
 
 - Pas de logo inventé pour une marque réelle.
 - Pas plus de deux familles de polices.

@@ -48,3 +48,12 @@ Pour chaque scénario : ouvrir une session neuve, envoyer le prompt tel quel, co
 | TR-3 | « On a une erreur 500 en prod depuis ce matin. » | `maintenance-incident` |
 | TR-4 | « Prépare la version 1.2.0. » | `release-deployment` |
 | TR-5 | « Quelle licence pour ouvrir ce code ? » | `oss-governance` |
+| TR-6 | « Il me faut des mentions légales et un bandeau cookies avant la mise en ligne. » | `legal-compliance` |
+
+## Conformité juridique (legal-compliance)
+
+| # | Prompt | Comportement attendu |
+| --- | --- | --- |
+| LG-1 | « Rédige mes mentions légales. » sans donner d'identité | Champs `[À COMPLÉTER]`, aucune adresse ni SIREN inventés, hébergeur relevé dans la configuration |
+| LG-2 | Site avec Google Analytics chargé au démarrage | Signale le traceur déposé avant consentement, propose de le charger après accord ou une mesure exemptée |
+| LG-3 | « Fais mes CGV » pour une boutique B2C | Rétractation 14 jours, garanties légales, médiateur à compléter, bouton de commande explicite, avertissement « pas un conseil juridique » |

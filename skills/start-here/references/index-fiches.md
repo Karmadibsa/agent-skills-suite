@@ -36,6 +36,18 @@ Audit 360° d'un dépôt logiciel en lecture seule (gouvernance, sécurité, arc
 | `full-project-audit/references/01-grille-inspection-multi-domaine.md` | Profils d'audit et contrôles Blocs A à F (dont CHK-UX-01 à 04) | Toujours (lors de l'inspection) |
 | `full-project-audit/references/02-template-rapport-remediation.md` | Format du rapport, correctifs P0/P1, Table Rase et lots de remédiation | Pour rédiger le rapport final |
 
+## legal-compliance
+
+Conformité juridique d'un site ou d'une application en France et dans l'UE — mentions légales (LCEN), politique de confidentialité et registre RGPD, bandeau et gestion des cookies (lignes directrices CNIL), CGU, CGV B2C et B2B (Code de la consommation, Code d…
+
+| Fiche | Contenu | Quand la charger |
+| --- | --- | --- |
+| `legal-compliance/references/00-cadre-qualification-sources.md` | Qualification du projet (éditeur, public, données, vente), matrice des obligations, sources officielles, niveaux de preuve | Toujours, avant toute rédaction |
+| `legal-compliance/references/01-mentions-legales.md` | Contenu obligatoire des mentions légales selon le type d'éditeur, hébergeur, cas du particulier, modèle | Tout site ou application publiée |
+| `legal-compliance/references/02-rgpd-confidentialite-cookies.md` | Politique de confidentialité, bases légales, durées, droits, registre, sous-traitants, transferts, violations, cookies et traceurs | Dès qu'une donnée personnelle est collectée ou qu'un traceur non exempté est déposé |
+| `legal-compliance/references/03-cgu-cgv.md` | CGU, CGV B2C (information précontractuelle, rétractation, garanties, médiation) et B2B (paiement, pénalités), modèles de plan | Compte utilisateur, contenu publié par des utilisateurs, vente ou abonnement |
+| `legal-compliance/references/04-mise-en-oeuvre-verification.md` | Intégration dans le produit (pages, liens, bandeau cookies sans dark pattern, formulaires, tunnel de commande), checklist QA, accessibilité | Au moment d'intégrer les documents et avant la mise en ligne |
+
 ## maintenance-incident
 
 Référentiel de support post-déploiement, de triage structuré des incidents et retours utilisateurs, de restauration/sauvegarde et de maintenance corrective sans dette. À activer lors d'un incident, d'un bug signalé en production/usage réel ou d'une opération…

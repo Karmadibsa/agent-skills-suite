@@ -104,7 +104,7 @@
   });
 
   /* ---------- Niveau de rigueur ---------- */
-  var seg = document.querySelector('.seg');
+  var seg = document.querySelector('.profile-text .seg');
   if (seg) {
     var radios = Array.prototype.slice.call(seg.querySelectorAll('[role="radio"]'));
     var descs = document.querySelectorAll('[data-level-desc]');
@@ -131,6 +131,45 @@
     });
     seg.hidden = false;
     setLevel(1, false);
+  }
+
+  /* ---------- Version des prompts : skills installés ou lien GitHub ---------- */
+  var modeSeg = document.querySelector('[data-prompt-mode]');
+  if (modeSeg) {
+    var REPO = 'https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/';
+    var prompts = Array.prototype.map.call(document.querySelectorAll('.track .prompt-full'), function (el) {
+      return { el: el, original: el.textContent };
+    });
+    var hint = document.querySelector('[data-mode-hint]');
+    var modeRadios = Array.prototype.slice.call(modeSeg.querySelectorAll('[role="radio"]'));
+    var toWeb = function (text) {
+      return text.replace(/^Utilise le skill ([a-z-]+)(.*)$/m, function (_, name, rest) {
+        return 'Lis ' + REPO + name + '/SKILL.md (et les fiches de son dossier references/ quand il te le demande), puis applique ce skill' + rest;
+      });
+    };
+    var setMode = function (index, focus) {
+      var web = modeRadios[index].getAttribute('data-mode') === 'web';
+      modeRadios.forEach(function (r, i) {
+        r.setAttribute('aria-checked', i === index ? 'true' : 'false');
+        r.tabIndex = i === index ? 0 : -1;
+      });
+      prompts.forEach(function (pr) { pr.el.textContent = web ? toWeb(pr.original) : pr.original; });
+      if (hint) hint.textContent = web
+        ? 'Les prompts commencent par le lien GitHub du skill : votre assistant le lit en ligne, aucune installation nécessaire.'
+        : 'Les prompts commencent par « Utilise le skill… » : votre assistant trouve le skill dans votre projet.';
+      if (focus) modeRadios[index].focus();
+    };
+    modeRadios.forEach(function (r, i) {
+      r.addEventListener('click', function () { setMode(i, false); });
+      r.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % modeRadios.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + modeRadios.length) % modeRadios.length;
+        if (next !== null) { e.preventDefault(); setMode(next, true); }
+      });
+    });
+    modeSeg.closest('.prompt-mode').hidden = false;
+    setMode(0, false);
   }
 
   /* ---------- Thème ---------- */

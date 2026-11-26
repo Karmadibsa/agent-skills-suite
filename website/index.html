@@ -28,10 +28,10 @@
     <div class="shell topbar-inner">
       <a href="#haut" class="wordmark" translate="no" aria-label="Agent Skills Suite, accueil"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.75H4.75v16.5H8.5M15.5 3.75h3.75v16.5H15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/><rect x="8.75" y="8.75" width="6.5" height="6.5" rx="1" fill="var(--brand)"/></svg><span>agent-skills<span class="wordmark-dim">/suite</span></span></a>
       <nav class="nav" aria-label="Navigation principale">
+        <a href="#utiliser">Comment l'utiliser</a>
         <a href="#demo">Démo</a>
-        <a href="#contexte">Fonctionnement</a>
         <a href="#skills">Skills et prompts</a>
-        <a href="#installer">Installer</a>
+        <a href="#faq">Questions</a>
       </nav>
       <div class="topbar-actions">
         <button type="button" class="icon-btn" id="theme-toggle" aria-label="Changer de thème" hidden>
@@ -50,16 +50,16 @@
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="shell hero-inner">
         <div class="hero-copy">
-          <p class="hero-kicker">Open source · format agentskills.io · Claude Code, Cursor, Codex, Gemini CLI</p>
+          <p class="hero-kicker">Gratuit et open source · fonctionne avec Claude Code, Cursor, Codex, Gemini CLI, ChatGPT…</p>
           <h1 id="hero-title">Votre assistant IA code vite.<span class="accent"> Ces skills le font <span class="br-word">réfléchir</span> avant.</span></h1>
-          <p class="hero-lead">Quinze skills qui apprennent à votre assistant à challenger une idée avant de la coder, à concevoir des écrans accessibles, à sécuriser le code et à dire honnêtement ce qu'il a vérifié.</p>
+          <p class="hero-lead">Seize skills qui apprennent à votre assistant à challenger une idée avant de la coder, à concevoir des écrans accessibles, à sécuriser le code et à dire honnêtement ce qu'il a vérifié.</p>
           <div class="hero-actions">
             <div class="cmd">
               <span class="cmd-prompt" aria-hidden="true">$</span>
               <code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code>
               <button type="button" class="btn btn-primary copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button>
             </div>
-            <a class="hero-link" href="#skills">Voir les prompts prêts à copier <span aria-hidden="true">→</span></a>
+            <a class="hero-link" href="#utiliser">Comment ça marche, en 3 étapes <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -83,7 +83,7 @@
             <p class="file-tag">chargé quand la tâche touche un formulaire</p>
           </div>
           <div class="file file-1">
-            <p class="file-path">frontmatter</p>
+            <p class="file-path">résumé du skill</p>
             <p class="file-line"><span class="t-k">name:</span> ux-forms-navigation</p>
             <p class="file-line"><span class="t-k">description:</span> Formulaires,</p>
             <p class="file-line">modales, navigation, mobile…</p>
@@ -96,11 +96,54 @@
 
     <section class="facts" aria-label="La suite en chiffres">
       <ul class="shell facts-list">
-        <li><span class="fact-num">15</span><span class="fact-label">skills autonomes</span></li>
-        <li><span class="fact-num">45</span><span class="fact-label">fiches de référence</span></li>
+        <li><span class="fact-num">16</span><span class="fact-label">skills autonomes</span></li>
+        <li><span class="fact-num">50</span><span class="fact-label">fiches de référence</span></li>
         <li><span class="fact-num">6</span><span class="fact-label">niveaux de preuve</span></li>
         <li><span class="fact-num">0</span><span class="fact-label">dépendance à installer</span></li>
       </ul>
+    </section>
+
+    <!-- 1. Mode d'emploi en 3 étapes, sans jargon -->
+    <section id="utiliser" class="section howto" aria-labelledby="howto-title">
+      <div class="shell">
+        <div class="section-head">
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[01] Comment l'utiliser</p>
+            <h2 id="howto-title">Trois étapes. <span class="dim">Cinq minutes.</span></h2>
+          </div>
+          <p>Pas besoin d'être expert : vous installez une fois, puis vous parlez à votre assistant comme d'habitude.</p>
+        </div>
+
+        <ol class="howto-steps">
+          <li class="howto-step">
+            <span class="howto-num" aria-hidden="true">1</span>
+            <h3>Installez la suite dans votre projet</h3>
+            <p>Ouvrez un terminal dans le dossier de votre projet et collez cette commande. Elle ajoute les skills au projet, rien d'autre.</p>
+            <div class="cmd"><span class="cmd-prompt" aria-hidden="true">$</span><code class="cmd-text">npx skills add Karmadibsa/agent-skills-suite</code><button type="button" class="btn btn-primary copy-btn" data-copy="npx skills add Karmadibsa/agent-skills-suite" hidden>Copier</button></div>
+            <p class="howto-alt">Pas de terminal ou pas de Node.js ? <a href="#installer">Autres façons d'installer</a>.</p>
+          </li>
+          <li class="howto-step">
+            <span class="howto-num" aria-hidden="true">2</span>
+            <h3>Demandez à votre assistant de démarrer</h3>
+            <p>Ouvrez votre assistant IA dans ce projet (Claude Code, Cursor, Codex…) et envoyez exactement cette phrase :</p>
+            <div class="cmd"><code class="cmd-text">Utilise le skill start-here.</code><button type="button" class="btn btn-primary copy-btn" data-copy="Utilise le skill start-here." hidden>Copier</button></div>
+          </li>
+          <li class="howto-step">
+            <span class="howto-num" aria-hidden="true">3</span>
+            <h3>Suivez ses recommandations</h3>
+            <p>Il regarde où en est votre projet, vous pose au plus trois questions, puis vous dit quoi faire ensuite et vous donne la phrase à copier pour l'étape suivante.</p>
+            <p class="howto-result">Résultat : un fichier <code>.agents/profile.md</code> qui retient vos choix, pour ne plus avoir à les répéter.</p>
+          </li>
+        </ol>
+
+        <div class="howto-web">
+          <p><strong>Vous utilisez ChatGPT ou Gemini dans le navigateur, sans projet installé ?</strong> Sautez l'étape 1 et envoyez ce message à la place :</p>
+<pre class="prompt-full" id="p-web">Lis https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/start-here/SKILL.md et applique-le à mon projet.
+Mon projet : [décris-le en quelques lignes, ou colle son README]
+Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dossier skills/) avant de l'appliquer.</pre>
+          <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-web" data-label="Copier le message pour ChatGPT ou Gemini" hidden>Copier le message</button>
+        </div>
+      </div>
     </section>
 
     <!-- 2. Démo épinglée : la réponse complaisante se fait barrer, la bonne arrive -->
@@ -109,7 +152,7 @@
         <div class="shell">
           <div class="demo-head">
             <div class="head-title">
-              <p class="kicker" aria-hidden="true">[01] Démo</p>
+              <p class="kicker" aria-hidden="true">[02] Démo</p>
               <h2 id="demo-title">Même demande. <span class="dim">Deux assistants.</span></h2>
             </div>
             <div class="tabs" role="tablist" aria-label="Choisir un scénario" hidden>
@@ -129,6 +172,7 @@
             <div class="compare">
               <div class="pane pane-before">
                 <p class="pane-label">Sans skill</p>
+                <p class="verdict verdict-bad"><span class="verdict-n">✕ 2 erreurs</span><span>Valide tout, ne chiffre ni coût ni risque</span></p>
                 <div class="pane-body">
                   <p class="line" data-at="0.04">Excellente idée ! Voici le plan :</p>
                   <p class="line" data-at="0.10">1. Intégrer une API de LLM pour le chatbot.</p>
@@ -143,6 +187,7 @@
               </div>
               <div class="pane pane-after">
                 <p class="pane-label">Avec <code>project-discovery-validation</code></p>
+                <p class="verdict verdict-good"><span class="verdict-n">✓ 3 garde-fous</span><span>Contre-argument, alternative plus simple, critère d'abandon</span></p>
                 <div class="pane-body">
                   <p class="line" data-at="0.56">Avant de coder, trois objections.</p>
                   <p class="line" data-at="0.62"><strong>Chatbot</strong> : quel besoin couvre-t-il que la recherche ne couvre pas ? Coût d'API récurrent, données financières envoyées à un tiers <span class="ev">N1</span>. Plus simple : catégorisation automatique en local.</p>
@@ -164,6 +209,7 @@
             <div class="compare">
               <div class="pane pane-before">
                 <p class="pane-label">Sans skill</p>
+                <p class="verdict verdict-bad"><span class="verdict-n">✕ 3 erreurs</span><span>Pas de libellé, contraste non vérifié, bouton ambigu</span></p>
                 <div class="pane-body code-body">
                   <p class="line" data-at="0.04"><code>&lt;div class="glass-card gradient"&gt;</code></p>
                   <p class="line" data-at="0.10"><code>  &lt;input placeholder="Email"&gt;</code></p>
@@ -179,6 +225,7 @@
               </div>
               <div class="pane pane-after">
                 <p class="pane-label">Avec <code>ux-forms-navigation</code></p>
+                <p class="verdict verdict-good"><span class="verdict-n">✓ 3 garde-fous</span><span>Accessible, action explicite, rien de décoratif</span></p>
                 <div class="pane-body code-body">
                   <p class="line" data-at="0.56"><code>&lt;label for="email"&gt;Adresse e-mail&lt;/label&gt;</code></p>
                   <p class="line" data-at="0.62"><code>&lt;input id="email" type="email" autocomplete="email"</code></p>
@@ -201,6 +248,7 @@
             <div class="compare">
               <div class="pane pane-before">
                 <p class="pane-label">Sans skill</p>
+                <p class="verdict verdict-bad"><span class="verdict-n">✕ 2 erreurs</span><span>Fichier mort ajouté, tests annoncés sans avoir tourné</span></p>
                 <div class="pane-body">
                   <p class="line" data-at="0.04">J'ai réécrit <code>export.js</code> entièrement.</p>
                   <p class="line" data-at="0.12">J'ai gardé l'ancien dans <code>export_old.js</code> par sécurité.</p>
@@ -213,6 +261,7 @@
               </div>
               <div class="pane pane-after">
                 <p class="pane-label">Avec <code>maintenance-incident</code></p>
+                <p class="verdict verdict-good"><span class="verdict-n">✓ 2 garde-fous</span><span>Correctif minimal, ce qui n'est pas vérifié est dit</span></p>
                 <div class="pane-body">
                   <p class="line" data-at="0.56">Reproduit : une virgule dans un libellé casse la ligne.</p>
                   <p class="line" data-at="0.64">Correctif de 3 lignes dans <code>export.js</code>, aucun fichier copié. Test de non-régression ajouté.</p>
@@ -248,35 +297,35 @@
         <div class="shell">
           <div class="section-head">
             <div class="head-title">
-              <p class="kicker" aria-hidden="true">[02] Fonctionnement</p>
-              <h2 id="ctx-title">94 000 mots de méthode. <span class="dim">Votre IA en lit environ 7 %.</span></h2>
+              <p class="kicker" aria-hidden="true">[03] Sous le capot</p>
+              <h2 id="ctx-title">99 000 mots de méthode. <span class="dim">Votre IA n'en lit que ce qui sert.</span></h2>
             </div>
-            <p>Un skill se charge par couches. Estimation sur ce dépôt, pour une tâche de formulaire, lectures obligatoires comprises.</p>
+            <p>Installer toute la suite ne ralentit pas votre assistant : il ne lit en détail que le skill et la fiche utiles à votre demande. Exemple pour un formulaire : environ 7 % du total.</p>
           </div>
 
           <div class="window reveal">
-            <div class="window-bar" role="img" aria-label="Sur 94 525 mots, la tâche en charge environ 6 505 : 780 de descriptions, 2 474 pour le SKILL.md et le registre, 3 251 pour une fiche.">
+            <div class="window-bar" role="img" aria-label="Sur 98 984 mots, la tâche en lit environ 6 600 : 877 de résumés, 2 474 pour le skill et son registre, 3 251 pour une fiche.">
               <span class="seg-fill seg-1"></span>
               <span class="seg-fill seg-2"></span>
               <span class="seg-fill seg-3"></span>
             </div>
-            <div class="window-scale" aria-hidden="true"><span>0</span><span>toute la suite : 94 525 mots</span></div>
+            <div class="window-scale" aria-hidden="true"><span>0</span><span>toute la suite : 98 984 mots</span></div>
           </div>
 
           <ol class="layers reveal">
             <li>
               <span class="layer-num">01</span>
-              <div><h3>Découverte</h3><p>Les descriptions des quinze skills, toujours en mémoire.</p></div>
-              <span class="layer-cost">780 mots</span>
+              <div><h3>Il survole les résumés</h3><p>Quelques lignes par skill, pour savoir lequel ouvrir.</p></div>
+              <span class="layer-cost">877 mots</span>
             </li>
             <li>
               <span class="layer-num">02</span>
-              <div><h3>Activation</h3><p>La demande parle d'un formulaire : <code>ux-forms-navigation/SKILL.md</code> et son registre obligatoire se chargent.</p></div>
+              <div><h3>Il ouvre le bon skill</h3><p>La demande parle d'un formulaire : <code>ux-forms-navigation/SKILL.md</code> et son registre obligatoire se chargent.</p></div>
               <span class="layer-cost">2 474 mots</span>
             </li>
             <li>
               <span class="layer-num">03</span>
-              <div><h3>Référence ciblée</h3><p>Sa table de routage désigne la seule fiche utile : formulaires.</p></div>
+              <div><h3>Il lit une seule fiche</h3><p>Celle qui traite des formulaires, et pas les 49 autres.</p></div>
               <span class="layer-cost">3 251 mots</span>
             </li>
           </ol>
@@ -289,30 +338,32 @@
     <section class="section profile-section" aria-labelledby="profile-title">
       <div class="shell profile">
         <div class="profile-text reveal">
-          <p class="kicker" aria-hidden="true">[03] Profil projet</p>
-          <h2 id="profile-title">Un profil par projet. <span class="dim">Pas de règle imposée.</span></h2>
-          <p><code>start-here</code> diagnostique votre projet et écrit <code>.agents/profile.md</code>. Tous les skills le lisent et s'adaptent à votre budget, à vos données et au niveau de rigueur voulu.</p>
-          <div class="seg" role="radiogroup" aria-label="Niveau de rigueur" hidden>
+          <p class="kicker" aria-hidden="true">[04] Profil projet</p>
+          <h2 id="profile-title">Vous réglez une fois. <span class="dim">Tous les skills s'adaptent.</span></h2>
+          <p>À la première utilisation, <code>start-here</code> remplit une fiche d'identité de votre projet : son type, votre budget, s'il manipule des données sensibles, et le niveau d'exigence voulu. Il l'enregistre dans le fichier <code>.agents/profile.md</code>, à droite.</p>
+          <p>Ensuite, chaque skill relit cette fiche avant de travailler. Vous n'avez rien à répéter, et vous pouvez la modifier à la main à tout moment.</p>
+          <p class="profile-try">Essayez : même demande, <strong>« Ajoute un formulaire de contact »</strong>, selon le niveau d'exigence.</p>
+          <div class="seg" role="radiogroup" aria-label="Niveau d'exigence" hidden>
             <button type="button" role="radio" aria-checked="false" data-level="legere">Légère</button>
             <button type="button" role="radio" aria-checked="true" data-level="standard">Standard</button>
             <button type="button" role="radio" aria-checked="false" data-level="stricte">Stricte</button>
           </div>
           <dl class="levels">
-            <div data-level-desc="legere"><dt>Légère</dt><dd>Prototype ou outil perso : checklists réduites aux points bloquants, aucune cérémonie.</dd></div>
-            <div data-level-desc="standard"><dt>Standard</dt><dd>Projet suivi : workflow complet, preuves sur les points critiques.</dd></div>
-            <div data-level-desc="stricte"><dt>Stricte</dt><dd>Production, données sensibles : checklists complètes, chaque affirmation sourcée.</dd></div>
+            <div data-level-desc="legere"><dt>Légère : prototype, outil perso</dt><dd>L'IA fait le formulaire et vérifie l'essentiel : libellés visibles, champs obligatoires, message de confirmation. Pas de documentation en plus.</dd></div>
+            <div data-level-desc="standard"><dt>Standard : projet suivi</dt><dd>En plus : erreurs claires sous chaque champ, test automatique du parcours, accessibilité au clavier vérifiée, mention d'information sur les données sous le formulaire.</dd></div>
+            <div data-level-desc="stricte"><dt>Stricte : production, données sensibles</dt><dd>En plus : chaque choix justifié avec sa source, durée de conservation des messages appliquée dans le code, protection contre le spam, rapport de ce qui a été testé et de ce qui ne l'a pas été.</dd></div>
           </dl>
         </div>
-<pre class="profile-file reveal" aria-label="Exemple de profil projet"><code><span class="c"># .agents/profile.md</span>
+<pre class="profile-file reveal" aria-label="Exemple de fichier .agents/profile.md"><code><span class="c"># .agents/profile.md</span>
+<span class="c"># Rempli par start-here, modifiable à la main</span>
 Stade : <span class="v">développement</span>
 Type : <span class="v">application web</span>
 Stack : <span class="v">SvelteKit, SQLite</span>
 
-<span class="c">## Réglages de la suite</span>
-Rigueur : <span class="v" id="profile-level">standard</span>
+<span class="c">## Réglages</span>
+Exigence : <span class="v" id="profile-level">standard</span>
 Budget : <span class="v">0 €/mois</span>
 Données sensibles : <span class="v">personnelles</span>
-Module « Bug ou idée ? » : <span class="v">prototypes</span>
 Accessibilité : <span class="v">WCAG 2.2 AA</span></code></pre>
       </div>
     </section>
@@ -322,10 +373,19 @@ Accessibilité : <span class="v">WCAG 2.2 AA</span></code></pre>
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[04] Skills et prompts</p>
-            <h2 id="skills-title">Quinze skills. <span class="dim">Un prompt prêt pour chacun.</span></h2>
+            <p class="kicker" aria-hidden="true">[05] Skills et prompts</p>
+            <h2 id="skills-title">Seize skills. <span class="dim">Un prompt prêt pour chacun.</span></h2>
           </div>
           <p>Ouvrez un skill, copiez le prompt, remplacez les crochets et collez-le dans votre assistant. Chaque skill fonctionne seul ; l'ordre ci-dessous est un parcours conseillé.</p>
+        </div>
+
+        <div class="prompt-mode" hidden>
+          <p id="mode-label">Votre assistant :</p>
+          <div class="seg" role="radiogroup" aria-labelledby="mode-label" data-prompt-mode>
+            <button type="button" role="radio" aria-checked="true" data-mode="installed">A les skills installés</button>
+            <button type="button" role="radio" aria-checked="false" data-mode="web">Ne les a pas (ChatGPT, Gemini…)</button>
+          </div>
+          <p class="prompt-mode-hint" data-mode-hint>Les prompts commencent par « Utilise le skill… ».</p>
         </div>
 
         <ol class="track" data-track>
@@ -510,6 +570,20 @@ Qualifie la priorité, sauvegarde les données avant toute action, reproduis le 
         <ol class="track track-side">
           <li class="track-item reveal">
             <details>
+              <summary><span class="t-name" translate="no">legal-compliance</span><span class="t-desc">Mentions légales, RGPD, cookies, CGU, CGV</span></summary>
+              <div class="t-more">
+                <p>Repère les obligations selon votre projet, rédige des projets de documents sourcés (sans rien inventer) et vérifie leur mise en place dans le site. Ne remplace pas un avocat.</p>
+<pre class="prompt-full" id="p-legal">Utilise le skill legal-compliance.
+Mon projet : [site vitrine, boutique en ligne, application avec comptes…]
+Éditeur : [particulier, entreprise individuelle, société, association]
+
+Liste les obligations qui s'appliquent avec leur source, rédige les projets de mentions légales, de politique de confidentialité et, si besoin, de CGU ou de CGV en laissant [À COMPLÉTER] ce que tu ne sais pas, vérifie dans le code les cookies et services tiers, puis donne la liste des tâches et des points à faire valider par un professionnel.</pre>
+                <div class="t-actions"><button type="button" class="btn btn-primary copy-btn" data-copy-target="p-legal" hidden>Copier le prompt</button><a href="https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/legal-compliance/SKILL.md">Lire le SKILL.md</a></div>
+              </div>
+            </details>
+          </li>
+          <li class="track-item reveal">
+            <details>
               <summary><span class="t-name" translate="no">full-project-audit</span><span class="t-desc">État des lieux 360° en lecture seule, gravité P0 à P3</span></summary>
               <div class="t-more">
                 <p>Gouvernance, sécurité, architecture, données, UX, tests et performance, avec preuves et plan de remédiation.</p>
@@ -542,7 +616,7 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[05] Niveaux de preuve</p>
+            <p class="kicker" aria-hidden="true">[06] Niveaux de preuve</p>
             <h2 id="ev-title">Une préférence n'est pas une norme.</h2>
           </div>
           <p>Chaque règle porte son niveau de preuve. En cas de conflit, le plus solide l'emporte.</p>
@@ -563,10 +637,10 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
       <div class="shell">
         <div class="section-head reveal">
           <div class="head-title">
-            <p class="kicker" aria-hidden="true">[06] Installation</p>
-            <h2 id="install-title">Installer en une commande.</h2>
+            <p class="kicker" aria-hidden="true">[07] Installation</p>
+            <h2 id="install-title">Autres façons d'installer.</h2>
           </div>
-          <p>Toute la suite ou un seul skill. Gratuit et open source ; votre assistant et votre hébergeur peuvent avoir leurs propres coûts.</p>
+          <p>La commande de l'étape 1 suffit dans la plupart des cas. Sinon, choisissez votre outil ci-dessous.</p>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Méthode d'installation" hidden>
@@ -602,6 +676,26 @@ Recommande une licence SPDX compatible avec les dépendances, audite les licence
 Mon projet : [décris-le en quelques lignes, ou colle son README]
 Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt (dossier skills/) avant de l'appliquer.</pre>
           <button type="button" class="btn btn-primary copy-btn" data-copy-target="p-noinstall" data-label="Copier le prompt sans installation" hidden>Copier le prompt</button>
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="section faq" aria-labelledby="faq-title">
+      <div class="shell">
+        <div class="section-head">
+          <div class="head-title">
+            <p class="kicker" aria-hidden="true">[08] Questions</p>
+            <h2 id="faq-title">Questions fréquentes.</h2>
+          </div>
+          <p>Les réponses courtes aux questions qu'on se pose avant de commencer.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>C'est quoi, un skill ?</summary><p>Un dossier de fichiers texte qui explique à votre assistant IA comment faire une tâche correctement : quelle méthode suivre, quoi vérifier, quoi éviter. Votre assistant le lit au bon moment, comme une fiche mémo.</p></details>
+          <details><summary>Est-ce que ça coûte quelque chose ?</summary><p>La suite est gratuite et open source. Votre assistant IA et votre hébergeur peuvent avoir leurs propres tarifs.</p></details>
+          <details><summary>Faut-il tout installer ?</summary><p>Non, mais c'est le plus simple : votre assistant ne lit que le skill utile à chaque demande, donc installer les seize ne le ralentit pas. Pour un seul skill, ajoutez <code>--skill nom-du-skill</code> à la commande.</p></details>
+          <details><summary>Ça marche sur un projet déjà commencé ?</summary><p>Oui. <code>start-here</code> détecte que le projet existe déjà et part de la tâche que vous demandez, sans vous refaire faire tout le cadrage.</p></details>
+          <details><summary>Mon assistant ne trouve pas le skill. Que faire ?</summary><p>Vérifiez que le dossier <code>skills</code> a bien été copié dans le dossier attendu par votre outil (par exemple <code>.claude/skills/</code> pour Claude Code), puis rouvrez une session. En dernier recours, utilisez le message pour ChatGPT ou Gemini de l'étape « Comment l'utiliser » : il fonctionne partout.</p></details>
+          <details><summary>Mes données partent-elles quelque part ?</summary><p>Les skills sont de simples fichiers texte, lus sur votre machine par votre assistant. Ce que votre assistant envoie à son fournisseur dépend de cet assistant, pas de la suite.</p></details>
+          <details><summary>Les documents juridiques produits sont-ils fiables ?</summary><p>Ce sont des projets sourcés, qui laissent <code>[À COMPLÉTER]</code> ce qui n'est pas connu. Ils ne remplacent pas un avocat, surtout pour une boutique en ligne, des données de santé ou des mineurs.</p></details>
         </div>
       </div>
     </section>

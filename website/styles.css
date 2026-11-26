@@ -251,9 +251,9 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
 .window { margin-bottom: var(--s7); }
 .window-bar { position: relative; display: flex; height: 72px; border: 1px solid var(--line-strong); border-radius: var(--r-md); background: repeating-linear-gradient(90deg, var(--surface) 0 10px, var(--surface-2) 10px 11px); overflow: hidden; }
 .seg-fill { height: 100%; transform-origin: left; transform: scaleX(var(--r, 1)); border-right: 1px solid var(--bg); }
-.seg-1 { width: 0.84%; min-width: 6px; background: var(--text-2); }
-.seg-2 { width: 1.08%; min-width: 14px; background: color-mix(in srgb, var(--accent) 60%, var(--text-2)); }
-.seg-3 { width: 3.45%; min-width: 24px; background: var(--accent); }
+.seg-1 { width: 0.89%; min-width: 6px; background: var(--text-2); }
+.seg-2 { width: 2.5%; min-width: 14px; background: color-mix(in srgb, var(--accent) 60%, var(--text-2)); }
+.seg-3 { width: 3.28%; min-width: 24px; background: var(--accent); }
 .window-scale { display: flex; justify-content: space-between; margin-top: var(--s2); color: var(--text-3); font: 0.8125rem/1.4 var(--mono); }
 .layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); margin: 0; padding: 0; list-style: none; }
 .layers li { display: grid; grid-template-columns: auto 1fr; gap: var(--s2) var(--s4); padding-top: var(--s5); border-top: 2px solid var(--line); }
@@ -395,8 +395,50 @@ h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
 .footer-brand p { margin: 0; }
 .wordmark-static { min-height: 0; color: var(--text); }
 
+/* Mode d'emploi en 3 étapes */
+.howto-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s5); margin: 0; padding: 0; list-style: none; counter-reset: none; }
+.howto-step { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s6) var(--s5) var(--s5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
+.howto-step h3 { font-size: 1.25rem; letter-spacing: -0.015em; }
+.howto-step p { margin: 0; color: var(--text-2); }
+.howto-step .cmd { margin-top: auto; flex-wrap: wrap; padding: var(--s3) var(--s4); }
+.howto-step .cmd .cmd-text { flex-basis: calc(100% - 24px); white-space: normal; overflow-wrap: anywhere; }
+.howto-step .cmd .copy-btn { width: 100%; }
+.howto-num { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: var(--brand-ink); font: 700 1.25rem/1 var(--mono); }
+.howto-alt, .howto-result { font-size: 0.875rem; }
+.howto-web { margin-top: var(--s6); padding: var(--s5); border: 1px dashed var(--line-strong); border-radius: var(--r-lg); }
+.howto-web > p { margin: 0 0 var(--s3); color: var(--text-2); }
+.howto-web strong { color: var(--text); }
+
+/* Questions fréquentes */
+.faq-list { display: grid; gap: var(--s2); max-width: 860px; }
+.faq-list details { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); min-height: 56px; padding: var(--s3) var(--s5); cursor: pointer; list-style: none; font-weight: 600; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; flex: none; font: 600 1.25rem/1 var(--mono); color: var(--accent); }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { margin: 0; padding: 0 var(--s5) var(--s5); color: var(--text-2); max-width: 70ch; }
+
+/* Verdicts de la démo : erreurs et garde-fous visibles d'un coup d'œil */
+.verdict { display: flex; align-items: baseline; gap: var(--s3); margin: 0; padding: var(--s3) var(--s5); border-bottom: 1px solid var(--line); font-size: 0.9375rem; }
+.verdict-n { flex: none; font: 700 1.125rem/1.2 var(--mono); }
+.verdict-bad { background: var(--bad-soft); color: var(--text); }
+.verdict-bad .verdict-n { color: var(--bad); }
+.verdict-good { background: var(--good-soft); color: var(--text); }
+.verdict-good .verdict-n { color: var(--good); }
+.flags li { font-size: 0.875rem; padding: 4px 12px; }
+
+/* Choix de la version des prompts */
+.prompt-mode { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s4); margin: 0 0 var(--s6); padding: var(--s4) var(--s5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
+.prompt-mode > p { margin: 0; font-weight: 600; }
+.prompt-mode .seg { margin: 0; }
+.prompt-mode-hint { flex-basis: 100%; color: var(--text-2); font-size: 0.875rem; font-weight: 400 !important; }
+.profile-text p { margin: var(--s4) 0; }
+.profile-try { color: var(--text) !important; }
+.js .levels dt { display: block !important; margin-bottom: var(--s1); font-weight: 600; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .howto-steps { grid-template-columns: minmax(0, 1fr); }
   .facts-list { grid-template-columns: repeat(2, 1fr); }
   .facts-list li:nth-child(3) { border-left: 0; padding-left: 0; }
   .facts-list li:nth-child(n+3) { border-top: 1px solid var(--line); }

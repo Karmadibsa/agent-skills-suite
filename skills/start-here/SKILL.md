@@ -117,6 +117,7 @@ Remplir `.agents/profile.md` à partir de `references/profile-template.md`.
 | Préparer une version ou un déploiement | `release-deployment` | `maintenance-incident` |
 | Incident, bug en production, restauration | `maintenance-incident` | `qa-perf-observability` |
 | Ouverture du code, licences, dépendances | `oss-governance` | `release-deployment` |
+| Mentions légales, RGPD, cookies, CGU, CGV, avant une mise en ligne ou une vente | `legal-compliance` | `release-deployment` |
 
 **Aller jusqu'à la fiche.** Pour désigner la fiche précise à charger (et pas seulement le skill), consulter `references/index-fiches.md` : une ligne par fiche de toute la suite, avec son déclencheur, plus quelques compléments externes facultatifs. Indiquer dans la réponse le skill et la fiche.
 

@@ -17,22 +17,31 @@ Sans cadre, un assistant IA a tendance à :
 
 Chaque skill donne à l'assistant un workflow, des garde-fous et des références étiquetées par niveau de preuve, sans imposer de style graphique.
 
-## Démarrer sur un projet en 2 minutes
+## Comment l'utiliser, en 3 étapes
 
-1. Installer la suite dans le projet (voir [Installation](#installation)).
-2. Ouvrir une session et écrire :
+**1. Installer la suite dans votre projet.** Ouvrez un terminal dans le dossier du projet et collez :
 
-   > Utilise le skill start-here.
+```bash
+npx skills add Karmadibsa/agent-skills-suite
+```
 
-   Sans installation (ChatGPT, Gemini, ou un assistant qui ne lit pas les skills), donner le lien :
+Pas de terminal ou pas de Node.js : voir [Installation](#installation) pour copier les dossiers à la main.
 
-   > Lis https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/start-here/SKILL.md et applique-le à mon projet : [description du projet].
+**2. Demander à votre assistant de démarrer.** Ouvrez votre assistant IA dans ce projet (Claude Code, Cursor, Codex…) et envoyez :
 
-3. L'assistant diagnostique le projet, crée `.agents/profile.md` (au plus trois questions) et indique le skill à utiliser ensuite, avec un prompt prêt à copier.
+> Utilise le skill start-here.
+
+**3. Suivre ses recommandations.** Il regarde où en est le projet, pose au plus trois questions, puis vous dit quoi faire ensuite et vous donne la phrase à copier. Vos choix sont retenus dans `.agents/profile.md`.
+
+**Vous utilisez ChatGPT ou Gemini dans le navigateur, sans installation ?** Sautez l'étape 1 et envoyez plutôt :
+
+> Lis https://github.com/Karmadibsa/agent-skills-suite/blob/main/skills/start-here/SKILL.md et applique-le à mon projet. Mon projet : [description]. Quand tu recommandes un autre skill, lis son SKILL.md dans le même dépôt avant de l'appliquer.
+
+Le site propose un prompt prêt à copier pour chaque skill, dans les deux versions (installé ou non).
 
 Le profil projet règle la suite pour ce projet : rigueur (`légère`, `standard`, `stricte`), budget d'infrastructure, données sensibles, module de retours, conventions. Tous les skills le lisent au démarrage. Modèle : [skills/start-here/references/profile-template.md](skills/start-here/references/profile-template.md).
 
-## Les 15 skills
+## Les 16 skills
 
 | Skill | À utiliser pour |
 | --- | --- |
@@ -51,6 +60,7 @@ Le profil projet règle la suite pour ce projet : rigueur (`légère`, `standard
 | [release-deployment](skills/release-deployment/SKILL.md) | Versions SemVer, builds reproductibles, déploiement et rollback |
 | [maintenance-incident](skills/maintenance-incident/SKILL.md) | Incidents, bugs en production, sauvegardes et restauration |
 | [oss-governance](skills/oss-governance/SKILL.md) | Licences, dépendances, SECURITY.md, CODEOWNERS |
+| [legal-compliance](skills/legal-compliance/SKILL.md) | Mentions légales, RGPD et cookies, CGU, CGV : projets de documents sourcés et mise en place dans le site (ne remplace pas un avocat) |
 
 `start-here` s'appuie sur un index généré de toutes les fiches ([skills/start-here/references/index-fiches.md](skills/start-here/references/index-fiches.md)) pour désigner non seulement le skill, mais la fiche précise à charger. L'index cite aussi quelques skills externes facultatifs (animation, goût visuel), à installer seulement si besoin.
 
